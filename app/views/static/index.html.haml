@@ -1,0 +1,51 @@
+#centerpage
+  #headerpage
+    .headerimagewrap
+      %a{:href => root_path}
+        = image_tag('header.png')
+  #tabs
+    .home
+      %a{:href => "index.htm"}
+        %h3 Home
+    %span.statement Where Community Content Goes to Flourish
+    .upload
+      %a{:href => "UnturnedUpload.html"}
+        %h3 Upload
+  #mainpagewrap
+    .mainpageleft
+      .contenthead1
+        %h2 Levels
+      .content
+        %a{:href => "uploads/levels/eye/contentpage.html"}
+          %img.levelthumb{:src => "uploads/levels/eye/images/unturnedthumb.jpg"}/
+        .contentdetails
+          %a{:href => "uploads/levels/eye/contentpage.html"}
+            %h4
+              Eye
+              %span{:style => "color:red;font-size:12px;text-decoration:none;"} Featured
+          .madebyuser SirHamsterAlot
+          %div Post apocalyptic map with maountains, deserts and forests to explore
+    .mainpageright
+      .contenthead2
+        %h2 Models
+      .content2
+        %a{:href => "uploads/models/light pack v2/contentpage.html"}
+          %img.levelthumb{:src => "uploads/models/light pack v2/images/unturnedthumb.jpg"}
+        .contentdetails
+          %a{:href => "uploads/models/light pack v2/contentpage.html"}
+            %h4
+              Lights Asset Pack v2.0
+              %span{:style => "color:red;font-size:12px;text-decoration:none;"} NEW!
+          .madebyuser Zyrmox
+          %div Multiple types of lighting to brighten up the night!
+      .content2
+        %a{:href => "UnturnedUpload.html"}
+          %img.levelthumb{:src => "uploadthumb.png"}/
+        .contentdetails
+          %a{:href => "UnturnedUpload.html"}
+            %h4 Upload Your Model!
+          .madebyuser [Your Name]
+          %div Make your fantastic model public!
+    #mainpage
+      %a{:href => "modspage2.html"}
+        %p.next Next Page >

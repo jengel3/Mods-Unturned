@@ -1,0 +1,167 @@
+
+a:link {
+	text-decoration:none;
+	color: #141414;
+}
+
+a:visited{
+	color:#141414;
+}
+
+#mainpagewrap {
+	width: 860px; 
+	height:1200px; 
+	margin: 0 auto; 
+	margin-bottom:10px;
+}
+
+#mainpage {
+	width:850px; 
+	height:1200px;
+}
+
+.mainpageleft {
+	width:429px; 
+	height:100%; 
+	float:left; 
+}
+
+.mainpageright {
+width:429px; 
+height:100%; 
+float:right; 
+}
+
+/* div for each individual level or model */
+.content {
+	background-color:#E5E5E5; 
+	width:424px;
+	border-left:5px solid #505050;
+	height:100px; 
+	margin-bottom:20px;
+	-webkit-border-top-left-radius: 5px;
+	-webkit-border-bottom-left-radius: 5px;
+	-moz-border-radius-topleft: 5px;
+	-moz-border-radius-bottomleft: 5px;
+	border-top-left-radius: 5px;
+	border-bottom-left-radius: 5px;
+-webkit-box-shadow: 0px 0px 6px 0px rgba(50, 50, 50, 0.12);
+-moz-box-shadow:    0px 0px 6px 0px rgba(50, 50, 50, 0.12);
+box-shadow:         0px 0px 6px 0px rgba(50, 50, 50, 0.12);
+}
+
+/*#D8D8D8 original content color */
+
+.content:hover {
+	border-left:5px solid #5495D2;
+
+	
+	  -o-transition:.1s ease-in-out;
+  -ms-transition:.1s ease-in-out;
+  -moz-transition:.1s ease-in-out;
+  -webkit-transition:.1s ease-in-out;
+  /* ...and now for the proper property */
+  transition:.1s ease-in-out;
+background-color: #EAEAEA!important;
+
+
+}
+
+/* right side for models */
+.content2 {
+	background-color:#E5E5E5; 
+	width:424px;
+	border-right:5px solid #505050;
+	height:100px; 
+	margin-bottom:20px;
+-webkit-border-top-right-radius: 5px;
+-webkit-border-bottom-right-radius: 5px;
+-moz-border-radius-topright: 5px;
+-moz-border-radius-bottomright: 5px;
+border-top-right-radius: 5px;
+border-bottom-right-radius: 5px;
+-webkit-box-shadow: 0px 0px 6px 0px rgba(50, 50, 50, 0.12);
+-moz-box-shadow:    0px 0px 6px 0px rgba(50, 50, 50, 0.12);
+box-shadow:         0px 0px 6px 0px rgba(50, 50, 50, 0.12);
+}
+
+.content2:hover {
+border-right:5px solid #5495D2;
+	  -o-transition:.1s ease-in-out;
+  -ms-transition:.1s ease-in-out;
+  -moz-transition:.1s ease-in-out;
+  -webkit-transition:.1s ease-in-out;
+  /* ...and now for the proper property */
+  transition:.1s ease-in-out;
+background-color: #EAEAEA!important;
+}
+
+/*thumbnail for each mod on index */
+.levelthumb {
+	height:80px; 
+	width:142px;
+	margin-left:10px; 
+	margin-top:10px; 
+	outline:1px solid black; 
+	float:left;
+}
+
+/* Mod description next to thumb */
+.contentdetails {
+	margin-left:165px; 
+	padding-top:10px;
+	margin-right:5px;
+}
+
+/* Who made the mod, labeled in every content box*/
+.madebyuser {
+	font-size:13px;
+	color:#473AFA;
+	font-family:'Arial', Helvetica, sans-serif;
+}
+
+/* Mod (content) titles */
+h4 {
+	margin:0;
+	font-family:'Arial', Helvetica, sans-serif;
+}
+
+
+h4:hover {
+	text-decoration:underline;
+}
+
+/*div for bottom of page, currently not in use */
+.footer {
+	height:30px;
+	width:100%;
+	background-color:#1C1C1C;
+	margin-top:20px;
+	opacity:1;
+	text-align:center
+}
+
+/* Next Page Button at bottom of page */
+p.next {
+	margin-top:5px;
+	margin-bottom:25px;
+	float:right;
+	display:inline-block;
+	color:white;
+	font-family:'Arial', Helvetica, sans-serif;
+}
+
+/*Previous Page Button at bottom of page */
+p.previous {
+	margin-top:5px;
+	margin-bottom:25px;
+	float:left;
+	display:inline-block;
+	color:white;
+	font-family:'Arial', Helvetica, sans-serif;
+}
+
+/*text in footer */
+.footertext {
+	color: white;
+}

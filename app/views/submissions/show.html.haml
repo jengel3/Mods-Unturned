@@ -1,0 +1,50 @@
+%div{:style => "background-color:#2E2E2E;margin:0;padding:0;"} 
+  #centerpage
+    #headerpage
+      .headerimagewrap
+        = image_tag('header.png')
+    #tabs
+      .home
+        %a{:href => root_path}
+          %h3{:style => "text-align:center; margin:0 auto; padding-top:10px; color:white;"} Home
+      %span.statement Where Community Content Goes to Flourish
+      .upload
+        %a{:href => "../../../UnturnedUpload.html"}
+          %h3 Upload
+    #mainpagewrap{:style => " width: 860px; height:740px; margin: 0 auto; margin-bottom:10px;"}
+      .mainpageleft
+        .contenthead1
+          %h2 Info
+        .downloadbutton
+          %a{:href => "construction_site.zip"}
+            %h4.download Download
+        .infosection
+          %p.title= @submission.name
+          %p.dateupload
+            = time_ago_in_words(@submission.created_at)
+            ago
+          %p.description
+            = @submission.body
+          %p.uploadby
+            %b Created by:
+            = @submission.user.username
+          %hr/
+      .mainpageright
+        .contenthead2
+          %h2 Screenshots
+        .mainscreen
+          %img.mainthumblarge{:src => "images/unturnedthumb.jpg"}/
+        .screenshots
+          %a{:href => "images/screenshot1.jpg", :target => "_blank"}
+            %img.levelthumb{:src => "images/screenshot1.jpg"}/
+          %a{:href => "images/screenshot2.jpg", :target => "_blank"}
+            %img.levelthumb{:src => "images/screenshot2.jpg"}/
+          %a{:href => "images/screenshot3.jpg", :target => "_blank"}
+            %img.levelthumb{:src => "images/screenshot3.jpg"}/
+          %a{:href => "images/screenshot4.jpg", :target => "_blank"}
+            %img.levelthumb{:src => "images/screenshot4.jpg"}/
+          %img.levelthumb{:src => "../../../uploadthumb.png"}/
+          %img.levelthumb{:src => "../../../uploadthumb.png"}/
+        .videos
+          %b
+          %p{:style => "font-family:'Arial', Helvetica, sans-serif; color:#464646; margin-left:5px; padding-top:5px;"} External Links

@@ -1,0 +1,35 @@
+= form_for(@download) do |f|
+  - if @download.errors.any?
+    #error_explanation
+      %h2
+        = pluralize(@download.errors.count, "error")
+        prohibited this download from being saved:
+      %ul
+        - @download.errors.full_messages.each do |message|
+          %li= message
+  .field
+    = f.label :downloads
+    %br/
+    = f.number_field :downloads
+  .field
+    = f.label :game_version
+    %br/
+    = f.text_field :game_version
+  .field
+    = f.label :version
+    %br/
+    = f.text_field :version
+  .field
+    = f.label :changelog
+    %br/
+    = f.text_field :changelog
+  .field
+    = f.label :notes
+    %br/
+    = f.text_field :notes
+  .field
+    = f.label :type
+    %br/
+    = f.text_field :type
+  .actions
+    = f.submit

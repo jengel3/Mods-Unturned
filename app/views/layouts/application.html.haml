@@ -1,9 +1,11 @@
-!!!
-%html
-  %head
-    %title UnturnedMods
-    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
-    = javascript_include_tag 'application', 'data-turbolinks-track' => true
-    = csrf_meta_tags
-  %body
-    = yield
+%head
+  %title UnturnedMods
+  = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
+  = javascript_include_tag 'application', 'data-turbolinks-track' => true
+  %meta{:content => "Welcome to Mods-Unturned! This is your central place for quality map and model mods for Unturned the game.", :name => "description"}
+  %meta{:content => "Unturned, Unturned Mods, Unturned Maps, Unturned models, unturned map mods, unturned model mods, unturned mod, unturned mod download, unturned modding, unturned tutorial, unturned database", :name => "keywords"}
+  %meta{:content => "Bradley Mitchell", :name => "author"}
+  = csrf_meta_tags
+
+%body
+  = yield

@@ -16,6 +16,7 @@ gem "github_api"
 gem "kaminari"
 gem "bootstrap-wysihtml5-rails"
 gem "mongoid_search", github: "Jake0oo0/mongoid_search"
+gem "carrierwave-mongoid"
 gem "bcrypt-ruby", "~> 3.0.0"
 group :development do
   gem "better_errors"

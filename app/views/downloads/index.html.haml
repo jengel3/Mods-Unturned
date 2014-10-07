@@ -1,0 +1,25 @@
+%h1 Listing downloads
+%table
+  %thead
+    %tr
+      %th Downloads
+      %th Game version
+      %th Version
+      %th Changelog
+      %th Notes
+      %th Type
+      %th{:colspan => "3"}
+  %tbody
+    - @downloads.each do |download|
+      %tr
+        %td= download.downloads
+        %td= download.game_version
+        %td= download.version
+        %td= download.changelog
+        %td= download.notes
+        %td= download.type
+        %td= link_to 'Show', download
+        %td= link_to 'Edit', edit_download_path(download)
+        %td= link_to 'Destroy', download, method: :delete, data: { confirm: 'Are you sure?' }
+%br/
+= link_to 'New Download', new_download_path
