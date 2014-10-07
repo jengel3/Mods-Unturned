@@ -9,4 +9,8 @@
     %br/
     = f.text_area :body, rows: 10, style: 'width: 400px;'
   %p
+    = f.label :type
+    %br/
+    = f.select(:type, ['Level', 'Asset'].map { |value| [ value, value ] })
+  %p
     = f.submit 'Submit'

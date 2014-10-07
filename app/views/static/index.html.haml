@@ -17,16 +17,19 @@
         %h2 Levels
       - @levels.each do |level|
         .content
-          %a{:href => level}
-            %img.levelthumb{:src => "http://placehold.it/350x150"}/
+          = link_to image_tag("http://placehold.it/350x150", class: 'levelthumb'), level
           .contentdetails
-            %a{:href => level}
+            %a{:href => url_for(level)}
               %h4
                 = level.name
                 - if level.is_featured?
                   %span.featured Featured
             .madebyuser= level.user.username
-            %div= level.body
+            %div
+              - if level.body.length > 105
+                = level.body[0..105] + "..."
+              - else
+                = level.body
       .content
         %a{:href => new_submission_path}
           %img.levelthumb{:src => "http://placehold.it/350x150"}/
@@ -40,16 +43,19 @@
         %h2 Models
       - @assets.each do |asset|
         .content2
-          %a{:href => asset}
-            %img.levelthumb{:src => "http://placehold.it/350x150"}
+          = link_to image_tag("http://placehold.it/350x150", class: 'levelthumb'), asset
           .contentdetails
-            %a{:href => asset}
+            %a{:href => url_for(asset)}
               %h4
-                = level.name
-                - if level.is_new?
+                = asset.name
+                - if asset.is_new?
                   %span.alert-tag NEW!
-            .madebyuser= level.user.username
-            %div= level.body
+            .madebyuser= asset.user.username
+            %div
+              - if asset.body.length > 105
+                = asset.body[0..105] + "..."
+              - else
+                = asset.body
       .content2
         %a{:href => new_submission_path}
           %img.levelthumb{:src => "http://placehold.it/350x150"}/

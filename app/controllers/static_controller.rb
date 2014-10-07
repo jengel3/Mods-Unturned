@@ -1,6 +1,6 @@
 class StaticController < ApplicationController
   def index
-    @assets = Submission.where(:type => "asset")
-    @levels = Submission.where(:type => "level")
+    @assets = Submission.where(:type => "Asset")
+    @levels = Submission.where(:type => "Level")
   end
 end

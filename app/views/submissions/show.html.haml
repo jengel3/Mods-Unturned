@@ -23,8 +23,7 @@
           %p.dateupload
             = time_ago_in_words(@submission.created_at)
             ago
-          %p.description
-            = @submission.body
+          = simple_format(@submission.body.html_safe, class: 'description')
           %p.uploadby
             %b Created by:
             = @submission.user.username
