@@ -12,4 +12,12 @@ class Submission
   field :body, type: String
 
   belongs_to :user
+
+  def is_new?
+    false
+  end
+
+  def is_featured?
+    false
+  end
 end

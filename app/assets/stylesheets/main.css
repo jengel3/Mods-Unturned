@@ -4,6 +4,12 @@ body {
 	padding:0;
 }
 
+.alert-tag {
+	color:red;
+	font-size:12px;
+	text-decoration:none;
+}
+
 .headerimagewrap {
 	width:860px; 
 	text-align:center;
