@@ -9,7 +9,7 @@
         %h3 Home
     %span.statement Where Community Content Goes to Flourish
     .upload
-      %a{:href => "UnturnedUpload.html"}
+      %a{:href => new_submission_path}
         %h3 Upload
   #mainpagewrap
     .mainpageleft
@@ -28,10 +28,10 @@
             .madebyuser= level.user.username
             %div= level.body
       .content
-        %a{:href => "UnturnedUpload.html"}
+        %a{:href => new_submission_path}
           %img.levelthumb{:src => "http://placehold.it/350x150"}/
         .contentdetails
-          %a{:href => "UnturnedUpload.html"}
+          %a{:href => new_submission_path}
             %h4 Upload Your Level!
           .madebyuser [Your Name]
           %div Make your fantastic level public!
@@ -51,10 +51,10 @@
             .madebyuser= level.user.username
             %div= level.body
       .content2
-        %a{:href => "UnturnedUpload.html"}
+        %a{:href => new_submission_path}
           %img.levelthumb{:src => "http://placehold.it/350x150"}/
         .contentdetails
-          %a{:href => "UnturnedUpload.html"}
+          %a{:href => new_submission_path}
             %h4 Upload Your Model!
           .madebyuser [Your Name]
           %div Make your fantastic model public!

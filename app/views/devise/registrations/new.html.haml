@@ -1,20 +1,41 @@
-%h2 Sign up
-= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
-  = devise_error_messages!
-  %div
-    = f.label :email
-    %br/
-    = f.email_field :email, autofocus: true
-  %div
-    = f.label :password
-    - if @validatable
-      %i
-        (#{@minimum_password_length} characters minimum)
-    %br/
-    = f.password_field :password, autocomplete: "off"
-  %div
-    = f.label :password_confirmation
-    %br/
-    = f.password_field :password_confirmation, autocomplete: "off"
-  %div= f.submit "Sign up"
-= render "devise/shared/links"
+#centerpage
+  #headerpage
+    .headerimagewrap
+      = image_tag('header.png')
+  #tabs
+    .home
+      %a{:href => root_path, :style => "text-decoration:none"}
+        %h3 Home
+    %span.statement Where Community Content Goes to Flourish
+    .upload
+      %a{:href => "", :style => "text-decoration:none"}
+        %h3 Register
+  #mainpagewrap{:style => "width: 860px; height:500px; margin: 0 auto; margin-bottom:10px;"}
+    .mainpageleft{:style => "width:860px; height:100%; float:left;"}
+      .contenthead1
+        %h2 Register
+      %span{:style => "text-align:center; margin-left:310px; font-family:'Arial', Helvetica, sans-serif; font-size:12px;"} Register an account to upload content!
+      .innerbox{:style => "height:350px; width:820px; margin-left:20px; margin-top:7px; background-color:#E5E5E5"}
+        .form
+          = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+            = render 'shared/errors', object: resource
+            %p
+              = f.label :email
+              %br/
+              = f.email_field :email, autofocus: true
+            %p
+              = f.label :username
+              %br/
+              = f.text_field :username
+            %p
+              = f.label :password
+              %br/
+              = f.password_field :password, autocomplete: "off"
+            %p
+              = f.label :password_confirmation
+              %br/
+              = f.password_field :password_confirmation, autocomplete: "off"
+            %p
+              = f.submit "Register"
+        = image_tag('uploadfriend.jpg', :class => "stepboxes")
+    #mainpage{:style => "width:850px; height:500px;"}

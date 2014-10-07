@@ -3,9 +3,18 @@
   = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true
   = javascript_include_tag 'application', 'data-turbolinks-track' => true
   - if params[:controller] == "submissions"
-    = stylesheet_link_tag 'content'
+    - if params[:action] == "new"
+      = stylesheet_link_tag 'upload'
+    - else
+      = stylesheet_link_tag 'content'
   - if params[:controller] == "static"
     = stylesheet_link_tag 'home'
+  - if params[:controller] == "devise/registrations"
+    - if params[:action] == "new" || params[:action] == "create"
+      = stylesheet_link_tag 'upload'
+  - if params[:controller] == "devise/sessions"
+    - if params[:action] == "new" || params[:action] == "create"
+      = stylesheet_link_tag 'upload'
   %meta{:content => 'Welcome to Mods-Unturned! This is your central place for quality map and model mods for Unturned the game.', :name => 'description'}
   %meta{:content => 'Unturned, Unturned Mods, Unturned Maps, Unturned models, unturned map mods, unturned model mods, unturned mod, unturned mod download, unturned modding, unturned tutorial, unturned database', :name => 'keywords'}
   %meta{:content => 'Bradley Mitchell', :name => 'author'}

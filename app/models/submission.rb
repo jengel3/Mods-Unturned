@@ -10,6 +10,7 @@ class Submission
   
   field :name, type: String
   field :body, type: String
+  field :type, type: String
 
   belongs_to :user
 

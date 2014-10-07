@@ -1,5 +1,7 @@
 class SubmissionsController < ApplicationController
   before_action :set_submission, only: [:show, :edit, :update, :destroy]
+  respond_to :html, :xml, :json
+  before_filter :authenticate_user!, only: [:new, :edit, :create, :update, :destroy]
 
   def index
     @submissions = Submission.all
@@ -20,6 +22,7 @@ class SubmissionsController < ApplicationController
 
   def create
     @submission = Submission.new(submission_params)
+    current_user.submissions << @submission
     @submission.save
     respond_with(@submission)
   end

@@ -9,14 +9,14 @@
           %h3{:style => "text-align:center; margin:0 auto; padding-top:10px; color:white;"} Home
       %span.statement Where Community Content Goes to Flourish
       .upload
-        %a{:href => "../../../UnturnedUpload.html"}
+        %a{:href => new_submission_path}
           %h3 Upload
-    #mainpagewrap{:style => " width: 860px; height:740px; margin: 0 auto; margin-bottom:10px;"}
+    #mainpagewrap{:style => "width: 860px; height:740px; margin: 0 auto; margin-bottom:10px;"}
       .mainpageleft
         .contenthead1
           %h2 Info
         .downloadbutton
-          %a{:href => "construction_site.zip"}
+          %a{:href => "LATEST_DOWNLOAD.zip"}
             %h4.download Download
         .infosection
           %p.title= @submission.name
@@ -33,18 +33,21 @@
         .contenthead2
           %h2 Screenshots
         .mainscreen
-          %img.mainthumblarge{:src => "images/unturnedthumb.jpg"}/
+          %img.mainthumblarge{:src => "http://placehold.it/500x300"}
         .screenshots
-          %a{:href => "images/screenshot1.jpg", :target => "_blank"}
-            %img.levelthumb{:src => "images/screenshot1.jpg"}/
-          %a{:href => "images/screenshot2.jpg", :target => "_blank"}
-            %img.levelthumb{:src => "images/screenshot2.jpg"}/
-          %a{:href => "images/screenshot3.jpg", :target => "_blank"}
-            %img.levelthumb{:src => "images/screenshot3.jpg"}/
-          %a{:href => "images/screenshot4.jpg", :target => "_blank"}
-            %img.levelthumb{:src => "images/screenshot4.jpg"}/
-          %img.levelthumb{:src => "../../../uploadthumb.png"}/
-          %img.levelthumb{:src => "../../../uploadthumb.png"}/
+          %a{:href => "http://placehold.it/142x80", :target => "_blank"}
+            %img.levelthumb{:src => "http://placehold.it/142x80"}
+          %a{:href => "http://placehold.it/142x80", :target => "_blank"}
+            %img.levelthumb{:src => "http://placehold.it/142x80"}
+          %a{:href => "http://placehold.it/142x80", :target => "_blank"}
+            %img.levelthumb{:src => "http://placehold.it/142x80"}
+          %a{:href => "http://placehold.it/142x80", :target => "_blank"}
+            %img.levelthumb{:src => "http://placehold.it/142x80"}
+          %a{:href => "http://placehold.it/142x80", :target => "_blank"}
+            %img.levelthumb{:src => "http://placehold.it/142x80"}
+          %a{:href => "http://placehold.it/142x80", :target => "_blank"}
+            %img.levelthumb{:src => "http://placehold.it/142x80"}
         .videos
           %b
-          %p{:style => "font-family:'Arial', Helvetica, sans-serif; color:#464646; margin-left:5px; padding-top:5px;"} External Links
+            %p{:style => "font-family:'Arial', Helvetica, sans-serif; color:#464646; margin-left:5px; padding-top:5px;"} External Links:
+      #mainpage

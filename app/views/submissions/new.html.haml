@@ -1,2 +1,22 @@
-%h1 New submission
-= render 'form'
+#centerpage
+  #headerpage
+    .headerimagewrap
+      = image_tag('header.png')
+  #tabs
+    .home
+      %a{:href => root_path, :style => "text-decoration:none"}
+        %h3 Home
+    %span.statement Where Community Content Goes to Flourish
+    .upload
+      %a{:href => "", :style => "text-decoration:none"}
+        %h3 Upload
+  #mainpagewrap{:style => "width: 860px; height:500px; margin: 0 auto; margin-bottom:10px;"}
+    .mainpageleft{:style => "width:860px; height:100%; float:left;"}
+      .contenthead1
+        %h2 Upload
+      %span{:style => "text-align:center; margin-left:310px; font-family:'Arial', Helvetica, sans-serif; font-size:12px;"} Upload your content to the community!
+      .innerbox{:style => "height:350px; width:820px; margin-left:20px; margin-top:7px; background-color:#E5E5E5"}
+        .form
+          = render 'form'
+        = image_tag('uploadfriend.jpg', :class => "stepboxes")
+    #mainpage{:style => "width:850px; height:500px;"}

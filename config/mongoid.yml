@@ -1,6 +1,15 @@
 development:
   sessions:
     default:
-      database: unturned_mods_development
+      database: rails_dev
       hosts:
-        - jake0oo0.me:27017
+        - ds037447.mongolab.com:37447
+      username: developer
+      password: rails
+
+production:
+  sessions:
+    default:
+      database: mc_metrics_web_production
+      hosts:
+        - localhost:27017
