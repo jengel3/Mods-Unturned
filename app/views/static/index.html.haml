@@ -5,7 +5,7 @@
         = image_tag('header.png')
   #tabs
     .home
-      %a{:href => "index.htm"}
+      %a{:href => root_path}
         %h3 Home
     %span.statement Where Community Content Goes to Flourish
     .upload
@@ -17,7 +17,7 @@
         %h2 Levels
       .content
         %a{:href => "uploads/levels/eye/contentpage.html"}
-          %img.levelthumb{:src => "uploads/levels/eye/images/unturnedthumb.jpg"}/
+          %img.levelthumb{:src => "http://placehold.it/350x150"}/
         .contentdetails
           %a{:href => "uploads/levels/eye/contentpage.html"}
             %h4
@@ -25,12 +25,20 @@
               %span{:style => "color:red;font-size:12px;text-decoration:none;"} Featured
           .madebyuser SirHamsterAlot
           %div Post apocalyptic map with maountains, deserts and forests to explore
+      .content
+        %a{:href => "UnturnedUpload.html"}
+          %img.levelthumb{:src => "http://placehold.it/350x150"}/
+        .contentdetails
+          %a{:href => "UnturnedUpload.html"}
+            %h4 Upload Your Level!
+          .madebyuser [Your Name]
+          %div Make your fantastic level public!
     .mainpageright
       .contenthead2
         %h2 Models
       .content2
         %a{:href => "uploads/models/light pack v2/contentpage.html"}
-          %img.levelthumb{:src => "uploads/models/light pack v2/images/unturnedthumb.jpg"}
+          %img.levelthumb{:src => "http://placehold.it/350x150"}
         .contentdetails
           %a{:href => "uploads/models/light pack v2/contentpage.html"}
             %h4
@@ -40,7 +48,7 @@
           %div Multiple types of lighting to brighten up the night!
       .content2
         %a{:href => "UnturnedUpload.html"}
-          %img.levelthumb{:src => "uploadthumb.png"}/
+          %img.levelthumb{:src => "http://placehold.it/350x150"}/
         .contentdetails
           %a{:href => "UnturnedUpload.html"}
             %h4 Upload Your Model!

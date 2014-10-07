@@ -27,9 +27,9 @@ a:visited{
 }
 
 .mainpageright {
-width:429px; 
-height:100%; 
-float:right; 
+	width:429px; 
+	height:100%; 
+	float:right; 
 }
 
 /* div for each individual level or model */
@@ -45,9 +45,9 @@ float:right;
 	-moz-border-radius-bottomleft: 5px;
 	border-top-left-radius: 5px;
 	border-bottom-left-radius: 5px;
--webkit-box-shadow: 0px 0px 6px 0px rgba(50, 50, 50, 0.12);
--moz-box-shadow:    0px 0px 6px 0px rgba(50, 50, 50, 0.12);
-box-shadow:         0px 0px 6px 0px rgba(50, 50, 50, 0.12);
+	-webkit-box-shadow: 0px 0px 6px 0px rgba(50, 50, 50, 0.12);
+	-moz-box-shadow:    0px 0px 6px 0px rgba(50, 50, 50, 0.12);
+	box-shadow:         0px 0px 6px 0px rgba(50, 50, 50, 0.12);
 }
 
 /*#D8D8D8 original content color */
@@ -56,13 +56,13 @@ box-shadow:         0px 0px 6px 0px rgba(50, 50, 50, 0.12);
 	border-left:5px solid #5495D2;
 
 	
-	  -o-transition:.1s ease-in-out;
-  -ms-transition:.1s ease-in-out;
-  -moz-transition:.1s ease-in-out;
-  -webkit-transition:.1s ease-in-out;
-  /* ...and now for the proper property */
-  transition:.1s ease-in-out;
-background-color: #EAEAEA!important;
+	-o-transition:.1s ease-in-out;
+	-ms-transition:.1s ease-in-out;
+	-moz-transition:.1s ease-in-out;
+	-webkit-transition:.1s ease-in-out;
+	/* ...and now for the proper property */
+	transition:.1s ease-in-out;
+	background-color: #EAEAEA!important;
 
 
 }
@@ -74,26 +74,26 @@ background-color: #EAEAEA!important;
 	border-right:5px solid #505050;
 	height:100px; 
 	margin-bottom:20px;
--webkit-border-top-right-radius: 5px;
--webkit-border-bottom-right-radius: 5px;
--moz-border-radius-topright: 5px;
--moz-border-radius-bottomright: 5px;
-border-top-right-radius: 5px;
-border-bottom-right-radius: 5px;
--webkit-box-shadow: 0px 0px 6px 0px rgba(50, 50, 50, 0.12);
--moz-box-shadow:    0px 0px 6px 0px rgba(50, 50, 50, 0.12);
-box-shadow:         0px 0px 6px 0px rgba(50, 50, 50, 0.12);
+	-webkit-border-top-right-radius: 5px;
+	-webkit-border-bottom-right-radius: 5px;
+	-moz-border-radius-topright: 5px;
+	-moz-border-radius-bottomright: 5px;
+	border-top-right-radius: 5px;
+	border-bottom-right-radius: 5px;
+	-webkit-box-shadow: 0px 0px 6px 0px rgba(50, 50, 50, 0.12);
+	-moz-box-shadow:    0px 0px 6px 0px rgba(50, 50, 50, 0.12);
+	box-shadow:         0px 0px 6px 0px rgba(50, 50, 50, 0.12);
 }
 
 .content2:hover {
-border-right:5px solid #5495D2;
-	  -o-transition:.1s ease-in-out;
-  -ms-transition:.1s ease-in-out;
-  -moz-transition:.1s ease-in-out;
-  -webkit-transition:.1s ease-in-out;
-  /* ...and now for the proper property */
-  transition:.1s ease-in-out;
-background-color: #EAEAEA!important;
+	border-right:5px solid #5495D2;
+	-o-transition:.1s ease-in-out;
+	-ms-transition:.1s ease-in-out;
+	-moz-transition:.1s ease-in-out;
+	-webkit-transition:.1s ease-in-out;
+	/* ...and now for the proper property */
+	transition:.1s ease-in-out;
+	background-color: #EAEAEA!important;
 }
 
 /*thumbnail for each mod on index */

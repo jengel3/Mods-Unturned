@@ -1,0 +1,152 @@
+body {
+	background-color:#2E2E2E;
+	margin:0;
+	padding:0;
+}
+
+.headerimagewrap {
+	width:860px; 
+	text-align:center;
+	margin:0 auto;
+}
+
+
+#headerpage {
+	height:90px; 
+	background-color:#1C1C1C; 
+	position:relative;
+}
+
+/* Home tab and Levels tab div */
+#tabs {
+	margin: 0 auto; 
+	width:860px; 
+	height:42px; 
+	margin-top:10px;
+}
+
+/* Levels and Models heading text */
+h2 {
+	color:#FDFDFD;
+	font-size:40px; 
+	font-family:'Trebuchet MS', Helvetica, sans-serif; 
+	text-align:center; 
+	margin:0; 
+	padding-top:20px;
+}
+
+/* Specific div box for home tab */
+.home {
+	width:120px;
+	height:40px;
+	background-color:#5495D2; 
+	margin-left: 20px; 
+	float:left;
+	-webkit-border-top-left-radius: 5px;
+	-webkit-border-top-right-radius: 5px;
+	-moz-border-radius-topleft: 5px;
+	-moz-border-radius-topright: 5px;
+	border-top-left-radius: 5px;
+	border-top-right-radius: 5px;
+}
+
+/* Specific div box for upload tab */
+.upload {
+	width:120px;
+	height:40px;
+	background-color:#5495D2; 
+	margin-right: 20px; 
+	float: right;
+	-webkit-border-top-left-radius: 5px;
+	-webkit-border-top-right-radius: 5px;
+	-moz-border-radius-topleft: 5px;
+	-moz-border-radius-topright: 5px;
+	border-top-left-radius: 5px;
+	border-top-right-radius: 5px;
+}
+
+.home:hover {
+	-o-transition:.1s ease-in-out;
+	-ms-transition:.1s ease-in-out;
+	-moz-transition:.1s ease-in-out;
+	-webkit-transition:.1s ease-in-out;
+	/* ...and now for the proper property */
+	transition:.1s ease-in-out;
+	background-color: #5A9FDF!important;
+}
+
+.upload:hover {
+	-o-transition:.1s ease-in-out;
+	-ms-transition:.1s ease-in-out;
+	-moz-transition:.1s ease-in-out;
+	-webkit-transition:.1s ease-in-out;
+	/* ...and now for the proper property */
+	transition:.1s ease-in-out;
+	background-color: #5A9FDF!important;
+}
+
+/* Where community content goes to flourish */
+.statement {
+	float:left; 
+	margin:0-auto; 
+	margin-left:134px; 
+	text-align:center; 
+	color:white;
+	font-family:'Arial', Helvetica, sans-serif; 
+	padding-top:8px
+}
+
+/* Home and Upload tabs */
+h3 {
+	text-align:center; 
+	margin:0 auto; 
+	padding-top:10px; 
+	color:white;
+}
+
+#mainpage {
+	margin:0 auto; 
+	background-color:#CFCFCF; 
+	}/* #C1C1C1 original backgroud mainpage color */
+
+	/* div for left levels header box */
+	.contenthead1 {
+		background-color: #3CC3D4;
+		width:100%;
+		height:85px;
+		margin-bottom:20px;
+		-webkit-border-top-left-radius: 5px;
+		-webkit-border-bottom-left-radius: 5px;
+		-moz-border-radius-topleft: 5px;
+		-moz-border-radius-bottomleft: 5px;
+		border-top-left-radius: 5px;
+		border-bottom-left-radius: 5px;
+		-webkit-box-shadow: 0px 0px 6px 0px rgba(50, 50, 50, 0.12);
+		-moz-box-shadow:    0px 0px 6px 0px rgba(50, 50, 50, 0.12);
+		box-shadow:         0px 0px 6px 0px rgba(50, 50, 50, 0.12);
+		} /* original color #54C1D2 next one was #28C7DC */
+
+		/* div for right header box */
+		.contenthead2 {
+			background-color: #3CC3D4;
+			width:100%;
+			height:85px;
+			margin-bottom:20px;
+			-webkit-border-top-right-radius: 5px;
+			-webkit-border-bottom-right-radius: 5px;
+			-moz-border-radius-topright: 5px;
+			-moz-border-radius-bottomright: 5px;
+			border-top-right-radius: 5px;
+			border-bottom-right-radius: 5px;
+			-webkit-box-shadow: 0px 0px 6px 0px rgba(50, 50, 50, 0.12);
+			-moz-box-shadow:    0px 0px 6px 0px rgba(50, 50, 50, 0.12);
+			box-shadow:         0px 0px 6px 0px rgba(50, 50, 50, 0.12);
+		}
+
+		.mainpageright {
+			border-left: 1px solid #BEBEBE;
+		}
+
+		.mainpageleft {
+			border-right: 1px solid #BEBEBE;
+		}
