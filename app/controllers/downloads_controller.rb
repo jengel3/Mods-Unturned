@@ -1,5 +1,7 @@
 class DownloadsController < ApplicationController
   before_action :set_download, only: [:show, :edit, :update, :destroy]
+  respond_to :html, :xml, :json
+  before_filter :authenticate_user!, only: [:new, :edit, :create, :update, :destroy]
 
   def index
     @submission = Submission.find(params[:submission_id])
@@ -12,7 +14,8 @@ class DownloadsController < ApplicationController
   end
 
   def new
-    @download = Download.new
+    @submission = Submission.find(params[:submission_id])
+    @download = @submission.downloads.build
     respond_with(@download)
   end
 
@@ -20,9 +23,13 @@ class DownloadsController < ApplicationController
   end
 
   def create
-    @download = Download.new(download_params)
-    @download.save
-    respond_with(@download)
+    @submission = Submission.find(params[:submission_id])
+    @download = @submission.downloads.create(download_params)
+    if @download.save
+      redirect_to @submission
+    else
+      render 'edit'
+    end
   end
 
   def update
@@ -41,6 +48,6 @@ class DownloadsController < ApplicationController
     end
 
     def download_params
-      params.require(:download).permit(:downloads, :game_version, :version, :changelog, :notes, :type)
+      params.require(:download).permit(:download, :name, :downloads, :game_version, :version, :changelog, :notes, :type)
     end
 end

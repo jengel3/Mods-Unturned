@@ -1,35 +1,32 @@
-= form_for(@download) do |f|
-  - if @download.errors.any?
-    #error_explanation
-      %h2
-        = pluralize(@download.errors.count, "error")
-        prohibited this download from being saved:
-      %ul
-        - @download.errors.full_messages.each do |message|
-          %li= message
-  .field
-    = f.label :downloads
+= form_for([@submission, @download]) do |f|
+  = render 'shared/errors', object: @download
+  %p
+    = f.label :name
     %br/
-    = f.number_field :downloads
-  .field
+    = f.text_field :name
+  %p
     = f.label :game_version
     %br/
-    = f.text_field :game_version
-  .field
+    = f.select(:game_version, ['3.x'].map { |value| [ value, value ] })
+  %p
     = f.label :version
     %br/
     = f.text_field :version
-  .field
-    = f.label :changelog
-    %br/
-    = f.text_field :changelog
-  .field
-    = f.label :notes
-    %br/
-    = f.text_field :notes
-  .field
+  %p
     = f.label :type
     %br/
-    = f.text_field :type
-  .actions
-    = f.submit
+    = f.select(:type, ['Release', 'Beta', 'Alpha'].map { |value| [ value, value ] })
+  %p
+    = f.label :download
+    %br/
+    = f.file_field :download
+  %p
+    = f.label :changelog
+    %br/
+    = f.text_area :changelog
+  %p
+    = f.label :notes
+    %br/
+    = f.text_area :notes
+  %p
+    = f.submit 'Submit'

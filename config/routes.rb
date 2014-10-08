@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   root "static#index"
-  resources :downloads
-  resources :submissions
+  resources :submissions do
+    resources :downloads
+  end
   devise_for :users
 end

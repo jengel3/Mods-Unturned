@@ -21,4 +21,8 @@ class Submission
   def is_featured?
     false
   end
+
+  def latest_download
+    downloads.where(:approved => true).desc(:created_at).first
+  end
 end

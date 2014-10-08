@@ -5,10 +5,18 @@ class Download
   mount_uploader :download, DownloadUploader
   belongs_to :submission
 
-  field :downloads, type: Integer
+  validates :name, presence: true
+  validates :game_version, presence: true
+  validates :version, presence: true
+  validates :type, presence: true
+  validates :download, presence: true
+
+  field :name, type: String
+  field :downloads, type: Integer, default: 0
   field :game_version, type: String
   field :version, type: String
   field :changelog, type: String
   field :notes, type: String
   field :type, type: String
+  field :approved, type: Boolean, default: true
 end

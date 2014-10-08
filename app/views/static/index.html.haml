@@ -22,8 +22,10 @@
             %a{:href => url_for(level)}
               %h4
                 = level.name
-                - if level.is_featured?
-                  %span.featured Featured
+                - if level.is_new?
+                  %span.alert-tag NEW!
+                - elsif level.is_featured?
+                  %span.alert-tag Featured 
             .madebyuser= level.user.username
             %div
               - if level.body.length > 105
@@ -50,6 +52,8 @@
                 = asset.name
                 - if asset.is_new?
                   %span.alert-tag NEW!
+                - elsif asset.is_featured?
+                  %span.alert-tag Featured
             .madebyuser= asset.user.username
             %div
               - if asset.body.length > 105
