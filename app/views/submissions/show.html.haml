@@ -15,9 +15,10 @@
       .mainpageleft
         .contenthead1
           %h2 Info
-        .downloadbutton
-          %a{:href => @submission.latest_download.download.url}
-            %h4.download Download
+        - if @submission.latest_download
+          .downloadbutton
+            %a{:href => @submission.latest_download.download.url}
+              %h4.download Download
         - if can_manage(@submission)
           .downloadbutton
             %a{:href => new_submission_download_path(@submission)}
@@ -36,20 +37,16 @@
         .contenthead2
           %h2 Screenshots
         .mainscreen
-          %img.mainthumblarge{:src => "http://placehold.it/500x300"}
+          %img.mainthumblarge{:src => "#{@submission.main_image ? @submission.main_image.image_url : 'http://placehold.it/350x150'}"}
         .screenshots
-          %a{:href => "http://placehold.it/142x80", :target => "_blank"}
-            %img.levelthumb{:src => "http://placehold.it/142x80"}
-          %a{:href => "http://placehold.it/142x80", :target => "_blank"}
-            %img.levelthumb{:src => "http://placehold.it/142x80"}
-          %a{:href => "http://placehold.it/142x80", :target => "_blank"}
-            %img.levelthumb{:src => "http://placehold.it/142x80"}
-          %a{:href => "http://placehold.it/142x80", :target => "_blank"}
-            %img.levelthumb{:src => "http://placehold.it/142x80"}
-          %a{:href => "http://placehold.it/142x80", :target => "_blank"}
-            %img.levelthumb{:src => "http://placehold.it/142x80"}
-          %a{:href => "http://placehold.it/142x80", :target => "_blank"}
-            %img.levelthumb{:src => "http://placehold.it/142x80"}
+          - 6.times do |count|
+            - puts "Logging #{count}"
+            - if @submission.thumbnails[count]
+              %a{:href => "http://placehold.it/142x80", :target => "_blank"}
+                %img.levelthumb{:src => @submission.thumbnails[count].image_url}
+            - else
+              %a{:href => "http://placehold.it/142x80", :target => "_blank"}
+                %img.levelthumb{:src => "http://placehold.it/142x80"}
         .videos
           %b
             %p{:style => "font-family:'Arial', Helvetica, sans-serif; color:#464646; margin-left:5px; padding-top:5px;"} External Links:

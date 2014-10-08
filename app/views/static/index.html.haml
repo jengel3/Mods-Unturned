@@ -17,7 +17,7 @@
         %h2 Levels
       - @levels.each do |level|
         .content
-          = link_to image_tag("http://placehold.it/350x150", class: 'levelthumb'), level
+          = link_to image_tag("#{level.main_image ? level.main_image.image_url : 'http://placehold.it/350x150'}", class: 'levelthumb'), level
           .contentdetails
             %a{:href => url_for(level)}
               %h4
@@ -45,7 +45,7 @@
         %h2 Models
       - @assets.each do |asset|
         .content2
-          = link_to image_tag("http://placehold.it/350x150", class: 'levelthumb'), asset
+          = link_to image_tag("#{asset.main_image ? asset.main_image.image_url : 'http://placehold.it/350x150'}", class: 'levelthumb'), asset
           .contentdetails
             %a{:href => url_for(asset)}
               %h4

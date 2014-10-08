@@ -1,0 +1,12 @@
+= form_for([@submission, @image]) do |f|
+  = render 'shared/errors', object: @image
+  %p
+    = f.label :location
+    %br/
+    = f.select(:location, ['Main', 'Thumbnail 1', 'Thumbnail 2', 'Thumbnail 3', 'Thumbnail 4', 'Thumbnail 5', 'Thumbnail 6'].map { |value| [ value, value.gsub(' ', '') ] })
+  %p
+    = f.label :image
+    %br/
+    = f.file_field :image
+  %p
+    = f.submit

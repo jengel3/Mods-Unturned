@@ -171,6 +171,7 @@ hr {
 .levelthumb {
 	opacity:0.9;
 	height:80px;
+	width: 142px;
 }
 
 .levelthumb:hover {
