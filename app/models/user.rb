@@ -30,5 +30,5 @@ class User
   # field :confirmation_sent_at, type: Time
   # field :unconfirmed_email,    type: String # Only if using reconfirmable
 
-  has_many :submissions
+  has_many :submissions, :dependent => :destroy
 end

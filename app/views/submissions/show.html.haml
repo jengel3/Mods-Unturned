@@ -33,6 +33,14 @@
             %b Created by:
             = @submission.user.username
           %hr/
+          - if can_manage(@submission)
+            %p.title Manage
+            %p.uploadby
+              %a{:href => new_submission_download_path(@submission)}
+                %b Upload File
+              %br/
+              %a{:href => new_submission_image_path(@submission)}
+                %b Upload Image
       .mainpageright
         .contenthead2
           %h2 Screenshots
