@@ -19,10 +19,6 @@
           .downloadbutton
             %a{:href => @submission.latest_download.download.url}
               %h4.download Download
-        - if can_manage(@submission)
-          .downloadbutton
-            %a{:href => new_submission_download_path(@submission)}
-              %h4.download Upload
         .infosection
           %p.title= @submission.name
           %p.dateupload
