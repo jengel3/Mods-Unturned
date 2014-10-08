@@ -1,3 +1,4 @@
 /log/*.log
 /tmp
 secret_token.rb
+public/uploads/
