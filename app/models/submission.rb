@@ -22,6 +22,7 @@ class Submission
     Time.now - 24.hour < created_at
   end
 
+  #TODO Decide what makes submissions featured.
   def is_featured?
     false
   end
@@ -31,10 +32,10 @@ class Submission
   end
 
   def main_image
-    images.where(:location => "Main").first
+    images.where(:location => "Main").desc(:created_at).first
   end
 
   def thumbnails
-    images.where(:location => /Thumbnail./).limit(6)
+    images.where(:location => /Thumbnail./).desc(:created_at).limit(6)
   end
 end
