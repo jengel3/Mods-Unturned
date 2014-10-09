@@ -22,8 +22,7 @@
         .infosection
           %p.title= @submission.name
           %p.dateupload
-            = time_ago_in_words(@submission.created_at)
-            ago
+            = @submission.created_at.strftime("%B #{@submission.created_at.day.ordinalize}, #{@submission.created_at.year}")
           = simple_format(@submission.body.html_safe, class: 'description')
           %p.uploadby
             %b Created by:
