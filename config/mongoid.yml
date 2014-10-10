@@ -10,6 +10,6 @@ development:
 production:
   sessions:
     default:
-      database: mc_metrics_web_production
+      database: unturned_mods_production
       hosts:
         - localhost:27017
