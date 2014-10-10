@@ -1,0 +1,15 @@
+#centerpage
+  #headerpage
+    .headerimagewrap
+      = image_tag('header.png')
+  = render 'shared/tabs'
+  #mainpagewrap{:style => "width: 860px; height:500px; margin: 0 auto; margin-bottom:10px;"}
+    .mainpageleft{:style => "width:860px; height:100%; float:left;"}
+      .contenthead1
+        %h2 Moderation
+      %span{:style => "text-align:center; margin-left:310px; font-family:'Arial', Helvetica, sans-serif; font-size:12px;"} Moderate community content.
+      .innerbox{:style => "height:400px; width:820px; margin-left:20px; margin-top:7px; background-color:#E5E5E5"}
+        - @downloads.each do |download|
+          = download.name
+          = link_to 'Approve', submission_download_approve_path(download.submission, download)
+    #mainpage{:style => "width:850px; height:525px;"}  

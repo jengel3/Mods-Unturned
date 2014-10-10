@@ -18,5 +18,6 @@ class Download
   field :changelog, type: String
   field :notes, type: String
   field :type, type: String
-  field :approved, type: Boolean, default: true
+  field :approved, type: Boolean, default: false
+  field :denied, type: Boolean, default: false
 end

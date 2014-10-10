@@ -1,7 +1,7 @@
 class SubmissionsController < ApplicationController
-  before_action :set_submission, only: [:show, :edit, :update, :destroy]
+  before_action :set_submission, only: [:show, :edit, :update, :destroy, :deny, :approve]
   respond_to :html, :xml, :json
-  before_filter :authenticate_user!, only: [:new, :edit, :create, :update, :destroy]
+  before_filter :authenticate_user!, only: [:new, :edit, :create, :update, :destroy, :approve, :deny]
 
   def index
     @submissions = Submission.all

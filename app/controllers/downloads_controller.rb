@@ -1,7 +1,22 @@
 class DownloadsController < ApplicationController
   before_action :set_download, only: [:show, :edit, :update, :destroy]
   respond_to :html, :xml, :json
-  before_filter :authenticate_user!, only: [:new, :edit, :create, :update, :destroy]
+  before_filter :authenticate_user!, only: [:new, :edit, :create, :update, :destroy, :approve, :deny]
+  before_filter :require_admin, only: [:approve, :deny]
+  
+  def approve
+    @download = Download.find(params[:download_id])
+    @download.approved = true
+    @download.save
+    redirect_to moderation_path
+  end
+
+  def deny
+    @download = Download.find(params[:download_id])
+    @download.denied = true
+    @download.save
+    redirect_to moderation_path
+  end
 
   def index
     @submission = Submission.find(params[:submission_id])
