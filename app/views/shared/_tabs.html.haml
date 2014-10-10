@@ -3,10 +3,11 @@
     %a{:href => root_path}
       %h3
         %i.fa.fa-home
-  .login
-    %a{:href => new_user_session_path}
-      %h3
-        Login
+  - if !current_user
+    .login
+      %a{:href => new_user_session_path}
+        %h3
+          Login
   .upload
     %a{:href => new_submission_path}
       %h3 Upload
