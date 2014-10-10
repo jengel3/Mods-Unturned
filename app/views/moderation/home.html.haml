@@ -12,4 +12,5 @@
         - @downloads.each do |download|
           = download.name
           = link_to 'Approve', submission_download_approve_path(download.submission, download)
+          = link_to 'Deny', submission_download_deny_path(download.submission, download)
     #mainpage{:style => "width:850px; height:525px;"}  
