@@ -2,14 +2,7 @@
   #headerpage
     .headerimagewrap
       = image_tag('header.png')
-  #tabs
-    .home
-      %a{:href => root_path, :style => "text-decoration:none"}
-        %h3 Home
-    %span.statement Where Community Content Goes to Flourish
-    .upload
-      %a{:href => "", :style => "text-decoration:none"}
-        %h3 Upload
+  = render 'shared/tabs'
   #mainpagewrap{:style => "width: 860px; height:500px; margin: 0 auto; margin-bottom:10px;"}
     .mainpageleft{:style => "width:860px; height:100%; float:left;"}
       .contenthead1

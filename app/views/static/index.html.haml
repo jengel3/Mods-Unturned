@@ -3,14 +3,7 @@
     .headerimagewrap
       %a{:href => root_path}
         = image_tag('header.png')
-  #tabs
-    .home
-      %a{:href => root_path}
-        %h3 Home
-    %span.statement Where Community Content Goes to Flourish
-    .upload
-      %a{:href => new_submission_path}
-        %h3 Upload
+  = render 'shared/tabs'
   #mainpagewrap
     .mainpageleft
       .contenthead1

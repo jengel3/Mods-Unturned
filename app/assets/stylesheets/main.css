@@ -42,8 +42,22 @@ h2 {
 }
 
 /* Specific div box for home tab */
-.home {
+.login {
 	width:120px;
+	height:40px;
+	background-color:#5495D2; 
+	margin-left: 20px; 
+	float:left;
+	-webkit-border-top-left-radius: 5px;
+	-webkit-border-top-right-radius: 5px;
+	-moz-border-radius-topleft: 5px;
+	-moz-border-radius-topright: 5px;
+	border-top-left-radius: 5px;
+	border-top-right-radius: 5px;
+}
+
+.home {
+	width:40px;
 	height:40px;
 	background-color:#5495D2; 
 	margin-left: 20px; 
