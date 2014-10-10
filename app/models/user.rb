@@ -10,6 +10,8 @@ class User
   field :encrypted_password, type: String, default: ""
   field :username, type: String, default: ""
 
+  field :admin, type: Boolean, default: false
+
   ## Recoverable
   field :reset_password_token,   type: String
   field :reset_password_sent_at, type: Time
