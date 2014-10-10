@@ -105,6 +105,16 @@ h2 {
 	background-color: #5A9FDF!important;
 }
 
+.login:hover {
+	-o-transition:.1s ease-in-out;
+	-ms-transition:.1s ease-in-out;
+	-moz-transition:.1s ease-in-out;
+	-webkit-transition:.1s ease-in-out;
+	/* ...and now for the proper property */
+	transition:.1s ease-in-out;
+	background-color: #5A9FDF!important;
+}
+
 /* Where community content goes to flourish */
 .statement {
 	float:left; 
