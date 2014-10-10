@@ -38,7 +38,7 @@
           - 6.times do |count|
             - puts "Logging #{count}"
             - if @submission.thumbnails[count]
-              %a{:href => "http://placehold.it/142x80", :target => "_blank"}
+              %a{:href => "#{@submission.thumbnails[count].image_url}", :target => "_blank"}
                 %img.levelthumb{:src => @submission.thumbnails[count].image_url}
             - else
               %a{:href => "http://placehold.it/142x80", :target => "_blank"}
