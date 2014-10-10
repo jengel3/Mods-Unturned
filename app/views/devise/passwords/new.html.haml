@@ -1,9 +1,30 @@
-%h2 Forgot your password?
-= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f|
-  = devise_error_messages!
-  %div
-    = f.label :email
-    %br/
-    = f.email_field :email, autofocus: true
-  %div= f.submit "Send me reset password instructions"
-= render "devise/shared/links"
+#centerpage
+  #headerpage
+    .headerimagewrap
+      = image_tag('header.png')
+  #tabs
+    .home
+      %a{:href => root_path, :style => "text-decoration:none"}
+        %h3 Home
+    %span.statement Where Community Content Goes to Flourish
+    .upload
+      %a{:href => "", :style => "text-decoration:none"}
+        %h3 Password Reset
+  #mainpagewrap{:style => "width: 860px; height:500px; margin: 0 auto; margin-bottom:10px;"}
+    .mainpageleft{:style => "width:860px; height:100%; float:left;"}
+      .contenthead1
+        %h2 Password Reset
+      %span{:style => "text-align:center; margin-left:310px; font-family:'Arial', Helvetica, sans-serif; font-size:12px;"} Forgot your password?
+      .innerbox{:style => "height:350px; width:820px; margin-left:20px; margin-top:7px; background-color:#E5E5E5"}
+        .form
+          = form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f|
+            = render 'shared/errors', object: resource
+            %p
+              = f.label :email
+              %br/
+              = f.email_field :email, autofocus: true
+            %p
+              = f.submit "Sent Reset Instructions"
+          = render 'devise/shared/links'
+        = image_tag('uploadfriend.jpg', :class => "stepboxes")
+    #mainpage{:style => "width:850px; height:500px;"}
