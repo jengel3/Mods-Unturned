@@ -30,15 +30,18 @@ class DownloadsController < ApplicationController
 
   def new
     @submission = Submission.find(params[:submission_id])
+    return redirect_to root_path unless can_manage(@submission)
     @download = @submission.downloads.build
     respond_with(@download)
   end
 
   def edit
+    return redirect_to root_path unless can_manage(@download.submission)
   end
 
   def create
     @submission = Submission.find(params[:submission_id])
+    return redirect_to root_path unless can_manage(@submision)
     @download = @submission.downloads.create(download_params)
     if @download.save
       redirect_to @submission
@@ -48,11 +51,13 @@ class DownloadsController < ApplicationController
   end
 
   def update
+    return redirect_to root_path unless can_manage(@download.submission)
     @download.update(download_params)
     respond_with(@download)
   end
 
   def destroy
+    return redirect_to root_path unless can_manage(@download.submission)
     @download.destroy
     respond_with(@download)
   end
