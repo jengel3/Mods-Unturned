@@ -14,9 +14,9 @@ class StaticController < ApplicationController
       @levels = levels
     else
       @assets = Array.new
-      assets.each { |asset| @assets << asset if asset.valid? }
+      assets.each { |asset| @assets << asset if asset.ready? }
       @levels = Array.new
-      levels.each { |level| @levels << level if level.valid? }
+      levels.each { |level| @levels << level if level.ready? }
     end
   end
 end

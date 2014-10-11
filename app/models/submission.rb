@@ -40,7 +40,7 @@ class Submission
     images.where(:location => /Thumbnail./).desc(:created_at).limit(6)
   end
 
-  def valid?
+  def ready?
     latest_download and main_image
   end
 end
