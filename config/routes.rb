@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   root "static#index"
   resources :submissions do
+    resources :comments
     resources :downloads do
       get :approve
       get :deny
