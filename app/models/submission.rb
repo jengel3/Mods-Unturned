@@ -38,4 +38,8 @@ class Submission
   def thumbnails
     images.where(:location => /Thumbnail./).desc(:created_at).limit(6)
   end
+
+  def valid?
+    latest_download and main_image
+  end
 end

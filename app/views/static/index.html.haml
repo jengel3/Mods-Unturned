@@ -47,6 +47,7 @@
                   %span.alert-tag NEW!
                 - elsif asset.is_featured?
                   %span.alert-tag Featured
+
             .madebyuser= asset.user.username
             %div
               - if asset.body.length > 105
