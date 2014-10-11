@@ -1,0 +1,7 @@
+= form_for([@submission, @submission.comments.build]) do |f|
+  %p
+    = f.label :text
+    %br/
+    = f.text_area :text, rows: 6, style: "width: 200%"
+  %p
+    = f.submit 'Comment'

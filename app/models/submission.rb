@@ -15,6 +15,7 @@ class Submission
   field :type, type: String
 
   belongs_to :user
+  has_many :comments
 
   slug :name
 
