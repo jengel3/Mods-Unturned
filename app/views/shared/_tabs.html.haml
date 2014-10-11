@@ -4,12 +4,14 @@
       %h3
         %i.fa.fa-home
   .login
-    %a{:href => new_user_session_path}
+    %a{:href => "#{current_user ? user_uploads_path(current_user.username) : new_user_session_path}"}
       %h3
         - if current_user
           = current_user.username
         - else
           Login
+  .logout
+    = link_to '<h3><i class="fa fa-times"></i><h3>'.html_safe, destroy_user_session_path, method: :delete
   .upload
     %a{:href => new_submission_path}
       %h3 Upload

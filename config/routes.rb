@@ -8,5 +8,6 @@ Rails.application.routes.draw do
     resources :images
   end
   devise_for :users
-  get '/moderation/', to: 'moderation#home', as: 'moderation'
+  get '/moderation', to: 'moderation#home', as: 'moderation'
+  get '/uploads/:user', to: 'static#index', as: 'user_uploads'
 end

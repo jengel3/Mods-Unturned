@@ -4,7 +4,11 @@ class SubmissionsController < ApplicationController
   before_filter :authenticate_user!, only: [:new, :edit, :create, :update, :destroy, :approve, :deny]
 
   def index
-    @submissions = Submission.all
+    @submissions = if !params[:user]
+      Submission.all
+    else
+      Submission.where(:user => {:username => params[:user]})
+    end
     respond_with(@submissions)
   end
 
