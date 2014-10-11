@@ -17,7 +17,7 @@ class Download
   field :version, type: String
   field :changelog, type: String
   field :notes, type: String
-  field :type, type: String
+  field :type, type: String, default: "Release"
   field :approved, type: Boolean, default: false
   field :denied, type: Boolean, default: false
 end

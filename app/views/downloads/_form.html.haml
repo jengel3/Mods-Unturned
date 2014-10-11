@@ -13,10 +13,6 @@
     %br/
     = f.text_field :version
   %p
-    = f.label :type
-    %br/
-    = f.select(:type, ['Release', 'Beta', 'Alpha'].map { |value| [ value, value ] })
-  %p
     = f.label :download
     %br/
     = f.file_field :download

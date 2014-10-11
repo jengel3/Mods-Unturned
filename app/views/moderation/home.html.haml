@@ -1,3 +1,15 @@
+:css
+  table, th, td {
+      border: 1px solid black;
+      border-collapse: collapse;
+  }
+  table {
+    width: 100%;
+  }
+  th, td {
+      padding: 5px;
+      text-align: left;
+  }
 #centerpage
   #headerpage
     .headerimagewrap
@@ -9,8 +21,27 @@
         %h2 Moderation
       %span{:style => "text-align:center; margin-left:310px; font-family:'Arial', Helvetica, sans-serif; font-size:12px;"} Moderate community content.
       .innerbox{:style => "height:400px; width:820px; margin-left:20px; margin-top:7px; background-color:#E5E5E5"}
-        - @downloads.each do |download|
-          = download.name
-          = link_to 'Approve', submission_download_approve_path(download.submission, download)
-          = link_to 'Deny', submission_download_deny_path(download.submission, download)
-    #mainpage{:style => "width:850px; height:525px;"}  
+        - if @downloads.any?
+          %table
+            %tr
+              %th Project Name
+              %th File Name
+              %th Uploader
+              %th{colspan: 2} Actions
+            - @downloads.each do |download|
+              %tr
+                %td
+                  = link_to download.submission.name, download.submission
+                %td
+                  = link_to download.download.file.filename, download.download.url
+                %td
+                  = download.submission.user.username
+                %td
+                  .approve{align: "center"}
+                    = link_to 'Approve', submission_download_approve_path(download.submission, download)
+                %td
+                  .deny{align: "center"}
+                    = link_to 'Deny', submission_download_deny_path(download.submission, download)
+        - else
+          #none{align: "center"} No downloads awaiting moderation.
+    #mainpage{:style => "width:850px; height:525px;"}
