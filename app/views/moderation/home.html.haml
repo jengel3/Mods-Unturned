@@ -35,7 +35,7 @@
                 %td
                   = link_to download.download.file.filename, download.download.url
                 %td
-                  = download.submission.user.username
+                  = link_to download.submission.user.username, user_uploads_path(download.submission.user.username)
                 %td
                   .approve{align: "center"}
                     = link_to 'Approve', submission_download_approve_path(download.submission, download)

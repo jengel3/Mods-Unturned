@@ -23,7 +23,7 @@
           = simple_format(@submission.body.html_safe, class: 'description')
           %p.uploadby
             %b Created by:
-            = @submission.user.username
+            = link_to @submission.user.username, user_uploads_path(@submission.user.username)
           %hr/
           - if can_manage(@submission)
             %p.title Manage

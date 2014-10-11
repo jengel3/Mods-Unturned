@@ -19,7 +19,7 @@
                   %span.alert-tag NEW!
                 - elsif level.is_featured?
                   %span.alert-tag Featured 
-            .madebyuser= level.user.username
+            .madebyuser= link_to level.user.username, user_uploads_path(level.user.username), class: 'profile'
             %div
               - if level.body.length > 105
                 = level.body[0..105] + "..."
@@ -48,7 +48,7 @@
                 - elsif asset.is_featured?
                   %span.alert-tag Featured
 
-            .madebyuser= asset.user.username
+            .madebyuser= link_to asset.user.username, user_uploads_path(asset.user.username), class: 'profile'
             %div
               - if asset.body.length > 105
                 = asset.body[0..105] + "..."
