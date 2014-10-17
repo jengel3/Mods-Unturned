@@ -1,89 +1,128 @@
+
+a:link {
+	text-decoration:none;
+	color: #141414;
+}
+
+a:visited{
+	color:#141414;
+}
+
 #mainpagewrap {
-	width: 860px; 
-	height:1200px; 
+	width: 900px; 
+	height:1220px; 
 	margin: 0 auto; 
 	margin-bottom:10px;
 }
 
 #mainpage {
-	width:850px; 
-	height:1200px;
+	width:860px; 
+	height:1220px;
 }
 
 .mainpageleft {
-	width:429px; 
+	width:434px; 
 	height:100%; 
 	float:left; 
+	margin-left:15px;
+	border-right:1px solid #C3C3C3;
 }
 
 .mainpageright {
-	width:429px; 
+	width:434px; 
 	height:100%; 
 	float:right; 
+	margin-right:15px;
+	border-left:1px solid #C3C3C3;
 }
 
 /* div for each individual level or model */
 .content {
-	background-color:#E5E5E5; 
-	width:424px;
-	border-left:5px solid #505050;
+	background-color:#EBEBEB; 
+/*background-image: -webkit-gradient(
+	linear,
+	left top,
+	left bottom,
+	color-stop(0, #EBEBEB),
+	color-stop(1, #DCDCDC)
+);
+background-image: -o-linear-gradient(bottom, #EBEBEB 0%, #DCDCDC 100%);
+background-image: -moz-linear-gradient(bottom, #EBEBEB 0%, #DCDCDC 100%);
+background-image: -webkit-linear-gradient(bottom, #EBEBEB 0%, #DCDCDC 100%);
+background-image: -ms-linear-gradient(bottom, #EBEBEB 0%, #DCDCDC 100%);
+background-image: linear-gradient(to bottom, #EBEBEB 0%, #DCDCDC 100%);*/
+	width:429px;
+	/*border-left:5px solid #505050;*/
 	height:100px; 
-	margin-bottom:20px;
-	-webkit-border-top-left-radius: 5px;
-	-webkit-border-bottom-left-radius: 5px;
-	-moz-border-radius-topleft: 5px;
-	-moz-border-radius-bottomleft: 5px;
-	border-top-left-radius: 5px;
-	border-bottom-left-radius: 5px;
-	-webkit-box-shadow: 0px 0px 6px 0px rgba(50, 50, 50, 0.12);
-	-moz-box-shadow:    0px 0px 6px 0px rgba(50, 50, 50, 0.12);
-	box-shadow:         0px 0px 6px 0px rgba(50, 50, 50, 0.12);
+	margin-top:20px;
+	margin-left:5px;
+	/*-webkit-border-top-left-radius: 6px;
+	-webkit-border-bottom-left-radius: 6px;
+	-moz-border-radius-topleft: 6px;
+	-moz-border-radius-bottomleft: 6px;
+	border-top-left-radius: 6px;
+	border-bottom-left-radius: 6px;*/
+	-webkit-border-radius: 6px;
+-moz-border-radius: 6px;
+border-radius: 6px;
+	
+-webkit-box-shadow: -5px -1px 6px 0px rgba(50, 50, 50, 0.12);
+-moz-box-shadow:    -5px -1px 6px 0px rgba(50, 50, 50, 0.12);
+box-shadow:         -5px -1px 6px 0px rgba(50, 50, 50, 0.12);
+/*-webkit-box-shadow: 0px -2px 6x 0px rgba(100,100,100,0.15);
+-moz-box-shadow: 0px -2px 6px 0px rgba(100,100,100,0.15);
+box-shadow: 0px -2px 6px 0px rgba(100,100,100,0.15);*/
 }
 
 /*#D8D8D8 original content color */
 
 .content:hover {
-	border-left:5px solid #5495D2;
-
+	/*border-left:5px solid #1C1C1C;*/
 	
-	-o-transition:.1s ease-in-out;
-	-ms-transition:.1s ease-in-out;
-	-moz-transition:.1s ease-in-out;
-	-webkit-transition:.1s ease-in-out;
-	/* ...and now for the proper property */
-	transition:.1s ease-in-out;
-	background-color: #EAEAEA!important;
+	  -o-transition:.1s ease-in-out;
+  -ms-transition:.1s ease-in-out;
+  -moz-transition:.1s ease-in-out;
+  -webkit-transition:.1s ease-in-out;
+  /* ...and now for the proper property */
+  transition:.1s ease-in-out;
+background-color: #EEEEEE!important;
+border-radius:0;
 
 
 }
 
 /* right side for models */
 .content2 {
-	background-color:#E5E5E5; 
-	width:424px;
-	border-right:5px solid #505050;
+	background-color:#EBEBEB; 
+	width:429px;
+/*	border-right:5px solid #505050;*/
 	height:100px; 
-	margin-bottom:20px;
-	-webkit-border-top-right-radius: 5px;
-	-webkit-border-bottom-right-radius: 5px;
-	-moz-border-radius-topright: 5px;
-	-moz-border-radius-bottomright: 5px;
-	border-top-right-radius: 5px;
-	border-bottom-right-radius: 5px;
-	-webkit-box-shadow: 0px 0px 6px 0px rgba(50, 50, 50, 0.12);
-	-moz-box-shadow:    0px 0px 6px 0px rgba(50, 50, 50, 0.12);
-	box-shadow:         0px 0px 6px 0px rgba(50, 50, 50, 0.12);
+	margin-top:20px;
+/*-webkit-border-top-right-radius: 6px;
+-webkit-border-bottom-right-radius: 6px;
+-moz-border-radius-topright: 6px;
+-moz-border-radius-bottomright: 6px;
+border-top-right-radius: 6px;
+border-bottom-right-radius: 6px;*/
+
+	-webkit-border-radius: 6px;
+-moz-border-radius: 6px;
+border-radius: 6px;
+-webkit-box-shadow: 0px 0px 6px 0px rgba(50, 50, 50, 0.12);
+-moz-box-shadow:    0px 0px 6px 0px rgba(50, 50, 50, 0.12);
+box-shadow:         0px 0px 6px 0px rgba(50, 50, 50, 0.12);
 }
 
 .content2:hover {
-	border-right:5px solid #5495D2;
-	-o-transition:.1s ease-in-out;
-	-ms-transition:.1s ease-in-out;
-	-moz-transition:.1s ease-in-out;
-	-webkit-transition:.1s ease-in-out;
-	/* ...and now for the proper property */
-	transition:.1s ease-in-out;
-	background-color: #EAEAEA!important;
+/*border-right:5px solid #5495D2;*/
+	  -o-transition:.1s ease-in-out;
+  -ms-transition:.1s ease-in-out;
+  -moz-transition:.1s ease-in-out;
+  -webkit-transition:.1s ease-in-out;
+  /* ...and now for the proper property */
+  transition:.1s ease-in-out;
+background-color: #EEEEEE!important;
+border-radius:0px;
 }
 
 /*thumbnail for each mod on index */
@@ -106,26 +145,8 @@
 /* Who made the mod, labeled in every content box*/
 .madebyuser {
 	font-size:13px;
-	color: #473AFA !important;
+	color:#473AFA;
 	font-family:'Arial', Helvetica, sans-serif;
-}
-
-a:link.profile {
-	text-decoration: none;
-	color: #473AFA !important;
-}
-
-a:visited.profile {
-	color:#473AFA !important;
-}
-
-a:link {
-	text-decoration:none;
-	color: #141414;
-}
-
-a:visited{
-	color:#141414;
 }
 
 /* Mod (content) titles */

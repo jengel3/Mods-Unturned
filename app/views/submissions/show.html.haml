@@ -1,55 +1,134 @@
-%div{:style => "background-color:#2E2E2E;margin:0;padding:0;"} 
+%div{:style => "background-color:#2E2E2E;margin:0;padding:0;"}
   #centerpage
     #headerpage
-      .headerimagewrap
-        = image_tag('header.png')
-    = render 'shared/tabs'
-    #mainpagewrap{:style => "width: 860px; height:740px; margin: 0 auto; margin-bottom:10px;"}
+      .headerwrap
+        = image_tag "header2.png"
+    #tabs
+      .home
+        %a{:href => root_path}
+          %h3 Home
+      .upload
+        %a{:href => new_submission_download_path(@submission)}
+          %h3 Upload
+      .menuwrap{:style => ""}
+        .menu.effect1
+          .menuitem
+            %a{:href => ""}
+              .menutext LCBradley3k
+          .menuitem
+            %a{:href => ""}
+              .menutext Levels
+          .menuitem
+            %a{:href => ""}
+              .menutext Models
+          .menuitem
+            %a{:href => ""}
+              .menutext Search
+    #mainpagewrap{:style => "width: 900px; height:740px; margin: 0 auto; margin-bottom:10px;"}
+      .box.effect1
+        %h2 Large Farm Base
       .mainpageleft
-        .contenthead1
-          %h2 Info
-        - if @submission.latest_download
+        .infosection.effect3
           .downloadbutton
-            %a{:href => @submission.latest_download.download.url}
+            %a{:href => "uploads/Tutorial.rar"}
               %h4.download Download
-        .infosection
-          - if !@submission.valid?
-            %p.title Warning:
-            %p.uploadby
-              %b This submission is either lacking a main image, a download, or your first download is awaiting moderator approval.
-          %p.title= @submission.name
-          %p.dateupload
-            = @submission.created_at.strftime("%B #{@submission.created_at.day.ordinalize}, #{@submission.created_at.year}")
-          = simple_format(@submission.body.html_safe, class: 'description')
+          %p.title Large Farm Base
+          %p.dateupload September 30th, 2014
+          %p.description
+            Hello this is a description for the farm base, it is a really cool base and you should totally download it when you get the chance.
+            %br/
+            %br/
+            The
+            spawn points are setup ontop of a giant above ground town. If you don't spawn there just respawn and try again.
           %p.uploadby
             %b Created by:
-            = link_to @submission.user.username, user_uploads_path(@submission.user.username)
-          %hr/
-          - if can_manage(@submission)
-            %p.title Manage
-            %p.uploadby
-              %a{:href => new_submission_download_path(@submission)}
-                %b Upload File
-              %br/
-              %a{:href => new_submission_image_path(@submission)}
-                %b Upload Image
-              %br/
-              %a{hreF: edit_submission_path(@submission)}
-                %b Edit Submission
+          .profile
+            %a{:href => ""}
+              %img.avatar{:src => "avatar.png"}/
+            .persondetails
+              .username LCBradley3k
+              .userdescription Map Maker
+              .stats 16 Modifications
+          .videosection
+            %a{:href => "uploads/Tutorial.rar"}
+              %h4.download Videos
       .mainpageright
-        .contenthead2
-          %h2 Screenshots
         .mainscreen
-          %img.mainthumblarge{:src => "#{@submission.main_image ? @submission.main_image.image_url : 'http://placehold.it/350x150'}"}
+          %img.mainthumblarge{:src => "http://placehold.it/500x500"}
         .screenshots
-          - 6.times do |count|
-            - if @submission.thumbnails[count]
-              %a{:href => "#{@submission.thumbnails[count].image_url}", :target => "_blank"}
-                %img.levelthumb{:src => @submission.thumbnails[count].image_url}
-            - else
-              %a{:href => "http://placehold.it/142x80", :target => "_blank"}
-                %img.levelthumb{:src => "http://placehold.it/142x80"}
-        .videos
+          %a{:href => "Unturnedthumb.jpg", :target => "_blank"}
+            %img.levelthumb{:src => "http://placehold.it/142x80"}
+          %a{:href => "Unturnedthumb.jpg", :target => "_blank"}
+            %img.levelthumb{:src => "http://placehold.it/142x80"}
+          %a{:href => "Unturnedthumb.jpg", :target => "_blank"}
+            %img.levelthumb{:src => "http://placehold.it/142x80"}
+          %a{:href => "Unturnedthumb.jpg", :target => "_blank"}
+            %img.levelthumb{:src => "http://placehold.it/142x80"}
+          %a{:href => "Unturnedthumb.jpg", :target => "_blank"}
+            %img.levelthumb{:src => "http://placehold.it/142x80"}
+          %img.levelthumb{:src => "uploadthumb.png"}/
+        .comments
           %b
-            %p{:style => "font-family:'Arial', Helvetica, sans-serif; color:#464646; margin-left:5px; padding-top:5px;"} External Links:
+          %p{:style => "font-family:'Arial', Helvetica, sans-serif; color:#464646; margin-left:5px; padding-top:5px;"} Comments
+          %input.feedback{:name => "FirstName", :placeholder => "What do you think?", :style => "", :type => "text"}/
+          .comment1
+          .comment2
+          .comment1
+          .comment2
       #mainpage
+
+/ %div{:style => "background-color:#2E2E2E;margin:0;padding:0;"} 
+/   #centerpage
+/     #headerpage
+/       .headerimagewrap
+/         = image_tag('header.png')
+/     = render 'shared/tabs'
+/     #mainpagewrap{:style => "width: 860px; height:740px; margin: 0 auto; margin-bottom:10px;"}
+/       .mainpageleft
+/         .contenthead1
+/           %h2 Info
+/         - if @submission.latest_download
+/           .downloadbutton
+/             %a{:href => @submission.latest_download.download.url}
+/               %h4.download Download
+/         .infosection
+/           - if !@submission.valid?
+/             %p.title Warning:
+/             %p.uploadby
+/               %b This submission is either lacking a main image, a download, or your first download is awaiting moderator approval.
+/           %p.title= @submission.name
+/           %p.dateupload
+/             = @submission.created_at.strftime("%B #{@submission.created_at.day.ordinalize}, #{@submission.created_at.year}")
+/           = simple_format(@submission.body.html_safe, class: 'description')
+/           %p.uploadby
+/             %b Created by:
+/             = link_to @submission.user.username, user_uploads_path(@submission.user.username)
+/           %hr/
+/           - if can_manage(@submission)
+/             %p.title Manage
+/             %p.uploadby
+/               %a{:href => new_submission_download_path(@submission)}
+/                 %b Upload File
+/               %br/
+/               %a{:href => new_submission_image_path(@submission)}
+/                 %b Upload Image
+/               %br/
+/               %a{hreF: edit_submission_path(@submission)}
+/                 %b Edit Submission
+/       .mainpageright
+/         .contenthead2
+/           %h2 Screenshots
+/         .mainscreen
+/           %img.mainthumblarge{:src => "#{@submission.main_image ? @submission.main_image.image_url : 'http://placehold.it/350x150'}"}
+/         .screenshots
+/           - 6.times do |count|
+/             - if @submission.thumbnails[count]
+/               %a{:href => "#{@submission.thumbnails[count].image_url}", :target => "_blank"}
+/                 %img.levelthumb{:src => @submission.thumbnails[count].image_url}
+/             - else
+/               %a{:href => "http://placehold.it/142x80", :target => "_blank"}
+/                 %img.levelthumb{:src => "http://placehold.it/142x80"}
+/         .videos
+/           %b
+/             %p{:style => "font-family:'Arial', Helvetica, sans-serif; color:#464646; margin-left:5px; padding-top:5px;"} External Links:
+/       #mainpage
