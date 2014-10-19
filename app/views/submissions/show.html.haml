@@ -9,14 +9,14 @@
         %h2= @submission.name
       .mainpageleft
         .infosection.effect3
-          - if !@submission.valid?
-            %p.title Warning:
-            %p.uploadby
-              %b This submission is either lacking a main image, a download, or your first download is awaiting moderator approval.
           - if @submission.latest_download
             .downloadbutton
               %a{:href => @submission.latest_download.download.url}
                 %h4.download Download
+          - if !@submission.ready?
+            %p.title Warning:
+            %p.uploadby
+              %b This submission is either lacking a main image, a download, or the first download is awaiting moderator approval.
           %p.title= @submission.name
           %p.dateupload= @submission.created_at.strftime("%B #{@submission.created_at.day.ordinalize}, #{@submission.created_at.year}")
           %p
