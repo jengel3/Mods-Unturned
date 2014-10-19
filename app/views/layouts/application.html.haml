@@ -12,9 +12,11 @@
   - if params[:controller] == "devise/registrations"
     - if params[:action] == "new" || params[:action] == "create"
       = stylesheet_link_tag 'upload'
+      = stylesheet_link_tag 'users'
   - if params[:controller] == "devise/sessions"
     - if params[:action] == "new" || params[:action] == "create"
       = stylesheet_link_tag 'upload'
+      = stylesheet_link_tag 'users'
   - if params[:controller] == "downloads"
     = stylesheet_link_tag "upload"
   - if params[:controller] == "images"
