@@ -20,6 +20,10 @@ a {
 	margin:0 auto;
 }
 
+.alert-tag {
+	color: red;
+	font-size:12px;
+}
 
 .menu {
 	display:inline-block;
