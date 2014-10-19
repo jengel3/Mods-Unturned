@@ -41,7 +41,7 @@ class DownloadsController < ApplicationController
 
   def create
     @submission = Submission.find(params[:submission_id])
-    return redirect_to root_path unless can_manage(@submision)
+    return redirect_to root_path unless can_manage(@submission)
     @download = @submission.downloads.create(download_params)
     if @download.save
       redirect_to @submission
