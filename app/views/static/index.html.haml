@@ -5,9 +5,9 @@
         = image_tag('header.png')
   = render 'shared/tabs'
   #mainpagewrap
+    .box.effect1
+      %h2 Level Creations 
     .mainpageleft
-      .contenthead1
-        %h2 Levels
       - @levels.each do |level|
         .content
           = link_to image_tag("#{level.main_image ? level.main_image.image_url : 'http://placehold.it/350x150'}", class: 'levelthumb'), level
@@ -34,8 +34,6 @@
           .madebyuser [Your Name]
           %div Make your fantastic level public!
     .mainpageright
-      .contenthead2
-        %h2 Models
       - @assets.each do |asset|
         .content2
           = link_to image_tag("#{asset.main_image ? asset.main_image.image_url : 'http://placehold.it/350x150'}", class: 'levelthumb'), asset

@@ -1,18 +1,21 @@
 #tabs
   .home
     %a{:href => root_path}
-      %h3
-        %i.fa.fa-home
-  .login
-    %a{:href => "#{current_user ? user_uploads_path(current_user.username) : new_user_session_path}"}
-      %h3
-        - if current_user
-          = current_user.username
-        - else
-          Login
-  - if current_user
-    .logout
-      = link_to '<h3><i class="fa fa-times"></i><h3>'.html_safe, destroy_user_session_path, method: :delete
+      %h3 Home
   .upload
     %a{:href => new_submission_path}
       %h3 Upload
+  .menuwrap{:style => ""}
+    .menu.effect1
+      .menuitem
+        %a{:href => current_user ? user_uploads_path(current_user.username) : new_user_session_path}
+          .menutext= current_user ? current_user.username : 'Login'
+      .menuitem
+        %a{:href => root_path}
+          .menutext Levels
+      .menuitem
+        %a{:href => root_path}
+          .menutext Models
+      .menuitem
+        %a{:href => root_path}
+          .menutext Search
