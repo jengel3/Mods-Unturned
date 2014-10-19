@@ -39,7 +39,7 @@ class SubmissionsController < ApplicationController
 
   def destroy
     @submission.destroy
-    respond_with(@submission)
+    redirect_to submissions_path
   end
 
   private
