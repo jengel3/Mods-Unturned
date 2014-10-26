@@ -35,5 +35,5 @@ class User
   # field :unconfirmed_email,    type: String # Only if using reconfirmable
 
   has_many :submissions, :dependent => :destroy
-  has_many :comments
+  has_many :comments, :dependent => :destroy
 end

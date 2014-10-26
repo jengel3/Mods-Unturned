@@ -1,7 +1,3 @@
 = form_for([@submission, @submission.comments.build]) do |f|
-  %p
-    = f.label :text
-    %br/
-    = f.text_area :text, rows: 6, style: "width: 200%"
-  %p
-    = f.submit 'Comment'
+  = f.text_field :text, class: 'feedback', :placeholder => "What do you think?", style: "display:inline;"
+  = f.submit 'Comment', class: 'text-box', style: "display:inline;"

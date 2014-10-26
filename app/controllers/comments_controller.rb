@@ -1,7 +1,7 @@
 class CommentsController < ApplicationController
   def create
     @submission = Submission.find(params[:submission_id])
-    @user = current_user
+    return redirect_to new_user_registration_path unless @user = current_user
     @comment = Comment.new(comment_params)
     @user.comments << @comment
     @submission.comments << @comment
