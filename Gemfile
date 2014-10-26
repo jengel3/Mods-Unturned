@@ -1,8 +1,9 @@
 source 'https://rubygems.org'
+
+ruby '2.0.0'
+
 gem 'rails', '4.1.6'
-gem 'sass-rails', '~> 4.0.3'
 gem 'uglifier', '>= 1.3.0'
-gem 'coffee-rails', '~> 4.0.0'
 gem 'jquery-rails'
 gem 'jbuilder', '~> 2.0'
 gem 'tzinfo-data'
@@ -18,9 +19,11 @@ gem 'mongoid_search', github: 'Jake0oo0/mongoid_search'
 gem 'carrierwave-mongoid'
 gem 'bcrypt-ruby', '~> 3.0.0'
 gem 'mongoid_slug'
+
 group :development do
   gem 'better_errors'
 end
+
 group :production do
   gem 'passenger'
 end
