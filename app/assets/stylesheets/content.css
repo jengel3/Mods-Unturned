@@ -382,19 +382,22 @@ hr {
   border-radius:1px;
 }
 
-.comment1 {
+.comment {
 	width:100%;
 	height:auto;
 	padding: 3px 0px 3px 0px;
-	background-color:#EBEBEB;
-	border-top: 1px solid  #DEDEDE;
-	border-bottom: 1px solid #DEDEDE;
 	word-wrap: break-word;
 }
 
-.comment2 {
-	width:100%;
-	height:30px;
+
+.comment-odd {
+	background-color:#EBEBEB;
+	border-top: 1px solid  #DEDEDE;
+	border-bottom: 1px solid #DEDEDE;
+}
+
+.comment-even {
+	background-color: #E5E5E5;
 }
 
 .text {
@@ -402,7 +405,7 @@ hr {
 }
 
 .feedback {
-	width:80% !important;
+	width:80%;
 	height:30px;
 	margin-left:3%;
 	margin-top: -10px;

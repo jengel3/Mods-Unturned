@@ -67,7 +67,7 @@
             = render 'comments/form'
           .list
             - @submission.comments.reject(&:new_record?).each do |comment|
-              .comment1
+              %div{class: "comment #{cycle('comment-odd', 'comment-even')}"}
                 .text
                   %b= comment.user.username + ':'
                   = comment.text
