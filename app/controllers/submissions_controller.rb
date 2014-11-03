@@ -5,25 +5,19 @@ class SubmissionsController < ApplicationController
   before_filter :verify_manager, only: [:edit, :destroy, :update]
 
   def index
-    @type = params[:type] ||= "Asset"
-    assets = Submission.where(:type => "Asset").desc(:created_at)
-    levels = Submission.where(:type => "Level").desc(:created_at)
+    @type = params[:type] ||= "assets"
+    projects = Submission.where(:type => type_for(@type)).desc(:created_at)
     if params[:user]
       @user = User.where(:username => params[:user]).first
-      assets = assets.where(:user => @user)
-      levels = levels.where(:user => @user)
+      projects = projects.where(:user => @user)
     end
 
     if @user and @user == current_user
-      @assets = assets
-      @levels = levels
+      @submissions = projects
     else
-      @assets = Array.new
-      assets.each { |asset| @assets << asset if asset.ready? }
-      @levels = Array.new
-      levels.each { |level| @levels << level if level.ready? }
+      @submissions = Array.new
+      projects.each { |submission| @submission << submission if submission.ready? }
     end
-    @submissions = Submission.all
   end
 
   def show
@@ -56,6 +50,16 @@ class SubmissionsController < ApplicationController
   end
 
   private
+    def type_for(type)
+      if type == "assets"
+        return "Asset"
+      elsif type == "levels"
+        return "Level"
+      else
+        return "Level"
+      end
+    end
+
     def set_submission
       @submission = Submission.find(params[:id])
     end
