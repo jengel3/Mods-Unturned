@@ -47,8 +47,11 @@
                 %br/
                 %b= link_to 'Delete Submission', submission_path(@submission), method: :delete, data: {confirm: 'Are you sure you want to delete this submission? This can not be undone.'}
           .videosection
-            %a{:href => ""}
-              %h4.download Videos
+            %h4.download Videos
+            %a{href: ""}
+              = image_tag "uploadthumb.png", class: 'vidthumb'
+            %a{href: ""}
+              = image_tag "uploadthumb.png", class: 'vidthumb'
       .mainpageright
         .mainscreen
           %img.mainthumblarge{:src => "#{@submission.main_image ? @submission.main_image.image_url : 'http://placehold.it/350x150'}"}
