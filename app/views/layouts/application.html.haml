@@ -2,6 +2,9 @@
   %title Unturned Mods
   = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true
   = javascript_include_tag 'application', 'data-turbolinks-track' => true
+  %link{:href => "https://fonts.googleapis.com/css?family=Montserrat", :rel => "stylesheet", :type => "text/css"}/
+  %link{:href => "https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz", :rel => "stylesheet", :type => "text/css"}/
+  %link{:href => "https://fonts.googleapis.com/css?family=Arimo", :rel => "stylesheet", :type => "text/css"}/
   - if params[:controller] == "submissions"
     - if params[:action] == "new" or params[:action] == "edit"
       = stylesheet_link_tag 'upload'
