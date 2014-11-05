@@ -5,21 +5,20 @@
   .upload
     %a{:href => new_submission_path}
       %h3 Upload
-  - width = current_user ? '20%;' : '25%;'
   .menuwrap
     .menu.effect1
-      .menuitem{style: "width: #{width}"}
-        %a{:href => current_user ? user_uploads_path(current_user.username) : new_user_registration_path}
-          .menutext= current_user ? current_user.username : 'Login'
-      .menuitem{style: "width: #{width}"}
+      .menuitem
+        - if params[:controller] == "submissions" and params[:user]
+          = link_to "<div class='menutext'> #{current_user ? 'Logout' : 'Login'}</div>".html_safe,destroy_user_session_path, :method => :delete
+        - else
+          %a{:href => current_user ? user_uploads_path(current_user.username) : new_user_registration_path}
+            .menutext= current_user ? current_user.username : 'Login'
+      .menuitem
         %a{:href => projects_path(:type => "levels")}
           .menutext Levels
-      .menuitem{style: "width: #{width}"}
+      .menuitem
         %a{:href => projects_path(:type => "models")}
           .menutext Models
-      .menuitem{style: "width: #{width}"}
+      .menuitem
         %a{:href => ""}
           .menutext Search
-      - if current_user
-        .menuitem{style: "width: #{width}"}
-          = link_to '<div class="menutext">Logout</div>'.html_safe, destroy_user_session_path, method: :delete

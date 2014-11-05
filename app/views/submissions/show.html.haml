@@ -11,7 +11,7 @@
         .infosection.effect3
           - if @submission.latest_download
             .downloadbutton
-              %a{:href => @submission.latest_download.download.url}
+              %a{:href => submission_download_path(@submission)}
                 %h4.download Download
           - if !@submission.ready?
             %p.title{style: "padding-top: 0px;"} Warning:
@@ -19,6 +19,8 @@
               %b This submission is either lacking a main image, a download, or the first download is awaiting moderator approval.
           %p.title= @submission.name
           %p.dateupload= @submission.created_at.strftime("%B #{@submission.created_at.day.ordinalize}, #{@submission.created_at.year}")
+          %p.uploadby
+            %b= pluralize(@submission.download_count, 'Download')
           %p
             = simple_format(@submission.body.html_safe, class: 'description')
           %p.uploadby
@@ -61,8 +63,8 @@
               %a{:href => "#{@submission.thumbnails[count].image_url}", :target => "_blank"}
                 %img.levelthumb{:src => @submission.thumbnails[count].image_url}
             - else
-              %a{:href => "http://placehold.it/142x80", :target => "_blank"}
-                %img.levelthumb{:src => "http://placehold.it/142x80"}
+              %a
+                = image_tag 'uploadthumb.png', class: 'levelthumb'
         .comments
           .header
             %b

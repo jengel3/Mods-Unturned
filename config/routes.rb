@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   root "submissions#index"
   get '/projects/:type', to: 'submissions#index', as: 'projects', defaults: { :type => "asset" }
   resources :submissions do
+    get :download
     resources :comments
     resources :downloads do
       get :approve

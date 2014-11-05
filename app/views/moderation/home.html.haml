@@ -29,6 +29,7 @@
               %th Uploader
               %th{colspan: 2} Actions
             - @downloads.each do |download|
+              = puts download.inspect
               %tr
                 %td
                   = link_to download.submission.name, download.submission

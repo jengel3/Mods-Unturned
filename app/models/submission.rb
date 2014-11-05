@@ -13,6 +13,7 @@ class Submission
   field :name, type: String
   field :body, type: String
   field :type, type: String
+  field :download_count, type: Integer, default: 0
 
   belongs_to :user
   has_many :comments

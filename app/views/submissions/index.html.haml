@@ -5,11 +5,25 @@
     = render 'shared/tabs'
     #mainpagewrap
       .box.effect1
-        %h2 Level Creations
+        %h2
+          - if params[:user]
+            = params[:user] + "'s"
+            Creations
+          - else
+            = @type.singularize.capitalize
+            Creations
       .mainpageleft
         %div{:style => "width:100%; text-align:center; height:8px;margin-top:5px; font-size:14px; margin-left:0px;"}
-          %b Newest First
-          \• Most Popular
+          - if params[:sort] == "newest"
+            %b
+              = link_to 'Newest First', params.merge(:sort => "newest")
+          - else
+            = link_to 'Newest First', params.merge(:sort => "newest")
+          - if params[:sort] == "popular"
+            %b
+              = link_to '• Most Popular', params.merge(:sort => "popular")
+          - else
+            = link_to '• Most Popular', params.merge(:sort => "popular")
         - @submissions.each do |submission|
           .content
             %a{:href => url_for(submission)}
@@ -22,7 +36,8 @@
               .madebyuser
                 = link_to submission.user.username, user_uploads_path(submission.user.username)
                 .downloadcount
-                  \• 78
+                  \•
+                  = submission.download_count
                   = image_tag("downarrow.png")
               .contentdesc 
                 - if submission.body.length > 105
@@ -30,74 +45,5 @@
                 - else
                   = submission.body.gsub('\n', ' ')
       #mainpage
-        / Page behind all the content
-        / #BDBDBD #C4C4C4
-        %a{:href => ""}
-          %p.next Next Page >
-    /
-      <footer>
-      <p class="footertext"></p>
-      </footer>
--# #centerpage
--#   #headerpage
--#     .headerimagewrap
--#       %a{:href => root_path}
--#         = image_tag('header.png')
--#   = render 'shared/tabs'
--#   #mainpagewrap
--#     .box.effect1
--#       %h2 Level Creations 
--#     .mainpageleft
--#       - @levels.each do |level|
--#         .content
--#           = link_to image_tag("#{level.main_image ? level.main_image.image_url : 'http://placehold.it/350x150'}", class: 'levelthumb'), level
--#           .contentdetails
--#             %a{:href => url_for(level)}
--#               %h4
--#                 = level.name
--#                 - if level.is_new?
--#                   %span.alert-tag NEW!
--#                 - elsif level.is_featured?
--#                   %span.alert-tag Featured 
--#             .madebyuser= link_to level.user.username, user_uploads_path(level.user.username), class: 'profile'
--#             %div
--#               - if level.body.length > 105
--#                 = level.body[0..105] + "..."
--#               - else
--#                 = level.body
--#       .content
--#         %a{:href => new_submission_path}
--#           %img.levelthumb{:src => "http://placehold.it/350x150"}/
--#         .contentdetails
--#           %a{:href => new_submission_path}
--#             %h4 Upload Your Level!
--#           .madebyuser [Your Name]
--#           %div Make your fantastic level public!
--#     .mainpageright
--#       - @assets.each do |asset|
--#         .content2
--#           = link_to image_tag("#{asset.main_image ? asset.main_image.image_url : 'http://placehold.it/350x150'}", class: 'levelthumb'), asset
--#           .contentdetails
--#             %a{:href => url_for(asset)}
--#               %h4
--#                 = asset.name
--#                 - if asset.is_new?
--#                   %span.alert-tag NEW!
--#                 - elsif asset.is_featured?
--#                   %span.alert-tag Featured
-
--#             .madebyuser= link_to asset.user.username, user_uploads_path(asset.user.username), class: 'profile'
--#             %div
--#               - if asset.body.length > 105
--#                 = asset.body[0..105] + "..."
--#               - else
--#                 = asset.body
--#       .content2
--#         %a{:href => new_submission_path}
--#           %img.levelthumb{:src => "http://placehold.it/350x150"}/
--#         .contentdetails
--#           %a{:href => new_submission_path}
--#             %h4 Upload Your Model!
--#           .madebyuser [Your Name]
--#           %div Make your fantastic model public!
--#     #mainpage
+      #paginator{align: "center"}
+        = paginate @submissions

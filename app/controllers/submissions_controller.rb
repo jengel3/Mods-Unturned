@@ -1,23 +1,48 @@
 class SubmissionsController < ApplicationController
-  before_action :set_submission, only: [:show, :edit, :update, :destroy, :deny, :approve]
+  before_action :set_submission, only: [:show, :edit, :update, :destroy, :deny, :approve, :download]
   respond_to :html, :xml, :json
   before_filter :authenticate_user!, only: [:new, :edit, :create, :update, :destroy, :approve, :deny]
   before_filter :verify_manager, only: [:edit, :destroy, :update]
 
   def index
-    @type = params[:type] ||= "assets"
-    projects = Submission.where(:type => type_for(@type)).desc(:created_at)
     if params[:user]
       @user = User.where(:username => params[:user]).first
-      projects = projects.where(:user => @user)
-    end
-
-    if @user and @user == current_user
-      @submissions = projects
+      @submissions = Submission.where(:user => @user)
+      if params[:sort]
+        @submissions = if params[:sort] == "newest"
+          @submissions.desc(:created_at)
+        elsif params[:sort] == "popular"
+          @submissions = @submissions.desc(:download_count)
+        end
+      end
+      @submissions = @submissions.page(params[:page]).per(8)
     else
+      @type = params[:type]
+      projects = Submission.all
+      if params[:type]
+        projects = projects.where(:type => type_for(@type))
+      else
+        @type = "All"
+      end
+      if params[:sort]
+        puts params[:sort]
+        projects = if params[:sort] == "newest"
+          projects.desc(:created_at)
+        elsif params[:sort] == "popular"
+          puts "CALLED"
+          projects = projects.desc(:download_count)
+        end
+      end
       @submissions = Array.new
-      projects.each { |submission| @submission << submission if submission.ready? }
+      projects.each { |submission| @submissions << submission if submission.ready? }
+      @submissions = Kaminari.paginate_array(projects).page(params[:page]).per(8)
     end
+  end
+
+  def download
+    @submission.download_count = @submission.download_count + 1
+    @submission.save
+    send_file @submission.latest_download.download.path
   end
 
   def show
@@ -50,21 +75,21 @@ class SubmissionsController < ApplicationController
   end
 
   private
-    def type_for(type)
-      if type == "assets"
-        return "Asset"
-      elsif type == "levels"
-        return "Level"
-      else
-        return "Level"
-      end
+  def type_for(type)
+    if type == "models"
+      return "Asset"
+    elsif type == "levels"
+      return "Level"
+    else
+      return "Level"
     end
+  end
 
-    def set_submission
-      @submission = Submission.find(params[:id])
-    end
+  def set_submission
+    @submission = Submission.find(params[:id] || params[:submission_id])
+  end
 
-    def submission_params
-      params.require(:submission).permit(:name, :downloads, :body, :type)
-    end
+  def submission_params
+    params.require(:submission).permit(:name, :downloads, :body, :type)
+  end
 end
