@@ -69,6 +69,6 @@ class DownloadsController < ApplicationController
     end
 
     def download_params
-      params.require(:download).permit(:download, :name, :downloads, :game_version, :version, :changelog, :notes, :type)
+      params.require(:download).permit(:download, :name, :version)
     end
 end

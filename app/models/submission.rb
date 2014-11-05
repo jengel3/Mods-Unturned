@@ -16,7 +16,7 @@ class Submission
   field :download_count, type: Integer, default: 0
 
   belongs_to :user
-  has_many :comments
+  has_many :comments, :dependent => :destroy
 
   slug :name
 

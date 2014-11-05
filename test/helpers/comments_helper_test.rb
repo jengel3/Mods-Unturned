@@ -1,4 +1,4 @@
 require 'test_helper'
 
-class CommentsHelperTest < ActionView::TestCase
+class AvatarHelperTest < ActionView::TestCase
 end

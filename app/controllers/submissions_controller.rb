@@ -35,7 +35,7 @@ class SubmissionsController < ApplicationController
       end
       @submissions = Array.new
       projects.each { |submission| @submissions << submission if submission.ready? }
-      @submissions = Kaminari.paginate_array(projects).page(params[:page]).per(8)
+      @submissions = Kaminari.paginate_array(@submissions).page(params[:page]).per(8)
     end
   end
 

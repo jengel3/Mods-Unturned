@@ -5,10 +5,6 @@
     %br/
     = f.text_field :name
   %p
-    = f.label :game_version
-    %br/
-    = f.select(:game_version, ['3.x'].map { |value| [ value, value ] })
-  %p
     = f.label :version
     %br/
     = f.text_field :version
@@ -16,13 +12,5 @@
     = f.label :download
     %br/
     = f.file_field :download
-  %p
-    = f.label :changelog
-    %br/
-    = f.text_area :changelog
-  %p
-    = f.label :notes
-    %br/
-    = f.text_area :notes
   %p
     = f.submit 'Submit'
