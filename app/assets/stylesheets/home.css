@@ -170,7 +170,7 @@ border-radius:0px;
 /* Mod description next to thumb */
 .contentdetails {
 	margin-left:170px; 
-	padding-top:10px;
+	padding-top:4px;
 	margin-right:5px;
 }
 
@@ -209,7 +209,7 @@ h4 a:hover {
 .contentdesc {
 	font-family: 'Arimo', sans-serif; 
 	font-size:14px; 
-	margin-top:5px;
+	margin-top:2px;
 }
 
 /*div for bottom of page, currently not in use */
