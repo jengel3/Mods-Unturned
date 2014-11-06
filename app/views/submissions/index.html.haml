@@ -14,7 +14,7 @@
             Creations
       .mainpageleft
         %div{:style => "width:100%; text-align:center; height:8px;margin-top:5px; font-size:14px; margin-left:0px;"}
-          - if params[:sort] == "newest"
+          - if params[:sort] == "newest" || !params[:sort]
             %b
               = link_to 'Newest First', params.merge(:sort => "newest")
           - else
@@ -39,9 +39,9 @@
                   \•
                   = submission.download_count
                   = image_tag("downarrow.png")
-              .contentdesc{style: "word-wrap: break-word; overflow: hidden; text-overflow: ellipsis;"}
-                - if submission.body.length > 105
-                  = submission.body[0..105].gsub('\n', ' ') + "..."
+              .contentdesc
+                - if submission.body.length > 75
+                  = submission.body[0..75].gsub('\n', ' ') + "..."
                 - else
                   = submission.body.gsub('\n', ' ')
       #mainpage

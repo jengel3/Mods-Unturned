@@ -185,9 +185,16 @@ a:visited{
 	float:left;
 }
 
-.username {
+.username a:visited {
 	color: #2146FF;
 	margin-left: 65px;
+	margin-top: 3px;
+	font-weight:bold;
+}
+
+.username a {
+	color: #2146FF;
+	margin-left: 5px;
 	margin-top: 3px;
 	font-weight:bold;
 }
@@ -200,6 +207,10 @@ a:visited{
 .stats {
 	margin-left: 65px;
 	font-size:14px;
+}
+
+.manage .uploadby a:hover {
+	color: black;
 }
 
 p {

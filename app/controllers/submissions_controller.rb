@@ -8,12 +8,10 @@ class SubmissionsController < ApplicationController
     if params[:user]
       @user = User.where(:username => params[:user]).first
       @submissions = Submission.where(:user => @user)
-      if params[:sort]
-        @submissions = if params[:sort] == "newest"
-          @submissions.desc(:created_at)
-        elsif params[:sort] == "popular"
-          @submissions = @submissions.desc(:download_count)
-        end
+      @submissions = if params[:sort] == "newest" || !params[:sort]
+        @submissions.desc(:created_at)
+      elsif params[:sort] == "popular"
+        @submissions = @submissions.desc(:download_count)
       end
       @submissions = @submissions.page(params[:page]).per(8)
     else
@@ -24,14 +22,10 @@ class SubmissionsController < ApplicationController
       else
         @type = "All"
       end
-      if params[:sort]
-        puts params[:sort]
-        projects = if params[:sort] == "newest"
-          projects.desc(:created_at)
-        elsif params[:sort] == "popular"
-          puts "CALLED"
-          projects = projects.desc(:download_count)
-        end
+      projects = if params[:sort] == "newest" || !params[:sort]
+        projects.desc(:created_at)
+      elsif params[:sort] == "popular"
+        projects = projects.desc(:download_count)
       end
       @submissions = Array.new
       projects.each { |submission| @submissions << submission if submission.ready? }

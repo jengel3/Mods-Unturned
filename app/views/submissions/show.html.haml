@@ -37,17 +37,18 @@
           .manage
             - if can_manage(@submission)
               %p.title Manage
-              %p.uploadby
-                %a{:href => new_submission_download_path(@submission)}
-                  %b Upload File
-                %br/
-                %a{:href => new_submission_image_path(@submission)}
-                  %b Upload Image
-                %br/
-                %a{hreF: edit_submission_path(@submission)}
-                  %b Edit Submission
-                %br/
-                %b= link_to 'Delete Submission', submission_path(@submission), method: :delete, data: {confirm: 'Are you sure you want to delete this submission? This can not be undone.'}
+              .manage
+                %p.uploadby
+                  %a{:href => new_submission_download_path(@submission)}
+                    %b Upload File
+                  %br/
+                  %a{:href => new_submission_image_path(@submission)}
+                    %b Upload Image
+                  %br/
+                  %a{hreF: edit_submission_path(@submission)}
+                    %b Edit Submission
+                  %br/
+                  %b= link_to 'Delete Submission', submission_path(@submission), method: :delete, data: {confirm: 'Are you sure you want to delete this submission? This can not be undone.'}
           .videosection
             %h4.download Videos
             -# %a{href: ""}
