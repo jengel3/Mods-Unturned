@@ -1,16 +1,16 @@
 = form_for([@submission, @download]) do |f|
   = render 'shared/errors', object: @download
   %p
-    = f.label :name
+    %b= f.label :name
     %br/
     = f.text_field :name
   %p
-    = f.label :version
+    %b= f.label :version
     %br/
     = f.text_field :version
   %p
-    = f.label :download
+    %b= f.label :download
     %br/
-    = f.file_field :download
+    = f.file_field :download, class: 'file'
   %p
     = f.submit 'Submit'

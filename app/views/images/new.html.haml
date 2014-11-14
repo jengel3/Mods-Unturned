@@ -1,15 +1,12 @@
-#centerpage
-  #headerpage
-    .headerimagewrap
-      = image_tag('header.png')
-  = render 'shared/tabs'
-  #mainpagewrap{:style => "width: 860px; height:500px; margin: 0 auto; margin-bottom:10px;"}
-    .mainpageleft{:style => "width:860px; height:100%; float:left;"}
-      .contenthead1
+%div
+  #centerpage
+    #headerpage
+      .headerwrap
+    = render 'shared/tabs'
+    #mainpagewrap
+      .box.effect1
         %h2 Upload Image
-      %span{:style => "text-align:center; margin-left:310px; font-family:'Arial', Helvetica, sans-serif; font-size:12px;"} Upload an image for your submission!
-      .innerbox{:style => "height:410px; width:820px; margin-left:20px; margin-top:7px; background-color:#E5E5E5"}
+      .mainpageleft
         .form
           = render 'form'
-        = image_tag('uploadfriend.jpg', :class => "stepboxes")
-    #mainpage{:style => "width:850px; height:535px;"}
+      #mainpage
