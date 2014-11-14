@@ -1,37 +1,48 @@
-.stepboxes {
-	float:left; 
-	margin-left:25px;
-	height:320; 
-	width:240px;
-	background-color:#FBFBFB;
-	outline: 1px solid black; 
-	margin-top:15px;
+* {
+	font-family: 'Arimo', Helvetica, sans-serif;
 }
 
 .form {
-	float:left; 
-	margin-left:25px;
-	height:320; 
-	width:500px;
-	margin-top:15px;
+	margin-left: 50px;
 }
 
-.innerbox {
-	-webkit-box-shadow: 0px 0px 6px 0px rgba(50, 50, 50, 0.12);
-	-moz-box-shadow:    0px 0px 6px 0px rgba(50, 50, 50, 0.12);
-	box-shadow:         0px 0px 6px 0px rgba(50, 50, 50, 0.12);
+a:link {
+	text-decoration:none;
+	color: #141414;
+}
+
+a:visited{
+	color:#141414;
+}
+
+#mainpagewrap {
+	width: 900px; 
+	height:1240px; 
+	margin: 0 auto; 
+	margin-bottom:10px;
+}
+
+#mainpage {
+	width:860px; 
+	height:1240px;
+	/*background-color:rgb(217,217,217);*/
 }
 
 .mainpageleft {
+	width:860px; 
+	height:100%; 
+	float:left; 
+	margin-left:20px;
+	/*border-right:1px dashed #C3C3C3;*/
 	border:none;
 }
 
-.contenthead1 {
-	margin-bottom:7px;
-}
-
-.contenthead1 {
-	-webkit-border-radius: 5px;
-	-moz-border-radius: 5px;
-	border-radius: 5px;
+.mainpageright {
+	width:430px; 
+	height:100%; 
+	float:right; 
+	margin-right:20px;
+	/*border-left:1px dashed #C3C3C3;*/
+	border:none;
+	
 }

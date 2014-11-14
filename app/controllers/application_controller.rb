@@ -2,6 +2,11 @@ class ApplicationController < ActionController::Base
   include ApplicationHelper
   protect_from_forgery with: :exception
   before_action :configure_permitted_parameters, if: :devise_controller?
+  before_action :check_redirect, if: :devise_controller?
+
+  def check_redirect
+    redirect_to new_user_registration_path if params[:controller] == 'devise/sessions' and params[:action] == 'new'
+  end
 
   protected
   def configure_permitted_parameters

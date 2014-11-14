@@ -58,12 +58,12 @@ background-image: -moz-linear-gradient(bottom, #EBEBEB 0%, #DCDCDC 100%);
 background-image: -webkit-linear-gradient(bottom, #EBEBEB 0%, #DCDCDC 100%);
 background-image: -ms-linear-gradient(bottom, #EBEBEB 0%, #DCDCDC 100%);
 background-image: linear-gradient(to bottom, #EBEBEB 0%, #DCDCDC 100%);*/
-	/*width:428px;*/
-	width:418px;
-	/*border-left:5px solid #505050;*/
-	height:105px; 
-	margin-top:15px;
-	margin-left:5px;
+/*width:428px;*/
+width:418px;
+/*border-left:5px solid #505050;*/
+height:105px; 
+margin-top:15px;
+margin-left:5px;
 	/*-webkit-border-top-left-radius: 6px;
 	-webkit-border-bottom-left-radius: 6px;
 	-moz-border-radius-topleft: 6px;
@@ -71,13 +71,13 @@ background-image: linear-gradient(to bottom, #EBEBEB 0%, #DCDCDC 100%);*/
 	border-top-left-radius: 6px;
 	border-bottom-left-radius: 6px;*/
 	-webkit-border-radius: 6px;
--moz-border-radius: 6px;
-border-radius: 6px;
+	-moz-border-radius: 6px;
+	border-radius: 6px;
 	
--webkit-box-shadow: 0px -1px 6px 0px rgba(100, 100, 100, 0.12);
--moz-box-shadow:    0px -1px 6px 0px rgba(100, 100, 100, 0.12);
-box-shadow:         0px -1px 6px 0px rgba(100, 100, 100, 0.12);
-display:inline-block;
+	-webkit-box-shadow: 0px -1px 6px 0px rgba(100, 100, 100, 0.12);
+	-moz-box-shadow:    0px -1px 6px 0px rgba(100, 100, 100, 0.12);
+	box-shadow:         0px -1px 6px 0px rgba(100, 100, 100, 0.12);
+	display:inline-block;
 
 
 
@@ -94,14 +94,14 @@ border: 1px solid #C3C3C3;
 .content:hover {
 	/*border-left:5px solid #1C1C1C;*/
 	
-	  -o-transition:.1s ease-in-out;
-  -ms-transition:.1s ease-in-out;
-  -moz-transition:.1s ease-in-out;
-  -webkit-transition:.1s ease-in-out;
-  /* ...and now for the proper property */
-  transition:.1s ease-in-out;
-background-color: rgb(250,250,250)!important;
-border-radius:0;
+	-o-transition:.1s ease-in-out;
+	-ms-transition:.1s ease-in-out;
+	-moz-transition:.1s ease-in-out;
+	-webkit-transition:.1s ease-in-out;
+	/* ...and now for the proper property */
+	transition:.1s ease-in-out;
+	background-color: rgb(250,250,250)!important;
+	border-radius:0;
 
 
 }
@@ -121,12 +121,12 @@ background-image: -moz-linear-gradient(bottom, #EBEBEB 0%, #DCDCDC 100%);
 background-image: -webkit-linear-gradient(bottom, #EBEBEB 0%, #DCDCDC 100%);
 background-image: -ms-linear-gradient(bottom, #EBEBEB 0%, #DCDCDC 100%);
 background-image: linear-gradient(to bottom, #EBEBEB 0%, #DCDCDC 100%);*/
-	/*width:428px;*/
-	width:418px;
-	/*border-left:5px solid #505050;*/
-	height:105px; 
-	margin-top:15px;
-	margin-left:5px;
+/*width:428px;*/
+width:418px;
+/*border-left:5px solid #505050;*/
+height:105px; 
+margin-top:15px;
+margin-left:5px;
 /*-webkit-border-top-right-radius: 6px;
 -webkit-border-bottom-right-radius: 6px;
 -moz-border-radius-topright: 6px;
@@ -134,7 +134,7 @@ background-image: linear-gradient(to bottom, #EBEBEB 0%, #DCDCDC 100%);*/
 border-top-right-radius: 6px;
 border-bottom-right-radius: 6px;*/
 
-	-webkit-border-radius: 6px;
+-webkit-border-radius: 6px;
 -moz-border-radius: 6px;
 border-radius: 6px;
 -webkit-box-shadow: 0px 0px 6px 0px rgba(50, 50, 50, 0.12);
@@ -146,15 +146,15 @@ display:inline-block;
 }
 
 .content2:hover {
-/*border-right:5px solid #5495D2;*/
-	  -o-transition:.1s ease-in-out;
-  -ms-transition:.1s ease-in-out;
-  -moz-transition:.1s ease-in-out;
-  -webkit-transition:.1s ease-in-out;
-  /* ...and now for the proper property */
-  transition:.1s ease-in-out;
-background-color: #EEEEEE!important;
-border-radius:0px;
+	/*border-right:5px solid #5495D2;*/
+	-o-transition:.1s ease-in-out;
+	-ms-transition:.1s ease-in-out;
+	-moz-transition:.1s ease-in-out;
+	-webkit-transition:.1s ease-in-out;
+	/* ...and now for the proper property */
+	transition:.1s ease-in-out;
+	background-color: #EEEEEE!important;
+	border-radius:0px;
 }
 
 /*thumbnail for each mod on index */
