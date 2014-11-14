@@ -1,48 +1,50 @@
 * {
 	font-family: 'Arimo', Helvetica, sans-serif;
 }
-
 .form {
 	margin-left: 50px;
 }
-
 a:link {
-	text-decoration:none;
+	text-decoration: none;
 	color: #141414;
 }
-
-a:visited{
-	color:#141414;
+a:visited {
+	color: #141414;
 }
-
 #mainpagewrap {
-	width: 900px; 
-	height:1240px; 
-	margin: 0 auto; 
-	margin-bottom:10px;
+	width: 900px;
+	height: 1240px;
+	margin: 0 auto;
+	margin-bottom: 10px;
 }
-
 #mainpage {
-	width:860px; 
-	height:1240px;
-	/*background-color:rgb(217,217,217);*/
+	width: 860px;
+	height: 1240px;
 }
-
 .mainpageleft {
-	width:860px; 
-	height:100%; 
-	float:left; 
-	margin-left:20px;
-	/*border-right:1px dashed #C3C3C3;*/
-	border:none;
+	width: 860px;
+	height: 100%;
+	float: left;
+	margin-left: 20px;
+	border: none;
+}
+.mainpageright {
+	width: 430px;
+	height: 100%;
+	float: right;
+	margin-right: 20px;
+	border: none;
 }
 
-.mainpageright {
-	width:430px; 
-	height:100%; 
-	float:right; 
-	margin-right:20px;
-	/*border-left:1px dashed #C3C3C3;*/
-	border:none;
-	
+input, textarea {
+  color: rgb(50, 50, 50);
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 15px;
+  border: 1px solid rgb(190, 190, 190);
+  border-radius: 3px;
+  padding-left: 5px;
+}
+
+input {
+	height: 30px;
 }

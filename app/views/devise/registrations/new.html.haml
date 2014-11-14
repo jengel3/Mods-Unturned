@@ -1,57 +1,54 @@
-%div{:style => "background-color:#2E2E2E;margin:0;padding:0;"}
-  #centerpage{:style => "outline:1px solid red;"}
-    #headerpage{:style => "height:90px; background-color:#1C1C1C; position:relative;"}
-      %h1{:style => "color:white;font-size:60px; font-family:'Arial', Helvetica, sans-serif; text-align:center; margin:0px; padding:10px;"} Unturned Mods
-    #tabs{:style => "margin: 0 auto; width:860px; height:42px; margin-top:10px;"}
-      .home{:style => "width:120px;height:40px;background-color:#5495D2; margin-left: 20px; float:left;"}
-        %a{:href => root_path, :style => "text-decoration:none"}
-          %h3{:style => "text-align:center; margin:0 auto; padding-top:10px; color:white;"} Home
-      .upload{:style => "width:120px;height:40px;background-color:#5495D2; margin-right: 20px; float:right"}
-        %a{:href => new_submission_path, :style => "text-decoration:none"}
-          %h3{:style => "text-align:center; margin:0 auto; padding-top:10px; color:white;"} Upload
-    #mainpagewrap{:style => " width: 860px; height:1200px; margin: 0 auto; margin-bottom:10px;"}
-      .mainpageleft{:style => "width:429px; height:100%; float:left; border-right: 1px solid #848484;"}
-        .contenthead1{:style => "background-color:#54C1D2; width:100%; height:100px; margin-bottom:20px;"}
-          %h2{:style => "color:white;font-size:40px; font-family:'Arial', Helvetica, sans-serif; text-align:center; margin:0; padding:27px;"} Sign in
-        .form{style: "margin-left: 50px;"}
+%div
+  #centerpage
+    #headerpage
+      .headerwrap
+    = render 'shared/tabs'    
+    #mainpagewrap
+      .box.effect1
+        %h2 Login
+      .mainpageleft
+        .contenthead1
+          %h2 Sign in
+        .form
           = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
             = render 'shared/errors', object: resource
             %p
-              = f.label :email, class: 'text-label'
+              %b= f.label :email, class: 'text-label'
               %br/
               = f.email_field :email, autofocus: true, class: 'text-box'
             %p
-              = f.label :password, class: 'text-label'
+              %b= f.label :password, class: 'text-label'
               %br/
               = f.password_field :password, autocomplete: "off", class: 'text-box'
             - if devise_mapping.rememberable?
               %div
-                = f.check_box :remember_me
-                = f.label :remember_me
+                = f.check_box :remember_me, class: 'checkbox'
+                %span
+                  = f.label :remember_me
             %p
               = f.submit "Login", class: 'text-box'
-      .mainpageright{:style => "width:429px; height:100%; float:right; border-left: 1px solid #848484;"}
-        .contenthead1{:style => "background-color:#54C1D2; width:100%; height:100px; margin-bottom:20px;"}
-          %h2{:style => "color:white;font-size:40px; font-family:'Arial', Helvetica, sans-serif; text-align:center; margin:0; padding-top:27px;"} Create Account
-        .form{style: "margin-left: 50px;"}
+      .mainpageright
+        .contenthead1
+          %h2 Sign up
+        .form
           = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
             = render 'shared/errors', object: resource
             %p
-              = f.label :email, class: 'text-label'
+              %b= f.label :email, class: 'text-label'
               %br/
               = f.email_field :email, autofocus: true, class: 'text-box'
             %p
-              = f.label :username, class: 'text-label'
+              %b= f.label :username, class: 'text-label'
               %br/
               = f.text_field :username, class: 'text-box'
             %p
-              = f.label :password, class: 'text-label'
+              %b= f.label :password, class: 'text-label'
               %br/
               = f.password_field :password, autocomplete: "off", class: 'text-box'
             %p
-              = f.label :password_confirmation, class: 'text-label'
+              %b= f.label :password_confirmation, class: 'text-label'
               %br/
               = f.password_field :password_confirmation, autocomplete: "off", class: 'text-box'
             %p
               = f.submit "Register", class: 'text-box'
-      .mainpage{:style => "margin:0 auto; background-color:#D8D8D8; width:850px; height:1200px;"}
+      #mainpage
