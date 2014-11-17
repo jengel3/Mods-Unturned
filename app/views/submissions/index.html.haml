@@ -39,7 +39,7 @@
                   \•
                   = submission.download_count
                   = image_tag("downarrow.png")
-              .contentdesc{style: "word-wrap: break-word; overflow: hidden;"}
+              .contentdesc{style: "word-wrap: break-word; overflow: hidden; min-height: 48px;"}
                 - if submission.body.length > 75
                   = submission.body[0..75].gsub('\n', ' ') + "..."
                 - else
