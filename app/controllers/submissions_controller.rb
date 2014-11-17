@@ -13,7 +13,7 @@ class SubmissionsController < ApplicationController
       elsif params[:sort] == "popular"
         @submissions = @submissions.desc(:download_count)
       end
-      @submissions = @submissions.page(params[:page]).per(8)
+      @submissions = @submissions.page(params[:page]).per(20)
     else
       @type = params[:type]
       projects = Submission.all
