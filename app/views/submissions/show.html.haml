@@ -19,8 +19,6 @@
               %b This submission is either lacking a main image, a download, or the first download is awaiting moderator approval.
           %p.title= @submission.name
           %p.dateupload= @submission.created_at.strftime("%B #{@submission.created_at.day.ordinalize}, #{@submission.created_at.year}")
-          %p.uploadby
-            %b= pluralize(@submission.download_count, 'Download')
           %p
             = simple_format(@submission.body.html_safe, class: 'description')
           %p.uploadby
@@ -34,6 +32,8 @@
               .stats
                 = @submission.user.submissions.count
                 Submissions
+          %p.uploadby
+            %b= pluralize(@submission.download_count, 'Download')
           .manage
             - if can_manage(@submission)
               %p.title Manage
@@ -49,6 +49,7 @@
                     %b Edit Submission
                   %br/
                   %b= link_to 'Delete Submission', submission_path(@submission), method: :delete, data: {confirm: 'Are you sure you want to delete this submission? This can not be undone.'}
+          -# NYI
           -# .videosection
           -#   %h4.download Videos
           -#   -# %a{href: ""}
