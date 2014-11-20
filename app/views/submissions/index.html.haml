@@ -2,6 +2,7 @@
   #centerpage
     #headerpage
       .headerwrap
+        = image_tag('header.png')
     = render 'shared/tabs'
     #mainpagewrap
       .box.effect1
@@ -29,7 +30,7 @@
             %a{:href => url_for(submission)}
               = link_to image_tag("#{submission.main_image ? submission.main_image.image_url : 'uploadthumb.png'}", class: 'levelthumb'), submission
             .contentdetails
-              %h4
+              %h4{style: "height: 18px; overflow: hidden; word-wrap: break-word;"}
                 %a{:href => url_for(submission)}= submission.name
                 - if submission.is_new?
                   %span{:style => "color:red;font-size:12px;text-decoration:none;"} NEW!
