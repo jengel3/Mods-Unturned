@@ -6,7 +6,7 @@ class ApplicationController < ActionController::Base
 
   def check_redirect
     puts "CONTROLLER: #{params[:controller]} AND ACTION: #{params[:action]}"
-    redirect_to new_user_registration_path if params[:controller] == 'devise/sessions' and (params[:action] == 'new' || params[:action] == 'edit')
+    redirect_to new_user_registration_path if params[:controller] == 'devise/sessions' and (params[:action] == 'new' || params[:action] == 'edit' || params[:action] == 'create')
   end
 
   protected
