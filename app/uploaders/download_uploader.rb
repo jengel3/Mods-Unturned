@@ -8,6 +8,6 @@ class DownloadUploader < CarrierWave::Uploader::Base
   end
 
   def extension_white_list
-    %w(zip)
+    %w(zip rar tar)
   end
 end
