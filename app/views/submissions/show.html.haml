@@ -19,8 +19,8 @@
               %b This submission is either lacking a main image, a download, or the first download is awaiting moderator approval.
           %p.title= @submission.name
           %p.dateupload= @submission.created_at.strftime("%B #{@submission.created_at.day.ordinalize}, #{@submission.created_at.year}")
-          %p
-            = simple_format(@submission.body.html_safe, class: 'description')
+          %p.description
+            = @submission.body.html_safe
           %p.uploadby
             %b Created by:
           .profile
