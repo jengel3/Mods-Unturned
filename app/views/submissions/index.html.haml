@@ -21,10 +21,12 @@
           - else
             = link_to 'Newest First', params.merge(:sort => "newest")
           - if params[:sort] == "popular"
+            \•
             %b
-              = link_to '• Most Popular', params.merge(:sort => "popular")
+              = link_to 'Most Popular', params.merge(:sort => "popular")
           - else
-            = link_to '• Most Popular', params.merge(:sort => "popular")
+            \•
+            = link_to 'Most Popular', params.merge(:sort => "popular")
         - @submissions.each do |submission|
           .content
             %a{:href => url_for(submission)}
