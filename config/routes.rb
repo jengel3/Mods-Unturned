@@ -10,7 +10,7 @@ Rails.application.routes.draw do
     end
     resources :images
   end
-  devise_for :users
+  devise_for :users, :controllers => {:sessions => "sessions"}
   get '/moderation', to: 'moderation#home', as: 'moderation'
   get '/uploads/:user', to: 'submissions#index', as: 'user_uploads'
 end
