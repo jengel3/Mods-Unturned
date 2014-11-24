@@ -20,7 +20,7 @@
           %p.title= @submission.name
           %p.dateupload= @submission.created_at.strftime("%B #{@submission.created_at.day.ordinalize}, #{@submission.created_at.year}")
           %p.description
-            = @submission.body.html_safe
+            = sanitize(@submission.body).gsub(/(\r)?\n/, "<br/>").html_safe
           %p.uploadby
             %b Created by:
           .profile
