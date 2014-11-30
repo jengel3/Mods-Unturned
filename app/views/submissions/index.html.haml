@@ -47,6 +47,6 @@
                   = submission.body[0..75].gsub('\n', ' ') + "..."
                 - else
                   = submission.body.gsub('\n', ' ')
-      #mainpage
-      #paginator{align: "center"}
+      #mainpage{style: "margin-bottom: 2px !important;"}
+      #paginator{align: "center", style: "padding: 5px;"}
         = paginate @submissions
