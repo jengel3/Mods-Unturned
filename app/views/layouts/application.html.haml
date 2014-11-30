@@ -6,7 +6,7 @@
   %link{:href => "https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz", :rel => "stylesheet", :type => "text/css"}/
   %link{:href => "https://fonts.googleapis.com/css?family=Arimo", :rel => "stylesheet", :type => "text/css"}/
   - if params[:controller] == "submissions"
-    - if params[:action] == "new" or params[:action] == "edit"
+    - if params[:action] == "new" or params[:action] == "edit" || params[:action] == "create"
       = stylesheet_link_tag 'upload'
     - else
       = stylesheet_link_tag 'content'
