@@ -10,8 +10,8 @@ input:not(.checkbox) {
 input:hover {
   border: 1px solid rgb(170, 170, 170);
 }
-input[type=button] {
-  background-color: rgb(245, 245, 245);
+input[type=submit] {
+  background-color: rgb(245, 245, 245) !important;
 }
 
 #mainpagewrap {

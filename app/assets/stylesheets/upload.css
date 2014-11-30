@@ -11,6 +11,9 @@ a:link {
 a:visited {
 	color: #141414;
 }
+input[type=submit] {
+  background-color: rgb(245, 245, 245) !important;
+}
 #mainpagewrap {
 	width: 900px;
 	height: 1240px;
