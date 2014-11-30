@@ -12,6 +12,8 @@ class SubmissionsController < ApplicationController
         @submissions.desc(:created_at)
       elsif params[:sort] == "popular"
         @submissions = @submissions.desc(:download_count)
+      elsif params[:sort] == "updated"
+        @submissions = @submissions.desc(:last_update)
       end
       @submissions = @submissions.page(params[:page]).per(20)
     else
@@ -26,6 +28,8 @@ class SubmissionsController < ApplicationController
         projects.desc(:created_at)
       elsif params[:sort] == "popular"
         projects = projects.desc(:download_count)
+      elsif params[:sort] == "updated"
+        projects = projects.desc(:last_update)
       end
       @submissions = Array.new
       projects.each { |submission| @submissions << submission if submission.ready? }

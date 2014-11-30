@@ -27,6 +27,13 @@
           - else
             \•
             = link_to 'Most Popular', params.merge(:sort => "popular")
+          - if params[:sort] == "updated"
+            \•
+            %b
+              = link_to 'Recently Updated', params.merge(:sort => "updated")
+          - else
+            \•
+            = link_to 'Recently Updated', params.merge(:sort => "updated")
         - @submissions.each do |submission|
           .content
             %a{:href => url_for(submission)}
@@ -36,6 +43,8 @@
                 %a{:href => url_for(submission)}= submission.name
                 - if submission.is_new?
                   %span{:style => "color:red;font-size:12px;text-decoration:none;"} NEW!
+                - elsif submission.is_updated?
+                  %span{:style => "color:red;font-size:12px;text-decoration:none;"} UPDATED!
               .madebyuser
                 = link_to submission.user.username, user_uploads_path(submission.user.username)
                 .downloadcount

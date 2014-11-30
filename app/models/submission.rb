@@ -14,6 +14,8 @@ class Submission
   field :body, type: String
   field :type, type: String
   field :download_count, type: Integer, default: 0
+  field :last_update, type: Time, default: nil
+  field :approved_at, type: Time, default: nil
 
   belongs_to :user
   has_many :comments, :dependent => :destroy
@@ -27,6 +29,10 @@ class Submission
   #TODO Decide what makes submissions featured.
   def is_featured?
     false
+  end
+
+  def is_updated?
+    last_update && Time.now - 24.hour < last_update
   end
 
   def latest_download
