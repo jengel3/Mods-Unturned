@@ -88,7 +88,7 @@ a:visited {
 .content:hover {
 	/* border-left: 5px solid #1C1C1C;
 	*/
-		
+	
 	-o-transition: .1s ease-in-out;
 	-ms-transition: .1s ease-in-out;
 	-moz-transition: .1s ease-in-out;
@@ -163,28 +163,32 @@ a:visited {
 	padding-top: 10px;
 	margin-right: 5px;
 }
+
 .madebyuser a:visited {
-	font-size: 13px;
-	color: #473AFA;
-	/* font-family: 'Arial', Helvetica, sans-serif;
-	*/
+	font-size:13px;
+	color:#473AFA;
 	font-family: 'Arimo', sans-serif;
+	color: #473AFA;
 }
+
+
 .madebyuser a {
-	font-size: 13px;
-	color: #473AFA;
-	/* font-family: 'Arial', Helvetica, sans-serif;
-	*/
+	font-size:13px;
+	color:#473AFA;
 	font-family: 'Arimo', sans-serif;
+	color: #473AFA;
 }
+
 .downloadcount {
 	display: inline-block;
-	color: rgb(100, 100, 100);
+	color:rgb(100,100,100);
+	font-size:13px;
 }
+
 .downloadcount img {
-	width: 11px;
-	vertical-align: bottom;
-	padding-bottom: 2px;
+	width:11px;
+	vertical-align:bottom;
+	padding-bottom:2px;
 }
 
 /* Mod (content) titles */
