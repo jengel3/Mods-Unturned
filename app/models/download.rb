@@ -24,7 +24,6 @@ class Download
     if submission.ready?
       submission.approved_at = Time.now
       submission.save
-      puts "A SUBMISSION WAS APPROVED"
     end
   end
 
