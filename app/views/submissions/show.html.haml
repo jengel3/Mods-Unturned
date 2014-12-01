@@ -70,12 +70,13 @@
         .comments
           .header
             %b
-            %p{:style => "font-family:'Arial', Helvetica, sans-serif; color:#464646; margin-left:5px; padding-top:5px;"} Comments
+            %p{:style => "font-family:'Arial', Helvetica, sans-serif; color:#464646; margin-left:5px; padding-top:5px;"} 
+              %b Comments
             = render 'comments/form'
           .list
             - @submission.comments.reject(&:new_record?).each do |comment|
               %div{class: "comment #{cycle('comment-odd', 'comment-even')}"}
                 .text
-                  %b= link_to comment.user.username + ':', user_uploads_path(comment.user.username), class: "#{'admin' if user.admin?}"
+                  %b= link_to comment.user.username + ':', user_uploads_path(comment.user.username), class: "#{'admin' if comment.user.admin?}"
                   = comment.text
       #mainpage
