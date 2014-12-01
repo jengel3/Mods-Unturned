@@ -7,6 +7,9 @@ class SubmissionsController < ApplicationController
   def index
     if params[:user]
       @user = User.where(:username => params[:user]).first
+      if !@user
+        return redirect_to root_path
+      end
       @submissions = Submission.where(:user => @user)
       @submissions = if params[:sort] == "newest" || !params[:sort]
         @submissions.desc(:created_at)
@@ -46,6 +49,9 @@ class SubmissionsController < ApplicationController
   end
 
   def show
+    if !@submission
+      return redirect_to root_path
+    end
     respond_with(@submission)
   end
 
