@@ -76,6 +76,6 @@
             - @submission.comments.reject(&:new_record?).each do |comment|
               %div{class: "comment #{cycle('comment-odd', 'comment-even')}"}
                 .text
-                  %b= link_to comment.user.username + ':', user_uploads_path(comment.user.username)
+                  %b= link_to comment.user.username + ':', user_uploads_path(comment.user.username), class: "#{'admin' if user.admin?}"
                   = comment.text
       #mainpage
