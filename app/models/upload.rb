@@ -6,7 +6,6 @@ class Upload
   after_update :check_approval
   
   mount_uploader :upload, UploadUploader
-  belongs_to :submission
 
   validates :name, presence: true
   validates :version, presence: true
@@ -18,7 +17,9 @@ class Upload
   field :denied, type: Boolean, default: false
 
   has_many :downloads, :dependent => :destroy
+  belongs_to :submission
 
+  private
   def check_approval
     if !approved || submission.approved_at
       return

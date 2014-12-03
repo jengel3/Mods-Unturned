@@ -1,15 +1,15 @@
 class Image
   include Mongoid::Document
 
+  before_create :delete_old
   after_create :check_approval
 
-  belongs_to :submission
   mount_uploader :image, ImageUploader
 
-  before_create :delete_old
-
+  belongs_to :submission
   field :location, type: String
 
+  private
   def delete_old
     if old = submission.images.where(:location => self.location).first
       old.destroy

@@ -13,7 +13,7 @@ class Submission
   field :name, type: String
   field :body, type: String
   field :type, type: String
-  field :download_count, type: Integer, default: 0 # Deprecated
+  # field :download_count, type: Integer, default: 0 # Deprecated
   field :last_update, type: Time, default: nil
   field :approved_at, type: Time, default: nil
 
@@ -21,6 +21,10 @@ class Submission
   has_many :comments, :dependent => :destroy
 
   slug :name
+
+  def download_count
+    0 # NYI
+  end
 
   def is_new?
     Time.now - 24.hour < created_at
