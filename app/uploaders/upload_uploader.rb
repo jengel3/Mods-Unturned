@@ -1,6 +1,6 @@
 # encoding: utf-8
 
-class DownloadUploader < CarrierWave::Uploader::Base
+class UploadUploader < CarrierWave::Uploader::Base
   storage :file
 
   def store_dir

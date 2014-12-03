@@ -1,50 +1,48 @@
-class DownloadsController < ApplicationController
-  before_action :set_download, only: [:show, :edit, :update, :destroy]
+class UploadsController < ApplicationController
+  before_action :set_upload, only: [:show, :edit, :update, :destroy]
   respond_to :html, :xml, :json
   before_filter :authenticate_user!, only: [:new, :edit, :create, :update, :destroy, :approve, :deny]
   before_filter :require_admin, only: [:approve, :deny]
   
   def approve
-    @download = Download.find(params[:download_id])
-    @download.approved = true
-    @download.save
+    @upload.approved = true
+    @upload.save
     redirect_to moderation_path
   end
 
   def deny
-    @download = Download.find(params[:download_id])
-    @download.denied = true
-    @download.save
+    @upload.denied = true
+    @upload.save
     redirect_to moderation_path
   end
 
   def index
     @submission = Submission.find(params[:submission_id])
-    @downloads = @submission.downloads
-    respond_with(@downloads)
+    @uploads = @submission.uploads
+    respond_with(@uploads)
   end
 
   def show
-    respond_with(@download)
+    respond_with(@upload)
   end
 
   def new
     @submission = Submission.find(params[:submission_id])
     return redirect_to root_path unless can_manage(@submission)
-    @download = @submission.downloads.build
-    respond_with(@download)
+    @upload = @submission.uploads.build
+    respond_with(@upload)
   end
 
   def edit
-    return redirect_to root_path unless can_manage(@download.submission)
+    return redirect_to root_path unless can_manage(@upload.submission)
   end
 
   def create
     @submission = Submission.find(params[:submission_id])
     return redirect_to root_path unless can_manage(@submission)
-    @download = Download.new(download_params)
-    @submission.downloads << @download
-    if @download.save
+    @upload = Upload.new(upload_params)
+    @submission.uploads << @upload
+    if @upload.save
       redirect_to @submission
     else
       render 'edit'
@@ -52,23 +50,23 @@ class DownloadsController < ApplicationController
   end
 
   def update
-    return redirect_to root_path unless can_manage(@download.submission)
-    @download.update(download_params)
-    respond_with(@download)
+    return redirect_to root_path unless can_manage(@upload.submission)
+    @upload.update(upload_params)
+    respond_with(@upload)
   end
 
   def destroy
-    return redirect_to root_path unless can_manage(@download.submission)
-    @download.destroy
-    respond_with(@download)
+    return redirect_to root_path unless can_manage(@upload.submission)
+    @upload.destroy
+    respond_with(@upload)
   end
 
   private
-    def set_download
-      @download = Download.find(params[:id])
+    def set_upload
+      @upload = Upload.find(params[:id || :upload_id])
     end
 
-    def download_params
-      params.require(:download).permit(:download, :name, :version)
+    def upload_params
+      params.require(:upload).permit(:upload, :name, :version)
     end
 end

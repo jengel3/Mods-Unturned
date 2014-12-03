@@ -96,6 +96,6 @@ class SubmissionsController < ApplicationController
   end
 
   def submission_params
-    params.require(:submission).permit(:name, :downloads, :body, :type)
+    params.require(:submission).permit(:name, :uploads, :body, :type)
   end
 end

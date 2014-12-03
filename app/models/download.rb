@@ -1,16 +1,16 @@
-class Download
+class Upload
   include Mongoid::Document
   include Mongoid::Timestamps
 
   before_save :set_update
   after_update :check_approval
   
-  mount_uploader :download, DownloadUploader
+  mount_uploader :upload, UploadUploader
   belongs_to :submission
 
   validates :name, presence: true
   validates :version, presence: true
-  validates :download, presence: true
+  validates :upload, presence: true
 
   field :name, type: String
   field :version, type: String

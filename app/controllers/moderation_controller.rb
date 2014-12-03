@@ -3,6 +3,6 @@ class ModerationController < ApplicationController
   before_filter :require_admin
   
   def home
-    @downloads = Download.where(:denied => false).where(:approved => false)
+    @uploads = Upload.where(:denied => false).where(:approved => false)
   end
 end

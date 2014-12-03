@@ -7,13 +7,13 @@ class Submission
   validates :body, presence: true
   validates :type, presence: true, inclusion: { in: %w(Level Asset), message: "Invalid submission type." }
 
-  has_many :downloads, :dependent => :destroy
+  has_many :uploads, :dependent => :destroy
   has_many :images, :dependent => :destroy
   
   field :name, type: String
   field :body, type: String
   field :type, type: String
-  field :download_count, type: Integer, default: 0
+  field :download_count, type: Integer, default: 0 # Deprecated
   field :last_update, type: Time, default: nil
   field :approved_at, type: Time, default: nil
 
@@ -36,7 +36,7 @@ class Submission
   end
 
   def latest_download
-    downloads.where(:approved => true).desc(:created_at).first
+    uploads.where(:approved => true).desc(:created_at).first
   end
 
   def main_image

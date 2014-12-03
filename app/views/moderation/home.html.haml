@@ -10,35 +10,34 @@
       padding: 5px;
       text-align: left;
   }
-%div
 #centerpage
   = render 'shared/tabs'
   #mainpagewrap
     .box.effect1
       %h2 Moderation
     .mainpageleft
-      - if @downloads.any?
+      - if @uploads.any?
         %table
           %tr
             %th Project Name
             %th File Name
             %th Uploader
             %th{colspan: 2} Actions
-          - @downloads.each do |download|
-            = puts download.inspect
+          - @uploads.each do |upload|
+            = puts upload.inspect
             %tr
               %td
-                = link_to download.submission.name, download.submission
+                = link_to upload.submission.name, upload.submission
               %td
-                = link_to download.download.file.filename, download.download.url
+                = link_to upload.upload.file.filename, upload.upload.url
               %td
-                = link_to download.submission.user.username, user_uploads_path(download.submission.user.username)
+                = link_to upload.submission.user.username, user_uploads_path(upload.submission.user.username)
               %td
                 .approve{align: "center"}
-                  = link_to 'Approve', submission_download_approve_path(download.submission, download)
+                  = link_to 'Approve', submission_upload_approve_path(upload.submission, upload)
               %td
                 .deny{align: "center"}
-                  = link_to 'Deny', submission_download_deny_path(download.submission, download)
+                  = link_to 'Deny', submission_upload_deny_path(upload.submission, upload)
       - else
-        #none{align: "center"} No downloads awaiting moderation.
+        #none{align: "center"} No uploads awaiting moderation.
     #mainpage

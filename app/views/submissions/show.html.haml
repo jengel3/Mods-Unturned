@@ -8,7 +8,7 @@
         .infosection.effect3
           - if @submission.latest_download
             .downloadbutton
-              %a{:href => submission_download_path(@submission)}
+              %a{:href => submission_upload_path(@submission)}
                 %h4.download Download
           - if !@submission.ready?
             %p.title{style: "margin-top: 0px;"} Warning:
@@ -36,7 +36,7 @@
               %p.title Manage
               .manage
                 %p.uploadby
-                  %a{:href => new_submission_download_path(@submission)}
+                  %a{:href => new_submission_upload_path(@submission)}
                     %b Upload File
                   %br/
                   %a{:href => new_submission_image_path(@submission)}
