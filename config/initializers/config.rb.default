@@ -1,2 +1,7 @@
-REDIS = Redis.new(:host => "127.0.0.1")
 REDIS_PREFIX = 'UNTURNED:'
+
+if ENV["REDISCLOUD_URL"]
+    REDIS = Redis.new(:url => ENV["REDISCLOUD_URL"])
+else
+	REDIS = Redis.new(:host => "127.0.0.1")
+end
