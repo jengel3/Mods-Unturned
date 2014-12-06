@@ -16,9 +16,12 @@ class Submission
   field :type, type: String
   field :last_update, type: Time, default: nil
   field :approved_at, type: Time, default: nil
+  field :last_favorited, type: Time, default: nil
 
   belongs_to :user
   has_many :comments, :dependent => :destroy
+
+  scope :recent, -> { desc(:last_update) }
 
   slug :name
 
@@ -36,7 +39,25 @@ class Submission
       end
       result
     end
+
+    def get_favorites
+      favs = where(:last_favorited.exists => true).desc(:last_favorited)
+      if !favs.any?
+        # Generate 4 recent favs if none exist
+        favs = Submission.desc(:download_count).limit(4).update_all(:last_favorited => Time.now)
+      end
+      return favs
+    end
   end
+
+  def desc
+    if body.length > 75
+      return body[0..75].gsub('\n', ' ') + "..."
+    else
+      return body.gsub('\n', ' ')
+    end
+  end
+
 
   def download_count
     key = "#{name}_downloads"

@@ -1,7 +1,8 @@
 class SubmissionsController < ApplicationController
-  before_action :set_submission, only: [:show, :edit, :update, :destroy, :deny, :approve, :download]
+  before_action :set_submission, only: [:show, :edit, :update, :destroy, :deny, :approve, :download, :favorite]
   respond_to :html, :xml, :json
-  before_filter :authenticate_user!, only: [:new, :edit, :create, :update, :destroy, :approve, :deny]
+  before_filter :authenticate_user!, only: [:new, :edit, :create, :update, :destroy, :approve, :deny, :favorite]
+  before_filter :require_admin, only: [:approve, :deny, :favorite]
   before_filter :verify_manager, only: [:edit, :destroy, :update]
 
   def index
@@ -38,6 +39,12 @@ class SubmissionsController < ApplicationController
       projects.each { |submission| @submissions << submission if submission.ready? }
       @submissions = Kaminari.paginate_array(@submissions).page(params[:page]).per(20)
     end
+  end
+  
+  def favorite
+    @submission.last_favorited = Time.now
+    @submission.save
+    redirect_to @submission
   end
 
   def download

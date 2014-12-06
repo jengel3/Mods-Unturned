@@ -16,6 +16,7 @@ Rails.application.routes.draw do
       get :deny
     end
     resources :images
+    get :favorite
   end
 
   # Admin Panel
