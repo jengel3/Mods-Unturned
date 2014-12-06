@@ -1,0 +1,167 @@
+<div id="centerpage">
+  <%= render 'shared/tabs' %>
+  <div id="mainpagewrap"> 
+
+    <div class="box effect1">
+      <h2>Home </h2>
+    </div>        
+
+    <div class="mainpageleft">
+      <table class="homeupperlayout">
+        <tr>
+          <td class="homesubtitle"><img src=<%= image_path('popular.png') %> /> TODAY'S MOST POPULAR </td>
+          <td class="homesubtitle">THIS WEEK'S <img src=<%= image_path('thisweekarrow.png') %> /></td>
+        </tr>
+      </tr>
+      <tr>
+        <td class="todaymostpopular"> 
+          <div class="mostpopularcontent">
+            <a href=<%= submission_path(@most_popular_today) %>>
+              <img class="mainthumblarge"src=<%= @most_popular_today.main_image.image_url %>>
+              <div class="mostpopularmodtitle homesubtitle"><%= @most_popular_today.name %></div>
+            </a>
+          </div>  
+        </td>
+        <td class="community"> 
+          <table>
+            <tr><td class="toplisttitle">Top Developers</td></tr>
+            <tr><td class="toplistitem"><a href="">Storm_epidemic</a></td></tr>
+            <tr><td class="toplistitem"><a href="">Dhani Priadi</a></td></tr> 
+            <tr><td class="toplistitem"><a href="">adsl45613</a></td></tr>  
+            <tr><td class="toplistitem"><a href="">LCBradley3k</a> </td></tr> 
+            <tr><td class="toplistitem"><a href="">CelthricAysen</a> </td></tr>
+            <tr><td class="toplisttitle">Top Modifications</td></tr>  
+            <tr><td class="toplistitem"><a href="">Matchbox Isle</a></td></tr>  
+            <tr><td class="toplistitem"><a href="">PEI (v3)</a></td></tr> 
+            <tr><td class="toplistitem"><a href="">WickerVille 0.2</a></td></tr>  
+            <tr><td class="toplistitem"><a href="">City Pack v 1.0</a></td></tr>  
+            <tr><td class="toplistitem"><a href="">Sky City</a></td></tr> 
+
+
+          </table>
+        </td>
+      </tr>
+
+    </table>
+    <br /><!--<hr />--><br />
+    <table class="homelowerlayout">
+      <tr>
+        <td class="homesubtitle"><img src=<%= image_path('updated.png') %> />  RECENTLY UPDATED </td>
+        <td class="homesubtitle unturnednewstitle"><img src=<%= image_path('unturnednews.png') %> /> UNTURNED NEWS </td>
+      </tr>
+      <tr class="contentboxes">
+        <td class="recentlyupdatedmods">
+          <div class="content">
+            <a href="uploads/levels/testcity/contentpage.html"><img src=<%= image_path('uploadthumb.png') %> class="levelthumb"></a>
+            <div class="contentdetails">
+              <h4><a href="uploads/levels/testcity/contentpage.html"> TestCity! v0.2</a><span style="color:red;font-size:12px;text-decoration:none;"> NEW!</span></h4>
+              <div class="madebyuser">MrZombie <div class="downloadcount">&bull; 78 <img src=<%= image_path('downarrow.png') %> /></div></div> 
+              <div class="contentdesc">A very detailed small city map with homes and bussinesses</div>
+            </div>            
+          </div>      
+          <div class="content">
+            <a href="uploads/levels/testcity/contentpage.html"><img src=<%= image_path('uploadthumb.png') %> class="levelthumb"></a>
+            <div class="contentdetails">
+              <h4><a href="uploads/levels/testcity/contentpage.html"> TestCity! v0.2</a><span style="color:red;font-size:12px;text-decoration:none;"> NEW!</span></h4>
+              <div class="madebyuser">MrZombie <div class="downloadcount">&bull; 78 <img src=<%= image_path('downarrow.png') %> /></div></div> 
+              <div class="contentdesc">A very detailed small city map with homes and bussinesses</div>
+            </div>            
+          </div>
+          <a href=""><div class="see_more_recent_button"> See more recently updated </div></a>
+        </td>
+
+        <td class="unturnedupdates">
+
+          <div class="unturnednewsbubble">
+          <div class="unturnednewsbubbleheading">Unturned Updates </div>
+            <div class="unturnednewsbubbletextarea">News loading...              
+
+            </div>
+            <div class="unturnednewsbubblereadmore"><a class="readmoretext" href="" target="_blank">Read More</a> </div>
+          </div>                    
+        </td>
+
+      </tr>
+
+      <tr>
+        <td colspan="2"><br /></td>
+      </tr>
+      <tr>
+        <td colspan="2"><!--<hr />--></td>
+      </tr>               
+      <tr>
+        <td colspan="2"><br /></td>
+      </tr>             
+      <tr>
+        <td class="homesubtitle" colspan="2">
+          <img src=<%= image_path('popular.png') %> /> STAFF FAVORITES
+        </td>
+      </tr>             
+      <tr>
+        <td style="width:860px;"colspan="2">
+          <div class="content">
+            <a href="uploads/levels/testcity/contentpage.html"><img src=<%= image_path('uploadthumb.png') %> class="levelthumb"></a>
+            <div class="contentdetails">
+              <h4><a href="uploads/levels/testcity/contentpage.html"> TestCity! v0.2</a><span style="color:red;font-size:12px;text-decoration:none;"> NEW!</span></h4>
+              <div class="madebyuser">MrZombie <div class="downloadcount">&bull; 78 <img src=<%= image_path('downarrow.png') %> /></div></div> 
+              <div class="contentdesc">A very detailed small city map with homes and bussinesses</div>
+            </div>            
+          </div>      
+          <div class="content">
+            <a href="uploads/levels/testcity/contentpage.html"><img src=<%= image_path('uploadthumb.png') %> class="levelthumb"></a>
+            <div class="contentdetails">
+              <h4><a href="uploads/levels/testcity/contentpage.html"> TestCity! v0.2</a><span style="color:red;font-size:12px;text-decoration:none;"> NEW!</span></h4>
+              <div class="madebyuser">MrZombie <div class="downloadcount">&bull; 78 <img src=<%= image_path('downarrow.png') %> /></div></div> 
+              <div class="contentdesc">A very detailed small city map with homes and bussinesses</div>
+            </div>            
+          </div>    
+          <div class="content">
+            <a href="uploads/levels/testcity/contentpage.html"><img src=<%= image_path('uploadthumb.png') %> class="levelthumb"></a>
+            <div class="contentdetails">
+              <h4><a href="uploads/levels/testcity/contentpage.html"> TestCity! v0.2</a><span style="color:red;font-size:12px;text-decoration:none;"> NEW!</span></h4>
+              <div class="madebyuser">MrZombie <div class="downloadcount">&bull; 78 <img src=<%= image_path('downarrow.png') %> /></div></div> 
+              <div class="contentdesc">A very detailed small city map with homes and bussinesses</div>
+            </div>            
+          </div>      
+          <div class="content">
+            <a href="uploads/levels/testcity/contentpage.html"><img src=<%= image_path('uploadthumb.png') %> class="levelthumb"></a>
+            <div class="contentdetails">
+              <h4><a href="uploads/levels/testcity/contentpage.html"> TestCity! v0.2</a><span style="color:red;font-size:12px;text-decoration:none;"> NEW!</span></h4>
+              <div class="madebyuser">MrZombie <div class="downloadcount">&bull; 78 <img src=<%= image_path('downarrow.png') %> /></div></div> 
+              <div class="contentdesc">A very detailed small city map with homes and bussinesses</div>
+            </div>            
+          </div>                    
+        </td>
+      </tr>   
+      <tr>
+        <td colspan="2"><br /></td>
+      </tr>               
+      <tr>
+        <td class="homesubtitle quicklinkstitle" colspan="2">
+          QUICK LINKS
+        </td>
+        <tr>
+          <td  class="quicklinkswrap" colspan="2">
+            <div>
+              <a href=""><div class="quicklinkitem">About Mods-Unturned.com</div></a>
+              <a href=""><div class="quicklinkitem">Tutorials</div></a>
+              <a href=""><div class="quicklinkitem">Item ID List</div></a>
+              <a href=""><div class="quicklinkitem">Facebook Page</div></a>
+              <a href=""><div class="quicklinkitem">Twitter Page</div></a>
+              <a href=""><div class="quicklinkitem">Unturned Steam</div></a>
+            </div>
+          </td>
+        </tr>               
+      </tr>             
+    </table>
+  </div>          
+
+  <div id="mainpage">
+  </div>
+
+
+</div>
+        <!--<footer>
+          <p class="footertext"></p>
+        </footer>-->
+      </div> 

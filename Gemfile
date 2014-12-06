@@ -15,6 +15,9 @@ gem 'mongoid_search', github: 'Jake0oo0/mongoid_search'
 gem 'carrierwave-mongoid'
 gem 'bcrypt-ruby', '~> 3.0.0'
 gem 'mongoid_slug'
+gem 'redis'
+gem 'httparty'
+gem 'ruby-bbcode'
 
 group :development do
   gem 'better_errors'

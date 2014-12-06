@@ -10,8 +10,11 @@
       = stylesheet_link_tag 'upload'
     - else
       = stylesheet_link_tag 'content'
-  - if params[:controller] == "submissions" and params[:action] == "index"
+  - if params[:controller] == "home"
     = stylesheet_link_tag 'home'
+    = stylesheet_link_tag 'index'
+  - if params[:controller] == "submissions" and params[:action] == "index"
+    = stylesheet_link_tag 'index'
   - if params[:controller] == "devise/registrations"
     - if params[:action] == "new" || params[:action] == "create"
       = stylesheet_link_tag 'upload'

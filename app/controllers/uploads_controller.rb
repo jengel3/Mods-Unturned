@@ -1,5 +1,5 @@
 class UploadsController < ApplicationController
-  before_action :set_upload, only: [:show, :edit, :update, :destroy]
+  before_action :set_upload, only: [:show, :edit, :update, :destroy, :approve, :deny]
   respond_to :html, :xml, :json
   before_filter :authenticate_user!, only: [:new, :edit, :create, :update, :destroy, :approve, :deny]
   before_filter :require_admin, only: [:approve, :deny]
@@ -63,7 +63,7 @@ class UploadsController < ApplicationController
 
   private
     def set_upload
-      @upload = Upload.find(params[:id || :upload_id])
+      @upload = Upload.find(params[:upload_id])
     end
 
     def upload_params

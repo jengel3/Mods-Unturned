@@ -8,12 +8,12 @@ class Submission
   validates :type, presence: true, inclusion: { in: %w(Level Asset), message: "Invalid submission type." }
 
   has_many :uploads, :dependent => :destroy
+  has_many :downloads, :dependent => :destroy
   has_many :images, :dependent => :destroy
   
   field :name, type: String
   field :body, type: String
   field :type, type: String
-  # field :download_count, type: Integer, default: 0 # Deprecated
   field :last_update, type: Time, default: nil
   field :approved_at, type: Time, default: nil
 
@@ -22,8 +22,36 @@ class Submission
 
   slug :name
 
+  class << self
+    def most_popular_today
+      key = "most_popular_today"
+      result = REDIS.get(key)
+      if !result
+        highest = 0
+        result = Download.daily.desc(:upload).first.submission
+        REDIS.set(key, result.id)
+        REDIS.expire(result.id, 1.hours)
+      else
+        result = Submission.find(result)
+      end
+      result
+    end
+  end
+
   def download_count
-    0 # NYI
+    key = "#{name}_downloads"
+    dloads = REDIS.get(key)
+    if !dloads
+      dloads = downloads.count
+      REDIS.set(key, dloads)
+      REDIS.expire(key, 2.hours)
+    end
+    dloads
+  end
+
+  def add_download(ip, downloader, upload)
+    self.downloads.create(:ip => ip, :user_id => downloader.id, :upload => upload).save!
+    REDIS.incr("#{name}_downloads")
   end
 
   def is_new?

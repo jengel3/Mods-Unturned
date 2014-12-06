@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   get '/uploads/:user', to: 'submissions#index', as: 'user_uploads'
 
   # Root
-  root "submissions#index"
+  root "home#home"
 
   # Submissions
   get '/projects/:type', to: 'submissions#index', as: 'projects', defaults: { :type => "asset" }
@@ -21,5 +21,10 @@ Rails.application.routes.draw do
   # Admin Panel
   scope '/admin' do
     get '/moderation', to: 'moderation#home', as: 'moderation'
+  end
+
+  scope '/api' do
+    get '/news', to: 'application#news'
+    post '/tohtml', to: 'application#tohtml'
   end
 end

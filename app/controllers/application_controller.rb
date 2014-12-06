@@ -7,6 +7,20 @@ class ApplicationController < ActionController::Base
     root_path
   end
 
+  def news
+    response = HTTParty.get('http://api.steampowered.com/ISteamNews/GetNewsForApp/v0002/?appid=304930&count=1&format=json')
+    respond_to do |format|
+      format.json { render json: response }
+    end
+  end
+
+  def tohtml
+    input = request.body.read
+    respond_to do |format|
+      format.json { render json: input.bbcode_to_html.to_json }
+    end
+  end
+
   protected
   def configure_permitted_parameters
     devise_parameter_sanitizer.for(:sign_up) { |u| u.permit(:username, :email, :password, :password_confirmation, :remember_me) }

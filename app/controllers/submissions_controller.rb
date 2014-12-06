@@ -42,10 +42,10 @@ class SubmissionsController < ApplicationController
 
   def download
     latest = @submission.latest_download
-    unless request.ip == @submission.user.last_sign_in_ip
-      latest.downloads.create(:ip => request.ip, :upload => latest, :user => current_user)
-    end
-    send_file latest.download.path
+    # unless request.ip == @submission.user.last_sign_in_ip
+    @submission.add_download(request.ip, current_user, latest)
+    # end
+    send_file latest.upload.path
   end
 
   def show
