@@ -1,1 +1,1 @@
-web: cp "config/initializers/config.rb.default" "config/initalizers/config.rb" && bundle exec passenger start -p $PORT
+web: cp "config/initializers/config.rb.default" "config/initializers/config.rb" && bundle exec passenger start -p $PORT
