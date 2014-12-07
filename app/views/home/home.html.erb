@@ -16,9 +16,9 @@
       <tr>
         <td class="todaymostpopular"> 
           <div class="mostpopularcontent">
-            <a href=<%= submission_path(@most_popular_today) %>>
-              <img class="mainthumblarge"src=<%= @most_popular_today.main_image.image_url %>>
-              <div class="mostpopularmodtitle homesubtitle"><%= @most_popular_today.name %></div>
+            <a href=<%= @most_popular_today ? submission_path(@most_popular_today) : '' %>>
+              <img class="mainthumblarge"src=<%= @most_popular_today ? @most_popular_today.main_image.image_url : image_path('uploadthumb.png') %>>
+              <div class="mostpopularmodtitle homesubtitle"><%= @most_popular_today ? @most_popular_today.name : 'Most Popular' %></div>
             </a>
           </div>  
         </td>
