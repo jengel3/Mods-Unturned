@@ -14,7 +14,6 @@ class Submission
   field :name, type: String
   field :body, type: String
   field :type, type: String
-  field :download_count, type: Integer
   field :last_update, type: Time, default: nil
   field :approved_at, type: Time, default: nil
   field :last_favorited, type: Time, default: nil
@@ -60,16 +59,16 @@ class Submission
   end
 
 
-  # def download_count
-  #   key = "#{name}_downloads"
-  #   dloads = REDIS.get(key)
-  #   if !dloads
-  #     dloads = downloads.count
-  #     REDIS.set(key, dloads)
-  #     REDIS.expire(key, 2.hours)
-  #   end
-  #   dloads
-  # end
+  def download_count
+    key = "#{name}_downloads"
+    dloads = REDIS.get(key)
+    if !dloads
+      dloads = downloads.count
+      REDIS.set(key, dloads)
+      REDIS.expire(key, 2.hours)
+    end
+    dloads
+  end
 
   def add_download(ip, downloader, upload)
     self.downloads.create(:ip => ip, :user_id => downloader.id, :upload => upload).save!
