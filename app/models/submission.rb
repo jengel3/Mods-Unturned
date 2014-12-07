@@ -60,16 +60,16 @@ class Submission
   end
 
 
-  def download_count
-    key = "#{name}_downloads"
-    dloads = REDIS.get(key)
-    if !dloads
-      dloads = downloads.count
-      REDIS.set(key, dloads)
-      REDIS.expire(key, 2.hours)
-    end
-    dloads
-  end
+  # def download_count
+  #   key = "#{name}_downloads"
+  #   dloads = REDIS.get(key)
+  #   if !dloads
+  #     dloads = downloads.count
+  #     REDIS.set(key, dloads)
+  #     REDIS.expire(key, 2.hours)
+  #   end
+  #   dloads
+  # end
 
   def add_download(ip, downloader, upload)
     self.downloads.create(:ip => ip, :user_id => downloader.id, :upload => upload).save!
