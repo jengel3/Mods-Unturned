@@ -32,9 +32,11 @@
             \•
             = link_to 'Recently Updated', params.merge(:sort => "updated")
         - @submissions.each do |submission|
+          - main_image = submission.get_cached_image
+          - username = submission.get_username
           .content
             %a{:href => url_for(submission)}
-              = link_to image_tag("#{submission.main_image ? submission.main_image.image_url : 'uploadthumb.png'}", class: 'levelthumb'), submission
+              = link_to image_tag("#{main_image ? main_image : 'uploadthumb.png'}", class: 'levelthumb'), submission
             .contentdetails
               %h4{style: "height: 18px; overflow: hidden; word-wrap: break-word;"}
                 %a{:href => url_for(submission)}= submission.name
@@ -43,8 +45,7 @@
                 - elsif submission.is_updated?
                   %span{:style => "color:red;font-size:12px;text-decoration:none;"} UPDATED!
               .madebyuser
-                - puts submission.name
-                = link_to submission.user.username, user_uploads_path(submission.user.username)
+                = link_to username, user_uploads_path(username)
                 .downloadcount
                   \•
                   = submission.download_count

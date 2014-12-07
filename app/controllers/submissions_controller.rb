@@ -22,7 +22,7 @@ class SubmissionsController < ApplicationController
       @submissions = @submissions.page(params[:page]).per(20)
     else
       @type = params[:type]
-      projects = Submission.includes(:images)
+      projects = Submission.where(:approved_at.exists => true)
       if params[:type] && params[:type] != "all"
         projects = projects.where(:type => type_for(@type))
       else
@@ -35,9 +35,7 @@ class SubmissionsController < ApplicationController
       elsif params[:sort] == "updated"
         projects = projects.desc(:last_update)
       end
-      @submissions = Array.new
-      projects.each { |submission| @submissions << submission if submission.ready? }
-      @submissions = Kaminari.paginate_array(@submissions).page(params[:page]).per(20)
+      @submissions = projects.page(params[:page]).per(20)
     end
   end
   

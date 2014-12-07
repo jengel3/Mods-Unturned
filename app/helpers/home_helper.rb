@@ -1,6 +1,6 @@
 module HomeHelper
   def get_top_submissions
-    key = "top_weekly_submissions"
+    key = "STAT:top_weekly_submissions"
     result = REDIS.get(key)
     if !result
       result = Array.new
@@ -13,7 +13,7 @@ module HomeHelper
   end
 
   def get_top_developers
-    key = "top_weekly_developers"
+    key = "STAT:top_weekly_developers"
     result = REDIS.get(key)
     if !result
       result = User.all.desc(:total_downloads).limit(5)

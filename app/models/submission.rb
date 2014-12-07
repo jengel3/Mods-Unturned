@@ -28,7 +28,7 @@ class Submission
 
   class << self
     def most_popular_today
-      key = "most_popular_today"
+      key = "STAT:most_popular_today"
       result = REDIS.get(key)
       if !result
         highest = 0
@@ -51,6 +51,33 @@ class Submission
     end
   end
 
+  def get_cached_image
+    key = "IMAGE:#{id}"
+    result = REDIS.get(key)
+    if !result
+      result = main_image
+      if result
+        result = result.image_url
+        REDIS.set(key, result)
+        REDIS.expire(key, 24.hours)
+      else
+        return nil
+      end
+    end
+    result
+  end
+
+  def get_username
+    key = "CREATOR:#{id}"
+    result = REDIS.get(key)
+    if !result
+      result = user.username
+      REDIS.set(key, result)
+      REDIS.expire(key, 24.hours)
+    end
+    result
+  end
+
   def desc
     if body.length > 75
       return body[0..75].gsub('\n', ' ') + "..."
@@ -61,19 +88,19 @@ class Submission
 
 
   def download_count
-    key = "#{name}_downloads"
+    key = "DOWNLOADS:#{name}"
     dloads = REDIS.get(key)
     if !dloads
       dloads = downloads.count
       REDIS.set(key, dloads)
-      REDIS.expire(key, 2.hours)
+      REDIS.expire(key, 12.hours + rand(1..30).minutes)
     end
     return dloads
   end
 
   def add_download(ip, downloader, upload)
     self.downloads.create(:ip => ip, :user_id => downloader.id, :upload => upload).save!
-    REDIS.incr("#{name}_downloads")
+    REDIS.incr("DOWNLOADS:#{name}")
   end
 
   def is_new?
