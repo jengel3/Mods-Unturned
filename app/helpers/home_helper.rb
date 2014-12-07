@@ -4,12 +4,25 @@ module HomeHelper
     result = REDIS.get(key)
     if !result
       result = Array.new
-      Download.weekly.desc(:created_at).distinct(:submission_id)[0..4].each { |r| result << r.to_s}
+      sort = { "$sort" => { count: -1 } }
+      limit = {"$limit" => 5}
+      group = { "$group" =>
+        { "_id" => "$submission_id", "count" => { "$sum" => 1 } }
+      }
+      records = Download.weekly.collection.aggregate([group, sort, limit])
+      puts records
+      records.each { |r| result << {submission: r['_id'].to_s, downloads: r['count']} }
       REDIS.set(key, result.to_json)
       REDIS.expire(key, 12.hours)
       return Submission.find(result)
     end
-    return Submission.find(JSON.parse(result))
+    json = JSON.parse(result)
+    submissions = json.map { |x| x['submission'] }
+    puts submissions
+    order = {}
+    submissions.each_with_index { |s, i| order[s] = i}
+    returned = Submission.find(submissions).sort_by { |sub| order[sub.id.to_s] }
+    return returned
   end
 
   def get_top_developers

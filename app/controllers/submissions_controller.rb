@@ -22,7 +22,7 @@ class SubmissionsController < ApplicationController
       @submissions = @submissions.page(params[:page]).per(20)
     else
       @type = params[:type]
-      projects = Submission.where(:approved_at.exists => true)
+      projects = Submission.ne(:approved_at => nil)
       if params[:type] && params[:type] != "all"
         projects = projects.where(:type => type_for(@type))
       else
