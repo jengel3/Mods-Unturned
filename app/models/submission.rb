@@ -14,7 +14,7 @@ class Submission
   field :name, type: String
   field :body, type: String
   field :type, type: String
-  field :downloads, type: Integer
+  field :download_count, type: Integer
   field :last_update, type: Time, default: nil
   field :approved_at, type: Time, default: nil
   field :last_favorited, type: Time, default: nil
