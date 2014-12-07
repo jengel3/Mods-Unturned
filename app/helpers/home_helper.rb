@@ -18,7 +18,7 @@ module HomeHelper
     if !result
       result = User.all.desc(:total_downloads).limit(5)
       usernames = Array.new
-      result.distinct(:username).each { |u| usernames << u }
+      result.distinct(:username)[0..4].each { |u| usernames << u }
       REDIS.set(key, usernames.to_json)
       REDIS.expire(key, 24.hours)
       return usernames
