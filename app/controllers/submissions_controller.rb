@@ -23,7 +23,7 @@ class SubmissionsController < ApplicationController
     else
       @type = params[:type]
       projects = Submission.all
-      if params[:type]
+      if params[:type] && params[:type] != "all"
         projects = projects.where(:type => type_for(@type))
       else
         @type = "All"

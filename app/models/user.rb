@@ -22,6 +22,11 @@ class User
   field :current_sign_in_ip, type: String
   field :last_sign_in_ip,    type: String
 
+  def total_downloads
+    total = 0
+    submissions.each { |s| total += s.downloads.weekly.count }
+  end
+
   has_many :submissions, :dependent => :destroy
   has_many :comments, :dependent => :destroy
 end

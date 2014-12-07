@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   root "home#home"
 
   # Submissions
-  get '/projects/:type', to: 'submissions#index', as: 'projects', defaults: { :type => "asset" }
+  get '/projects/:type', to: 'submissions#index', as: 'projects', defaults: { :type => "all" }
   resources :submissions do
     get :download
     resources :comments

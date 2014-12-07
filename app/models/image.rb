@@ -9,6 +9,8 @@ class Image
   belongs_to :submission
   field :location, type: String
 
+  index({ location: 1 }, { unique: false, name: "image_loc_index" })
+
   private
   def delete_old
     if old = submission.images.where(:location => self.location).first
