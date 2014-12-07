@@ -9,7 +9,7 @@ class Image
   belongs_to :submission
   field :location, type: String
 
-  index({ location: 1 }, { unique: false, name: "image_loc_index" })
+  index({ location: 1 }, { unique: false, name: "image_loc_index", background: true })
 
   private
   def delete_old

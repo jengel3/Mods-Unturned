@@ -43,6 +43,7 @@
                 - elsif submission.is_updated?
                   %span{:style => "color:red;font-size:12px;text-decoration:none;"} UPDATED!
               .madebyuser
+                - puts submission.name
                 = link_to submission.user.username, user_uploads_path(submission.user.username)
                 .downloadcount
                   \•

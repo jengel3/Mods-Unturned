@@ -13,4 +13,6 @@ class Download
 
   scope :daily, -> { where(:created_at.gte => Date.today - 24.hours) }
   scope :weekly, -> { where(:created_at.gte => Date.today - 1.week) }
+
+  index({ created_at: 1 }, { unique: false, name: "download_timestamp", background: true })
 end

@@ -34,7 +34,7 @@ class Submission
         highest = 0
         result = Download.daily.desc(:upload).first.submission
         REDIS.set(key, result.id)
-        REDIS.expire(result.id, 1.hours)
+        REDIS.expire(key, 1.hours)
       else
         result = Submission.find(result)
       end
@@ -68,7 +68,7 @@ class Submission
       REDIS.set(key, dloads)
       REDIS.expire(key, 2.hours)
     end
-    dloads
+    return dloads
   end
 
   def add_download(ip, downloader, upload)
@@ -102,6 +102,6 @@ class Submission
   end
 
   def ready?
-    latest_download and main_image
+    approved_at != nil
   end
 end
