@@ -88,6 +88,7 @@
       <tr>
         <td style="width:860px;"colspan="2">
           <% @favorites.each do |favorite| %>
+          puts favorite.title
           <div class="content">
             <a href=<%= submission_path(favorite) %>><img src=<%= favorite.main_image.image_url %> class="levelthumb"></a>
             <div class="contentdetails">

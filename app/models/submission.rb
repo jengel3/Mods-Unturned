@@ -47,7 +47,7 @@ class Submission
         # Generate 4 recent favs if none exist
         favs = Submission.desc(:download_count).limit(4).update_all(:last_favorited => Time.now)
       end
-      return favs
+      return favs.any? ? [] : favs
     end
   end
 
