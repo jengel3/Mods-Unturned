@@ -118,7 +118,7 @@ td.todaymostpopular {
 	width:100%;
 	border-bottom:1px solid rgb(200,200,200);
 	border-right:4px solid rgb(200,200,200);
-	height:20px;
+	height:23px;
 	font-size:15px;
 	font-weight:bold;
 	margin-right:5px;
@@ -143,7 +143,7 @@ td.todaymostpopular {
 	background: -ms-linear-gradient(top, rgba(62,201,217,1) 0%, rgba(65,176,217,1) 100%);
 	background: linear-gradient(to bottom, rgba(62,201,217,1) 0%, rgba(65,176,217,1) 100%);
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#3ec9d9', endColorstr='#41b0d9', GradientType=0 );
-	height:25px;
+	height:30px;
 	border-bottom:1px solid rgb(180,180,180);
 	border-right:1px solid rgb(180,180,180);
 	border-top:1px solid rgb(180,180,180);

@@ -2,6 +2,7 @@ class Submission
   include Mongoid::Document
   include Mongoid::Timestamps
   include Mongoid::Slug
+  include Mongoid::MagicCounterCache
 
   validates :name, presence: true, uniqueness: true
   validates :body, presence: true
@@ -18,6 +19,8 @@ class Submission
   field :last_update, type: Time, default: nil
   field :approved_at, type: Time, default: nil
   field :last_favorited, type: Time, default: nil
+
+  counter_cache :downloads, :field => "total_downloads"
 
   belongs_to :user
   has_many :comments, :dependent => :destroy

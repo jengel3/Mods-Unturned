@@ -15,7 +15,7 @@ class SubmissionsController < ApplicationController
       @submissions = if params[:sort] == "newest" || !params[:sort]
         @submissions.desc(:approved_at)
       elsif params[:sort] == "popular"
-        @submissions = @submissions.desc(:download_count)
+        @submissions = @submissions.desc(:total_downloads)
       elsif params[:sort] == "updated"
         @submissions = @submissions.desc(:last_update)
       end
@@ -31,7 +31,7 @@ class SubmissionsController < ApplicationController
       projects = if params[:sort] == "newest" || !params[:sort]
         projects.desc(:approved_at)
       elsif params[:sort] == "popular"
-        projects = projects.desc(:download_count)
+        projects = projects.desc(:total_downloads)
       elsif params[:sort] == "updated"
         projects = projects.desc(:last_update)
       end

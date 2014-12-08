@@ -92,6 +92,9 @@ GEM
     mongoid-grid_fs (2.1.0)
       mime-types (>= 1.0, < 3.0)
       mongoid (>= 3.0, < 5.0)
+    mongoid_magic_counter_cache (1.1.0)
+      mongoid
+      rake
     mongoid_slug (3.2.1)
       mongoid (> 3.0)
       stringex (~> 2.0)
@@ -169,6 +172,7 @@ DEPENDENCIES
   jquery-rails
   kaminari
   mongoid
+  mongoid_magic_counter_cache
   mongoid_search!
   mongoid_slug
   passenger
