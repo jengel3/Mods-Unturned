@@ -7,6 +7,7 @@ class Download
   belongs_to :upload
   belongs_to :user # Possibly null if user is not logged in.
   belongs_to :submission
+  belongs_to :creator, class_name: 'User'
 
   validates :ip, presence: true
   validates :upload_id, presence: true

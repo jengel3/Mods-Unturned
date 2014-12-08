@@ -95,11 +95,11 @@ class Submission
       REDIS.set(key, dloads)
       REDIS.expire(key, 12.hours + rand(1..30).minutes)
     end
-    return dloads
+    return dloads.to_i
   end
 
   def add_download(ip, downloader, upload)
-    self.downloads.create(:ip => ip, :user_id => downloader.id, :upload => upload).save!
+    self.downloads.create(:ip => ip, :user_id => downloader.id, :upload => upload, creator: user).save!
     REDIS.incr("DOWNLOADS:#{name}")
   end
 

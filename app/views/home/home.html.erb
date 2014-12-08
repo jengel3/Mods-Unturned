@@ -26,7 +26,7 @@
           <table>
             <tr><td class="toplisttitle">Top Developers</td></tr>
             <% @weekly_developers.each do |s| %>
-            <tr><td class="toplistitem"><a href=<%= user_uploads_path(s) %>><%= s %></a></td></tr>
+            <tr><td class="toplistitem"><a href=<%= user_uploads_path(s.username) %>><%= s.username %></a></td></tr>
             <% end %>
             <tr><td class="toplisttitle">Top Modifications</td></tr>  
             <% @weekly_submissions.each do |s| %>

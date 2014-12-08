@@ -1,7 +1,7 @@
 class User
   include Mongoid::Document
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable
+  :recoverable, :rememberable, :trackable, :validatable
 
   validates_uniqueness_of :username
 
@@ -29,4 +29,6 @@ class User
 
   has_many :submissions, :dependent => :destroy
   has_many :comments, :dependent => :destroy
+  has_many :downloads
+  has_many :owned_downloads, inverse_of: 'creator'
 end
