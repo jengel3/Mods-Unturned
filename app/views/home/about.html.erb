@@ -1,37 +1,5 @@
-<!Doctype HTML>
-
 <div id="centerpage">
-	
-	
-	<div id="headerpage">
-		
-		<div class="headerwrap">
-			<img src="header3.png"  >
-		</div>
-	</div> 
-	<div id="tabs">
-		<div class="home">
-			<a href="index.htm"><h3>Home</h3></a>
-			
-		</div>
-
-		<div class="upload">
-			<a href="UnturnedUpload.html"><h3>Upload</h3></a>
-			
-		</div>
-		<div class="menuwrap" style="">
-			<div class="menu effect1">
-				
-				<div class="menuitem"><a href=""><div class="menutext">LCBradley3k</div></a>
-
-			</div>
-			
-			<div class="menuitem"><a href=""><div class="menutext">Levels</div></a></div>
-			<div class="menuitem"><a href=""><div class="menutext">Models</div></a></div>
-			<div class="menuitem"><a href=""><div class="menutext">Search</div></a>
-
-		</div>
-	</div>
+	<%= render 'shared/tabs' %>
 </div>
 </div>		
 
@@ -42,9 +10,6 @@
 	</div>				
 
 	<div class="mainpageleft">
-					<!--<div class="creatorstitle">
-						The Creators
-					</div>-->
 					<div class="biowraps">
 						<div class="profile">
 							<a href=""><img src="avatar.png" class="avatar"></a>
@@ -87,16 +52,16 @@
 						<table>
 							<tr>
 								<td>Total Modifications:</td>
-								<td rowspan="4">GRAPH</td>
+								<td rowspan="4">Coming soon!</td>
 							</tr>
 							<tr>						
 								<td> Total Downloads: </td>
 							</tr>
 							<tr>						
-								<td> Total Users: </td>
+								<td> Total Users: <%= User.count %></td>
 							</tr>
 							<tr>						
-								<td> Total Comments: </td>
+								<td> Total Comments: <%= Comment.count %></td>
 							</tr>						
 						</table>
 					</div>

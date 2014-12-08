@@ -9,6 +9,9 @@ Rails.application.routes.draw do
   # Maintenance
   get :maintenance, to: 'application#maintenance'
 
+  # About Page
+  get :about, to: 'application#about'
+
   # Submissions
   get '/projects/:type', to: 'submissions#index', as: 'projects', defaults: { :type => "all" }
   resources :submissions do
