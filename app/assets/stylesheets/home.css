@@ -312,6 +312,10 @@ td.quicklinkswrap {
 	text-shadow: 1px 1px 1px rgba(50, 50, 50, 0.4);
 }
 
+
+.quicklinkitem:visited, .quicklinkitem:link {
+	color: white !important;
+}
 .quicklinkitem:hover {
 	background-color:rgb(250,250,250);
 	border: 1px solid rgb(150,150,150);

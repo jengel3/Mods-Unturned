@@ -13,6 +13,8 @@
     = stylesheet_link_tag 'application', media: 'all'
   - if params[:action] == "maintenance"
     = stylesheet_link_tag 'error'
+  - if params[:action] == "about"
+    = stylesheet_link_tag 'about'
   - if params[:controller] == "submissions"
     - if params[:action] == "new" or params[:action] == "edit" || params[:action] == "create"
       = stylesheet_link_tag 'upload'

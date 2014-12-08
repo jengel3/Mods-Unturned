@@ -12,7 +12,7 @@
 	<div class="mainpageleft">
 					<div class="biowraps">
 						<div class="profile">
-							<a href=""><img src="avatar.png" class="avatar"></a>
+							<a href=<%= user_uploads_path('LCBradley3k') %>><img src=<%= image_path("bradley.png") %> class="avatar"></a>
 							<div class="persondetails">
 								<div class="username">LCBradley3k</div> 
 								<div class="userdescriptionshort">Owner, Design Manager</div>
@@ -30,7 +30,7 @@
 					</div>
 					<div class="biowraps">
 						<div class="profile">
-							<a href=""><img src="jake.png" class="avatar"></a>
+							<a href=<%= user_uploads_path('Jake0oo0') %>><img src=<%= image_path("jake.png") %> class="avatar"></a>
 							<div class="persondetails">
 								<div class="username">Jake0oo0</div> 
 								<div class="userdescriptionshort">Co-founder, Backend Developer</div>
@@ -51,11 +51,11 @@
 						<span class="statstitle"> Statistics </span>
 						<table>
 							<tr>
-								<td>Total Modifications:</td>
-								<td rowspan="4">Coming soon!</td>
+								<td>Total Modifications: <%= Submission.count %></td>
+								<td rowspan="4" style="text-align: center;">Coming soon!</td>
 							</tr>
 							<tr>						
-								<td> Total Downloads: </td>
+								<td> Total Downloads: <%= Submission.valid.sum(:total_downloads) %> </td>
 							</tr>
 							<tr>						
 								<td> Total Users: <%= User.count %></td>
