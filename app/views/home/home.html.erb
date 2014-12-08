@@ -77,7 +77,7 @@
         <td colspan="2"><br /></td>
       </tr>
       <tr>
-        <td colspan="2"><!--<hr />--></td>
+        <td colspan="2"></td>
       </tr>               
       <tr>
         <td colspan="2"><br /></td>
@@ -90,9 +90,8 @@
       <tr>
         <td style="width:860px;"colspan="2">
           <% @favorites.each do |favorite| %>
-          puts favorite.title
           <div class="content">
-            <a href=<%= submission_path(favorite) %>><img src=<%= favorite.main_image.image_url %> class="levelthumb"></a>
+            <a href=<%= submission_path(favorite) %>><img src=<%= favorite.get_cached_image %> class="levelthumb"></a>
             <div class="contentdetails">
               <h4><a href=<%= submission_path(favorite) %>><%= favorite.name %></a></h4>
               <div class="madebyuser"><a href=<%= user_uploads_path(favorite.user.username) %>><%= favorite.user.username %></a><div class="downloadcount">&bull; <%= favorite.download_count %> <img src=<%= image_path('downarrow.png') %> /></div></div> 

@@ -206,6 +206,9 @@ h4 a:hover {
 	font-family: 'Arimo', sans-serif;
 	font-size: 14px;
 	margin-top: 5px;
+	word-wrap: break-word; 
+	overflow: hidden; 
+	min-height: 48px;
 }
 
 /* div for bottom of page, currently not in use */

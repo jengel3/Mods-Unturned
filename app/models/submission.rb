@@ -42,12 +42,7 @@ class Submission
     end
 
     def get_favorites
-      favs = where(:last_favorited.exists => true).desc(:last_favorited)
-      if !favs.any?
-        # Generate 4 recent favs if none exist
-        favs = Submission.desc(:download_count).limit(4).update_all(:last_favorited => Time.now)
-      end
-      return favs.any? ? [] : favs
+      return where(:last_favorited.exists => true).desc(:last_favorited).limit(4)
     end
   end
 
