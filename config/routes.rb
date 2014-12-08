@@ -6,6 +6,9 @@ Rails.application.routes.draw do
   # Root
   root "home#home"
 
+  # Maintenance
+  get :maintenance, to: 'application#maintenance'
+
   # Submissions
   get '/projects/:type', to: 'submissions#index', as: 'projects', defaults: { :type => "all" }
   resources :submissions do

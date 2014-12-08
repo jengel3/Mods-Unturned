@@ -8,8 +8,11 @@
     = stylesheet_link_tag 'index'
     = stylesheet_link_tag 'application', media: 'all'
     = stylesheet_link_tag 'home'
-  - else
+    
+  - elsif params[:action] != "maintenance"
     = stylesheet_link_tag 'application', media: 'all'
+  - if params[:action] == "maintenance"
+    = stylesheet_link_tag 'error'
   - if params[:controller] == "submissions"
     - if params[:action] == "new" or params[:action] == "edit" || params[:action] == "create"
       = stylesheet_link_tag 'upload'

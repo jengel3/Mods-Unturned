@@ -2,6 +2,20 @@ class ApplicationController < ActionController::Base
   include ApplicationHelper
   protect_from_forgery with: :exception
   before_action :configure_permitted_parameters, if: :devise_controller?
+  before_filter :is_maintenance
+
+  def is_maintenance
+    if MAINTENANCE
+      return redirect_to action: 'maintenance', controller: 'application' unless params[:action] == 'maintenance'
+    end
+  end
+
+  def maintenance
+    return redirect_to root_path unless MAINTENANCE
+  end
+
+  def about
+  end
   
   def after_sign_in_path_for(resource)
     root_path
