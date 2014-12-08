@@ -26,6 +26,7 @@ module HomeHelper
     key = "STAT:top_weekly_developers"
     result = REDIS.get(key)
     if !result
+      puts "PINING REDIS"
       result = Array.new
       sort = { "$sort" => { count: -1 } }
       limit = {"$limit" => 5}
@@ -39,9 +40,9 @@ module HomeHelper
       REDIS.expire(key, 36.hours)
     end
     json = JSON.parse(result)
-    submissions = json.map { |x| x['user'] }
+    users = json.map { |x| x['user'] }
     order = {}
-    submissions.each_with_index { |s, i| order[s] = i}
-    return Submission.find(submissions).sort_by { |sub| order[sub.id.to_s] }
+    users.each_with_index { |s, i| order[s] = i}
+    return User.find(users).sort_by { |user| order[user.id.to_s] }
   end
 end
