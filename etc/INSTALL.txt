@@ -1,0 +1,40 @@
+apt-get update
+apt-get install curl -y
+apt-get install git -y
+apt-get install nodejs -y
+apt-get install nano -y
+apt-get install mongodb -y
+gpg --keyserver hkp://keys.gnupg.net --recv-keys D39DC0E3
+curl -L get.rvm.io | bash -s stable
+source /usr/local/rvm/scripts/rvm
+rvm requirements
+rvmsudo /usr/bin/apt-get install build-essential openssl libreadline6 libreadline6-dev curl git-core zlib1g zlib1g-dev libssl-dev libyaml-dev libsqlite3-dev sqlite3 libxml2-dev libxslt-dev autoconf libc6-dev ncurses-dev automake libtool bison subversion -y
+rvm install 2.0.0
+rvm use 2.0.0 --default
+rvm rubygems current
+gem install passenger
+apt-get install libcurl4-openssl-dev -y
+rvmsudo passenger-install-nginx-module
+wget -O init-deb.sh http://library.linode.com/assets/660-init-deb.sh 
+sudo mv init-deb.sh /etc/init.d/nginx 
+sudo chmod +x /etc/init.d/nginx 
+sudo /usr/sbin/update-rc.d -f nginx defaults
+
+
+cd ~
+ssh-keygen
+cat ~/.ssh/id_rsa.pub
+ADD SSH KEY TO GITHUB ACCOUNT
+
+
+git clone <url>
+bundle install
+mkdir public/uploads
+mkdir public/uploads/tmp
+chmod -R 777 public/uploads
+chmod -R 777 public/uploads/tmp
+
+
+nano /opt/nginx/conf/nginx.conf & replace with ./nginx.conf
+
+service nginx restart
