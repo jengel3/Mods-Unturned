@@ -2,7 +2,6 @@ class Submission
   include Mongoid::Document
   include Mongoid::Timestamps
   include Mongoid::Slug
-  include Mongoid::MagicCounterCache
 
   validates :name, presence: true, uniqueness: true
   validates :body, presence: true
@@ -15,17 +14,16 @@ class Submission
   field :name, type: String
   field :body, type: String
   field :type, type: String
-  field :old_downloads, type: Integer, default: 0
+  field :old_downloads, type: Integer
   field :last_update, type: Time, default: nil
   field :approved_at, type: Time, default: nil
   field :last_favorited, type: Time, default: nil
-
-  counter_cache :downloads, :field => "total_downloads"
+  field :total_downloads, type: Integer, default: 0
 
   belongs_to :user
   has_many :comments, :dependent => :destroy
 
-  scope :recent, -> { desc(:last_update) }
+  scope :recent, -> { where(:approved_at.exists => true).desc(:last_update) }
 
   slug :name
 
@@ -35,7 +33,12 @@ class Submission
       result = REDIS.get(key)
       if !result
         highest = 0
-        result = Download.daily.desc(:upload).first.submission
+        result = Download.daily.desc(:upload).first
+        if result
+          result = result.submission
+        else
+          return nil
+        end
         REDIS.set(key, result.id)
         REDIS.expire(key, 1.hours)
       else
@@ -89,7 +92,7 @@ class Submission
     key = "DOWNLOADS:#{name}"
     dloads = REDIS.get(key)
     if !dloads
-      dloads = downloads.count
+      dloads = total_downloads
       REDIS.set(key, dloads)
       REDIS.expire(key, 12.hours + rand(1..30).minutes)
     end
@@ -124,6 +127,10 @@ class Submission
 
   def thumbnails
     images.where(:location => /Thumbnail./).desc(:created_at).limit(6)
+  end
+
+  def can_show?
+    main_image && latest_download
   end
 
   def ready?

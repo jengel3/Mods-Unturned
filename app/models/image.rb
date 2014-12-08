@@ -2,7 +2,7 @@ class Image
   include Mongoid::Document
 
   before_create :delete_old
-  after_create :check_approval
+  after_save :check_approval
 
   mount_uploader :image, ImageUploader
 
@@ -20,9 +20,9 @@ class Image
 
   def check_approval
     if location != "Main" || submission.approved_at
+      puts "NOT READY TO BE APPROVED"
       return
-    end
-    if submission.ready?
+    elsif submission.ready?
       submission.approved_at = Time.now
       submission.save
     end

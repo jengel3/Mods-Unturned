@@ -3,7 +3,7 @@ class Upload
   include Mongoid::Timestamps
 
   before_save :set_update
-  after_update :check_approval
+  after_save :check_approval
   
   mount_uploader :upload, UploadUploader
 
@@ -23,8 +23,7 @@ class Upload
   def check_approval
     if !approved || submission.approved_at
       return
-    end
-    if submission.ready?
+    elsif submission.can_show?
       submission.approved_at = Time.now
       submission.save
     end

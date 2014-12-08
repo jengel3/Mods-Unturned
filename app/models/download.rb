@@ -4,6 +4,8 @@ class Download
 
   field :ip, type: String
 
+  after_create :cache_downloads
+
   belongs_to :upload
   belongs_to :user # Possibly null if user is not logged in.
   belongs_to :submission
@@ -16,4 +18,9 @@ class Download
   scope :weekly, -> { where(:created_at.gte => Date.today - 1.week) }
 
   index({ created_at: 1 }, { unique: false, name: "download_timestamp", background: true })
+
+  def cache_downloads
+    submission.total_downloads += 1
+    submission.save
+  end
 end

@@ -18,7 +18,6 @@ gem 'mongoid_slug'
 gem 'redis'
 gem 'httparty'
 gem 'ruby-bbcode'
-gem 'mongoid_magic_counter_cache'
 
 group :development do
   gem 'better_errors'
