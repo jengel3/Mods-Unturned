@@ -1,13 +1,13 @@
 #mainpagewrap {
 	width: 900px; 
-	height:840px; 
+	height:840px !important;
 	margin: 0 auto; 
 	margin-bottom:10px;
 }
 
 #mainpage {
 	width:860px; 
-	height:840px;
+	height:840px !important;
 	/*background-color:rgb(217,217,217);*/
 }
 
