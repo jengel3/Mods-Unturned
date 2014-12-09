@@ -6,7 +6,7 @@ class ApplicationController < ActionController::Base
 
   def is_maintenance
     if MAINTENANCE
-      return redirect_to action: 'maintenance', controller: 'application' unless params[:action] == 'maintenance'
+      return redirect_to action: 'maintenance', controller: 'application' unless params[:action] == 'maintenance' || user_is_admin
     end
   end
 
