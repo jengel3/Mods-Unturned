@@ -29,24 +29,24 @@ class Submission
   slug :name
 
   class << self
+
     def most_popular_today
       key = "STAT:most_popular_today"
       result = REDIS.get(key)
       if !result
-        highest = 0
-        result = Download.daily.desc(:upload).first
-        if result
-          result = result.submission
-        else
-          return nil
-        end
-        REDIS.set(key, result.id)
-        REDIS.expire(key, 1.hours)
-      else
-        result = Submission.find(result)
+        result = Array.new
+        sort = { "$sort" => { count: -1 } }
+        limit = {"$limit" => 1}
+        group = { "$group" =>
+          { "_id" => "$submission_id", "count" => { "$sum" => 1 } }
+        }
+        result = Download.daily.collection.aggregate([group, sort, limit])[0]['_id']
+        REDIS.set(key, result)
+        REDIS.expire(key, 1.hour)
       end
-      result
+      return Submission.find(result)
     end
+
 
     def get_favorites
       return where(:last_favorited.exists => true).desc(:last_favorited).limit(4)

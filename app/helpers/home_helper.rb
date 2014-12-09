@@ -26,7 +26,6 @@ module HomeHelper
     key = "STAT:top_weekly_developers"
     result = REDIS.get(key)
     if !result
-      puts "PINING REDIS"
       result = Array.new
       sort = { "$sort" => { count: -1 } }
       limit = {"$limit" => 5}
