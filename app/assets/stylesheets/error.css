@@ -129,6 +129,7 @@ tr.messagetopwrap {
 	height:50px;
 	font-size:40px;
 	font-weight:bold;
+	text-align: center;
 }
 
 .messagetop {
@@ -153,6 +154,7 @@ tr.messagebottom {
 	font-size:25px;
 	font-weight:bold;
 	height:95px;
+	text-align: center;
 }
 
 .maintenance_message_wrap {
