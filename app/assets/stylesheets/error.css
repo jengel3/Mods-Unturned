@@ -1,12 +1,12 @@
 * {
-	font-family: 'Arimo', Impact, sans-serif;
+	font-family: 'Arimo', Helvetica, sans-serif;
 }
 
 body {
 	background-color:#2E2E2E;
 	margin:0;
 	padding:0;
-	background-image: url(wallpaper5.png);
+	background-image: url(<%= asset_path 'wallpaper.png' %>);;
 	background-position:top-left;
 	background-repeat: repeat-x;
 }
@@ -41,7 +41,7 @@ img.logo {
 	margin-top:30px;
 	text-align:center;
 	vertical-align:middle;
-	background-image: url(caution.png);
+	background-image: url(<%= asset_path 'caution.png' %>);;
 	background-position:top-left;
 	background-repeat: repeat-x;
 }
@@ -50,70 +50,70 @@ img.logo {
 
 .effect2
 {
-	position: relative;
+  position: relative;
 }
 .effect2:before, .effect2:after
 {
-	z-index: -1;
-	position: absolute;
-	content: "";
-	bottom: 15px;
-	left: 10px;
-	width: 50%;
-	top: 80%;
-	max-width:300px;
-	background: #000;
-	-webkit-box-shadow: 0 15px 10px #000;
-	-moz-box-shadow: 0 15px 10px #000;
-	box-shadow: 0 15px 10px #000;
-	-webkit-transform: rotate(-3deg);
-	-moz-transform: rotate(-3deg);
-	-o-transform: rotate(-3deg);
-	-ms-transform: rotate(-3deg);
-	transform: rotate(-3deg);
+  z-index: -1;
+  position: absolute;
+  content: "";
+  bottom: 15px;
+  left: 10px;
+  width: 50%;
+  top: 80%;
+  max-width:300px;
+  background: #000;
+  -webkit-box-shadow: 0 15px 10px #000;
+  -moz-box-shadow: 0 15px 10px #000;
+  box-shadow: 0 15px 10px #000;
+  -webkit-transform: rotate(-3deg);
+  -moz-transform: rotate(-3deg);
+  -o-transform: rotate(-3deg);
+  -ms-transform: rotate(-3deg);
+  transform: rotate(-3deg);
 }
 .effect2:after
 {
-	-webkit-transform: rotate(3deg);
-	-moz-transform: rotate(3deg);
-	-o-transform: rotate(3deg);
-	-ms-transform: rotate(3deg);
-	transform: rotate(3deg);
-	right: 10px;
-	left: auto;
+  -webkit-transform: rotate(3deg);
+  -moz-transform: rotate(3deg);
+  -o-transform: rotate(3deg);
+  -ms-transform: rotate(3deg);
+  transform: rotate(3deg);
+  right: 10px;
+  left: auto;
 }
 
 .effect7
 {
-	position:relative;       
-	-webkit-box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
-	-moz-box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
-	box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
+  	position:relative;       
+    -webkit-box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
+       -moz-box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
+            box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
 }
 .effect7:before, .effect7:after
 {
 	content:"";
-	position:absolute; 
-	z-index:-1;
-	-webkit-box-shadow:0 0 20px rgba(0,0,0,0.8);
-	-moz-box-shadow:0 0 20px rgba(0,0,0,0.8);
-	box-shadow:0 0 20px rgba(0,0,0,0.8);
-	top:0;
-	bottom:0;
-	left:10px;
-	right:10px;
-	-moz-border-radius:100px / 10px;
-	border-radius:100px / 10px;
+    position:absolute; 
+    z-index:-1;
+    -webkit-box-shadow:0 0 20px rgba(0,0,0,0.8);
+    -moz-box-shadow:0 0 20px rgba(0,0,0,0.8);
+    box-shadow:0 0 20px rgba(0,0,0,0.8);
+    top:0;
+    bottom:0;
+    left:10px;
+    right:10px;
+    -moz-border-radius:100px / 10px;
+    border-radius:100px / 10px;
 } 
 .effect7:after
 {
 	right:10px; 
-	left:auto;
-	-webkit-transform:skew(8deg) rotate(3deg); 
-	-moz-transform:skew(8deg) rotate(3deg);     
-	-ms-transform:skew(8deg) rotate(3deg);     
-	-o-transform:skew(8deg) rotate(3deg); 
-	transform:skew(8deg) rotate(3deg);
+    left:auto;
+    -webkit-transform:skew(8deg) rotate(3deg); 
+       -moz-transform:skew(8deg) rotate(3deg);     
+        -ms-transform:skew(8deg) rotate(3deg);     
+         -o-transform:skew(8deg) rotate(3deg); 
+            transform:skew(8deg) rotate(3deg);
 }
 
 table {
@@ -129,7 +129,6 @@ tr.messagetopwrap {
 	height:50px;
 	font-size:40px;
 	font-weight:bold;
-	text-align:center;
 }
 
 .messagetop {
@@ -154,7 +153,6 @@ tr.messagebottom {
 	font-size:25px;
 	font-weight:bold;
 	height:95px;
-	text-align:center;
 }
 
 .maintenance_message_wrap {
@@ -168,3 +166,5 @@ tr.messagebottom {
 .maintenance_message {
 	padding-top:50px;
 }
+
+
