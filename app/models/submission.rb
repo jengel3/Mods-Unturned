@@ -101,7 +101,7 @@ class Submission
   end
 
   def add_download(ip, downloader, upload)
-    self.downloads.create(:ip => ip, :user_id => downloader.id, :upload => upload, creator: user).save!
+    self.downloads.create(:ip => ip, :user => downloader, :upload => upload, creator: user).save!
     REDIS.incr("DOWNLOADS:#{name}")
   end
 
