@@ -95,7 +95,7 @@ class Submission
     if !dloads
       dloads = total_downloads
       REDIS.set(key, dloads)
-      REDIS.expire(key, 12.hours + rand(1..30).minutes)
+      REDIS.expire(key, 6.hours + rand(1..30).minutes)
     end
     return dloads.to_i
   end
