@@ -106,7 +106,7 @@ class Submission
     if REDIS.get(key)
       REDIS.incr(key)
     else
-      total_downloads
+      download_count
     end
   end
 
