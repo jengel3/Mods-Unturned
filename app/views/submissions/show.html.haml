@@ -75,7 +75,7 @@
               %b Comments
             = render 'comments/form'
           .list
-            - @submission.comments.reject(&:new_record?).each do |comment|
+            - @submission.comments.desc(:created_at).reject(&:new_record?).each do |comment|
               %div{class: "comment #{cycle('comment-odd', 'comment-even')}"}
                 .text
                   - if user_is_admin
