@@ -102,7 +102,12 @@ class Submission
 
   def add_download(ip, downloader, upload)
     self.downloads.create(:ip => ip, :user => downloader, :upload => upload, creator: user).save!
-    REDIS.incr("DOWNLOADS:#{name.gsub(' ', '_')}")
+    key = "DOWNLOADS:#{name.gsub(' ', '_')}"
+    if REDIS.get(key)
+      REDIS.incr(key)
+    else
+      total_downloads
+    end
   end
 
   def is_new?
