@@ -5,7 +5,7 @@ $(document).ready(function () {
       title = article['title'];
       url = article['url'];
       content = article['contents'];
-      $.post("/api/tohtml", content, function(result){
+      $.post("/api/tohtml", JSON.stringify({ "bb_code": content}), contentType : 'application/json', function(result){
         $(".unturnednewsbubbletextarea").html(result);
       });
       $(".unturnednewsbubbleheading").text(title);

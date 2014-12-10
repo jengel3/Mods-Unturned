@@ -29,7 +29,8 @@ class ApplicationController < ActionController::Base
   end
 
   def tohtml
-    input = request.body.read
+    input = JSON.parse(request.body.read)['bb_code']
+    puts "INPUT:", input
     respond_to do |format|
       format.json { render json: input.bbcode_to_html.to_json }
     end

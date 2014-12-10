@@ -17,7 +17,7 @@ gem 'bcrypt-ruby', '~> 3.0.0'
 gem 'mongoid_slug'
 gem 'redis'
 gem 'httparty'
-gem 'ruby-bbcode'
+gem 'bb-ruby'
 
 group :development do
   gem 'better_errors'
