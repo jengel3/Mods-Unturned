@@ -30,5 +30,5 @@ class User
   has_many :submissions, :dependent => :destroy
   has_many :comments, :dependent => :destroy
   has_many :downloads
-  has_many :owned_downloads, inverse_of: 'creator'
+  has_many :owned_downloads, inverse_of: 'creator', class_name: 'Download'
 end
