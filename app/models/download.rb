@@ -7,9 +7,9 @@ class Download
   after_create :cache_downloads
 
   belongs_to :upload
-  belongs_to :user # Possibly null if user is not logged in.
+  belongs_to :user, class_name: 'User', inverse_of: :user # Possibly null if user is not logged in.
   belongs_to :submission
-  belongs_to :creator, class_name: 'User'
+  belongs_to :creator, class_name: 'User', inverse_of: :owned_downloads
 
   validates :ip, presence: true
   validates :upload_id, presence: true
