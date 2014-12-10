@@ -6,7 +6,7 @@ body {
 	background-color:#2E2E2E;
 	margin:0;
 	padding:0;
-	background-image: url(./../wallpaper.png);
+	background-image: url(/wallpaper.png);
 	background-position:top-left;
 	background-repeat: repeat-x;
 }
@@ -41,7 +41,7 @@ img.logo {
 	margin-top:30px;
 	text-align:center;
 	vertical-align:middle;
-	background-image: url(./../caution.png);
+	background-image: url(/caution.png);
 	background-position:top-left;
 	background-repeat: repeat-x;
 }
