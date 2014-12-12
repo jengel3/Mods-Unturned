@@ -3,71 +3,74 @@
     <%= render 'shared/tabs' %>
     <div id="mainpagewrap">
       <div class="box effect1">
-        <h2><%= @title %></h2>
-        <div class="mainpageleft">
-          <div class="sorting">
-            <% if params[:sort] == "newest" || !params[:sort] %>
+        <h2>
+          <%= @title %>
+        </h2>
+      </div>
+      <div class="mainpageleft">
+        <div style="width:100%; text-align:center; height:8px;margin-top:5px; font-size:14px; margin-left:0px;">
+          <% if params[:sort] == "newest" || !params[:sort] %>
             <b>
               <%= link_to 'Newest First', params.merge(:sort => "newest") %>
             </b>
-            <% else %>
+          <% else %>
             <%= link_to 'Newest First', params.merge(:sort => "newest") %>
-            <% end %>
-            <% if params[:sort] == "popular" %>
-            &bull;  
+          <% end %>
+          <% if params[:sort] == "popular" %>
+            &bull;
             <b>
               <%= link_to 'Most Popular', params.merge(:sort => "popular") %>
             </b>
-            <% else %>
-            &bull;  
+          <% else %>
+            &bull;
             <%= link_to 'Most Popular', params.merge(:sort => "popular") %>
-            <% end %>
-            <% if params[:sort] == "updated" %>
+          <% end %>
+          <% if params[:sort] == "updated" %>
             &bull;
             <b>
               <%= link_to 'Recently Updated', params.merge(:sort => "updated") %>
             </b>
-            <% else %>
+          <% else %>
             &bull;
             <%= link_to 'Recently Updated', params.merge(:sort => "updated") %>
-            <% end %>
-          </div>
-          <%= @submissions.each do |submission| %> 
-            <% main_image = submission.get_cached_image %>
-            <% username = submission.get_username %>
-            <div class="content" %>
-              <a href=<%= submission_path(submission) %>>
-                <%= link_to image_tag("#{if main_image then main_image else 'uploadthumb.png' end}", class: 'levelthumb'), submission %>
-              </a>
-              <div class="contentdetails">
-                <h4>
-                  <a href=<%= submission_path(submission) %>>
-                    <%= submission.name %>
-                  </a>
-                  <% if submission.is_new? %>
-                  <span class="item-tag">NEW!</span>
-                  <% elsif submission.is_updated? %>
-                  <span class="item-tag">UPDATED!</span>
-                  <% end %>
-                </h4>
-                <div class="madebyuser">
-                  <div class="madebyuser">
-                    <%= link_to username, user_uploads_path(username) %>
-                    <div class="downloadcount">
-                      &bull;
-                      <%= submission.download_count %>
-                      <%= image_tag("downarrow.png") %>
-                    </div>
-                    </div>
+          <% end %>
+        </div>
+        <% @submissions.each do |submission| %>
+          <% main_image = submission.get_cached_image %>
+          <% username = submission.get_username %>
+          <div class="content">
+            <a href="<%= url_for(submission) %>">
+              <%= link_to image_tag("#{main_image ? main_image : 'uploadthumb.png'}", class: 'levelthumb'), submission %>
+            </a>
+            <div class="contentdetails">
+              <h4 style="height: 18px; overflow: hidden; word-wrap: break-word;">
+                <a href="<%= url_for(submission) %>">
+                  <%= submission.name %>
+                </a>
+                <% if submission.is_new? %>
+                  <span style="color:red;font-size:12px;text-decoration:none;">NEW!</span>
+                <% elsif submission.is_updated? %>
+                  <span style="color:red;font-size:12px;text-decoration:none;">UPDATED!</span>
+                <% end %>
+              </h4>
+              <div class="madebyuser">
+                <%= link_to username, user_uploads_path(username) %>
+                <div class="downloadcount">
+                  &bull;
+                  <%= submission.download_count %>
+                  <%= image_tag("downarrow.png") %>
                 </div>
               </div>
+              <div class="contentdesc">
+                <%= submission.desc %>
+              </div>
             </div>
-          <% end %>
-          <div id="mainpage" style="margin-bottom: 2px !important;"/>
-          <div id="paginator" align="center", style: "padding: 5px;">
-            <%= paginate @submissions %>
           </div>
-        </div>
+        <% end %>
+      </div>
+      <div id="mainpage" style="margin-bottom: 2px !important;"></div>
+      <div align="center" id="paginator" style="padding: 5px;">
+        <%= paginate @submissions %>
       </div>
     </div>
   </div>
