@@ -20,6 +20,14 @@ a:visited {
 	/* background-color: rgb(217, 217, 217);
 	*/
 }
+.sorting {
+	width:100%; 
+	text-align:center; 
+	height:8px;
+	margin-top:5px; 
+	font-size:14px; 
+	margin-left:0px;
+}
 .mainpageleft {
 	width: 860px;
 	height: 100%;
@@ -198,6 +206,9 @@ h4 {
 	*/
 	font-family: 'Arimo', sans-serif;
 	letter-spacing: 1px;
+	height: 18px; 
+	overflow: hidden; 
+	word-wrap: break-word;
 }
 h4 a:hover {
 	text-decoration: underline;

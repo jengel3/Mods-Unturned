@@ -1,0 +1,63 @@
+<head>
+  <title>Unturned Mods</title>
+  <%= javascript_include_tag 'application' %>
+  <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css"></link>
+  <link href="https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz" rel="stylesheet" type="text/css"></link>
+  <link href="https://fonts.googleapis.com/css?family=Arimo" rel="stylesheet" type="text/css"></link>
+  <% if params[:controller] == "home" %>
+    <%= stylesheet_link_tag 'index' %>
+    <%= stylesheet_link_tag 'application', media: 'all' %>
+    <%= stylesheet_link_tag 'home' %>
+  <% elsif params[:action] != "maintenance" %>
+    <%= stylesheet_link_tag 'application', media: 'all' %>
+  <% end %>
+  <% if params[:action] == "maintenance" %>
+    <%= stylesheet_link_tag 'error' %>
+  <% end %>
+  <% if params[:action] == "about" %>
+    <%= stylesheet_link_tag 'about' %>
+  <% end %>
+  <% if params[:controller] == "submissions" %>
+    <% if params[:action] == "new" or params[:action] == "edit" || params[:action] == "create" %>
+      <%= stylesheet_link_tag 'upload' %>
+    <% else %>
+      <%= stylesheet_link_tag 'content' %>
+    <% end %>
+  <% end %>
+  <% if params[:controller] == "submissions" and params[:action] == "index" %>
+    <%= stylesheet_link_tag 'index' %>
+  <% end %>
+  <% if params[:controller] == "devise/registrations" %>
+    <% if params[:action] == "new" || params[:action] == "create" %>
+      <%= stylesheet_link_tag 'upload' %>
+      <%= stylesheet_link_tag 'users' %>
+    <% end %>
+  <% end %>
+  <% if params[:controller] == "devise/sessions" %>
+    <% if params[:action] == "new" || params[:action] == "create" %>
+      <%= stylesheet_link_tag 'upload' %>
+      <%= stylesheet_link_tag 'users' %>
+    <% end %>
+  <% end %>
+  <% if params[:controller] == "uploads" %>
+    <%= stylesheet_link_tag "upload" %>
+  <% end %>
+  <% if params[:controller] == "images" %>
+    <%= stylesheet_link_tag "upload" %>
+  <% end %>
+  <% if params[:controller] == "devise/passwords" %>
+    <%= stylesheet_link_tag "upload" %>
+  <% end %>
+  <% if params[:controller] == "moderation" %>
+    <%= stylesheet_link_tag "upload" %>
+  <% end %>
+  <meta content="Welcome to Mods-Unturned! This is your central place for quality map and model mods for Unturned the game." name="description"/>
+  <meta content="Unturned, Unturned Mods, Unturned Maps, Unturned models, unturned map mods, unturned model mods, unturned mod, unturned mod download, unturned modding, unturned tutorial, unturned database" name="keywords"/>
+  <meta content="Bradley Mitchell" name="author"/>
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet"></link>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+  <%= yield %>
+</body>
+<%= render 'shared/analytics' %>

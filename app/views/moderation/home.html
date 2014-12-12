@@ -1,0 +1,62 @@
+<css>
+  
+  table, th, td {
+      border: 1px solid black;
+      border-collapse: collapse;
+  }
+  table {
+    width: 100%;
+  }
+  th, td {
+      padding: 5px;
+      text-align: left;
+  }
+
+</css>
+<div id="centerpage">
+  <%= render 'shared/tabs' %>
+  <div id="mainpagewrap">
+    <div class="box effect1">
+      <h2>Moderation</h2>
+    </div>
+    <div class="mainpageleft">
+      <% if @uploads.any? %>
+        <table>
+          <tr>
+            <th>Project Name</th>
+            <th>File Name</th>
+            <th>Uploader</th>
+            <th colspan="2">Actions</th>
+          </tr>
+          <% @uploads.each do |upload| %>
+            <%= puts upload.inspect %>
+            <tr>
+              <td>
+                <%= link_to upload.submission.name, upload.submission %>
+              </td>
+              <td>
+                <%= link_to upload.upload.file.filename, upload.upload.url %>
+              </td>
+              <td>
+                <%= link_to upload.submission.user.username, user_uploads_path(upload.submission.user.username) %>
+              </td>
+              <td>
+                <div align="center" class="approve">
+                  <%= link_to 'Approve', submission_upload_approve_path(upload.submission, upload) %>
+                </div>
+              </td>
+              <td>
+                <div align="center" class="deny">
+                  <%= link_to 'Deny', submission_upload_deny_path(upload.submission, upload) %>
+                </div>
+              </td>
+            </tr>
+          <% end %>
+        </table>
+      <% else %>
+        <div align="center" id="none">No uploads awaiting moderation.</div>
+      <% end %>
+    </div>
+    <div id="mainpage"></div>
+  </div>
+</div>

@@ -37,8 +37,13 @@ class SubmissionsController < ApplicationController
       end
       @submissions = projects.page(params[:page]).per(20)
     end
+    if params[:user]
+      @title = params[:user] + "'s" + ' Creations'
+    else
+      @title = @type.singularize.capitalize + ' Creations'
+    end
   end
-  
+
   def favorite
     @submission.last_favorited = Time.now
     @submission.save

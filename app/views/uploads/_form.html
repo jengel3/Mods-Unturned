@@ -1,0 +1,27 @@
+<%= form_for([@submission, @upload]) do |f| %>
+  <%= render 'shared/errors', object: @upload %>
+  <p>
+    <b>
+      <%= f.label :name %>
+    </b>
+    <br/>
+    <%= f.text_field :name %>
+  </p>
+  <p>
+    <b>
+      <%= f.label :version %>
+    </b>
+    <br/>
+    <%= f.text_field :version %>
+  </p>
+  <p>
+    <b>
+      <%= f.label :upload %>
+    </b>
+    <br/>
+    <%= f.file_field :upload, class: 'file' %>
+  </p>
+  <p>
+    <%= f.submit 'Submit' %>
+  </p>
+<% end %>

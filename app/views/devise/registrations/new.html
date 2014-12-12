@@ -1,0 +1,87 @@
+<div>
+  <div id="centerpage">
+    <%= render 'shared/tabs'     %>
+    <div id="mainpagewrap">
+      <div class="box effect1">
+        <h2>Login</h2>
+      </div>
+      <div class="mainpageleft">
+        <div class="contenthead1">
+          <h2>Sign in</h2>
+        </div>
+        <div class="form">
+          <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+            <%= render 'shared/errors', object: resource %>
+            <p>
+              <b>
+                <%= f.label :email, class: 'text-label' %>
+              </b>
+              <br/>
+              <%= f.email_field :email, autofocus: true, class: 'text-box' %>
+            </p>
+            <p>
+              <b>
+                <%= f.label :password, class: 'text-label' %>
+              </b>
+              <br/>
+              <%= f.password_field :password, autocomplete: "off", class: 'text-box' %>
+            </p>
+            <% if devise_mapping.rememberable? %>
+              <div>
+                <%= f.check_box :remember_me, class: 'checkbox' %>
+                <span>
+                  <%= f.label :remember_me %>
+                </span>
+              </div>
+            <% end %>
+            <p>
+              <%= f.submit "Login", class: 'text-box' %>
+            </p>
+          <% end %>
+        </div>
+      </div>
+      <div class="mainpageright">
+        <div class="contenthead1">
+          <h2>Sign up</h2>
+        </div>
+        <div class="form">
+          <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+            <%= render 'shared/errors', object: resource %>
+            <p>
+              <b>
+                <%= f.label :email, class: 'text-label' %>
+              </b>
+              <br/>
+              <%= f.email_field :email, autofocus: true, class: 'text-box' %>
+            </p>
+            <p>
+              <b>
+                <%= f.label :username, class: 'text-label' %>
+              </b>
+              <br/>
+              <%= f.text_field :username, class: 'text-box' %>
+            </p>
+            <p>
+              <b>
+                <%= f.label :password, class: 'text-label' %>
+              </b>
+              <br/>
+              <%= f.password_field :password, autocomplete: "off", class: 'text-box' %>
+            </p>
+            <p>
+              <b>
+                <%= f.label :password_confirmation, class: 'text-label' %>
+              </b>
+              <br/>
+              <%= f.password_field :password_confirmation, autocomplete: "off", class: 'text-box' %>
+            </p>
+            <p>
+              <%= f.submit "Register", class: 'text-box' %>
+            </p>
+          <% end %>
+        </div>
+      </div>
+      <div id="mainpage"></div>
+    </div>
+  </div>
+</div>
