@@ -1,11 +1,9 @@
-development:
+production:
   sessions:
     default:
-      database: rails_dev
+      database: unturned_mods_production
       hosts:
-        - ds037447.mongolab.com:37447
-      username: developer
-      password: rails
+        - localhost:27017
 
 production:
   sessions:
