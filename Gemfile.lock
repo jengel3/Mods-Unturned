@@ -36,7 +36,6 @@ GEM
       tzinfo (~> 1.1)
     arel (5.0.1.20140414130214)
     bb-ruby (1.1.0)
-    bcrypt (3.1.7)
     bcrypt (3.1.7-x64-mingw32)
     bcrypt-ruby (3.0.1)
     better_errors (2.0.0)
@@ -67,8 +66,6 @@ GEM
       warden (~> 1.2.3)
     erubis (2.7.0)
     execjs (2.2.1)
-    haml (4.0.5)
-      tilt
     hike (1.2.3)
     httparty (0.13.1)
       json (~> 1.8)
@@ -164,7 +161,6 @@ DEPENDENCIES
   bson_ext
   carrierwave-mongoid
   devise
-  haml
   httparty
   jquery-rails
   kaminari

@@ -36,7 +36,6 @@
             <% main_image = submission.get_cached_image %>
             <% username = submission.get_username %>
             <div class="content" %>
-              .content
               <a href=<%= submission_path(submission) %>>
                 <%= link_to image_tag("#{if main_image then main_image else 'uploadthumb.png' end}", class: 'levelthumb'), submission %>
               </a>

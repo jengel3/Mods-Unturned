@@ -1,5 +1,4 @@
 class CommentsController < ApplicationController
-  before_filter :require_admin, only: [:destroy]
   def create
     @submission = Submission.find(params[:submission_id])
     return redirect_to new_user_registration_path unless @user = current_user
@@ -14,6 +13,10 @@ class CommentsController < ApplicationController
   end
 
   def destroy
+    @comment = Comment.find(params[:id])
+    unless current_user && @comment.user = current_user
+      return require_admin
+    end
     @comment = Comment.find(params[:id])
     @submission = @comment.submission
     @comment.destroy
