@@ -3,6 +3,7 @@ class Image
 
   before_create :delete_old
   after_save :check_approval
+  after_save :refresh_cache
 
   mount_uploader :image, ImageUploader
 
@@ -16,6 +17,11 @@ class Image
     if old = submission.images.where(:location => self.location).first
       old.destroy
     end
+  end
+
+  def refresh_cache
+    key = "IMAGE:#{submission.id}"
+    REDIS.del(key)
   end
 
   def check_approval
