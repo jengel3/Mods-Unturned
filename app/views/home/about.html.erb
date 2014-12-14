@@ -51,17 +51,17 @@
 						<span class="statstitle"> Statistics </span>
 						<table>
 							<tr>
-								<td>Total Modifications: <%= Submission.count %></td>
+								<td>Total Modifications: <%= number_with_delimiter(Submission.valid.count, :delimiter => ',') %></td>
 								<td rowspan="4" style="text-align: center;">Coming soon!</td>
 							</tr>
 							<tr>						
-								<td> Total Downloads: <%= Submission.valid.sum(:total_downloads) %> </td>
+								<td> Total Downloads: <%= number_with_delimiter(Submission.valid.sum(:total_downloads), :delimiter => ',') % %> </td>
 							</tr>
 							<tr>						
-								<td> Total Users: <%= User.count %></td>
+								<td> Total Users: <%= number_with_delimiter(User.count, :delimiter => ',') %></td>
 							</tr>
 							<tr>						
-								<td> Total Comments: <%= Comment.count %></td>
+								<td> Total Comments: <%= number_with_delimiter(Comment.count, :delimiter => ',') %></td>
 							</tr>						
 						</table>
 					</div>
