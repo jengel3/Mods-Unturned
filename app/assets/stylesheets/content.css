@@ -112,6 +112,9 @@ h4.download {
 	margin: 0;
 	padding: 20px;
 }
+span.fileinfo {
+	font-size: 16px !important;
+}
 .downloadbutton {
 	/* background-color: #E2E2E2;
 	*/
