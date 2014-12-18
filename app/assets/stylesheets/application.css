@@ -11,13 +11,6 @@
  * file per style scope.
  *
  *= require main
+ *= require lightbox.css.erb
  *= require_self
  */
-
-.pagination {
-	color: white;
-}
-
-.pagination a {
-	color: white !important;
-}

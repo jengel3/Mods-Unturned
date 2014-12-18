@@ -39,16 +39,7 @@
       <%= stylesheet_link_tag 'users' %>
     <% end %>
   <% end %>
-  <% if params[:controller] == "uploads" %>
-    <%= stylesheet_link_tag "upload" %>
-  <% end %>
-  <% if params[:controller] == "images" %>
-    <%= stylesheet_link_tag "upload" %>
-  <% end %>
-  <% if params[:controller] == "devise/passwords" %>
-    <%= stylesheet_link_tag "upload" %>
-  <% end %>
-  <% if params[:controller] == "moderation" %>
+  <% if params[:controller] == "uploads" || params[:controller] == "images" || params[:controller] == "moderation" || params[:controller] == "devise/passwords" %>
     <%= stylesheet_link_tag "upload" %>
   <% end %>
   <meta content="Welcome to Mods-Unturned! This is your central place for quality map and model mods for Unturned the game." name="description"/>

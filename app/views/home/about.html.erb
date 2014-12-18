@@ -55,7 +55,7 @@
 								<td rowspan="4" style="text-align: center;">Coming soon!</td>
 							</tr>
 							<tr>						
-								<td> Total Downloads: <%= number_with_delimiter(Submission.valid.sum(:total_downloads), :delimiter => ',') % %> </td>
+								<td> Total Downloads: <%= number_with_delimiter(Submission.valid.sum(:total_downloads), :delimiter => ',') %> </td>
 							</tr>
 							<tr>						
 								<td> Total Users: <%= number_with_delimiter(User.count, :delimiter => ',') %></td>

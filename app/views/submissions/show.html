@@ -93,12 +93,12 @@
         <div class="screenshots">
           <% 6.times do |count| %>
             <% if @submission.thumbnails[count] %>
-              <a href="<%= @submission.thumbnails[count].image_url %>" target="_blank">
-                <img class="levelthumb" src="<%= @submission.thumbnails[count].image_url %>"/>
+              <a href="<%= @submission.thumbnails[count].image_url %>" data-lightbox="thumbnails" data-title="Thumbnail" >
+                <img class="levelthumb" src="<%= @submission.thumbnails[count].image_url %>" title="Map Thumbnail"/>
               </a>
             <% else %>
               <a>
-                <%= image_tag 'uploadthumb.png', class: 'levelthumb' %>
+                <%= image_tag 'uploadthumb.png', class: 'levelthumb', title: "Placeholder" %>
               </a>
             <% end %>
           <% end %>

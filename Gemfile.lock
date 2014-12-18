@@ -1,10 +1,3 @@
-GIT
-  remote: git://github.com/Jake0oo0/mongoid_search.git
-  revision: d56e65c65cbad1acc9b35fe7d3ef1b7d638c2312
-  specs:
-    mongoid_search (0.3.3)
-      mongoid (>= 3.0.0)
-
 GEM
   remote: https://rubygems.org/
   specs:
@@ -165,7 +158,6 @@ DEPENDENCIES
   jquery-rails
   kaminari
   mongoid
-  mongoid_search!
   mongoid_slug
   passenger
   rails (= 4.1.6)

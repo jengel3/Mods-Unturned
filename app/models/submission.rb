@@ -88,7 +88,6 @@ class Submission
     end
   end
 
-
   def download_count
     key = "DOWNLOADS:#{name.gsub(' ', '_')}"
     dloads = REDIS.get(key)
@@ -112,11 +111,6 @@ class Submission
 
   def is_new?
     Time.now - 24.hour < created_at
-  end
-
-  #TODO Decide what makes submissions featured.
-  def is_featured?
-    false
   end
 
   def is_updated?
