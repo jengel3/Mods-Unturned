@@ -9,5 +9,6 @@ Bundler.require(*Rails.groups)
 
 module UnturnedMods
   class Application < Rails::Application
+    config.assets.paths << Rails.root.join('vendor', 'assets', 'components')
   end
 end

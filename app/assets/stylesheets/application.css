@@ -11,6 +11,6 @@
  * file per style scope.
  *
  *= require main
- *= require lightbox.css.erb
+ *= require magnific-popup/dist/magnific-popup
  *= require_self
  */

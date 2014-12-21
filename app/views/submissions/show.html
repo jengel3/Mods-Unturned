@@ -65,9 +65,9 @@
           </p>
           <div class="manage">
             <% if can_manage(@submission) %>
-            <p class="title">Manage</p>
+            <p class="title" style="margin-bottom: 3px; margin-top: 2px;">Manage</p>
             <div class="manage">
-              <p class="uploadby">
+              <p class="uploadby" style="margin: 0px;">
                 <a href="<%= new_submission_upload_path(@submission) %>">
                   <b>Upload File</b>
                 </a>
@@ -93,6 +93,14 @@
             </div>
             <% end %>
           </div>
+          <div class="videosection">
+            <h4 class="download"> Videos </h4>
+          </div>  
+          <% @submission.videos.each do |video| %>
+          <%= link_to image_tag(video.thumbnail, class: 'vidthumb'), video.url %>
+          <% end %>
+          <%= link_to image_tag('uploadthumb.png', class: 'vidthumb'), '#add-video', class: 'add-video-button' %>
+          <%= render 'videos/popup' %>
         </div>
       </div>
       <div class="mainpageright">
@@ -102,7 +110,7 @@
         <div class="screenshots">
           <% 6.times do |count| %>
           <% if @submission.thumbnails[count] %>
-          <a href="<%= @submission.thumbnails[count].image_url %>" data-lightbox="thumbnails" data-title="Thumbnail" >
+          <a href="<%= @submission.thumbnails[count].image_url %>">
             <img class="levelthumb" src="<%= @submission.thumbnails[count].image_url %>" title="Map Thumbnail"/>
           </a>
           <% else %>
@@ -111,6 +119,13 @@
           </a>
           <% end %>
           <% end %>
+          <script>
+            $('.screenshots').magnificPopup({
+              delegate: 'a', // child items selector, by clicking on it popup will open
+              type: 'image'
+              // other options
+            });
+          </script>
         </div>
         <div class="comments">
           <div class="header">

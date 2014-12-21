@@ -11,5 +11,5 @@
 //= require jquery
 //= require jquery_ujs
 //= require comments
-//= require lightbox.min
 //= require news
+//= require magnific-popup/dist/jquery.magnific-popup

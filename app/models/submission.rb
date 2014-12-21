@@ -10,6 +10,7 @@ class Submission
   has_many :uploads, :dependent => :destroy
   has_many :downloads, :dependent => :destroy
   has_many :images, :dependent => :destroy
+  has_many :videos, :dependent => :destroy
   
   field :name, type: String
   field :body, type: String

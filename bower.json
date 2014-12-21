@@ -1,0 +1,26 @@
+{
+  "name": "ModsUnturned",
+  "version": "2.1.0",
+  "private": "true",
+  "homepage": "https://github.com/Jake0oo0/Unturned-Mods",
+  "authors": [
+    "Jake <jake0oo0andminecraft@gmail.com>"
+  ],
+  "description": "Website for Unturned Assets & Modifications",
+  "keywords": [
+    "unturned"
+  ],
+  "license": "All Rights Reserved",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "vendor/assets/components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "magnific-popup": "~1.0.0",
+    "fontawesome": "~4.2.0"
+  }
+}

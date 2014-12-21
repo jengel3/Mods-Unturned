@@ -1,0 +1,28 @@
+
+<div id="add-video" class="add-video-popup mfp-hide">
+	<%= form_for([@submission, @submission.videos.build]) do |f| %>
+	<%= f.label :url %>
+	<%= f.text_field :url, autocomplete: 'off' %>
+	
+	<%= f.submit 'Submit'%>
+	<% end %>
+
+</div>
+
+<style>
+	.add-video-popup {
+		position: relative;
+		background: #FFF;
+		padding: 20px;
+		width: auto;
+		max-width: 500px;
+		margin: 20px auto;
+	}
+</style>
+
+<script>
+	$('.add-video-button').magnificPopup({
+		type:'inline',
+		midClick: true
+	});
+</script>

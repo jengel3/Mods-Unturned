@@ -4,6 +4,8 @@ class User
   :recoverable, :rememberable, :trackable, :validatable
 
   validates_uniqueness_of :username
+  validates_uniqueness_of :email
+  validates :username, :length => { :maximum => 16 } # Max username length is 16
 
   field :email,              type: String, default: ""
   field :encrypted_password, type: String, default: ""
@@ -31,4 +33,5 @@ class User
   has_many :comments, :dependent => :destroy
   has_many :downloads, class_name: 'Download', inverse_of: :user
   has_many :owned_downloads, inverse_of: :creator, class_name: 'Download'
+  has_many :submitted_videos, :inverse_of => :submitter, class_name: 'Video'
 end

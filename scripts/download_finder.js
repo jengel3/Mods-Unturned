@@ -1,0 +1,1 @@
+db.downloads.aggregate({ "$group": { "_id": "$ip", "count" : { "$sum" : 1 } }},{ "$sort" : { count: -1 } })

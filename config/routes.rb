@@ -23,6 +23,7 @@ Rails.application.routes.draw do
     end
     resources :images
     get :favorite
+    resources :videos
   end
 
   # Admin Panel
