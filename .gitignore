@@ -4,4 +4,4 @@ public/uploads/
 public/assets/
 monogid.yml
 config.rb
-vendor/assets/components/*
+vendor/assets/components/**
