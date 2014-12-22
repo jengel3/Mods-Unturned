@@ -123,11 +123,11 @@ class Submission
   end
 
   def main_image
-    images.where(:location => "Main").desc(:created_at).first
+    images.where(:location => "Main").first
   end
 
   def thumbnails
-    images.where(:location => /Thumbnail./).desc(:created_at).limit(6)
+    result = images.where(:location.ne => "Main").limit(6)
   end
 
   def can_show?

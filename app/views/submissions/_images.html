@@ -3,9 +3,10 @@
 </div>
 <div class="screenshots">
   <% 6.times do |count| %>
-  <% if @submission.thumbnails[count] %>
-  <a class='valid-thumb' href="<%= @submission.thumbnails[count].image_url %>">
-    <img class="levelthumb" src="<%= @submission.thumbnails[count].image_url %>" title="Map Thumbnail"/>
+  <% thumb = @submission.thumbnails[count] %>
+  <% if thumb %>
+  <a class='valid-thumb' href="<%= thumb.image_url %>">
+    <img class="levelthumb" src="<%= thumb.image_url %>" title="Map Thumbnail"/>
   </a>
   <% else %>
   <a>
