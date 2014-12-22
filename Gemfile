@@ -16,6 +16,7 @@ gem 'mongoid_slug'
 gem 'redis'
 gem 'httparty'
 gem 'bb-ruby'
+gem 'best_in_place', '~> 3.0.1'
 
 group :development do
   gem 'better_errors'

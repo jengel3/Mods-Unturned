@@ -82,8 +82,15 @@ class SubmissionsController < ApplicationController
   end
 
   def update
-    @submission.update(submission_params)
-    respond_with(@submission)
+    respond_to do |format|
+      if @submission.update(submission_params)
+        format.html { redirect_to @submission }
+        format.json { head :ok }
+      else
+        format.html { render :action => "edit" }
+        format.json { respond_with_bip(@submission) }
+      end
+    end
   end
 
   def destroy

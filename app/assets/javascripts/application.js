@@ -10,6 +10,7 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require best_in_place
 //= require content
 //= require news
 //= require magnific-popup/dist/jquery.magnific-popup

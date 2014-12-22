@@ -29,8 +29,12 @@ GEM
       tzinfo (~> 1.1)
     arel (5.0.1.20140414130214)
     bb-ruby (1.1.0)
+    bcrypt (3.1.7)
     bcrypt (3.1.7-x64-mingw32)
     bcrypt-ruby (3.0.1)
+    best_in_place (3.0.2)
+      actionpack (>= 3.2)
+      railties (>= 3.2)
     better_errors (2.0.0)
       coderay (>= 1.0.0)
       erubis (>= 2.6.6)
@@ -150,6 +154,7 @@ PLATFORMS
 DEPENDENCIES
   bb-ruby
   bcrypt-ruby (~> 3.0.0)
+  best_in_place (~> 3.0.1)
   better_errors
   bson_ext
   carrierwave-mongoid

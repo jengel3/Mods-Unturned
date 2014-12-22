@@ -3,7 +3,7 @@ class Submission
   include Mongoid::Timestamps
   include Mongoid::Slug
 
-  validates :name, presence: true, uniqueness: true
+  validates :name, presence: true, uniqueness: true, length: { :minimum => 3, :maximum => 30 }
   validates :body, presence: true
   validates :type, presence: true, inclusion: { in: %w(Level Asset), message: "Invalid submission type." }
 
