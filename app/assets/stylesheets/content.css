@@ -1,11 +1,6 @@
 * {
 	font-family: 'Arimo', Helvetica, sans-serif;
 }
-#sidebar {
-	width: 50px;
-	height: 700px;
-	background-color: white;
-}
 .headerwrap {
 	width: 860px;
 	text-align: center;
@@ -425,6 +420,7 @@ hr {
 	height: 75px;
 	margin-left: 14px;
 	margin-bottom: 10px;
+	opacity: 0.9;
 }
 
 .video {
@@ -433,7 +429,7 @@ hr {
 	height: 75px;
 }
 
-.vidthumb img, .video .delete-video {
+.video .delete-video {
 	position: absolute;
 	top: 1px;
 	left: 15px;
@@ -446,4 +442,12 @@ hr {
 	width: auto;
 	max-width: 500px;
 	margin: 20px auto;
+}
+
+.delete-video:hover {
+	color: white;
+}
+
+.vidthumb:hover {
+	opacity: 1;
 }

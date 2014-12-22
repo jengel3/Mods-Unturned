@@ -10,6 +10,6 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require comments
+//= require content
 //= require news
 //= require magnific-popup/dist/jquery.magnific-popup
