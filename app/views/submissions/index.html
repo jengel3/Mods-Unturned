@@ -11,28 +11,28 @@
         <div style="width:100%; text-align:center; height:8px;margin-top:5px; font-size:14px; margin-left:0px;">
           <% if params[:sort] == "newest" || !params[:sort] %>
             <b>
-              <%= link_to 'Newest First', params.merge(:sort => "newest") %>
+              <%= link_to 'Newest First', params.merge(:sort => "newest", :page => 1) %>
             </b>
           <% else %>
-            <%= link_to 'Newest First', params.merge(:sort => "newest") %>
+            <%= link_to 'Newest First', params.merge(:sort => "newest", :page => 1) %>
           <% end %>
           <% if params[:sort] == "popular" %>
             &bull;
             <b>
-              <%= link_to 'Most Popular', params.merge(:sort => "popular") %>
+              <%= link_to 'Most Popular', params.merge(:sort => "popular", :page => 1) %>
             </b>
           <% else %>
             &bull;
-            <%= link_to 'Most Popular', params.merge(:sort => "popular") %>
+            <%= link_to 'Most Popular', params.merge(:sort => "popular", :page => 1) %>
           <% end %>
           <% if params[:sort] == "updated" %>
             &bull;
             <b>
-              <%= link_to 'Recently Updated', params.merge(:sort => "updated") %>
+              <%= link_to 'Recently Updated', params.merge(:sort => "updated", :page => 1) %>
             </b>
           <% else %>
             &bull;
-            <%= link_to 'Recently Updated', params.merge(:sort => "updated") %>
+            <%= link_to 'Recently Updated', params.merge(:sort => "updated", :page => 1) %>
           <% end %>
         </div>
         <% @submissions.each do |submission| %>

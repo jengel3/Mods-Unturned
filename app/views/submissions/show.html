@@ -22,12 +22,11 @@
               <a href="<%= submission_download_path(@submission) %>">
                 <h4 class="download">
                   Download
-                  <br>
-                  <span class="fileinfo">
+                  <div class="filename">
                     <%= @submission.latest_download.upload.truncated_name %>
                     <% size = latest.upload.download_size %>
                     (<%= "#{size[0]} #{size[1]}" %>)
-                  </span>
+                  </div>
                 </h4>
               </a>
             </div>
