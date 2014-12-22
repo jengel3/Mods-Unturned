@@ -5,3 +5,4 @@ public/assets/
 monogid.yml
 config.rb
 vendor/assets/components/**
+node_modules/

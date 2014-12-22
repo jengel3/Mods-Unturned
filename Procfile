@@ -1,1 +1,1 @@
-web: cp "config/initializers/config.rb.default" "config/initializers/config.rb" && bundle exec passenger start -p $PORT
+web: bower install && cp "config/initializers/config.rb.default" "config/initializers/config.rb" && bundle exec passenger start -p $PORT
