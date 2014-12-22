@@ -93,64 +93,13 @@
             </div>
             <% end %>
           </div>
-          <div class="videosection">
-            <h4 class="download"> Videos </h4>
-          </div>  
-          <% @submission.videos.each do |video| %>
-          <%= link_to image_tag(video.thumbnail, class: 'vidthumb'), video.url %>
-          <% end %>
-          <%= link_to image_tag('uploadthumb.png', class: 'vidthumb'), '#add-video', class: 'add-video-button' %>
+          <%= render 'videos/display' %>
           <%= render 'videos/popup' %>
         </div>
       </div>
       <div class="mainpageright">
-        <div class="mainscreen">
-          <%= image_tag("#{@submission.main_image ? @submission.main_image.image_url : 'uploadthumb.png'}", class: 'mainthumblarge') %>
-        </div>
-        <div class="screenshots">
-          <% 6.times do |count| %>
-          <% if @submission.thumbnails[count] %>
-          <a href="<%= @submission.thumbnails[count].image_url %>">
-            <img class="levelthumb" src="<%= @submission.thumbnails[count].image_url %>" title="Map Thumbnail"/>
-          </a>
-          <% else %>
-          <a>
-            <%= image_tag 'uploadthumb.png', class: 'levelthumb', title: "Placeholder" %>
-          </a>
-          <% end %>
-          <% end %>
-          <script>
-            $('.screenshots').magnificPopup({
-              delegate: 'a', // child items selector, by clicking on it popup will open
-              type: 'image'
-              // other options
-            });
-          </script>
-        </div>
-        <div class="comments">
-          <div class="header">
-            <b></b>
-            <p style="font-family:'Arial', Helvetica, sans-serif; color:#464646; margin-left:5px; padding-top:5px;">
-              <b>Comments</b>
-            </p>
-            <%= render 'comments/form' %>
-          </div>
-          <div class="list">
-            <% @submission.comments.asc(:created_at).reject(&:new_record?).each do |comment| %>
-            <div class="comment <%= cycle('comment-odd', 'comment-even') %>">
-              <div class="text">
-                <% if user_is_admin || (current_user && current_user == comment.user) %>
-                <%= link_to '<i class="fa fa-trash"></i>'.html_safe, submission_comment_path(@submission, comment), method: :delete, data: {confirm: 'Are you sure you want to delete this comment?'} %>
-                <% end %>
-                <b>
-                  <%= link_to comment.user.username + ':', user_uploads_path(comment.user.username), class: "#{if comment.user.admin? then 'admin' elsif comment.user == @submission.user then 'submitter' end}" %>
-                </b>
-                <%= comment.text %>
-              </div>
-            </div>
-            <% end %>
-          </div>
-        </div>
+        <%= render 'images' %>
+        <%= render 'comments/display' %>
       </div>
       <div id="mainpage"></div>
     </div>

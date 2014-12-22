@@ -12,19 +12,6 @@
 	margin: 0 auto;
 }
 
-.persondetails {
-	margin-top: 3px;
-}
-
-.admin {
-	color: red !important;
-}
-
-.submitter {
-	color: #2146FF !important;
-}
-
-
 /* NOT IN USE */
 .submenuitem {
 	display: none;
@@ -101,7 +88,7 @@
 	float: left;
 }
 
-/* download button text */
+/* DOWNLOAD SECTION */
 h4.download {
 	font-size: 35px;
 	text-align: center;
@@ -128,6 +115,8 @@ span.fileinfo {
 	-moz-box-shadow: 0px 1px 4px 0px rgba(20, 20, 20, 0.42);
 	box-shadow: 0px 1px 4px 0px rgba(20, 20, 20, 0.42);
 }
+
+
 a {
 	text-decoration: none;
 }
@@ -148,6 +137,11 @@ a:visited {
 	-webkit-box-shadow: 0px 0px 6px 0px rgba(50, 50, 50, 0.12);
 	-moz-box-shadow: 0px 0px 6px 0px rgba(50, 50, 50, 0.12);
 	box-shadow: 0px 0px 6px 0px rgba(50, 50, 50, 0.12);
+}
+
+/* ABOUT CREATOR SECTION */
+.persondetails {
+	margin-top: 3px;
 }
 .profile {
 	width: 94%;
@@ -187,6 +181,8 @@ a:visited {
 	margin-left: 65px;
 	font-size: 14px;
 }
+
+/* STATS AND INFORMATION SECTION */
 .stats {
 	margin-left: 65px;
 	font-size: 14px;
@@ -194,13 +190,11 @@ a:visited {
 .manage .uploadby a:hover {
 	color: black;
 }
+
 p {
 	color: #141414;
-	/* font-family: 'Arial', Helvetica, sans-serif;
-	*/
 }
 
-/* title of mod in infosection */
 p.title {
 	padding-top: 0px;
 	padding-left: 10px;
@@ -266,6 +260,8 @@ hr {
 	-moz-box-shadow: 0px 0px 6px 0px rgba(50, 50, 50, 0.12);
 	box-shadow: 0px 0px 6px 0px rgba(50, 50, 50, 0.12);
 }
+
+/* THUMBNAIL SECTION */
 .screenshots {
 	/* background-color: #EBEBEB;
 	*/
@@ -303,6 +299,9 @@ hr {
 .levelthumb:hover {
 	opacity: 1;
 }
+
+
+/* COMMENT SECTION */
 .comments {
 	/* background-color: #E5E5E5;
 	*/
@@ -386,6 +385,16 @@ hr {
 	-moz-box-shadow: 2px 2px 7px #E8E8E8 inset;
 	box-shadow: 2px 2px 7px #E8E8E8 inset;
 }
+.admin {
+	color: red !important;
+}
+
+.submitter {
+	color: #2146FF !important;
+}
+
+/* VIDEO SECTION */
+
 .videosection {
 	/* background-color: #E2E2E2;
 	*/
@@ -414,10 +423,27 @@ hr {
 	display: inline-block;
 	width: 133px;
 	height: 75px;
-	margin-left: 10px;
+	margin-left: 14px;
 	margin-bottom: 10px;
 }
-.vidthumb img {
+
+.video {
+	display: inline-block;
 	width: 133px;
 	height: 75px;
+}
+
+.vidthumb img, .video .delete-video {
+	position: absolute;
+	top: 1px;
+	left: 15px;
+}
+
+.add-video-popup {
+	position: relative;
+	background: #FFF;
+	padding: 20px;
+	width: auto;
+	max-width: 500px;
+	margin: 20px auto;
 }

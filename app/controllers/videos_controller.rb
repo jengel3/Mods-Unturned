@@ -14,11 +14,11 @@ class VideosController < ApplicationController
   end
 
   def destroy
+    @submission = @video.submission
     if can_manage(@video.submission)
-      @video.submission.destroy
-    else
-      redirect_to submission_path(@video.submission)
+      @video.destroy
     end
+    redirect_to submission_path(@video.submission)
   end
 
   private

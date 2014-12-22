@@ -1,0 +1,23 @@
+<div class="mainscreen">
+  <%= image_tag("#{@submission.main_image ? @submission.main_image.image_url : 'uploadthumb.png'}", class: 'mainthumblarge') %>
+</div>
+<div class="screenshots">
+  <% 6.times do |count| %>
+  <% if @submission.thumbnails[count] %>
+  <a href="<%= @submission.thumbnails[count].image_url %>">
+    <img class="levelthumb" src="<%= @submission.thumbnails[count].image_url %>" title="Map Thumbnail"/>
+  </a>
+  <% else %>
+  <a>
+    <%= image_tag 'uploadthumb.png', class: 'levelthumb', title: "Placeholder" %>
+  </a>
+  <% end %>
+  <% end %>
+  <script>
+    $('.screenshots').magnificPopup({
+              delegate: 'a', // child items selector, by clicking on it popup will open
+              type: 'image'
+              // other options
+            });
+  </script>
+</div>
