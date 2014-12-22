@@ -1,16 +1,21 @@
 <div id="add-video" class="add-video-popup mfp-hide">
-	<%= form_for([@submission, @submission.videos.build]) do |f| %>
-	<%= f.label :url %>
-	<%= f.text_field :url, autocomplete: 'off' %>
-	
-	<%= f.submit 'Submit'%>
-	<% end %>
+  <p>
+    Please be considerate of the video that you are about to submit. Submitting videos unrelated to this submission will have your video permissions revoked. Admins and submission creators reserve the right to delete any video, under any circumstances.
+  </p>
 
+  <%= form_for([@submission, @submission.videos.build]) do |f| %>
+  <%= f.label :url, 'URL:' %>
+  <p>
+  <%= f.text_field :url, autocomplete: 'off', class: 'text-box', style: 'width: 87%; display: inline;', placeholder: 'Youtube videos only' %>
+
+    <%= f.submit 'Submit', class: 'text-box', style: 'display: inline;' %>
+  </p>
+  <% end %>
 </div>
 
 <script>
-	$('.add-video-button').magnificPopup({
-		type:'inline',
-		midClick: true
-	});
+  $('.add-video-button').magnificPopup({
+    type:'inline',
+    midClick: true
+  });
 </script>

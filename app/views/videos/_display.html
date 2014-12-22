@@ -12,9 +12,8 @@
     <% end %>
   </div>
   <% end %>
-  <%= link_to image_tag('uploadthumb.png', class: 'vidthumb'), '#add-video', class: 'add-video-button' %>
+  <%= link_to image_tag('uploadthumb.png', class: 'vidthumb'), '#add-video', class: 'add-video-button', title: "Add Video" %>
   <script>
-
     $(document).ready(function() {
       $('.popup-youtube').magnificPopup({
         disableOn: 700,
@@ -24,6 +23,5 @@
         preloader: false,
       });
     });
-    
   </script>
 </div>
