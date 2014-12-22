@@ -11,7 +11,10 @@ $(document).ready(function () {
 });
 
 function getPageHeight() {
-  var right_height = $('.mainscreen').height() + $('.screenshots').height() + $('.list').height() + $('.header').height();
-  var left_height = $('.sidebar').height();
-  return (right_height >= right_height ? left_height : videos_height);
+    $('.comments').height($('.list').height() + $('.header').height() + 16);
+    var right_height = $('.mainscreen').outerHeight(true) + $('.screenshots').outerHeight(true) + $('.comments').outerHeight(true);
+    var left_height = $('.sidebar').height();
+    console.log(right_height)
+    console.log(left_height)
+    return (right_height >= left_height ? right_height : left_height);
 }

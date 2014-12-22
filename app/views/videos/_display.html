@@ -4,7 +4,7 @@
 <div class="videos">
   <% @submission.videos.each do |video| %>
   <div style='position: relative;' class='video'>
-    <a href=<%= video.url %>>
+    <a href=<%= video.url %> class='popup-youtube'>
       <img src=<%= video.thumbnail ? video.thumbnail : image_path('uploadthumb.png') %> class="vidthumb">
     </a>
     <% if can_manage(@submission) %>
@@ -13,4 +13,17 @@
   </div>
   <% end %>
   <%= link_to image_tag('uploadthumb.png', class: 'vidthumb'), '#add-video', class: 'add-video-button' %>
+  <script>
+
+    $(document).ready(function() {
+      $('.popup-youtube').magnificPopup({
+        disableOn: 700,
+        type: 'iframe',
+        mainClass: 'mfp-fade',
+        removalDelay: 160,
+        preloader: false,
+      });
+    });
+    
+  </script>
 </div>
