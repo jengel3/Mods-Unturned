@@ -35,11 +35,11 @@
             <p class="title">
               <%= best_in_place_if can_manage(@submission), @submission, :name, :type => :input, tabindex: "1" %>
             </p>
-            <p class="dateupload">
+            <p class="dateupload" title="<%= 'Uploaded ' + time_ago_in_words(@submission.created_at) + ' ago' %>">
               <%= @submission.created_at.strftime("%B #{@submission.created_at.day.ordinalize}, #{@submission.created_at.year}") %>
             </p>
             <p class="description">
-              <%= best_in_place_if can_manage(@submission), @submission, :body, :type => :textarea, tabindex: "2", classes: 'description_filter', :data => {:description => @submission.body}, :display_with => lambda { |v| v.gsub(/(\r)?\n/, "<br/>").html_safe } %>
+              <%= best_in_place_if can_manage(@submission), @submission, :body, :type => :textarea, tabindex: "2", classes: 'description_filter', :data => {:description => @submission.body}, sanitize: false, :display_with => lambda { |v| sanitize(v).gsub(/(\r)?\n/, "<br/>").html_safe } %>
             </p>
             <p class="uploadby">
               <b>Created by:</b>
@@ -112,7 +112,6 @@
 <script>
   $(".best_in_place").best_in_place();
   $('.description_filter').bind("ajax:success", function () {
-    alert('Name updated for '+$(this).data('description'));
     $('.description_filter').html($(this).data('description').replace(/(\r)?\n/g, "<br/>"))
   });
 </script>
