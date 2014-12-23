@@ -437,12 +437,15 @@ hr {
 
 .add-video-popup {
 	position: relative;
-	background: #FFF;
+	background: rgb(248,248,248);
 	padding: 20px;
 	width: auto;
 	max-width: 500px;
 	margin: 20px auto;
 	border-radius: 3px;
+	font-size:14px;
+	font-weight:bold;
+	color:rgb(50,50,50);
 }
 
 .delete-video:hover {
