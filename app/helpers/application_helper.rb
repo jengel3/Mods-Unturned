@@ -1,9 +1,13 @@
 module ApplicationHelper
   def can_manage(submission)
+    puts "current", current_user
     current_user and (submission.user == current_user or current_user.admin?)
   end
 
   def verify_manager
+    if !can_manage(@submission)
+      puts "NSIVdvnmksdvmdlvs"
+    end
     redirect_to root_path unless can_manage(@submission)
   end
 

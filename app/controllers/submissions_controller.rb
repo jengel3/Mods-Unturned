@@ -83,9 +83,9 @@ class SubmissionsController < ApplicationController
 
   def update
     respond_to do |format|
-      if @submission.update(submission_params)
+      if @submission.update!(submission_params)
         format.html { redirect_to @submission }
-        format.json { head :ok }
+        format.json { respond_with_bip(@submission) }
       else
         format.html { render :action => "edit" }
         format.json { respond_with_bip(@submission) }
@@ -110,7 +110,7 @@ class SubmissionsController < ApplicationController
   end
 
   def set_submission
-    @submission = Submission.find(params[:id] || params[:submission_id])
+    @submission = Submission.find(params[:id])
   end
 
   def submission_params
