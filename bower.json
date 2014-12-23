@@ -21,6 +21,7 @@
   ],
   "dependencies": {
     "magnific-popup": "~1.0.0",
-    "fontawesome": "~4.2.0"
+    "fontawesome": "~4.2.0",
+    "jquery-ui": "~1.11.2"
   }
 }

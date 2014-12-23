@@ -110,8 +110,14 @@
   </div>
 </div>
 <script>
+  // init best_in_place
   $(".best_in_place").best_in_place();
+  // Handles description formatting
   $('.description_filter').bind("ajax:success", function () {
     $('.description_filter').html($('.description_filter').html().replace(/(\r)?\n/g, "<br/>")) // Replace new lines
+  });
+  // Handles animation
+  $('.best_in_place').bind("ajax:success", function () {
+    $(this).effect('highlight', {color: 'lightgreen'}, 1800);
   });
 </script>
