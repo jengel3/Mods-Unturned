@@ -31,4 +31,8 @@ describe Upload do
     upload = FactoryGirl.build(:upload)
     expect(upload.upload.download_size[0]).to eq(10)
   end
+  it "has the correct non-truncated name" do
+    upload = FactoryGirl.build(:upload)
+    expect(upload.upload.truncated_name).to eq("Matchbox_Isle.zip")
+  end
 end
