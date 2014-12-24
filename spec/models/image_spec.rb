@@ -15,7 +15,7 @@ describe Image do
     expect(FactoryGirl.build(:image, image: nil)).to be_invalid
   end
   it "has the correct file name" do
-    imaeg = FactoryGirl.build(:image)
+    image = FactoryGirl.build(:image)
     expect(image.image.file.filename).to eq("Bridge.jpg")
   end
 end
