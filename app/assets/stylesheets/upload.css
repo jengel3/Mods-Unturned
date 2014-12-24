@@ -1,42 +1,42 @@
 * {
-	font-family: 'Arimo', Helvetica, sans-serif;
+  font-family: 'Arimo', Helvetica, sans-serif;
 }
 .form {
-	margin-left: 50px;
+  margin-left: 50px;
 }
 a:link {
-	text-decoration: none;
-	color: #141414;
+  text-decoration: none;
+  color: #141414;
 }
 a:visited {
-	color: #141414;
+  color: #141414;
 }
 input[type=submit] {
   background-color: rgb(245, 245, 245) !important;
 }
 #mainpagewrap {
-	width: 900px;
-	height: 1240px;
-	margin: 0 auto;
-	margin-bottom: 10px;
+  width: 900px;
+  height: 1240px;
+  margin: 0 auto;
+  margin-bottom: 10px;
 }
 #mainpage {
-	width: 860px;
-	height: 1240px;
+  width: 860px;
+  height: 1240px;
 }
 .mainpageleft {
-	width: 860px;
-	height: 100%;
-	float: left;
-	margin-left: 20px;
-	border: none;
+  width: 860px;
+  height: 100%;
+  float: left;
+  margin-left: 20px;
+  border: none;
 }
 .mainpageright {
-	width: 430px;
-	height: 100%;
-	float: right;
-	margin-right: 20px;
-	border: none;
+  width: 430px;
+  height: 100%;
+  float: right;
+  margin-right: 20px;
+  border: none;
 }
 
 input:not(.file):not(.checkbox), textarea {
@@ -49,5 +49,5 @@ input:not(.file):not(.checkbox), textarea {
 }
 
 input:not(.checkbox):not(.file) {
-	height: 30px;
+  height: 30px;
 }
