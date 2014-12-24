@@ -7,7 +7,7 @@ class UserMailer < ActionMailer::Base
     @username = username
     @email = email
     @inquiry = inquiry
-    mail(:to => "jake0oo0dev@gmail.com",
+    mail(:to => "jake0oo0dev@gmail.com; modsunturned@gmail.com",
          :subject => "#{username} has sent an inquiry to Mods Unturned.",
          :reply_to => @email)
   end
