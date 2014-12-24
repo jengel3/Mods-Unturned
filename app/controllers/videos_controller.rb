@@ -7,7 +7,7 @@ class VideosController < ApplicationController
     @submission = Submission.find(params[:submission_id])
     thumbnail = @video.get_thumbnail
     if thumbnail
-      video.thumbnail = thumbnail
+      @video.thumbnail = thumbnail
     else
       return redirect_to @submission
     end
