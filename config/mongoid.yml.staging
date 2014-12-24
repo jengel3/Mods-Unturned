@@ -1,0 +1,26 @@
+development:
+  sessions:
+    default:
+      database: rails_dev
+      hosts:
+        - ds037447.mongolab.com:37447
+      username: developer
+      password: rails
+
+production:
+  sessions:
+    default:
+      database: rails_dev
+      hosts:
+        - ds037447.mongolab.com:37447
+      username: developer
+      password: rails
+         
+test:
+  sessions:
+    default:
+      database: rails_dev
+      hosts:
+        - ds037447.mongolab.com:37447
+      username: developer
+      password: rails
