@@ -18,4 +18,8 @@ module ApplicationHelper
   def get_request_ip
     request.headers['X-Forwarded-For'] || request.ip
   end
+
+  def image_full_url(source)
+    "#{root_url}#{image_path(source)}"
+  end
 end

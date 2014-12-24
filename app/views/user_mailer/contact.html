@@ -1,13 +1,19 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
-  </head>
-  <body>
-    <h1>The user <%= @username %> has sent an inquiry to Mods Unturned.</h1>
-    <p><%= @inquiry %></p>
-    <br>
-    <br>
-    <p>To respond to this email, reply to <%= @email %></p>
-  </body>
+<head>
+  <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+</head>
+<body>
+  <a href="<%= root_url %>">
+    <img src="<%= image_full_url('header.png') %>"/>
+  </a>
+  <h2 style="margin-top: 0px;">The user <%= @username %> has sent an inquiry to Mods Unturned.</h2>
+  <p style="margin-top: 0px;"><%= @inquiry %></p>
+  <p>To respond to this email, reply to 
+    <a href="mailto:<%= @email %>"><%= @email %></a>
+  </p>
+  <p> If you would no longer like to receive these emails, please 
+    <a href=<%= root_url %>>unsubscribe.</a>
+  </p>
+</body>
 </html>

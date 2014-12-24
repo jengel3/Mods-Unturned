@@ -1,4 +1,5 @@
 class UserMailer < ActionMailer::Base
+  add_template_helper(ApplicationHelper)
   default from: "no-reply@mods-unturned.com"
   @@reply = "no-reply@mods-unturned.com"
 
