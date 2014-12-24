@@ -29,6 +29,11 @@ ADD SSH KEY TO GITHUB ACCOUNT
 
 git clone <url>
 bundle install
+apt-get install nodejs-legacy -y
+apt-get install npm -y
+npm install
+./node_modules/bower/bin/bower install
+
 mkdir public/uploads
 mkdir public/uploads/tmp
 chmod -R 777 public/uploads
@@ -38,3 +43,7 @@ chmod -R 777 public/uploads/tmp
 nano /opt/nginx/conf/nginx.conf & replace with ./nginx.conf
 
 service nginx restart
+
+apt-get install postfix
+(https://www.digitalocean.com/community/tutorials/how-to-install-and-setup-postfix-on-ubuntu-12-04)
+Add no-reply, support, info emails. (cp "./virtual" '/etc/postfix/virtual' -f)
