@@ -69,8 +69,8 @@
         <% end %>
       </div>
       <div id="mainpage" style="margin-bottom: 2px !important;"></div>
-      <div align="center" id="paginator" style="padding: 5px;">
-        <%= paginate @submissions %>
+      <div class="pagination-wrap">
+        <%= paginate @submissions, :window => 2 %>
       </div>
     </div>
   </div>

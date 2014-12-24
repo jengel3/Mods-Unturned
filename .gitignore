@@ -2,7 +2,7 @@
 tmp/
 public/uploads/
 public/assets/
-monogid.yml
+monogoid.yml
 config.rb
 vendor/assets/components/**
 node_modules/
