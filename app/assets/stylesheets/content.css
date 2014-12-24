@@ -94,6 +94,18 @@ h4.download {
 	margin: 0;
 	padding: 15px;
 }
+
+h4.videoheading {
+	font-size: 35px;
+	text-align: center;
+	/* font-family: 'Arial', Helvetica, sans-serif;
+	*/
+	letter-spacing: 1px;
+	text-align: center;
+	margin: 0;
+	padding: 20px;
+}
+
 .filename {
 	font-size:12px;
 }
@@ -437,12 +449,15 @@ hr {
 
 .add-video-popup {
 	position: relative;
-	background: #FFF;
+	background: rgb(248,248,248);
 	padding: 20px;
 	width: auto;
 	max-width: 500px;
 	margin: 20px auto;
 	border-radius: 3px;
+	font-size:14px;
+	font-weight:bold;
+	color:rgb(50,50,50);
 }
 
 .delete-video:hover {
