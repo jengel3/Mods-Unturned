@@ -6,4 +6,4 @@ monogid.yml
 config.rb
 vendor/assets/components/**
 node_modules/
-spec/support/uploads/**
+spec/support/uploads/
