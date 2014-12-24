@@ -6,6 +6,7 @@ class VideosController < ApplicationController
     @video = Video.new(video_params)
     @submission = Submission.find(params[:submission_id])
     @submission.videos << @video
+    current_user.submitted_videos << @video
     thumbnail = @video.get_thumbnail
     if thumbnail
       video.thumbnail = thumbnail
