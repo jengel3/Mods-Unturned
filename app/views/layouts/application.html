@@ -48,8 +48,10 @@
   <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet"></link>
   <%= csrf_meta_tags %>
 </head>
+<% unless params[:action] == "maintenance" %>
 <body>
   <%= yield %>
   <%= render 'shared/footer' %>
 </body>
+<% end %>
 <%= render 'shared/analytics' %>
