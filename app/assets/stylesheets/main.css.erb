@@ -11,7 +11,7 @@ a {
 }
 
 img[usemap], map area{
-    outline: none;
+	outline: none;
 }
 
 .pagination {
@@ -346,11 +346,11 @@ h3 {
 .footertable td:hover {
 	background-color:rgb(20,20,20);
 	-o-transition:.2s ease-in-out;
-  -ms-transition:.2s ease-in-out;
-  -moz-transition:.2s ease-in-out;
-  -webkit-transition:.2s ease-in-out;
-  /* ...and now for the proper property */
-  transition:.2s ease-in-out;
+	-ms-transition:.2s ease-in-out;
+	-moz-transition:.2s ease-in-out;
+	-webkit-transition:.2s ease-in-out;
+	/* ...and now for the proper property */
+	transition:.2s ease-in-out;
 }
 
 .socialmedialogos {
@@ -365,4 +365,57 @@ td.socialmedialogos {
 .socialmediaimg {
 	display:inline-block;
 	margin:20px;
+}
+
+/* CONTACT SECTION */
+#contact-popup {
+	position: relative;
+	background: rgb(248,248,248);
+	padding: 10px 20px 20px 20px;
+	width: auto;
+	max-width: 500px;
+	margin: 20px auto;
+	border-radius: 3px;
+	font-family: 'Arimo', sans-serif;
+	font-size:14px;
+	font-weight:bold;
+	color:rgb(50,50,50);
+}
+
+.contentboxes:last-child{
+	height:300px;
+}
+
+.contactboxes {
+	width:94%;
+	margin-bottom:8px;
+	background-color:rgb(253,253,253);
+	outline: none;
+	display: block;
+	padding: 4px 8px;
+	border: 1px dashed rgb(200,200,200);
+	color: #3F3F3F;
+	font-family: 'Droid Sans', Tahoma, Arial, Verdana sans-serif;
+	font-size: 14px;
+	-webkit-border-radius: 2px;
+	-moz-border-radius: 2px;
+	border-radius: 2px;
+	-webkit-transition: background 0.2s linear, box-shadow 0.6s linear;
+	-moz-transition: background 0.2s linear, box-shadow 0.6s linear;
+	-o-transition: background 0.2s linear, box-shadow 0.6s linear;
+	transition: background 0.2s linear, box-shadow 0.6s linear;
+}
+
+.contactboxes:focus {
+	/*background: #F9F9F9;*/
+	background-color:rgb(255,255,255);
+	border: dashed 1px #74D5DF;
+	-webkit-box-shadow: 2px 2px 7px #E8E8E8 inset;
+	-moz-box-shadow: 2px 2px 7px #E8E8E8 inset;
+	box-shadow: 2px 2px 7px #E8E8E8 inset;
+}  
+
+.contactsubmitbutton {
+	height:25px;
+	margin-top:5px;
 }

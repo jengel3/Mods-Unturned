@@ -22,10 +22,11 @@ class ApplicationController < ActionController::Base
     email = form[:email]
     username = form[:username]
     inquiry = form[:inquiry]
-    if email.empty || username.empty || inquiry.empty
+    if email.empty? || username.empty? || inquiry.empty?
       return redirect_to root_path, :alert => "Please fill in all fields."
     end
-    user_mailer.contact(username, email, inquiry).deliver
+    UserMailer.contact(username, email, inquiry).deliver
+    redirect_to root_path, :notice => "Successfully sent an inquiry to Mods Unturned."
   end
   
   def after_sign_in_path_for(resource)
