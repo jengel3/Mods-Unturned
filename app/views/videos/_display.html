@@ -5,14 +5,14 @@
   <% @submission.videos.each do |video| %>
   <div style='position: relative;' class='video'>
     <a href=<%= video.url %> class='popup-youtube'>
-      <img src=<%= video.thumbnail ? video.thumbnail : image_path('uploadthumb.png') %> class="vidthumb">
+      <img src=<%= video.thumbnail ? video.thumbnail : image_path('addvideothumb.png') %> class="vidthumb">
     </a>
     <% if can_manage(@submission) %>
     <%= link_to "<span class='fa fa-trash delete-video'></span>".html_safe, submission_video_path(@submission, video), method: :delete, data: {confirm: 'Are you sure you want to delete this video?'} %>
     <% end %>
   </div>
   <% end %>
-  <%= link_to image_tag('uploadthumb.png', class: 'vidthumb'), '#add-video', class: 'add-video-button', title: "Add Video" %>
+  <%= link_to image_tag('addvideothumb.png', class: 'vidthumb'), '#add-video', class: 'add-video-button', title: "Add Video" %>
   <script>
     $(document).ready(function() {
       $('.popup-youtube').magnificPopup({

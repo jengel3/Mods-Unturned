@@ -41,7 +41,12 @@ class Submission
         group = { "$group" =>
           { "_id" => "$submission_id", "count" => { "$sum" => 1 } }
         }
-        result = Download.daily.collection.aggregate([group, sort, limit])[0]['_id']
+        result = Download.daily.collection.aggregate([group, sort, limit])[0]
+        if !result
+          return nil
+        else
+          result = result['_id']
+        end
         REDIS.set(key, result)
         REDIS.expire(key, 1.hour)
       end
