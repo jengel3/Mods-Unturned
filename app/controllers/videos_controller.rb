@@ -5,13 +5,17 @@ class VideosController < ApplicationController
   def create
     @video = Video.new(video_params)
     @submission = Submission.find(params[:submission_id])
-    @submission.videos << @video
-    current_user.submitted_videos << @video
     thumbnail = @video.get_thumbnail
+    puts "THUMB:", thumbnail
     if thumbnail
+      puts 'TOS VALID MATE'
       video.thumbnail = thumbnail
+    else
+      return redirect_to @submission
     end
     if @video.save
+      @submission.videos << @video
+      current_user.submitted_videos << @video
       redirect_to @video.submission # Success
     else
       redirect_to @video.submission # Error message

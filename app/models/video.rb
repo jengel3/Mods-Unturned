@@ -13,7 +13,7 @@ class Video
   def get_thumbnail
     yt_regex = /^https:\/\/www\.youtube\.com\/watch\?v=([a-zA-Z0-9_-]*)/
     video_id = yt_regex.match(self.url)
-    if !video_id
+    if !video_id || !video_id[1]
       return nil
     end
     video_id = video_id[1]
