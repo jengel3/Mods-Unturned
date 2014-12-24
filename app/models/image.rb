@@ -7,7 +7,7 @@ class Image
 
   mount_uploader :image, ImageUploader
 
-  validates :location, presence: true, inclusion: { in: ['Main', 'Thumbnail 1', 'Thumbnail 2', 'Thumbnail 3', 'Thumbnail 4', 'Thumbnail 5', 'Thumbnail 6']}
+  validates :location, presence: true, inclusion: { in: ['Main', 'Thumbnail1', 'Thumbnail2', 'Thumbnail3', 'Thumbnail4', 'Thumbnail5', 'Thumbnail6']}
   validates :image, presence: true
 
   belongs_to :submission
