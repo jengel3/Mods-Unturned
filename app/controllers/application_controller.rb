@@ -16,6 +16,17 @@ class ApplicationController < ActionController::Base
 
   def about
   end
+
+  def contact
+    form = params[:contact]
+    email = form[:email]
+    username = form[:username]
+    inquiry = form[:inquiry]
+    if email.empty || username.empty || inquiry.empty
+      return redirect_to root_path, :alert => "Please fill in all fields."
+    end
+    user_mailer.contact(username, email, inquiry).deliver
+  end
   
   def after_sign_in_path_for(resource)
     root_path

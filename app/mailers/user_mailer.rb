@@ -2,6 +2,15 @@ class UserMailer < ActionMailer::Base
   default from: "no-reply@mods-unturned.com"
   @@reply = "no-reply@mods-unturned.com"
 
+  def contact(username, email, inquiry)
+    @username = username
+    @email = email
+    @inquiry = inquiry
+    mail(:to => "modsunturned@gmail.com",
+         :subject => "#{username} has sent an inquiry to Mods Unturned.",
+         :reply_to => @email)
+  end
+
   def denied(user, download)
     @username = user.username
     @email = user.email
