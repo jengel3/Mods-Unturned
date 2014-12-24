@@ -6,9 +6,7 @@ class VideosController < ApplicationController
     @video = Video.new(video_params)
     @submission = Submission.find(params[:submission_id])
     thumbnail = @video.get_thumbnail
-    puts "THUMB:", thumbnail
     if thumbnail
-      puts 'TOS VALID MATE'
       video.thumbnail = thumbnail
     else
       return redirect_to @submission
