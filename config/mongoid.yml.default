@@ -5,9 +5,15 @@ production:
       hosts:
         - localhost:27017
 
-production:
+development:
   sessions:
     default:
-      database: unturned_mods_production
+      database: unturned_mods_development
+      hosts:
+        - localhost:27017
+test:
+  sessions:
+    default:
+      database: unturned_mods_test
       hosts:
         - localhost:27017

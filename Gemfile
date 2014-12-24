@@ -18,10 +18,20 @@ gem 'httparty'
 gem 'bb-ruby'
 gem 'best_in_place', '~> 3.0.1'
 
+group :production do
+  gem 'passenger'
+end
+
 group :development do
   gem 'better_errors'
 end
 
-group :production do
-  gem 'passenger'
+group :development, :test do 
+  gem 'rspec-rails' 
+  gem 'factory_girl_rails'
+end 
+group :test do 
+  gem 'faker' 
+  gem 'capybara'
+  gem 'database_cleaner'
 end

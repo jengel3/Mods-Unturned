@@ -3,9 +3,8 @@ class User
   devise :database_authenticatable, :registerable,
   :recoverable, :rememberable, :trackable, :validatable
 
-  validates_uniqueness_of :username
-  validates_uniqueness_of :email
-  validates :username, :length => { :maximum => 16 } # Max username length is 16
+  validates :username, presence: true, uniqueness: true, :length => { :maximum => 16 } # Max username length is 16
+  validates :email, presence: true, uniqueness: true
 
   field :email,              type: String, default: ""
   field :encrypted_password, type: String, default: ""
@@ -27,6 +26,7 @@ class User
   def total_downloads
     total = 0
     submissions.each { |s| total += s.downloads.weekly.count }
+    return total
   end
 
   has_many :submissions, :dependent => :destroy

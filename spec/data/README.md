@@ -1,0 +1,1 @@
+The data in this folder is used for tests. Images and downloads are taken from [Mods-Unturned](https://mods-unturned.com)

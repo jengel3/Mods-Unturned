@@ -6,6 +6,10 @@ class VideosController < ApplicationController
     @video = Video.new(video_params)
     @submission = Submission.find(params[:submission_id])
     @submission.videos << @video
+    thumbnail = @video.get_thumbnail
+    if thumbnail
+      video.thumbnail = thumbnail
+    end
     if @video.save
       redirect_to @video.submission # Success
     else

@@ -127,7 +127,7 @@ class Submission
   end
 
   def thumbnails
-    result = images.where(:location.ne => "Main").limit(6)
+    images.where(:location.ne => "Main").limit(6)
   end
 
   def can_show?
