@@ -110,7 +110,7 @@ class SubmissionsController < ApplicationController
   end
 
   def set_submission
-    @submission = Submission.find(params[:id])
+    @submission = Submission.find(params[:id] || params[:submission_id])
   end
 
   def submission_params

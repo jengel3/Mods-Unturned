@@ -1,89 +1,77 @@
 <div id="centerpage">
-	<%= render 'shared/tabs' %>
+  <%= render 'shared/tabs' %>
 </div>
-</div>		
 
-<div id="mainpagewrap">	
+<div id="mainpagewrap"> 
 
-	<div class="box effect1">
-		<h2>About Us </h2>
-	</div>				
+  <div class="box effect1">
+    <h2>About Us </h2>
+  </div>        
 
-	<div class="mainpageleft">
-					<div class="biowraps">
-						<div class="profile">
-							<a href=<%= user_uploads_path('LCBradley3k') %>><img src=<%= image_path("bradley.png") %> class="avatar"></a>
-							<div class="persondetails">
-								<div class="username">LCBradley3k</div> 
-								<div class="userdescriptionshort">Owner, Design Manager</div>
-							</div>					
-						</div>	
-						<div class="userdescriptionlong">
-							Hi! My name is Brad and I'm the owner of Mods-Unturned.com. In effort to create an area
-							where people could share their community content for Unturned, I created this site. Originally, it was
-							just a static page where contributors emailed me their mods. Then we did a complete redesign, and
-							Jake (info to your right) was brought to the team to create a backend built on Ruby. I also
-							run the Youtube Channel <b><a href="https://www.youtube.com/user/LCBradley3k" target="_blank">LCBradley3k</a></b>, and a site like this was always a goal when I started my 
-							Channel. Youtube allows me to voice my opinion and have some fun, but I'm hoping our website
-							allows everyone to express their creativity through the mods they create. For any updates on me, you can check out my <a href="https://twitter.com/LCBradley3k" target="_blank">Twitter</a>.
-						</div>
-					</div>
-					<div class="biowraps">
-						<div class="profile">
-							<a href=<%= user_uploads_path('Jake0oo0') %>><img src=<%= image_path("jake.png") %> class="avatar"></a>
-							<div class="persondetails">
-								<div class="username">Jake0oo0</div> 
-								<div class="userdescriptionshort">Co-founder, Backend Developer</div>
-							</div>					
-						</div>		
-						<div class="userdescriptionlong">
-							Hi, I'm Jake, the backend developer for Mods-Unturned.com. I contacted Bradley after seeing a tweet from Nelson about this site. I was interested in possibly
-							uploading my own content, but realized that the site was completely static, and that I would have to email Bradley my content. Instead, I decided to contact 
-							him about rebuilding the site to be more dynamic, putting it where it is today. I started developing mods and plugins for various games several years ago, and 
-							I have since grown to love programming. I have various projects available on <a href="https://github.com/Jake0oo0" target="_blank">Github</a> to check out too! If you are in need of any web 
-							development, or programming, <a href="https://twitter.com/0oDevo0" target="_blank">tweet</a> at me, or check out <a href="https://jake0oo0.me" target="_blank">my site</a>!
-						</div>						
-					</div>
-					<!--<div class="honorstitle creatorstitle">
-						Honorable Mentions
-					</div>-->
-					<div class="statswrap effect7">
-						<span class="statstitle"> Statistics </span>
-						<table>
-							<tr>
-								<td>Total Modifications: <%= number_with_delimiter(Submission.valid.count, :delimiter => ',') %></td>
-								<td rowspan="4" style="text-align: center;">Coming soon!</td>
-							</tr>
-							<tr>						
-								<td> Total Downloads: <%= number_with_delimiter(Submission.valid.sum(:total_downloads), :delimiter => ',') %> </td>
-							</tr>
-							<tr>						
-								<td> Total Users: <%= number_with_delimiter(User.count, :delimiter => ',') %></td>
-							</tr>
-							<tr>						
-								<td> Total Comments: <%= number_with_delimiter(Comment.count, :delimiter => ',') %></td>
-							</tr>						
-						</table>
-					</div>
-					<div class="honorbiowrap effect7">
-						We would like to thank <b><a href="https://twitter.com/SDGNelson" target="_blank">Nelson Sexton</a></b> for creating the game Unturned. It has provided entertainment,
-						laughs, and creativity to the entire gaming community. We'd also like to thank the Youtuber <b><a href="https://www.youtube.com/user/xXMeLikeBigBoomXx" target="_blank">MeLikeBigBoom</a></b>
-						for supporting our webite early on with his videos of the modifications. Overall, we're a team who's proud
-						to provide a free of charge platform where the community can upload their creations. 
-					</div>
-					
-				</div>					
-				
-				<div id="mainpage"> <!-- Page behind all the content -->
-					<!-- #BDBDBD #C4C4C4-->
-					<!--<a href="modspage2.html"><p class="next" >Next Page > </p></a>-->
-				</div>
-				
+  <div class="mainpageleft">
+    <div class="biowraps">
+      <div class="profile">
+        <a href=<%= user_uploads_path('LCBradley3k') %>><img src=<%= image_path("bradley.png") %> class="avatar"></a>
+        <div class="persondetails">
+          <div class="username">LCBradley3k</div> 
+          <div class="userdescriptionshort">Owner, Design Manager</div>
+        </div>          
+      </div>  
+      <div class="userdescriptionlong">
+        Hi! My name is Brad and I'm the owner of Mods-Unturned.com. In effort to create an area
+        where people could share their community content for Unturned, I created this site. Originally, it was
+        just a static page where contributors emailed me their mods. Then we did a complete redesign, and
+        Jake (info to your right) was brought to the team to create a backend built on Ruby. I also
+        run the Youtube Channel <b><a href="https://www.youtube.com/user/LCBradley3k" target="_blank">LCBradley3k</a></b>, and a site like this was always a goal when I started my 
+        Channel. Youtube allows me to voice my opinion and have some fun, but I'm hoping our website
+        allows everyone to express their creativity through the mods they create. For any updates on me, you can check out my <a href="https://twitter.com/LCBradley3k" target="_blank">Twitter</a>.
+      </div>
+    </div>
+    <div class="biowraps">
+      <div class="profile">
+        <a href=<%= user_uploads_path('Jake0oo0') %>><img src=<%= image_path("jake.png") %> class="avatar"></a>
+        <div class="persondetails">
+          <div class="username">Jake0oo0</div> 
+          <div class="userdescriptionshort">Co-founder, Backend Developer</div>
+        </div>          
+      </div>    
+      <div class="userdescriptionlong">
+        Hi, I'm Jake, the backend developer for Mods-Unturned.com. I contacted Bradley after seeing a tweet from Nelson about this site. I was interested in possibly
+        uploading my own content, but realized that the site was completely static, and that I would have to email Bradley my content. Instead, I decided to contact 
+        him about rebuilding the site to be more dynamic, putting it where it is today. I started developing mods and plugins for various games several years ago, and 
+        I have since grown to love programming. I have various projects available on <a href="https://github.com/Jake0oo0" target="_blank">Github</a> to check out too! If you are in need of any web 
+        development, or programming, <a href="https://twitter.com/0oDevo0" target="_blank">tweet</a> at me, or check out <a href="https://jake0oo0.me" target="_blank">my site</a>!
+      </div>            
+    </div>
+    <div class="statswrap effect7">
+      <span class="statstitle"> Statistics </span>
+      <table>
+        <tr>
+          <td>Total Modifications: <%= number_with_delimiter(Submission.valid.count, :delimiter => ',') %></td>
+          <td rowspan="4" style="text-align: center;">Coming soon!</td>
+        </tr>
+        <tr>            
+          <td> Total Downloads: <%= number_with_delimiter(Submission.valid.sum(:total_downloads), :delimiter => ',') %> </td>
+        </tr>
+        <tr>            
+          <td> Total Users: <%= number_with_delimiter(User.count, :delimiter => ',') %></td>
+        </tr>
+        <tr>            
+          <td> Total Comments: <%= number_with_delimiter(Comment.count, :delimiter => ',') %></td>
+        </tr>           
+      </table>
+    </div>
+    <div class="honorbiowrap effect7">
+      We would like to thank <b><a href="https://twitter.com/SDGNelson" target="_blank">Nelson Sexton</a></b> for creating the game Unturned. It has provided entertainment,
+      laughs, and creativity to the entire gaming community. We'd also like to thank the Youtuber <b><a href="https://www.youtube.com/user/xXMeLikeBigBoomXx" target="_blank">MeLikeBigBoom</a></b>
+      for supporting our webite early on with his videos of the modifications. Overall, we're a team who's proud
+      to provide a free of charge platform where the community can upload their creations. 
+    </div>
 
-			</div>
-				<!--<footer>
-					<p class="footertext"></p>
-				</footer>-->
-			</div> 
+  </div>          
+
+  <div id="mainpage">
+  </div>
+</div>
 
 

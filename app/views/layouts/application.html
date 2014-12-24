@@ -5,9 +5,9 @@
   <link href="https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz" rel="stylesheet" type="text/css"></link>
   <link href="https://fonts.googleapis.com/css?family=Arimo" rel="stylesheet" type="text/css"></link>
   <% if params[:controller] == "home" %>
-    <%= stylesheet_link_tag 'index' %>
     <%= stylesheet_link_tag 'application', media: 'all' %>
     <%= stylesheet_link_tag 'home' %>
+    <%= stylesheet_link_tag 'index' %>
   <% elsif params[:action] != "maintenance" %>
     <%= stylesheet_link_tag 'application', media: 'all' %>
   <% end %>
