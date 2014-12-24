@@ -12,7 +12,11 @@ class UploadUploader < CarrierWave::Uploader::Base
   end
 
   def truncated_name
-    file.filename[0, 7] + "..." + file.filename[-8, 8] if file.filename.length > 16
+    if file.filename.length > 16
+      file.filename[0, 7] + "..." + file.filename[-8, 8]
+    else
+      file.filename
+    end
   end
 
   def download_size
