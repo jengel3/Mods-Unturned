@@ -14,11 +14,11 @@
         <a href=<%= user_uploads_path('LCBradley3k') %>><img src=<%= image_path("bradley.png") %> class="avatar"></a>
         <div class="persondetails">
           <div class="username"><%= t '.lcbradley3k' %></div> 
-          <div class="userdescriptionshort"><%= t '.owner_design' %></div>
+          <div class="userdescriptionshort"><%= t '.bradley_role' %></div>
         </div>          
       </div>  
       <div class="userdescriptionlong">
-        <%= t '.hi_my_name_is_html' %>
+        <%= t '.bradley_text' %>
       </div>
     </div>
     <div class="biowraps">
@@ -26,11 +26,11 @@
         <a href=<%= user_uploads_path('Jake0oo0') %>><img src=<%= image_path("jake.png") %> class="avatar"></a>
         <div class="persondetails">
           <div class="username"><%= t '.jake0oo0' %></div> 
-          <div class="userdescriptionshort"><%= t '.co_founder' %></div>
+          <div class="userdescriptionshort"><%= t '.jake_role' %></div>
         </div>          
       </div>    
       <div class="userdescriptionlong">
-        <%= t '.hi_i_m_jake_html' %>!
+        <%= t '.jake_text' %>!
       </div>            
     </div>
     <div class="statswrap effect7">
@@ -41,7 +41,7 @@
           <td rowspan="4" style="text-align: center;"><%= t '.coming_soon' %></td>
         </tr>
         <tr>            
-          <td> <%= t '.total_1', :num => (number_with_delimiter(Submission.valid.sum(:total_downloads), :delimiter => ',')) %> </td>
+          <td> <%= t '.total_downloads', :num => (number_with_delimiter(Submission.valid.sum(:total_downloads), :delimiter => ',')) %> </td>
         </tr>
         <tr>            
           <td> <%= t '.total_users', :num => (number_with_delimiter(User.count, :delimiter => ',')) %></td>
@@ -52,7 +52,7 @@
       </table>
     </div>
     <div class="honorbiowrap effect7">
-      <%= t '.we_would_like_html' %> 
+      <%= t '.thank' %> 
     </div>
 
   </div>          

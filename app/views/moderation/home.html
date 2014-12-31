@@ -1,5 +1,15 @@
 <style>
-  <%= t '.table_th_td' %>
+  table, th, td {    
+    border: 1px solid black;     
+    border-collapse: collapse; 
+  }  
+  table {   
+    width: 100%;
+  }  
+  th, td {      
+    padding: 5px;     
+    text-align: left;  
+  }
 </style>
 <div id="centerpage">
   <%= render 'shared/tabs' %>

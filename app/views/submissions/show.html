@@ -10,9 +10,9 @@
       <div class="infosection effect3">
         <div class='sidebar'>
           <% if !@submission.ready? %>
-          <p class="title" style="margin-top: 0px; margin-bottom: 0px;"><%= t '.warning' %></p>
+          <p class="title" style="margin-top: 0px; margin-bottom: 0px;"><%= t '.warning_title' %></p>
           <p class="uploadby" style="margin-top: 5px;">
-            <b><%= t '.this' %></b>
+            <b><%= t '.warning_text' %></b>
           </p>
           <% else %>
           <% if @submission.latest_download %>
@@ -24,7 +24,7 @@
                 <div class="filename">
                   <%= @submission.latest_download.upload.truncated_name %>
                   <% size = latest.upload.download_size %>
-                  (<%= t '.key', :size_0 => (size[0]), :size_1 => (size[1]) %>)
+                  (<%= t '.upload_size', :size => (size[0]), :unit => (size[1]) %>)
                 </div>
               </h4>
             </a>
@@ -53,13 +53,13 @@
               </div>
               <div class="userdescription"><%= t '.map_maker' %></div>
               <div class="stats">
-                <%= t '.submissions', :submission => (@submission.user.submissions.count) %>
+                <%= pluralize(@submission.user.submissions.count, "#{t '.submission'}") %>
               </div>
             </div>
           </div>
           <p class="uploadby">
             <b>
-              <%= t '.key_1', :submission => (pluralize(@submission.download_count, 'Download') ) %>
+              <%= pluralize(@submission.download_count, "#{t '.download'}") %>
             </b>
           </p>
           <div class="manage">
@@ -72,7 +72,7 @@
                 </a>
                 <br/>
                 <a href="<%= new_submission_image_path(@submission) %>">
-                  <b><%= t '.upload_image_1' %></b>
+                  <b><%= t '.upload_image' %></b>
                 </a>
                 <br/>
                 <a href="<%= edit_submission_path(@submission) %>">
