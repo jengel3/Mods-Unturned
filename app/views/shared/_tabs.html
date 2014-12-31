@@ -13,19 +13,19 @@
 <div id="tabs">
   <div class="home">
     <a href="<%= root_path %>">
-      <h3>Home</h3>
+      <h3><%= t '.home' %></h3>
     </a>
   </div>
   <div class="upload">
     <a href="<%= new_submission_path %>">
-      <h3>Upload</h3>
+      <h3><%= t '.upload' %></h3>
     </a>
   </div>
   <div class="menuwrap">
     <div class="menu effect1">
       <div class="menuitem">
         <% if params[:controller] == "submissions" and params[:user] %>
-          <%= link_to "<div class='menutext'>#{ if current_user then 'Logout' else 'Login' end}</div>".html_safe, destroy_user_session_path, :method => :delete %>
+          <%= link_to (t '.key_html').html_safe, destroy_user_session_path, :method => :delete %>
         <% else %>
           <a href=<%= if current_user then user_uploads_path(current_user.username) else new_user_registration_path end %>>
             <div class="menutext">
@@ -36,17 +36,17 @@
       </div>
       <div class="menuitem">
         <a href="<%= projects_path(:type => "levels") %>">
-          <div class="menutext">Levels</div>
+          <div class="menutext"><%= t '.levels' %></div>
         </a>
       </div>
       <div class="menuitem">
         <a href="<%= projects_path(:type => "models") %>">
-          <div class="menutext">Models</div>
+          <div class="menutext"><%= t '.models' %></div>
         </a>
       </div>
       <div class="menuitem">
         <a>
-          <div class="menutext">Search</div>
+          <div class="menutext"><%= t '.search' %></div>
         </a>
       </div>
     </div>

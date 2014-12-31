@@ -1,30 +1,20 @@
 <style>
-  table, th, td {
-      border: 1px solid black;
-      border-collapse: collapse;
-  }
-  table {
-    width: 100%;
-  }
-  th, td {
-      padding: 5px;
-      text-align: left;
-  }
+  <%= t '.table_th_td' %>
 </style>
 <div id="centerpage">
   <%= render 'shared/tabs' %>
   <div id="mainpagewrap">
     <div class="box effect1">
-      <h2>Moderation</h2>
+      <h2><%= t '.moderation' %></h2>
     </div>
     <div class="mainpageleft">
       <% if @uploads.any? %>
         <table>
           <tr>
-            <th>Project Name</th>
-            <th>File Name</th>
-            <th>Uploader</th>
-            <th colspan="2">Actions</th>
+            <th><%= t '.project_name' %></th>
+            <th><%= t '.file_name' %></th>
+            <th><%= t '.uploader' %></th>
+            <th colspan="2"><%= t '.actions' %></th>
           </tr>
           <% @uploads.each do |upload| %>
             <%= puts upload.inspect %>
@@ -40,19 +30,19 @@
               </td>
               <td>
                 <div align="center" class="approve">
-                  <%= link_to 'Approve', submission_upload_approve_path(upload.submission, upload) %>
+                  <%= link_to (t '.approve'), submission_upload_approve_path(upload.submission, upload) %>
                 </div>
               </td>
               <td>
                 <div align="center" class="deny">
-                  <%= link_to 'Deny', submission_upload_deny_path(upload.submission, upload) %>
+                  <%= link_to (t '.deny'), submission_upload_deny_path(upload.submission, upload) %>
                 </div>
               </td>
             </tr>
           <% end %>
         </table>
       <% else %>
-        <div align="center" id="none">No uploads awaiting moderation.</div>
+        <div align="center" id="none"><%= t '.no_uploads' %></div>
       <% end %>
     </div>
     <div id="mainpage"></div>

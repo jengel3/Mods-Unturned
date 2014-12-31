@@ -11,28 +11,28 @@
         <div style="width:100%; text-align:center; height:8px;margin-top:5px; font-size:14px; margin-left:0px;">
           <% if params[:sort] == "newest" || !params[:sort] %>
             <b>
-              <%= link_to 'Newest First', params.merge(:sort => "newest", :page => 1) %>
+              <%= link_to (t '.newest_first'), params.merge(:sort => "newest", :page => 1) %>
             </b>
           <% else %>
-            <%= link_to 'Newest First', params.merge(:sort => "newest", :page => 1) %>
+            <%= link_to (t '.newest_first_1'), params.merge(:sort => "newest", :page => 1) %>
           <% end %>
           <% if params[:sort] == "popular" %>
             &bull;
             <b>
-              <%= link_to 'Most Popular', params.merge(:sort => "popular", :page => 1) %>
+              <%= link_to (t '.most_popular'), params.merge(:sort => "popular", :page => 1) %>
             </b>
           <% else %>
             &bull;
-            <%= link_to 'Most Popular', params.merge(:sort => "popular", :page => 1) %>
+            <%= link_to (t '.most_popular_1'), params.merge(:sort => "popular", :page => 1) %>
           <% end %>
           <% if params[:sort] == "updated" %>
             &bull;
             <b>
-              <%= link_to 'Recently Updated', params.merge(:sort => "updated", :page => 1) %>
+              <%= link_to (t '.recently'), params.merge(:sort => "updated", :page => 1) %>
             </b>
           <% else %>
             &bull;
-            <%= link_to 'Recently Updated', params.merge(:sort => "updated", :page => 1) %>
+            <%= link_to (t '.recently_1'), params.merge(:sort => "updated", :page => 1) %>
           <% end %>
         </div>
         <% @submissions.each do |submission| %>
@@ -48,9 +48,9 @@
                   <%= submission.name %>
                 </a>
                 <% if submission.is_new? %>
-                  <span style="color:red;font-size:12px;text-decoration:none;">NEW!</span>
+                  <span style="color:red;font-size:12px;text-decoration:none;"><%= t '.new' %></span>
                 <% elsif submission.is_updated? %>
-                  <span style="color:red;font-size:12px;text-decoration:none;">UPDATED!</span>
+                  <span style="color:red;font-size:12px;text-decoration:none;"><%= t '.updated' %></span>
                 <% end %>
               </h4>
               <div class="madebyuser">

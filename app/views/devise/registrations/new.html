@@ -3,11 +3,11 @@
     <%= render 'shared/tabs'     %>
     <div id="mainpagewrap">
       <div class="box effect1">
-        <h2>Login</h2>
+        <h2><%= t '.login_or_register' %></h2>
       </div>
       <div class="mainpageleft">
         <div class="contenthead1">
-          <h2>Sign in</h2>
+          <h2><%= t 'users.login' %></h2>
         </div>
         <div class="form">
           <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
@@ -42,7 +42,7 @@
       </div>
       <div class="mainpageright">
         <div class="contenthead1">
-          <h2>Sign up</h2>
+          <h2><%= t 'users.register' %></h2>
         </div>
         <div class="form">
           <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>

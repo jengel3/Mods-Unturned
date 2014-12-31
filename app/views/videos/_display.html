@@ -1,5 +1,5 @@
 <div class="videosection">
-  <h4 class="videoheading">Videos</h4>
+  <h4 class="videoheading"><%= t '.videos' %></h4>
 </div>
 <div class="videos">
   <% @submission.videos.each do |video| %>
@@ -8,7 +8,7 @@
       <img src=<%= video.thumbnail ? video.thumbnail : image_path('addvideothumb.png') %> class="vidthumb">
     </a>
     <% if can_manage(@submission) %>
-    <%= link_to "<span class='fa fa-trash delete-video'></span>".html_safe, submission_video_path(@submission, video), method: :delete, data: {confirm: 'Are you sure you want to delete this video?'} %>
+    <%= link_to (t '.key_2_html').html_safe, submission_video_path(@submission, video), method: :delete, data: {confirm: 'Are you sure you want to delete this video?'} %>
     <% end %>
   </div>
   <% end %>

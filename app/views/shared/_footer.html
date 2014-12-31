@@ -1,9 +1,9 @@
 <div id="footerpage">
   <table class="footertable">
     <tr>
-      <td><a href=<%= about_path %>>About</a></td>
-      <td><a href="#contact-popup" class='contact-button'>Contact</a></td>
-      <td><a href=<%= new_submission_path %>>Submit</a></td>
+      <td><a href=<%= about_path %>><%= t '.about' %></a></td>
+      <td><a href="#contact-popup" class='contact-button'><%= t '.contact' %></a></td>
+      <td><a href=<%= new_submission_path %>><%= t '.submit' %></a></td>
     </tr>
     <tr>
       <td colspan="3" class="socialmedialogos">
@@ -17,7 +17,7 @@
 </div>
 <div id="contact-popup" class="mfp-hide">
   <p>
-    Please allow up to 48 hours for the Mods-Unturned team to reply to your email (most likely sooner).
+    <%= t '.please_allow' %>
   </p>
   <%= form_tag contact_path, method: 'POST' do %>
   <%= label_tag 'Username '%><%= text_field :contact, :username, class: 'contactboxes', value: current_user ? current_user.username : "" %>

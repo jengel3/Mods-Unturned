@@ -1,6 +1,6 @@
 <div id="add-video" class="add-video-popup mfp-hide">
   <p>
-    Please be considerate of the video that you are about to submit. Submitting videos unrelated to this submission will have your video permissions revoked. Admins and submission creators reserve the right to delete any video, under any circumstances.
+    <%= t '.please_be' %>
   </p>
 
   <%= form_for([@submission, @submission.videos.build]) do |f| %>

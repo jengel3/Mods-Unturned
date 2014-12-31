@@ -264,6 +264,10 @@ td.recentlyupdatedmods {
   font-weight:normal;
 }
 
+.unturnednewsbubbletextarea h1 {
+  font-size: 120%;
+}
+
 .unturnednewsbubblereadmore {
   height:13px;
   margin-top:-7px;

@@ -3,14 +3,14 @@
   <div id="mainpagewrap"> 
 
     <div class="box effect1">
-      <h2>Home </h2>
+      <h2><%= t '.home' %> </h2>
     </div>        
 
     <div class="mainpageleft">
       <table class="homeupperlayout">
         <tr>
-          <td class="homesubtitle"><img src=<%= image_path('popular.png') %> /> TODAY'S MOST POPULAR </td>
-          <td class="homesubtitle">THIS WEEK'S <img src=<%= image_path('thisweekarrow.png') %> /></td>
+          <td class="homesubtitle"><img src=<%= image_path('popular.png') %> /> <%= t '.today_popular' %> </td>
+          <td class="homesubtitle"><%= t '.this_week' %> <img src=<%= image_path('thisweekarrow.png') %> /></td>
         </tr>
       </tr>
       <tr>
@@ -24,11 +24,11 @@
         </td>
         <td class="community"> 
           <table>
-            <tr><td class="toplisttitle">Top Developers</td></tr>
+            <tr><td class="toplisttitle"><%= t '.top_developers' %></td></tr>
             <% @weekly_developers.each do |s| %>
             <tr><td class="toplistitem"><a href=<%= user_uploads_path(s.username) %>><%= s.username %></a></td></tr>
             <% end %>
-            <tr><td class="toplisttitle">Top Modifications</td></tr>  
+            <tr><td class="toplisttitle"><%= t '.top' %></td></tr>  
             <% @weekly_submissions.each do |s| %>
             <tr><td class="toplistitem"><a href=<%= submission_path(s) %>><%= s.name %></a></td></tr>
             <% end %>
@@ -39,8 +39,8 @@
     <br /><!--<hr />--><br />
     <table class="homelowerlayout">
       <tr>
-        <td class="homesubtitle"><img src=<%= image_path('updated.png') %> />  RECENTLY UPDATED </td>
-        <td class="homesubtitle unturnednewstitle"><img src=<%= image_path('unturnednews.png') %> /> UNTURNED NEWS </td>
+        <td class="homesubtitle"><img src=<%= image_path('updated.png') %> /> <%= t '.recently_updated' %> </td>
+        <td class="homesubtitle unturnednewstitle"><img src=<%= image_path('unturnednews.png') %> /> <%= t '.unturned_news' %> </td>
       </tr>
       <tr class="contentboxes">
         <td class="recentlyupdatedmods">
@@ -55,17 +55,17 @@
           </div>
           <% end %>
 
-          <a href=<%= projects_path(:sort => "updated") %>><div class="see_more_recent_button"> See more recently updated </div></a>
+          <a href=<%= projects_path(:sort => "updated") %>><div class="see_more_recent_button"> <%= t '.see_more' %> </div></a>
         </td>
 
         <td class="unturnedupdates">
 
           <div class="unturnednewsbubble">
-            <div class="unturnednewsbubbleheading">Unturned Updates </div>
-            <div class="unturnednewsbubbletextarea">News loading...              
+            <div class="unturnednewsbubbleheading"><%= t '.news_loading_title' %> </div>
+            <div class="unturnednewsbubbletextarea"><%= t '.news_loading_body' %>              
 
             </div>
-            <div class="unturnednewsbubblereadmore"><a class="readmoretext" href="" target="_blank">Read More</a> </div>
+            <div class="unturnednewsbubblereadmore"><a class="readmoretext" href="" target="_blank"><%= t '.news_read_more' %></a> </div>
           </div>                    
         </td>
 
@@ -82,7 +82,7 @@
       </tr>             
       <tr>
         <td class="homesubtitle" colspan="2">
-          <img src=<%= image_path('popular.png') %> /> STAFF FAVORITES
+          <img src=<%= image_path('popular.png') %> /> <%= t '.img_src_image_3' %>
         </td>
       </tr>             
       <tr>
@@ -104,17 +104,17 @@
       </tr>               
       <tr>
         <td class="homesubtitle quicklinkstitle" colspan="2">
-          QUICK LINKS
+          <%= t '.quick_links' %>
         </td>
         <tr>
           <td  class="quicklinkswrap" colspan="2">
             <div>
-              <%= link_to 'About Mods-Unturned.com', about_path, class: 'quicklinkitem' %>
-              <%= link_to 'Tutorials', "https://www.youtube.com/playlist?list=PLOjtCLyAWSfkJSZn4NdBsqvZKZhWOQ29q", class: 'quicklinkitem', target: '_blank' %>
-              <%= link_to 'Item ID List', "http://www.reddit.com/r/unturned/comments/2njy5b/unturned_id_list/", class: 'quicklinkitem', target: '_blank' %>
-              <%= link_to 'Facebook Page', "https://www.facebook.com/pages/Mods-Unturnedcom/846719095349217", class: 'quicklinkitem', target: '_blank' %>
-              <%= link_to 'Twitter Page', "https://twitter.com/Mods_Unturned", class: 'quicklinkitem', target: '_blank' %>
-              <%= link_to 'Unturned Steam', "http://steamcommunity.com/app/304930", class: 'quicklinkitem', target: '_blank' %>
+              <%= link_to (t '.about_mods_unturned'), about_path, class: 'quicklinkitem' %>
+              <%= link_to (t '.tutorials'), "https://www.youtube.com/playlist?list=PLOjtCLyAWSfkJSZn4NdBsqvZKZhWOQ29q", class: 'quicklinkitem', target: '_blank' %>
+              <%= link_to (t '.item_id_list'), "http://www.reddit.com/r/unturned/comments/2njy5b/unturned_id_list/", class: 'quicklinkitem', target: '_blank' %>
+              <%= link_to (t '.facebook_page'), "https://www.facebook.com/pages/Mods-Unturnedcom/846719095349217", class: 'quicklinkitem', target: '_blank' %>
+              <%= link_to (t '.twitter_page'), "https://twitter.com/Mods_Unturned", class: 'quicklinkitem', target: '_blank' %>
+              <%= link_to (t '.unturned_steam'), "http://steamcommunity.com/app/304930", class: 'quicklinkitem', target: '_blank' %>
             </div>
           </td>
         </tr>               
