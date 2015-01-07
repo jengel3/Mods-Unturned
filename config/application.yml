@@ -1,0 +1,15 @@
+defaults: &defaults
+  nelson_twitter: SDGNelson
+  melike_youtube: xXMeLikeBigBoomXx
+  bradley_youtube: LCBradley3k
+  bradley_twitter: LCBradley3k
+  jake_website: https://jake0oo0.me
+  jake_twitter: 0oDevo0
+  jake_github: Jake0oo0
+  mods_unturned_twitter: Mods_Unturned
+
+development:
+  <<: *defaults
+
+production:
+  <<: *defaults
