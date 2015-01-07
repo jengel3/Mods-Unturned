@@ -8,4 +8,7 @@ class HomeController < ApplicationController
     @weekly_submissions = get_top_submissions
     @weekly_developers = get_top_developers
   end
+
+  def about
+  end
 end

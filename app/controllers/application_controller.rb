@@ -13,10 +13,7 @@ class ApplicationController < ActionController::Base
   def maintenance
     return redirect_to root_path unless MAINTENANCE
   end
-
-  def about
-  end
-
+  
   def contact
     form = params[:contact]
     email = form[:email]
