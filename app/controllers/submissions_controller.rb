@@ -41,6 +41,11 @@ class SubmissionsController < ApplicationController
     else
       @title = @type.singularize.capitalize + ' Creations'
     end
+    respond_to do |format|
+      format.html
+      format.json { @submissions }
+      format.rss { render :layout => false }
+    end
   end
 
   def favorite

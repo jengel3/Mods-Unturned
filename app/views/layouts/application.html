@@ -1,9 +1,10 @@
 <head>
   <title><%= t '.unturned_mods' %></title>
   <%= javascript_include_tag 'application' %>
-  <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css"></link>
-  <link href="https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz" rel="stylesheet" type="text/css"></link>
-  <link href="https://fonts.googleapis.com/css?family=Arimo" rel="stylesheet" type="text/css"></link>
+  <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css" />
+  <link href="https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz" rel="stylesheet" type="text/css" />
+  <link href="https://fonts.googleapis.com/css?family=Arimo" rel="stylesheet" type="text/css" />
+  <link href=<%= root_url %> rel="alternate" title="RSS" type="application/rss+xml" />
   <% if params[:controller] == "home" %>
     <%= stylesheet_link_tag 'application', media: 'all' %>
     <%= stylesheet_link_tag 'home' %>
