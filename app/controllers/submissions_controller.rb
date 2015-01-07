@@ -1,6 +1,5 @@
 class SubmissionsController < ApplicationController
   before_action :set_submission, only: [:show, :edit, :update, :destroy, :deny, :approve, :download, :favorite]
-  respond_to :html, :xml, :json
   before_filter :authenticate_user!, only: [:new, :edit, :create, :update, :destroy, :approve, :deny, :favorite]
   before_filter :require_admin, only: [:approve, :deny, :favorite]
   before_filter :verify_manager, only: [:edit, :destroy, :update]
@@ -63,12 +62,10 @@ class SubmissionsController < ApplicationController
     if !@submission
       return redirect_to root_path
     end
-    respond_with(@submission)
   end
 
   def new
     @submission = Submission.new
-    respond_with(@submission)
   end
 
   def edit
@@ -78,7 +75,6 @@ class SubmissionsController < ApplicationController
     @submission = Submission.new(submission_params)
     current_user.submissions << @submission
     @submission.save
-    respond_with(@submission)
   end
 
   def update

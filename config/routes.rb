@@ -1,10 +1,12 @@
 Rails.application.routes.draw do
   # Users
-  devise_for :users, :controllers => {:sessions => "sessions"}
+  devise_for :users, :controllers => {:sessions => 'sessions'}
   get '/uploads/:user', to: 'submissions#index', as: 'user_uploads'
 
   # Root
-  root "home#home"
+  root 'home#home'
+
+  get '/home', to: 'home#home'
 
   # Maintenance
   get :maintenance, to: 'application#maintenance'
@@ -13,7 +15,7 @@ Rails.application.routes.draw do
   get :about, to: 'home#about'
 
   # Submissions
-  get '/projects/:type', to: 'submissions#index', as: 'projects', defaults: { :type => "all" }
+  get '/projects/:type', to: 'submissions#index', as: 'projects', defaults: { :type => 'all' }
   resources :submissions do
     get :download
     resources :comments
