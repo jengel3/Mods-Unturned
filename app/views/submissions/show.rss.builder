@@ -2,7 +2,7 @@ xml.instruct! :xml, :version => "1.0"
 xml.rss :version => "2.0" do
   xml.channel do
     xml.title "Downloads for #{@submission.name}"
-    xml.description "A RSS feed for Mods Unturned submissions"
+    xml.description "A RSS feed for Mods Unturned submission #{@submission.name}"
     xml.link submissions_url
 
     for upload in @submission.uploads.where(:approved => true)
