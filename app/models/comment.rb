@@ -2,8 +2,7 @@ class Comment
   include Mongoid::Document
   include Mongoid::Timestamps
 
-  # sscope 
-  # default_scope { where(:deleted_at.exists => false).asc(:created_at) }
+  # default_scoped { where(:deleted_at.exists => false).asc(:created_at) }
 
   before_destroy :mark_deleted
 

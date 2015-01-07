@@ -18,7 +18,7 @@
         </div>          
       </div>  
       <div class="userdescriptionlong">
-        <%= t '.bradley_text' %>
+        <%= t('.bradley_text', twitter: "<b><a href=\"https://twitter.com/#{ENV['bradley_twitter']}\" target=\"_blank\">twitter</a></b>", youtube: "<b><a href=\"https://www.youtube.com/user/#{ENV['bradley_youtube']}\" target=\"_blank\">LCBradley3k</a></b>").html_safe %>
       </div>
     </div>
     <div class="biowraps">
@@ -30,7 +30,7 @@
         </div>          
       </div>    
       <div class="userdescriptionlong">
-        <%= t '.jake_text' %>!
+        <%= t('.jake_text', github: "<a href=\"https://github.com/#{ENV['jake_github']}\" target=\"_blank\">Github</a>", twitter: "<a href=\"https://twitter.com/#{ENV['jake_twitter']}\" target=\"_blank\">tweet</a>", website: "<a href=\"#{ENV['jake_website']}\" target=\"_blank\">my site</a>").html_safe  %>!
       </div>            
     </div>
     <div class="statswrap effect7">
@@ -52,7 +52,7 @@
       </table>
     </div>
     <div class="honorbiowrap effect7">
-      <%= t '.thank' %> 
+      <%= t('.thank_people', nelson: "<b><a href=\"https://twitter.com/#{ENV['nelson_twitter']}\" target=\"_blank\">Nelson Sexton</a></b>", melike: "<b><a href=\"https://www.youtube.com/user/#{ENV['melike_youtube']}\" target=\"_blank\">MeLikeBigBoom</a></b>").html_safe %> 
     </div>
 
   </div>          

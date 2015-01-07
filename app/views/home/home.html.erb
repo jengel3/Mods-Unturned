@@ -49,7 +49,7 @@
             <a href=<%= submission_path(recent) %>><img src=<%= recent.main_image.image_url %> class="levelthumb"></a>
             <div class="contentdetails">
               <h4 style= "height: 18px; overflow: hidden; word-wrap: break-word;"><a href=<%= submission_path(recent) %>><%= recent.name %></a></h4>
-              <div class="madebyuser"><a href=<%= user_uploads_path(recent.user.username) %>><%= recent.user.username %></a><div class="downloadcount"> &bull; <%= recent.download_count %> <img src=<%= image_path('downarrow.png') %> /></div></div> 
+              <div class="madebyuser"><a href=<%= user_uploads_path(recent.user.username) %>><%= recent.user.username %></a><div class="downloadcount">&nbsp;&bull; <%= recent.download_count %> <img src=<%= image_path('downarrow.png') %> /></div></div> 
               <div class="contentdesc"><%= recent.desc %></div>
             </div>            
           </div>
@@ -92,7 +92,7 @@
             <a href=<%= submission_path(favorite) %>><img src=<%= favorite.get_cached_image %> class="levelthumb"></a>
             <div class="contentdetails">
               <h4 style= "height: 18px; overflow: hidden; word-wrap: break-word;"><a href=<%= submission_path(favorite) %>><%= favorite.name %></a></h4>
-              <div class="madebyuser"><a href=<%= user_uploads_path(favorite.user.username) %>><%= favorite.user.username %></a><div class="downloadcount"> &bull; <%= favorite.download_count %> <img src=<%= image_path('downarrow.png') %> /></div></div> 
+              <div class="madebyuser"><a href=<%= user_uploads_path(favorite.user.username) %>><%= favorite.user.username %></a><div class="downloadcount">&nbsp;&bull; <%= favorite.download_count %> <img src=<%= image_path('downarrow.png') %> /></div></div> 
               <div class="contentdesc"><%= favorite.desc %></div>
             </div>            
           </div>

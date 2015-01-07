@@ -7,6 +7,8 @@ require "sprockets/railtie"
 
 Bundler.require(*Rails.groups)
 
+ENV.update YAML.load_file('config/application.yml')[Rails.env] rescue {}
+
 module UnturnedMods
   class Application < Rails::Application
     config.assets.paths << Rails.root.join('vendor', 'assets', 'components')
