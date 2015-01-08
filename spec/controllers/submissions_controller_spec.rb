@@ -53,4 +53,12 @@ RSpec.describe SubmissionsController do
       expect(response).to render_template("show")
     end
   end
+  describe "POST create" do
+    it "redirects to the new submission" do 
+      user = create(:user)
+      sign_in user
+      post :create, submission: attributes_for(:submission, user: user) 
+      expect(response).to redirect_to(Submission.last)
+    end 
+  end
 end

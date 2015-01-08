@@ -40,7 +40,7 @@ class ApplicationController < ActionController::Base
   def tohtml
     input = request.body.read
     respond_to do |format|
-      format.json { render json: input.gsub('\r\n', "<br/>").bbcode_to_html.to_json }
+      format.json { render json: input.gsub('\r\n', "<br/>").bbcode_to_html.gsub('img', 'a').gsub('src', 'href').to_json }
     end
   end
 

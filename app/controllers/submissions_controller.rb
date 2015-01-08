@@ -51,7 +51,7 @@ class SubmissionsController < ApplicationController
   def favorite
     @submission.last_favorited = Time.now
     @submission.save
-    redirect_to @submission
+    redirect_to @submission, :notice => "Successfully favorited #{@submission.name}."
   end
 
   def download
@@ -80,6 +80,7 @@ class SubmissionsController < ApplicationController
     @submission = Submission.new(submission_params)
     current_user.submissions << @submission
     @submission.save
+    redirect_to @submission, :notice => "Successfully created a new submission."
   end
 
   def update

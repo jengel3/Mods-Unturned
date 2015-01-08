@@ -7,13 +7,13 @@ class UploadsController < ApplicationController
   def approve
     @upload.approved = true
     @upload.save
-    redirect_to moderation_path
+    redirect_to moderation_path, :notice => "Successfully approved an uploaded file."
   end
 
   def deny
     @upload.denied = true
     @upload.save
-    redirect_to moderation_path
+    redirect_to moderation_path, :notice => "Succesfully denied an uploaded file."
   end
 
   def index
@@ -34,7 +34,7 @@ class UploadsController < ApplicationController
   end
 
   def edit
-    return redirect_to root_path unless can_manage(@upload.submission)
+    return redirect_to root_path, :alert => "No permission." unless can_manage(@upload.submission)
   end
 
   def create
@@ -43,20 +43,20 @@ class UploadsController < ApplicationController
     @upload = Upload.new(upload_params)
     @submission.uploads << @upload
     if @upload.save
-      redirect_to @submission
+      redirect_to @submission, :notice => "Successfully created a new download. It will be approved by moderators shortly."
     else
       render 'edit'
     end
   end
 
   def update
-    return redirect_to root_path unless can_manage(@upload.submission)
+    return redirect_to root_path, :alert => "No permission." unless can_manage(@upload.submission)
     @upload.update(upload_params)
     respond_with(@upload)
   end
 
   def destroy
-    return redirect_to root_path unless can_manage(@upload.submission)
+    return redirect_to root_path, :alert => "No permission." unless can_manage(@upload.submission)
     @upload.destroy
     respond_with(@upload)
   end

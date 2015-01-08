@@ -11,7 +11,7 @@ json.downloads do
 end
 
 json.uploads @submission.uploads.where(:approved => true).desc(:created_at).limit(5) do |upload|
-	json.url upload.upload.path
+	json.url submission_download_path(@submission)
 	json.filename upload.upload.file.filename
 end
 
