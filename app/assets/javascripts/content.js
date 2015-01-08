@@ -5,7 +5,6 @@ $(document).ready(function () {
     $('.infosection').height(height);
     $('.mainpageright').height(height);
     $('.mainpageleft').height(height);
-    $('.mainpageleft').height(height);
     $('#mainpagewrap').height(height + 85);
     //$('#centerpage').height(height + 85); 
   }

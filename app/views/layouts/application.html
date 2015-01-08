@@ -11,11 +11,11 @@
   <%= csrf_meta_tags %>
 
   <% if params[:controller] == "home" %>
-    <%= stylesheet_link_tag 'application', media: 'all' %>
+    <%= stylesheet_link_tag 'application' %>
     <%= stylesheet_link_tag 'home' %>
     <%= stylesheet_link_tag 'index' %>
   <% elsif params[:action] != "maintenance" %>
-    <%= stylesheet_link_tag 'application', media: 'all' %>
+    <%= stylesheet_link_tag 'application' %>
   <% end %>
   <% if params[:action] == "maintenance" %>
     <%= stylesheet_link_tag 'error' %>
@@ -45,9 +45,12 @@
       <%= stylesheet_link_tag 'users' %>
     <% end %>
   <% end %>
-  <% if params[:controller] == "uploads" || params[:controller] == "images" || params[:controller] == "moderation" || params[:controller] == "devise/passwords" %>
+  <% if params[:controller] == "uploads" || params[:controller] == "images" || params[:controller] == "admin/moderation" || params[:controller] == "devise/passwords" %>
     <%= stylesheet_link_tag "upload" %>
   <% end %>
+  <%= javascript_include_tag 'application' %>
+  <%= yield :scripts %>
+  <%= render 'shared/analytics' %>
 </head>
 <body>
   <%= yield %>
@@ -55,5 +58,3 @@
     <%= render 'shared/footer' %>
   <% end %>
 </body>
-<%= javascript_include_tag 'application' %>
-<%= render 'shared/analytics' %>

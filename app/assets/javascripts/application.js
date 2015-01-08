@@ -16,5 +16,6 @@
 //= require jquery-ui/ui/effect-highlight
 //= require best_in_place
 //= require content
+//= require admin/moderation
 //= require news
 //= require magnific-popup/dist/jquery.magnific-popup

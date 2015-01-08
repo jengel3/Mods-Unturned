@@ -96,7 +96,7 @@ en:
       unturned_mods: "Unturned Mods"
   moderation:
     home:
-      moderation: "Moderation"
+      content_moderation: "Content Moderation"
       project_name: "Project Name"
       file_name: "File Name"
       uploader: "Uploader"

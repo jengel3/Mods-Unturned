@@ -124,6 +124,7 @@
   <div id="mainpage">
   </div>
 </div>
+<% content_for :scripts do %>
 <script>
   $('.news-images').magnificPopup({
     delegate: '.unturnednewsbubbletextarea href$=".png"',
@@ -133,3 +134,4 @@
     }
   });
 </script>
+<% end %>

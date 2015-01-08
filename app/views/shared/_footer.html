@@ -26,9 +26,11 @@
   <%= submit_tag 'Send', class: 'contactsubmitbutton' %>
   <% end %>
 </div>
-<script>
-  $('.contact-button').magnificPopup({
-    type:'inline',
-    midClick: true
-  });
-</script>
+<% content_for :scripts do %>
+  <script>
+    $('.contact-button').magnificPopup({
+      type:'inline',
+      midClick: true
+    });
+  </script>
+<% end %>
