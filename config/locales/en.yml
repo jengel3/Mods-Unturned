@@ -94,15 +94,16 @@ en:
   layouts:
     application:
       unturned_mods: "Unturned Mods"
-  moderation:
-    home:
-      content_moderation: "Content Moderation"
-      project_name: "Project Name"
-      file_name: "File Name"
-      uploader: "Uploader"
-      actions: "Actions"
-      approve: "Approve"
-      deny: "Deny"
+  admin:
+    moderation:
+      index:
+        content_moderation: "Content Moderation"
+        project_name: "Project Name"
+        file_name: "File Name"
+        uploader: "Uploader"
+        actions: "Actions"
+        approve: "Approve"
+        deny: "Deny"
       no_uploads: "No uploads awaiting moderation."
   shared:
     footer:
