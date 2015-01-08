@@ -1,4 +1,7 @@
 class CommentsController < ApplicationController
+  before_filter :set_comment, only: [:destroy, :restore]
+  before_filter :require_admin, only: [:restore]
+
   def create
     @submission = Submission.find(params[:submission_id])
     return redirect_to new_user_registration_path unless @user = current_user
@@ -13,17 +16,24 @@ class CommentsController < ApplicationController
   end
 
   def destroy
-    @comment = Comment.find(params[:id])
     unless current_user && @comment.user = current_user
       return require_admin
     end
-    @comment = Comment.find(params[:id])
-    @submission = @comment.submission
     @comment.destroy
-    redirect_to @submission
+    redirect_to @submission, :notice => "Successfully deleted a comment."
+  end
+
+  def restore
+    @comment.restore
+    redirect_to @submission, :notice => "Successfully restored a comment."
   end
 
   private
+  def set_comment
+    @comment = Comment.unscoped.all.find(params[:id] || params[:comment_id])
+    @submission = @comment.submission
+  end
+
   def comment_params
     params.require(:comment).permit(:text)
   end

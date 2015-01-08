@@ -30,7 +30,9 @@ Rails.application.routes.draw do
   get '/projects/:type', to: 'submissions#index', as: 'projects', defaults: { :type => 'all' }
   resources :submissions do
     get :download
-    resources :comments
+    resources :comments do
+      get :restore
+    end
     resources :uploads do
       get :approve
       get :deny

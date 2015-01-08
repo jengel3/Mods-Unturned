@@ -331,6 +331,9 @@ hr {
 .text {
   margin-left: 5px;
 }
+.deleted-comment {
+  color: #CF5000;
+}
 .feedback:focus {
   /* background: #F9F9F9;
   */

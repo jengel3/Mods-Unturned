@@ -1,16 +1,7 @@
 class Comment
   include Mongoid::Document
+  include Mongoid::Paranoia
   include Mongoid::Timestamps
-
-  # default_scoped { where(:deleted_at.exists => false).asc(:created_at) }
-
-  before_destroy :mark_deleted
-
-  def mark_deleted
-    self.deleted_at = Time.now
-    self.save!
-    false
-  end
 
   field :text, type: String
   field :deleted_at, type: String

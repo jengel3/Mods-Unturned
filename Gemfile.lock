@@ -113,6 +113,8 @@ GEM
     mongoid-slug (4.0.0)
       mongoid (>= 3.0)
       stringex (~> 2.0)
+    mongoid_paranoia (0.1.2)
+      mongoid (> 3)
     moped (2.0.3)
       bson (~> 2.2)
       connection_pool (~> 2.0)
@@ -213,6 +215,7 @@ DEPENDENCIES
   kaminari
   mongoid
   mongoid-slug
+  mongoid_paranoia
   passenger
   rails (= 4.1.9)
   redis
