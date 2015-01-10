@@ -22,7 +22,8 @@ class UserMailer < ActionMailer::Base
          :reply_to => @@reply)
   end
 
-  def approved(user, upload)
+  def approved(upload)
+    user = upload.submission.user
     @username = user.username
     @email = user.email
     @upload = upload
