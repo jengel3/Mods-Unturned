@@ -3,142 +3,202 @@
 <link href='http://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
 
 	<style>
-	body {
-		margin:0;
-		font-family: 'Arimo', Impact, sans-serif;
-	}
 	
-	.emailwrap {
-		background-color:rgb(219,219,219);
-		width:600px;
-		height:320px;
-		text-align:center;
-		margin-top:30px;
-		margin-left:5px;
-		border:1px solid rgb(205,205,205)
-	}
-	.logotop {
-		height:50px;
-		width:100%;		
-		text-align:center;
-		background-color:rgb(20,20,20);
-		background-image: url(wallpaper3.png);
-		background-position:top-left;
-		background-repeat: repeat-x;
-	}
-	.logo {
-		margin-top:5px;
-	}
-	
-	.inner-message-wrap {
-		background-color:rgb(245,245,245); /*EBEBEB*/ 
-		background-color:rgb(245,245,245); /*EBEBEB*/ 
-		width:95%;
-		height:240px;
-		margin-top:15px;
-		-webkit-border-radius: 6px;
-		-moz-border-radius: 6px;
-		border-radius: 6px;
+
+		body {
+			margin: 0;
 			
-		-webkit-box-shadow: 0px -1px 6px 0px rgba(100, 100, 100, 0.12);
-		-moz-box-shadow:    0px -1px 6px 0px rgba(100, 100, 100, 0.12);
-		box-shadow:         0px -1px 6px 0px rgba(100, 100, 100, 0.12);
-		display:inline-block;	
-	}
+		} 
+		
+		a {
+			text-decoration:none;
+		}
+
+		a:link {
+			color: #aaafc0;
+			text-decoration:none;
+		}
+
+
+		a:visited {
+			color: #aaafc0;
+			text-decoration:none;
+		}
+
+
+		a:hover {
+			color: #aaafc0;
+			text-decoration:none;
+		}
+
+
+		a:active {
+			color: #aaafc0;
+			text-decoration:none;
+		}
 	
-	.mapname {
-		color: #2146FF;
-		font-weight:bold;
-	}
-	
-	.messagetitle img {
-		display:inline-block;
-		height:35px;
-		width:35px;
-	}
-	
-	.messagetitle {
-		display:inline-block;
-	}
-	
-	.downloadcount {
-		background-color:#4AFF6B;
-		padding-top:25px;
-		max-width:450px;
-		font-size:50px;
-		font-weight:bold;
-		margin:0 auto;
-		height:82px;
-		-webkit-border-radius: 5px;
-		-moz-border-radius: 5px;
-		border-radius: 5px;
-	}
-	
-.effect7
-{
-  position: relative;
-}
-.effect7:before, .effect7:after
-{
-  z-index: -1;
-  position: absolute;
-  content: "";
-  bottom: 15px;
-  left: 10px;
-  width: 50%;
-  top: 80%;
-  max-width:300px;
-  background: #777;
-  -webkit-box-shadow: 0 15px 10px #777;
-  -moz-box-shadow: 0 15px 10px #777;
-  box-shadow: 0 15px 10px #777;
-  -webkit-transform: rotate(-3deg);
-  -moz-transform: rotate(-3deg);
-  -o-transform: rotate(-3deg);
-  -ms-transform: rotate(-3deg);
-  transform: rotate(-3deg);
-}
-.effect7:after
-{
-  -webkit-transform: rotate(3deg);
-  -moz-transform: rotate(3deg);
-  -o-transform: rotate(3deg);
-  -ms-transform: rotate(3deg);
-  transform: rotate(3deg);
-  right: 10px;
-  left: auto;
-}
-	
+		.fullmessagewrap {
+			width:700px;
+			height:450px;
+			background-color: #ecf0f6;
+			-webkit-box-shadow: 0px 0px 5px 0px rgba(156,156,156,1);
+			-moz-box-shadow: 0px 0px 5px 0px rgba(156,156,156,1);
+			box-shadow: 0px 0px 5px 0px rgba(156,156,156,1);
+			margin:0 auto;
+			margin-top:25px;
+		}
+		
+		.messageheader {
+			height:57px;
+			width:100%;
+			background-color: #2a2a2a;
+			position:relative;
+			z-index:1;
+		}
+		
+		.imgheader {
+			font-size:42px;
+			color:white;
+			font-family: Gill Sans MT, sans-serif;
+			width:100%;
+			height:57px;
+			font-weight:bold;
+		}
+		
+		.whitecongratswrap {
+			height:155px;
+			width:100%;
+			text-align:center;
+		}
+		
+		.innercongratswrap {
+			width:623px;
+			height:121px;
+			background-color: #58f77d;
+			margin:0 auto;
+			-webkit-border-radius: 10px;
+			-moz-border-radius: 10px;
+			border-radius: 10px;
+			box-shadow: inset 0px 0px 3px 0px #A1A1A1;
+			-webkit-box-shadow: inset 0px 0px 3px 0px #A1A1A1;
+			-moz-box-shadow: inset 0px 0px 3px 0px #A1A1A1;
+			-o-box-shadow: inset 0px 0px 3px 0px #A1A1A1;
+			display:inline-block;
+			
+		}
+		
+		h1.congrats {
+			font-size:75px;
+			margin-top:16px;
+			font-family: Brush Script MT, sans-serif;
+			color: #fff;
+			text-shadow: 0px 0px 4px rgba(50, 50, 50, 0.5);
+		}
+		
+		.congratsspacer {
+			height:17px;
+		}
+		
+		.fullmapshowcasewrap {
+			width:100%;
+			height:174px;
+			background-color: #323b40;
+			-moz-box-shadow:    inset  0  8px 8px -8px #000, 
+								inset  0 -8px 8px -8px #000;
+			-webkit-box-shadow: inset  0  8px 8px -8px #000, 
+								inset  0 -8px 8px -8px #000;
+			 box-shadow:        inset  0  8px 8px -8px #000, 
+								inset  0 -8px 8px -8px #000;
+		}
+		
+		.imageswrap {
+			height:125px;
+			width:645px;
+			padding-left:55px;
+		}
+		
+		.imageholders {
+			height:101px;
+			width:180px;
+			display:inline-block;
+			margin-right: 20px;
+			margin-top:15px;
+			-webkit-box-shadow: 0px 0px 3px 0px rgba(23,23,23,0.5);
+			-moz-box-shadow: 0px 0px 3px 0px rgba(23,23,23,0.5);
+			box-shadow: 0px 0px 3px 0px rgba(23,23,23,0.5);
+		}
+		
+		.mapname {
+			font-family: sans-serif;
+			color: #aaafc0;
+			font-weight:bold;
+			font-size: 35px;
+			text-align:center;
+			text-shadow: 0px 0px 5px rgba(20, 20, 20, 0.6);
+		}
+		
+		.bottommessage {
+			text-align:center;
+			color: #323b40;
+			font-family: Gill Sans MT, sans-serif;
+			font-size:30px;
+			font-weight:bold;
+			margin-top:11px;
+		}
+		
+		.downloadcount {
+			color: #f75858;
+			display:inline-block;
+			font-size:35px;
+		}
+		
+		.optout {		
+			width:440px;
+			font-family: Gill Sans MT, sans-serif;
+			font-size:14px;
+			text-align:center;
+			margin:0 auto;
+			margin-top:30px;
+			padding:4px;
+			color:rgb(90,90,90);
+		}
+
 	</style>
 </head>
 
 
 <body>
-	<div class="emailwrap effect7">
-	<div class="logotop"> <img class="logo" src="logo.png" alt="Mods-Unturned.com"/></div>
-		<div class="inner-message-wrap"> 
-		
-			<!-- MILESTONS -->
-			<div class="messagetitle">
-				<h1> Congratulations! </h1>
-			</div>		
-			<div class="messagebody">
-				<span class="mapname"> WickerVille</span> has reached a new milestone!
-				<br /><br />
-				<div class="downloadcount">
-				5000 Downloads
-				</div>
-			</div>
-			
-			
+
+	<div class="fullmessagewrap">
+		<div class="messageheader">
+				<a href=""><img class="imgheader" src="imgheader.png" alt="Mods-Unturned"/></a>
 		</div>
 		
-	
+		<div class="whitecongratswrap">
+			<div class="congratsspacer"></div>
+			<div class="innercongratswrap">
+				<h1 class="congrats"> Congratulations </h1>
+			</div>
+		</div>
+		
+		<div class="fullmapshowcasewrap">
+			<div class="imageswrap">
+				<img class="imageholders" src="testimage.jpg" alt="Screenshot" />
+				<img class="imageholders" src="testimage.jpg" alt="Screenshot" />
+				<img class="imageholders" src="testimage.jpg" alt="Screenshot" />
+			</div>
+			<div class="mapname"><a href=""> WickerVille </a></div>
+		</div>
+		
+		<div class="bottommessage">
+			Your submission reached <div class="downloadcount">5000</div> Downloads
+		</div>
+		
+		<div class="optout">
+			Don't want to receive emails from Mods-Unturned? <a href=""><u>Unsubscribe</u></a>
+		</div>
+		
 	</div>
-
-
-
-
 
 </body>
 
