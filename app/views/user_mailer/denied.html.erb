@@ -1,9 +1,9 @@
 <html>
 <head>
-	<link href='http://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
 
 	<style>
-
+	
 
 		body {
 			margin: 0;
@@ -41,7 +41,7 @@
 			list-style-type:none;
 			padding-left:0;
 		}
-
+	
 		.fullmessagewrap {
 			width:700px;
 			height:450px;
@@ -57,41 +57,17 @@
 			height:57px;
 			width:100%;
 			background-color: #2a2a2a;
-			background-image: url("<%= image_path('controllers.png') %>");
-			background-position:top-left;
-			background-repeat: repeat-x;
 			position:relative;
 			z-index:1;
 		}
 		
-		.logowrap {
-			text-align:center;
-			padding-top:7px;
-		}
-		
-		.headercolorsquares {
-			width: 622px;
-			background-color: #2a2a2a;
-			background-image: url("<%= image_path('headersquares.png') %>");
-			width: 100%;
-			background-position:bottom-left;
-			height:3px;
-			margin-left:39px;
-			bottom:0;
-			position:absolute;
-			z-index:2;
-			
-		}
-		
-		.topshadowwrap {
+			.imgheader {
+			font-size:42px;
+			color:white;
+			font-family: Gill Sans MT, sans-serif;
 			width:100%;
-			height:3px;
-			position:absolute;
-			bottom:0;
-			z-index:5;
-			background-image: url("<%= image_path('topshadow.png') %>");
-			background-position:top-left;
-			background-repeat: repeat-x;
+			height:57px;
+			font-weight:bold;
 		}
 		
 		.whitecongratswrap {
@@ -153,11 +129,11 @@
 			height:174px;
 			background-color: #323b40;
 			-moz-box-shadow:    inset  0  8px 8px -8px #000, 
-			inset  0 -8px 8px -8px #000;
+								inset  0 -8px 8px -8px #000;
 			-webkit-box-shadow: inset  0  8px 8px -8px #000, 
-			inset  0 -8px 8px -8px #000;
-			box-shadow:        inset  0  8px 8px -8px #000, 
-			inset  0 -8px 8px -8px #000;
+								inset  0 -8px 8px -8px #000;
+			 box-shadow:        inset  0  8px 8px -8px #000, 
+								inset  0 -8px 8px -8px #000;
 		}
 		
 		.imageswrap {
@@ -167,7 +143,7 @@
 		}
 		
 		ul li {
-			font-family: Brush Script MT, sans-serif;
+		    font-family: Brush Script MT, sans-serif;
 			color:#aaafc0;
 			font-weight:bold;
 			margin:8px;
@@ -212,6 +188,17 @@
 		.highlight {
 			color: #f75858;
 		}
+		
+		.optout {		
+			width:440px;
+			font-family: Gill Sans MT, sans-serif;
+			font-size:14px;
+			text-align:center;
+			margin:0 auto;
+			margin-top:30px;
+			padding:4px;
+			color:rgb(90,90,90);
+		}
 
 	</style>
 </head>
@@ -221,15 +208,7 @@
 
 	<div class="fullmessagewrap">
 		<div class="messageheader">
-
-			<div class="logowrap"><img src="<%= image_path('textlogo.png') %>" alt="Mods-Unturned" class="toplogo" /></div>
-
-			<div class="headercolorsquares">
-
-			</div>
-			<div class="topshadowwrap">
-
-			</div>
+			<img class="imgheader" src="imgheader.png" alt="Mods-Unturned" />
 		</div>
 		
 		<div class="whitecongratswrap">
@@ -238,7 +217,7 @@
 				<h1 class="congrats"> Your submission has been denied.</h1>
 			</div>
 			<div class="commentwrap">
-				<div class="comment"><div class="uploader">Reason:</div> <%= @reason %></div>
+				<div class="comment"><div class="uploader">Reason:</div> Work is not original.</div>
 			</div>
 		</div>
 		
@@ -258,6 +237,10 @@
 			Believe your submission was wrongfully denied? <div class="downloadcount"><a href=""> Contact Us </a></div>
 		</div>
 		
+		<div class="optout">
+			Don't want to receive emails from Mods-Unturned? <a href=""><u>Unsubscribe</u></a>
+		</div>
+			
 	</div>
 
 </body>
