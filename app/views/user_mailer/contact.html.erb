@@ -1,0 +1,18 @@
+<html>
+<head>
+</head>
+<body>
+  <a href="&lt;%= root_url %&gt;">
+    <img src="&lt;%= image_full_url('header.png') %&gt;">
+  </a>
+  <h2 style="margin-top: 0px;"></h2>
+  <p style="margin-top: 0px;">#{ @inquiry }</p>
+  <p>
+    "{# t '.reply_to' }"
+    <a href="mailto:&lt;%= @email%&gt;">#{ @email }</a>
+  </p>
+
+  <p>
+    </p>
+</body>
+</html>

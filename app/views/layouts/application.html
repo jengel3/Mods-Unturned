@@ -49,7 +49,6 @@
     <%= stylesheet_link_tag "upload" %>
   <% end %>
   <%= javascript_include_tag 'application' %>
-  <%= yield :scripts %>
   <%= render 'shared/analytics' %>
 </head>
 <body>
@@ -57,4 +56,5 @@
   <% unless params[:action] == "maintenance" %>
     <%= render 'shared/footer' %>
   <% end %>
+  <%= yield :scripts %>
 </body>

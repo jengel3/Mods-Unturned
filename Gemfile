@@ -18,6 +18,7 @@ gem 'httparty'
 gem 'bb-ruby', github: 'Jake0oo0/bb-ruby'
 gem 'best_in_place', '~> 3.0.1'
 gem 'mongoid_paranoia'
+gem 'mongoid-elasticsearch'
 
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw]
 

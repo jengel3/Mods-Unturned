@@ -7,3 +7,4 @@ config.rb
 vendor/assets/components/**
 node_modules/
 spec/support/uploads/
+app/views/user_mailer/*.html
