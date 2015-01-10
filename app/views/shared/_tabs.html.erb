@@ -25,11 +25,11 @@
     <div class="menu effect1">
       <div class="menuitem">
         <% if params[:controller] == "submissions" and params[:user] %>
-          <%= link_to (t '.key_html').html_safe, destroy_user_session_path, :method => :delete %>
+          <%= link_to "<div class='menutext'>#{if current_user then t('users.log_out') else t('users.log_in') end}</div>".html_safe, destroy_user_session_path, :method => :delete %>
         <% else %>
           <a href=<%= if current_user then user_uploads_path(current_user.username) else new_user_registration_path end %>>
             <div class="menutext">
-              <%= if current_user then current_user.username else 'Login' end %>
+              <%= if current_user then current_user.username else t('users.log_in') end %>
             </div>
           </a>
         <% end %>

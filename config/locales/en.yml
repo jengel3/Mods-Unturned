@@ -44,8 +44,9 @@ en:
     display:
       comments: "Comments"
   users:
-    login: "Login"
+    log_in: "Log in"
     register: "Register"
+    log_out: "Log out"
   devise:
     confirmations:
       new:
@@ -74,8 +75,8 @@ en:
         forgot_your: "Forgot your password?"
     registrations:
       new:
-        login_or_register: "Login or Register"
-        login: "Login"
+        login_or_register: "Log in or Register"
+        login: "Log in"
         register: "Register"
     shared:
       links:
@@ -114,7 +115,6 @@ en:
     tabs:
       home: "Home"
       upload: "Upload"
-      key_html: "<div class='menutext'>#{ if current_user then 'Logout' else 'Login' end}</div>"
       levels: "Levels"
       models: "Models"
       search: "Search"
