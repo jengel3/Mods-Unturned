@@ -7,10 +7,8 @@ en:
   home:
     about:
       about_us: "About Us"
-      lcbradley3k: "LCBradley3k"
       bradley_role: "Owner, Design Manager"
       bradley_text: "Hi! My name is Brad and I'm the owner of Mods-Unturned.com. In effort to create an areawhere people could share their community content for Unturned, I created this site. Originally, it was just a static page where contributors emailed me their mods. Then we did a complete redesign, and Jake (info to your right) was brought to the team to create a backend built on Ruby. I also run the Youtube Channel %{youtube}, and a site like this was always a goal when I started my Channel. Youtube allows me to voice my opinion and have some fun, but I'm hoping our website allows everyone to express their creativity through the mods they create. For any updates on me, you can check out my %{twitter}."
-      jake0oo0: "Jake0oo0"
       jake_role: "Co-founder, Backend Developer"
       jake_text: "Hi, I'm Jake, the backend developer for Mods-Unturned.com. I contacted Bradley after seeing a tweet from Nelson about this site. I was interested in possibly uploading my own content, but realized that the site was completely static, and that I would have to email Bradley my content. Instead, I decided to contact him about rebuilding the site to be more dynamic, putting it where it is today. I started developing mods and plugins for various games several years ago, and I have since grown to love programming. I have various projects available on %{github} to check out too! If you are in need of any web development, or programming, %{twitter} at me, or check out %{website}"
       statistics: "Statistics"
