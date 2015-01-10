@@ -286,7 +286,7 @@
 		<div class="whitecongratswrap">
 			<div class="congratsspacer"></div>
 			<div class="innercongratswrap">
-				<h1 class="congrats"> Hi LCBradley3k!</h1>
+				<h1 class="congrats"> Hi <%= @user.username %>!</h1>
 			</div>
 			<div class="commentwrap">
 				<div class="subheaders welcomemessage">Welcome to the Mods-Unturned website, we're happy to have you here. Thousands of users come to
@@ -378,7 +378,7 @@
 		</div>	
 		
 		<div class="optout">
-			Don't want to receive emails from Mods-Unturned? <a href=""><u>Unsubscribe</u></a>
+			Don't want to receive emails from Mods-Unturned? <a href="<%= unsubscribe_url %>"><u>Unsubscribe</u></a>
 		</div>
 			
 	</div>
