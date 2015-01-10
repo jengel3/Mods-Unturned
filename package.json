@@ -8,11 +8,8 @@
   "license": "All rights reserved",
   "dependencies": {
     "bower": "^1.3.12",
-    "grunt-cli": "^0.1.13",
-    "grunt-email-builder": "2.0.11"
   },
   "scripts": {
     "postinstall": "bower install",
-    "postinstall": "grunt default"
   }
 }

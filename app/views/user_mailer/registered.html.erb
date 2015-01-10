@@ -1,123 +1,382 @@
 <html>
 <head>
+<link href='http://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
 
-
+	<style>
 	
+
+		body {
+			margin: 0;
+			
+		}
+		
+		a {
+			text-decoration:none;
+		}
+
+		a.modtitlelink:link {
+			color: #aaafc0;
+			text-decoration:none;
+		}
+
+
+		a.modtitlelink:visited {
+			color: #aaafc0;
+			text-decoration:none;
+		}
+
+
+		a.modtitlelink:hover {
+			color: #aaafc0;
+			text-decoration:none;
+		}
+
+
+		a.modtitlelink:active {
+			color: #aaafc0;
+			text-decoration:none;
+		}
+	
+		.fullmessagewrap {
+			width:700px;
+			height:1370px;
+			background-color: #ecf0f6;
+			-webkit-box-shadow: 0px 0px 5px 0px rgba(156,156,156,1);
+			-moz-box-shadow: 0px 0px 5px 0px rgba(156,156,156,1);
+			box-shadow: 0px 0px 5px 0px rgba(156,156,156,1);
+			margin:0 auto;
+			margin-top:25px;
+			margin-bottom:25px;
+		}
+		
+		.messageheader {
+			height:57px;
+			width:100%;
+			background-color: #2a2a2a;
+			background-image: url(gamecontrollerbackground.png);
+			background-position:top-left;
+			background-repeat: repeat-x;
+			position:relative;
+			z-index:1;
+		}
+		
+		.logowrap {
+			text-align:center;
+			padding-top:7px;
+		}
+		
+		.headercolorsquares {
+			width: 622px;
+			background-color: #2a2a2a;
+			background-image: url(headersquares.png);
+			background-position:bottom-left;
+			height:3px;
+			margin-left:39px;
+			bottom:0;
+			position:absolute;
+			z-index:2;
+			
+		}
+		
+		.topshadowwrap {
+			width:100%;
+			height:3px;
+			position:absolute;
+			bottom:0;
+			z-index:5;
+			background-image: url(topshadow.png);
+			background-position:top-left;
+			background-repeat: repeat-x;
+		}
+		
+		.whitecongratswrap {
+			height:230px;
+			width:100%;
+		}
+		
+		.innercongratswrap {
+			width:100%;
+			height:40px;
+			background-color: #58f77d;
+			box-shadow: inset 0px 0px 3px 0px #A1A1A1;
+			-webkit-box-shadow: inset 0px 0px 3px 0px #A1A1A1;
+			-moz-box-shadow: inset 0px 0px 3px 0px #A1A1A1;
+			-o-box-shadow: inset 0px 0px 3px 0px #A1A1A1;
+			display:inline-block;
+			text-align:center;
+		}
+	
+		
+		h1.congrats {
+			font-size:25px;
+			margin-top:6px;
+			font-family: Brush Script MT, sans-serif;
+			color: #fff;
+			text-shadow: 0px 0px 4px rgba(50, 50, 50, 0.5);
+		}
+		
+		.congratsspacer {
+			height:17px;
+		}
+		
+		.commentwrap {
+			margin-left: 75px;
+			margin-top:15px;
+		}
+		
+		.subheaders {
+			background-color:rgb(252,252,252);
+			padding:7px;
+			-webkit-box-shadow: 0px 0px 3px 0px #a4a4a4;
+			-moz-box-shadow: 0px 0px 3px 0px #a4a4a4;
+			-o-box-shadow: 0px 0px 3px 0px #a4a4a4;
+			font-family: Brush Script MT, sans-serif;
+			-webkit-border-radius: 8px;
+			-moz-border-radius: 8px;
+			border-radius: 8px;
+		}
+		
+		.welcomemessage {
+			width:550px;	
+			height:70px;		
+			font-size:15px;
+		}
+		
+		.mostpopular {
+			width:400px;	
+			height:28px;
+			font-size:24px;
+			font-weight:bold;
+			color: #323b40;
+			padding:5px;
+			text-align:center;
+			margin-top:25px;
+			margin-left:75px;
+			font-family: Brush Script MT, sans-serif;
+		}
+		
+		.uploader {
+			display:inline-block;
+			font-weight:bold;
+		}
+		
+		.fullmapshowcasewrap {
+			width:100%;
+			height:700px;
+			background-color: #323b40;
+			-moz-box-shadow:    inset  0  8px 8px -8px #000, 
+								inset  0 -8px 8px -8px #000;
+			-webkit-box-shadow: inset  0  8px 8px -8px #000, 
+								inset  0 -8px 8px -8px #000;
+			 box-shadow:        inset  0  8px 8px -8px #000, 
+								inset  0 -8px 8px -8px #000;
+		}
+		
+		.bottomshowcasewrap {
+			height:230px;
+		}
+		
+		.imageswrap {
+			height:125px;
+			width:645px;
+			padding-left:55px;
+		}
+	
+		
+		.imageholders {
+			height:101px;
+			width:180px;
+			display:inline-block;
+			margin-right: 20px;
+			margin-top:12px;
+			-webkit-box-shadow: 0px 0px 3px 0px rgba(23,23,23,0.5);
+			-moz-box-shadow: 0px 0px 3px 0px rgba(23,23,23,0.5);
+			box-shadow: 0px 0px 3px 0px rgba(23,23,23,0.5);
+		}
+		
+		.tutorialtextboxes {
+			-moz-border-radius: 15px;
+			border-radius: 15px;
+			font-size:20px;
+			font-family: Brush Script MT, sans-serif;
+			position: relative;
+			text-align:center;
+			color:#aaafc0;
+			font-weight:bold;
+			width:180px;
+			height:101;
+			margin-top:18px;
+			margin-left:4px;
+			margin-right:4px;
+			
+	}
+	
+	.subdetails {
+			background-color:#2b3337;
+			height:20px;
+			width:180px;
+			font-size:14px;
+			margin-top:3px;
+			padding-top:3px;
+			font-weight:normal;
+	}
+		
+		
+		.innerheadings {
+			font-family: sans-serif;
+			color: #f75858;
+			font-weight:bold;
+			font-size: 30px;
+			text-align:center;
+			text-shadow: 0px 0px 5px rgba(20, 20, 20, 0.6);
+			padding-top:10px;
+		}
+		
+		.maptitle {
+			text-align:center;
+			font-size:20px;
+			color:#aaafc0;
+			font-family: Brush Script MT, sans-serif;
+			font-weight:bold;
+			padding-top:6px;
+		}
+		
+		.bottommessage {
+			text-align:center;
+			color: #323b40;
+			font-family: Gill Sans MT, sans-serif;
+			font-size:20px;
+			font-weight:bold;
+			margin-top:11px;
+			margin-bottom:10px;
+			padding-top:10px;
+		}
+		
+		.bottommessage2 {
+			text-align:center;
+			color: #323b40;
+			font-family: Gill Sans MT, sans-serif;
+			font-size:20px;
+			font-weight:bold;
+			margin-top:11px;
+			margin-bottom:10px;
+		}
+		
+		.downloadcount {
+			color: #f75858;
+			display:inline-block;
+		}
+
+	</style>
 </head>
 
 
-<body style="margin: 0;">
+<body>
 
-	<div class="fullmessagewrap" style="-moz-box-shadow: 0px 0px 5px 0px rgba(156,156,156,1); -webkit-box-shadow: 0px 0px 5px 0px rgba(156,156,156,1); background-color: #ecf0f6; box-shadow: 0px 0px 5px 0px rgba(156,156,156,1); height: 1370px; margin: 0 auto; margin-bottom: 25px; margin-top: 25px; width: 700px;">
-		<div class="messageheader" style="background-color: #2a2a2a; background-image: url(gamecontrollerbackground.png); background-position: top-left; background-repeat: repeat-x; height: 57px; position: relative; width: 100%; z-index: 1;">
+	<div class="fullmessagewrap">
+		<div class="messageheader">
 		
-			<div class="logowrap" style="padding-top: 7px; text-align: center;"><img src="textlogo.png" alt="Mods-Unturned" class="toplogo"></div>
+			<div class="logowrap"><img src="textlogo.png" alt="Mods-Unturned" class="toplogo" /></div>
 		
-			<div class="headercolorsquares" style="background-color: #2a2a2a; background-image: url(headersquares.png); background-position: bottom-left; bottom: 0; height: 3px; margin-left: 39px; position: absolute; width: 622px; z-index: 2;">
+			<div class="headercolorsquares">
 			
 			</div>
-			<div class="topshadowwrap" style="background-image: url(topshadow.png); background-position: top-left; background-repeat: repeat-x; bottom: 0; height: 3px; position: absolute; width: 100%; z-index: 5;">
+			<div class="topshadowwrap">
 			
 			</div>
 		</div>
 		
-		<div class="whitecongratswrap" style="height: 230px; width: 100%;">
-			<div class="congratsspacer" style="height: 17px;"></div>
-			<div class="innercongratswrap" style="-moz-box-shadow: inset 0px 0px 3px 0px #A1A1A1; -o-box-shadow: inset 0px 0px 3px 0px #A1A1A1; -webkit-box-shadow: inset 0px 0px 3px 0px #A1A1A1; background-color: #58f77d; box-shadow: inset 0px 0px 3px 0px #A1A1A1; display: inline-block; height: 40px; text-align: center; width: 100%;">
-				<h1 class="congrats" style="color: #fff; font-family: Brush Script MT, sans-serif; font-size: 25px; margin-top: 6px; text-shadow: 0px 0px 4px rgba(50, 50, 50, 0.5);"> Hi LCBradley3k!</h1>
+		<div class="whitecongratswrap">
+			<div class="congratsspacer"></div>
+			<div class="innercongratswrap">
+				<h1 class="congrats"> Hi LCBradley3k!</h1>
 			</div>
-			<div class="commentwrap" style="margin-left: 75px; margin-top: 15px;">
-				<div class="subheaders welcomemessage" style="-moz-border-radius: 8px; -moz-box-shadow: 0px 0px 3px 0px #a4a4a4; -o-box-shadow: 0px 0px 3px 0px #a4a4a4; -webkit-border-radius: 8px; -webkit-box-shadow: 0px 0px 3px 0px #a4a4a4; background-color: rgb(252,252,252); border-radius: 8px; font-family: Brush Script MT, sans-serif; font-size: 15px; height: 70px; padding: 7px; width: 550px;">Welcome to the Mods-Unturned website, we're happy to have you here. Thousands of users come to
+			<div class="commentwrap">
+				<div class="subheaders welcomemessage">Welcome to the Mods-Unturned website, we're happy to have you here. Thousands of users come to
 				our site to share the content they created with the community. Our platform allows you to share your work and
 				communicate with other developers. We hope to see some of your content soon!</div>
 				
-				<div class="mostpopular" style="color: #323b40; font-family: Brush Script MT, sans-serif; font-size: 24px; font-weight: bold; height: 28px; margin-left: 75px; margin-top: 25px; padding: 5px; text-align: center; width: 400px;">Let's start with a tour of the place</div>
+				<div class="mostpopular">Let's start with a tour of the place</div>
 			</div>
 		</div>
 		
-		<div class="fullmapshowcasewrap" style="-moz-box-shadow: inset  0  8px 8px -8px #000, 
-								inset  0 -8px 8px -8px #000; -webkit-box-shadow: inset  0  8px 8px -8px #000, 
-								inset  0 -8px 8px -8px #000; background-color: #323b40; box-shadow: inset  0  8px 8px -8px #000, 
-								inset  0 -8px 8px -8px #000; height: 700px; width: 100%;">
-		<br>
-		<div class="innerheadings" style="color: #f75858; font-family: sans-serif; font-size: 30px; font-weight: bold; padding-top: 10px; text-align: center; text-shadow: 0px 0px 5px rgba(20, 20, 20, 0.6);"> Most Popular Creations </div>
-			<div class="imageswrap" style="height: 125px; padding-left: 55px; width: 645px;">
+		<div class="fullmapshowcasewrap">
+		<br />
+		<div class="innerheadings"> Most Popular Creations </div>
+			<div class="imageswrap">
 				<table>
 				<tr>
-					<td><img class="imageholders" src="testimage.jpg" alt="Screenshot" style="-moz-box-shadow: 0px 0px 3px 0px rgba(23,23,23,0.5); -webkit-box-shadow: 0px 0px 3px 0px rgba(23,23,23,0.5); box-shadow: 0px 0px 3px 0px rgba(23,23,23,0.5); display: inline-block; height: 101px; margin-right: 20px; margin-top: 12px; width: 180px;"></td>
-					<td><img class="imageholders" src="testimage.jpg" alt="Screenshot" style="-moz-box-shadow: 0px 0px 3px 0px rgba(23,23,23,0.5); -webkit-box-shadow: 0px 0px 3px 0px rgba(23,23,23,0.5); box-shadow: 0px 0px 3px 0px rgba(23,23,23,0.5); display: inline-block; height: 101px; margin-right: 20px; margin-top: 12px; width: 180px;"></td>
-					<td><img class="imageholders" src="testimage.jpg" alt="Screenshot" style="-moz-box-shadow: 0px 0px 3px 0px rgba(23,23,23,0.5); -webkit-box-shadow: 0px 0px 3px 0px rgba(23,23,23,0.5); box-shadow: 0px 0px 3px 0px rgba(23,23,23,0.5); display: inline-block; height: 101px; margin-right: 20px; margin-top: 12px; width: 180px;"></td>
+					<td><img class="imageholders" src="testimage.jpg" alt="Screenshot" /></td>
+					<td><img class="imageholders" src="testimage.jpg" alt="Screenshot" /></td>
+					<td><img class="imageholders" src="testimage.jpg" alt="Screenshot" /></td>
 				</tr>
 				<tr>
-					<td class="maptitle" style="color: #aaafc0; font-family: Brush Script MT, sans-serif; font-size: 20px; font-weight: bold; padding-top: 6px; text-align: center;"> <a class="modtitlelink" href="" style="text-decoration: none;"> WickerVille </a></td>
-					<td class="maptitle" style="color: #aaafc0; font-family: Brush Script MT, sans-serif; font-size: 20px; font-weight: bold; padding-top: 6px; text-align: center;"> <a class="modtitlelink" href="" style="text-decoration: none;">Matchbox Isle </a></td>
-					<td class="maptitle" style="color: #aaafc0; font-family: Brush Script MT, sans-serif; font-size: 20px; font-weight: bold; padding-top: 6px; text-align: center;"> <a class="modtitlelink" href="" style="text-decoration: none;">Quarter City </a></td>
+					<td class="maptitle"> <a class="modtitlelink" href=""> WickerVille </a></td>
+					<td class="maptitle"> <a class="modtitlelink" href="">Matchbox Isle </a></td>
+					<td class="maptitle"> <a class="modtitlelink" href="">Quarter City </a></td>
 				</tr>
 				</table>
 			</div>
 		
-		<br><br><br>
-		<div class="innerheadings" style="color: #f75858; font-family: sans-serif; font-size: 30px; font-weight: bold; padding-top: 10px; text-align: center; text-shadow: 0px 0px 5px rgba(20, 20, 20, 0.6);"> Staff Favorites </div>
-			<div class="imageswrap" style="height: 125px; padding-left: 55px; width: 645px;">
+		<br /><br /><br />
+		<div class="innerheadings"> Staff Favorites </div>
+			<div class="imageswrap">
 				<table>
 				<tr>
-					<td><img class="imageholders" src="testimage.jpg" alt="Screenshot" style="-moz-box-shadow: 0px 0px 3px 0px rgba(23,23,23,0.5); -webkit-box-shadow: 0px 0px 3px 0px rgba(23,23,23,0.5); box-shadow: 0px 0px 3px 0px rgba(23,23,23,0.5); display: inline-block; height: 101px; margin-right: 20px; margin-top: 12px; width: 180px;"></td>
-					<td><img class="imageholders" src="testimage.jpg" alt="Screenshot" style="-moz-box-shadow: 0px 0px 3px 0px rgba(23,23,23,0.5); -webkit-box-shadow: 0px 0px 3px 0px rgba(23,23,23,0.5); box-shadow: 0px 0px 3px 0px rgba(23,23,23,0.5); display: inline-block; height: 101px; margin-right: 20px; margin-top: 12px; width: 180px;"></td>
-					<td><img class="imageholders" src="testimage.jpg" alt="Screenshot" style="-moz-box-shadow: 0px 0px 3px 0px rgba(23,23,23,0.5); -webkit-box-shadow: 0px 0px 3px 0px rgba(23,23,23,0.5); box-shadow: 0px 0px 3px 0px rgba(23,23,23,0.5); display: inline-block; height: 101px; margin-right: 20px; margin-top: 12px; width: 180px;"></td>
+					<td><img class="imageholders" src="testimage.jpg" alt="Screenshot" /></td>
+					<td><img class="imageholders" src="testimage.jpg" alt="Screenshot" /></td>
+					<td><img class="imageholders" src="testimage.jpg" alt="Screenshot" /></td>
 				</tr>
 				<tr>
-					<td class="maptitle" style="color: #aaafc0; font-family: Brush Script MT, sans-serif; font-size: 20px; font-weight: bold; padding-top: 6px; text-align: center;"> <a class="modtitlelink" href="" style="text-decoration: none;">WickerVille </a></td>
-					<td class="maptitle" style="color: #aaafc0; font-family: Brush Script MT, sans-serif; font-size: 20px; font-weight: bold; padding-top: 6px; text-align: center;"> <a class="modtitlelink" href="" style="text-decoration: none;">Matchbox Isle </a></td>
-					<td class="maptitle" style="color: #aaafc0; font-family: Brush Script MT, sans-serif; font-size: 20px; font-weight: bold; padding-top: 6px; text-align: center;"> <a class="modtitlelink" href="" style="text-decoration: none;">Quarter City </a></td>
+					<td class="maptitle"> <a class="modtitlelink" href="">WickerVille </a></td>
+					<td class="maptitle"> <a class="modtitlelink" href="">Matchbox Isle </a></td>
+					<td class="maptitle"> <a class="modtitlelink" href="">Quarter City </a></td>
 				</tr>
 				</table>
 			</div>
 			
-		<br> <br><br>
-		<div class="innerheadings" style="color: #f75858; font-family: sans-serif; font-size: 30px; font-weight: bold; padding-top: 10px; text-align: center; text-shadow: 0px 0px 5px rgba(20, 20, 20, 0.6);"> Model Creations </div>
-			<div class="imageswrap" style="height: 125px; padding-left: 55px; width: 645px;">
+		<br /> <br /><br />
+		<div class="innerheadings"> Model Creations </div>
+			<div class="imageswrap">
 				<table>
 				<tr>
-					<td><img class="imageholders" src="testimage.jpg" alt="Screenshot" style="-moz-box-shadow: 0px 0px 3px 0px rgba(23,23,23,0.5); -webkit-box-shadow: 0px 0px 3px 0px rgba(23,23,23,0.5); box-shadow: 0px 0px 3px 0px rgba(23,23,23,0.5); display: inline-block; height: 101px; margin-right: 20px; margin-top: 12px; width: 180px;"></td>
-					<td><img class="imageholders" src="testimage.jpg" alt="Screenshot" style="-moz-box-shadow: 0px 0px 3px 0px rgba(23,23,23,0.5); -webkit-box-shadow: 0px 0px 3px 0px rgba(23,23,23,0.5); box-shadow: 0px 0px 3px 0px rgba(23,23,23,0.5); display: inline-block; height: 101px; margin-right: 20px; margin-top: 12px; width: 180px;"></td>
-					<td><img class="imageholders" src="testimage.jpg" alt="Screenshot" style="-moz-box-shadow: 0px 0px 3px 0px rgba(23,23,23,0.5); -webkit-box-shadow: 0px 0px 3px 0px rgba(23,23,23,0.5); box-shadow: 0px 0px 3px 0px rgba(23,23,23,0.5); display: inline-block; height: 101px; margin-right: 20px; margin-top: 12px; width: 180px;"></td>
+					<td><img class="imageholders" src="testimage.jpg" alt="Screenshot" /></td>
+					<td><img class="imageholders" src="testimage.jpg" alt="Screenshot" /></td>
+					<td><img class="imageholders" src="testimage.jpg" alt="Screenshot" /></td>
 				</tr>
 				<tr>
-					<td class="maptitle" style="color: #aaafc0; font-family: Brush Script MT, sans-serif; font-size: 20px; font-weight: bold; padding-top: 6px; text-align: center;"> <a class="modtitlelink" href="" style="text-decoration: none;">WickerVille </a></td>
-					<td class="maptitle" style="color: #aaafc0; font-family: Brush Script MT, sans-serif; font-size: 20px; font-weight: bold; padding-top: 6px; text-align: center;"> <a class="modtitlelink" href="" style="text-decoration: none;">Matchbox Isle </a></td>
-					<td class="maptitle" style="color: #aaafc0; font-family: Brush Script MT, sans-serif; font-size: 20px; font-weight: bold; padding-top: 6px; text-align: center;"> <a class="modtitlelink" href="" style="text-decoration: none;">Quarter City </a></td>
+					<td class="maptitle"> <a class="modtitlelink" href="">WickerVille </a></td>
+					<td class="maptitle"> <a class="modtitlelink" href="">Matchbox Isle </a></td>
+					<td class="maptitle"> <a class="modtitlelink" href="">Quarter City </a></td>
 				</tr>
 				</table>
 			</div>			
 		</div>
 		
-			<div class="congratsspacer" style="height: 17px;"></div>
-			<div class="innercongratswrap" style="-moz-box-shadow: inset 0px 0px 3px 0px #A1A1A1; -o-box-shadow: inset 0px 0px 3px 0px #A1A1A1; -webkit-box-shadow: inset 0px 0px 3px 0px #A1A1A1; background-color: #58f77d; box-shadow: inset 0px 0px 3px 0px #A1A1A1; display: inline-block; height: 40px; text-align: center; width: 100%;">
-				<h1 class="congrats" style="color: #fff; font-family: Brush Script MT, sans-serif; font-size: 25px; margin-top: 6px; text-shadow: 0px 0px 4px rgba(50, 50, 50, 0.5);"> There's more where that came from...</h1>
+			<div class="congratsspacer"></div>
+			<div class="innercongratswrap">
+				<h1 class="congrats"> There's more where that came from...</h1>
 			</div>	
 			
-		<div class="bottommessage" style="color: #323b40; font-family: Gill Sans MT, sans-serif; font-size: 20px; font-weight: bold; margin-bottom: 10px; margin-top: 11px; padding-top: 10px; text-align: center;">
+		<div class="bottommessage">
 			Care to share some of your content?
 		</div>
 		
-		<div class="fullmapshowcasewrap bottomshowcasewrap" style="-moz-box-shadow: inset  0  8px 8px -8px #000, 
-								inset  0 -8px 8px -8px #000; -webkit-box-shadow: inset  0  8px 8px -8px #000, 
-								inset  0 -8px 8px -8px #000; background-color: #323b40; box-shadow: inset  0  8px 8px -8px #000, 
-								inset  0 -8px 8px -8px #000; height: 230px; width: 100%;">
-		<br>
-		<div class="innerheadings" style="color: #f75858; font-family: sans-serif; font-size: 30px; font-weight: bold; padding-top: 10px; text-align: center; text-shadow: 0px 0px 5px rgba(20, 20, 20, 0.6);"> How to Upload </div>
-			<div class="imageswrap" style="height: 125px; padding-left: 55px; width: 645px;">
+		<div class="fullmapshowcasewrap bottomshowcasewrap">
+		<br />
+		<div class="innerheadings"> How to Upload </div>
+			<div class="imageswrap">
 				<table>
 				<tr>
-					<td><div class="tutorialtextboxes" style="-moz-border-radius: 15px; border-radius: 15px; color: #aaafc0; font-family: Brush Script MT, sans-serif; font-size: 20px; font-weight: bold; height: 101; margin-left: 4px; margin-right: 4px; margin-top: 18px; position: relative; text-align: center; width: 180px;">Go to the Upload Page <div class="subdetails" style="background-color: #2b3337; font-size: 14px; font-weight: normal; height: 20px; margin-top: 3px; padding-top: 3px; width: 180px;">Top right</div></div></td>
-					<td><div class="tutorialtextboxes" style="-moz-border-radius: 15px; border-radius: 15px; color: #aaafc0; font-family: Brush Script MT, sans-serif; font-size: 20px; font-weight: bold; height: 101; margin-left: 4px; margin-right: 4px; margin-top: 18px; position: relative; text-align: center; width: 180px;">Add Title and Description<div class="subdetails" style="background-color: #2b3337; font-size: 14px; font-weight: normal; height: 20px; margin-top: 3px; padding-top: 3px; width: 180px;">Current Page</div></div></td>
-					<td><div class="tutorialtextboxes" style="-moz-border-radius: 15px; border-radius: 15px; color: #aaafc0; font-family: Brush Script MT, sans-serif; font-size: 20px; font-weight: bold; height: 101; margin-left: 4px; margin-right: 4px; margin-top: 18px; position: relative; text-align: center; width: 180px;">Add File and Screenshots<div class="subdetails" style="background-color: #2b3337; font-size: 14px; font-weight: normal; height: 20px; margin-top: 3px; padding-top: 3px; width: 180px;">Left sidebar on Mod Page</div></div></td>
+					<td><div class="tutorialtextboxes">Go to the Upload Page <div class="subdetails">Top right</div></div></td>
+					<td><div class="tutorialtextboxes">Add Title and Description<div class="subdetails">Current Page</div></div></td>
+					<td><div class="tutorialtextboxes">Add File and Screenshots<div class="subdetails">Left sidebar on Mod Page</div></div></td>
 				</tr>
 				</table>
 			</div>
 				
 		</div>
-		<div class="bottommessage2" style="color: #323b40; font-family: Gill Sans MT, sans-serif; font-size: 20px; font-weight: bold; margin-bottom: 10px; margin-top: 11px; text-align: center;">
+		<div class="bottommessage2">
 			Thank you for registering with us!
 		</div>		
 	</div>

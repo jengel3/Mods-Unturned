@@ -79,8 +79,12 @@ class SubmissionsController < ApplicationController
   def create
     @submission = Submission.new(submission_params)
     current_user.submissions << @submission
-    @submission.save
-    redirect_to @submission, :notice => "Successfully created a new submission."
+
+    if @submission.save
+      redirect_to @submission, :notice => "Successfully created a new submission."
+    else
+      render 'edit'
+    end
   end
 
   def update

@@ -12,12 +12,13 @@ class UserMailer < ActionMailer::Base
          :reply_to => @email)
   end
 
-  def denied(user, download)
-    @username = user.username
-    @email = user.email
-    @download = download
+  def denied(upload, reason)
+    @user = upload.submission.user
+    @email = @user.email
+    @upload = upload
+    @reason = reason
     mail(:to => @email,
-         :subject => "A download for your submission #{download.submission} has been denied.",
+         :subject => "#{@upload.submission.name} Download Denied",
          :reply_to => @@reply)
   end
 

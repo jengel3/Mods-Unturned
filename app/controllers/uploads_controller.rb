@@ -7,13 +7,14 @@ class UploadsController < ApplicationController
   def approve
     @upload.approved = true
     @upload.save
-    redirect_to moderation_path, :notice => "Successfully approved an uploaded file."
+    redirect_to controller: 'admin/moderation', action: 'index', :notice => "Successfully approved an uploaded file."
   end
 
   def deny
     @upload.denied = true
     @upload.save
-    redirect_to moderation_path, :notice => "Succesfully denied an uploaded file."
+    UserMailer.denied(@upload, 'Content is not original.').deliver
+    redirect_to controller: 'admin/moderation', action: 'index', :notice => "Succesfully denied an uploaded file."
   end
 
   def index

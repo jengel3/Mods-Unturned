@@ -3,7 +3,7 @@ class Submission
   include Mongoid::Slug
   include Mongoid::Timestamps
   include Mongoid::Elasticsearch
-  elasticsearch!
+  # elasticsearch!
   
   validates :name, presence: true, uniqueness: true, length: { :minimum => 3, :maximum => 30 }
   validates :body, presence: true

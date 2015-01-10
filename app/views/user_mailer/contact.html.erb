@@ -2,17 +2,19 @@
 <head>
 </head>
 <body>
-  <a href="&lt;%= root_url %&gt;">
-    <img src="&lt;%= image_full_url('header.png') %&gt;">
+  <a href="<%= root_url %>">
+    <img src="<%= image_full_url('header.png') %>"/>
   </a>
-  <h2 style="margin-top: 0px;"></h2>
-  <p style="margin-top: 0px;">#{ @inquiry }</p>
+  <h2 style="margin-top: 0px;"><%= t '.inquiry_received', :username => (@username) %></h2>
+  <p style="margin-top: 0px;"><%= @inquiry %></p>
   <p>
-    "{# t '.reply_to' }"
-    <a href="mailto:&lt;%= @email%&gt;">#{ @email }</a>
+    <%= t '.reply_to' %>
+    <a href="mailto:<%= @email%>"><%= @email %></a>
   </p>
 
   <p>
-    </p>
+    <%= t '.no_longer_want' %>
+    <a href=<%= root_url %>><%= t '.unsubscribe' %></a>
+  </p>
 </body>
 </html>
