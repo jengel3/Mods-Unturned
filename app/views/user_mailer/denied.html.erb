@@ -225,7 +225,7 @@
 
 	<div class="fullmessagewrap">
 		<div class="messageheader">
-			<a href=""><img class="imgheader" src="imgheader.png" alt="Mods-Unturned" /></a>
+			<a href=""><img class="imgheader" src="<%= full_image_path('emailheader.png') %>" alt="Mods-Unturned" /></a>
 		</div>
 		
 		<div class="whitecongratswrap">
@@ -234,7 +234,7 @@
 				<h1 class="congrats"> Your submission has been denied.</h1>
 			</div>
 			<div class="commentwrap">
-				<div class="comment"><div class="uploader">Reason:</div> Work is not original.</div>
+				<div class="comment"><div class="uploader">Reason:</div> <%= @reason %></div>
 			</div>
 		</div>
 		
@@ -255,7 +255,7 @@
 		</div>
 		
 		<div class="optout">
-			Don't want to receive emails from Mods-Unturned? <a class="unsubscribe" href=""><u>Unsubscribe</u></a>
+			Don't want to receive emails from Mods-Unturned? <a class="unsubscribe" href="<%= unsubscribe_url %>"><u>Unsubscribe</u></a>
 		</div>
 			
 	</div>

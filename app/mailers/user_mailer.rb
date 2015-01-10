@@ -40,4 +40,12 @@ class UserMailer < ActionMailer::Base
         :subject => "A Submission of Yours on mods-unturned.com has reached #{count} downloads!",
         :reply_to => @@reply)
   end
+
+  def comment(comment)
+    @comment = comment
+    @user = comment.user
+    mail(:to => @comment.submission.user.email,
+        :subject => "Your Submissin Has Received a Comment",
+        :reply_to => @@reply)
+  end
 end
