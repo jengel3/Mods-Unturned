@@ -7,6 +7,7 @@ class UploadsController < ApplicationController
   def approve
     @upload.approved = true
     @upload.save
+    UserMailer.approved(@upload).deliver
     redirect_to controller: 'admin/moderation', action: 'index', :notice => "Successfully approved an uploaded file."
   end
 

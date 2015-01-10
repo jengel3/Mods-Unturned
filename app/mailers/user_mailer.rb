@@ -22,12 +22,12 @@ class UserMailer < ActionMailer::Base
          :reply_to => @@reply)
   end
 
-  def approved(user, download)
+  def approved(user, upload)
     @username = user.username
     @email = user.email
-    @download = download
+    @upload = upload
     mail(:to => @email,
-         :subject => "A download for your submission #{download.submission} has been approved.",
+         :subject => "#{@upload.submission.name} Download Approved",
          :reply_to => @@reply)
   end
 
