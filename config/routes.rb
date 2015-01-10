@@ -1,18 +1,18 @@
 Rails.application.routes.draw do
   namespace :admin do
-  get 'stats/index'
+    get 'stats/index'
   end
 
   namespace :admin do
-  get 'listings/index'
+    get 'listings/index'
   end
 
   namespace :admin do
-  get 'moderation/index'
+    get 'moderation/index'
   end
 
   # Users
-  devise_for :users, :controllers => {:sessions => 'sessions'}
+  devise_for :users, :controllers => { :sessions => 'sessions', registrations: 'registrations' }
   get '/uploads/:user', to: 'submissions#index', as: 'user_uploads'
 
   # Root
@@ -44,7 +44,7 @@ Rails.application.routes.draw do
 
   # Admin Panel
   namespace :admin do
-    resources :moderation, controller: :moderation
+    # resources :moderation, controller: :moderation
     # get '/moderation', to: 'moderation#home', as: 'moderation'
   end
 

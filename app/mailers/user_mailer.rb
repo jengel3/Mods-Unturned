@@ -12,6 +12,13 @@ class UserMailer < ActionMailer::Base
          :reply_to => @email)
   end
 
+  def welcome(user)
+    @user = user
+    mail(:to => @user.email,
+        :subject => "Successfully Registered on Mods-Unturned",
+        :reply_to => @@reply)
+  end
+
   def denied(upload, reason)
     @user = upload.submission.user
     @email = @user.email
