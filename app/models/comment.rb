@@ -4,7 +4,6 @@ class Comment
   include Mongoid::Timestamps
 
   field :text, type: String
-  field :deleted_at, type: String
   belongs_to :submission
   belongs_to :user
 
