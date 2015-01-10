@@ -241,7 +241,7 @@
 
 	<div class="fullmessagewrap">
 		<div class="messageheader">
-			<a href=""><img class="imgheader" src="#{full_image_url('emailheader.png')}" alt="Mods-Unturned" /></a>
+			<a href="<%= root_path %>"><img class="imgheader" src="<%= image_full_url('emailheader.png') %>" alt="Mods-Unturned" /></a>
 		</div>
 		
 		<div class="whitecongratswrap">
@@ -250,7 +250,7 @@
 				<h1 class="congrats"> 1 New Notification!</h1>
 			</div>
 			<div class="commentwrap">
-				<div class="comment"><div class="uploader">Jake0oo0:</div> This mod is fantastic! This mod is fantastic! This mod is fantastic! This mod is fantastic!</div>
+				<div class="comment"><div class="uploader"><%= @comment.user.username %>:</div> <%= @comment.text %></div>
 			</div>
 		</div>
 		
@@ -260,7 +260,7 @@
 				<img class="imageholders" src="testimage.jpg" alt="Screenshot" />
 				<img class="imageholders" src="testimage.jpg" alt="Screenshot" />
 			</div>
-			<div class="mapname"><a class="mapnamelink" href="#{submission_path(@submission)}"><%= @submission.name %></a></div>
+			<div class="mapname"><a class="mapnamelink" href="<%= submission_path(@submission) %>"><%= @submission.name %></a></div>
 		</div>
 		
 		<div class="bottommessage">
@@ -268,12 +268,8 @@
 		</div>
 		
 		<div class="optout">
-			Don't want to receive emails from Mods-Unturned? <a href="#{unsubscribe_url}"><u>Unsubscribe</u></a>
-		</div>
-			
+			Don't want to receive emails from Mods-Unturned? <a href="<%= unsubscribe_url %>"><u>Unsubscribe</u></a>
+		</div>	
 	</div>
-
 </body>
-
-
 </html>

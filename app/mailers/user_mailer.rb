@@ -43,9 +43,8 @@ class UserMailer < ActionMailer::Base
 
   def comment(comment)
     @comment = comment
-    @user = comment.user
     mail(:to => @comment.submission.user.email,
-        :subject => "Your Submissin Has Received a Comment",
+        :subject => "Your Submission Has Received a Comment",
         :reply_to => @@reply)
   end
 end
