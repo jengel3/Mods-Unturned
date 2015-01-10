@@ -13,6 +13,23 @@
 		a {
 			text-decoration:none;
 		}
+		
+		a:link {
+			color: #aaafc0;
+			text-decoration:none;
+		}
+
+
+		a:visited {
+			color: #aaafc0;
+			text-decoration:none;
+		}
+
+
+		a:active {
+			color: #aaafc0;
+			text-decoration:none;
+		}
 
 		a.modtitlelink:link {
 			color: #aaafc0;
@@ -53,40 +70,17 @@
 			height:57px;
 			width:100%;
 			background-color: #2a2a2a;
-			background-image: url(gamecontrollerbackground.png);
-			background-position:top-left;
-			background-repeat: repeat-x;
 			position:relative;
 			z-index:1;
 		}
 		
-		.logowrap {
-			text-align:center;
-			padding-top:7px;
-		}
-		
-		.headercolorsquares {
-			width: 622px;
-			background-color: #2a2a2a;
-			background-image: url(headersquares.png);
-			background-position:bottom-left;
-			height:3px;
-			margin-left:39px;
-			bottom:0;
-			position:absolute;
-			z-index:2;
-			
-		}
-		
-		.topshadowwrap {
+		.imgheader {
+			font-size:42px;
+			color:white;
+			font-family: Gill Sans MT, sans-serif;
 			width:100%;
-			height:3px;
-			position:absolute;
-			bottom:0;
-			z-index:5;
-			background-image: url(topshadow.png);
-			background-position:top-left;
-			background-repeat: repeat-x;
+			height:57px;
+			font-weight:bold;
 		}
 		
 		.whitecongratswrap {
@@ -266,6 +260,17 @@
 			color: #f75858;
 			display:inline-block;
 		}
+		
+		.optout {		
+			width:440px;
+			font-family: Gill Sans MT, sans-serif;
+			font-size:14px;
+			text-align:center;
+			margin:0 auto;
+			margin-top:30px;
+			padding:4px;
+			color:rgb(90,90,90);
+		}
 
 	</style>
 </head>
@@ -275,15 +280,7 @@
 
 	<div class="fullmessagewrap">
 		<div class="messageheader">
-		
-			<div class="logowrap"><img src="textlogo.png" alt="Mods-Unturned" class="toplogo" /></div>
-		
-			<div class="headercolorsquares">
-			
-			</div>
-			<div class="topshadowwrap">
-			
-			</div>
+			<img class="imgheader" src="imgheader.png" alt="Mods-Unturned" />
 		</div>
 		
 		<div class="whitecongratswrap">
@@ -378,7 +375,12 @@
 		</div>
 		<div class="bottommessage2">
 			Thank you for registering with us!
-		</div>		
+		</div>	
+		
+		<div class="optout">
+			Don't want to receive emails from Mods-Unturned? <a href=""><u>Unsubscribe</u></a>
+		</div>
+			
 	</div>
 
 </body>
