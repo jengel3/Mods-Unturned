@@ -1,1 +1,1 @@
-web: cp "config/mongoid.yml.staging" "config/mongoid.yml" && cp "config/initializers/config.rb.default" "config/initializers/config.rb" && bundle exec passenger start -p $PORT
+web: cp config/mongoid.yml.staging config/mongoid.yml && cp "config/initializers/config.rb.default" "config/initializers/config.rb" && bundle exec passenger start -p $PORT
