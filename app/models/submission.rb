@@ -29,7 +29,7 @@ class Submission
   scope :recent, -> { where(:approved_at.exists => true).desc(:last_update) }
   scope :valid, -> { where(:approved_at.exists => true) }
 
-  slug :name
+  slug :name, history: true
 
   class << self
 

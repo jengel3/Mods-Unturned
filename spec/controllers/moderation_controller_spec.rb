@@ -1,4 +1,4 @@
-RSpec.describe ModerationController do
+RSpec.describe AdminModerationController do
   describe "GET home" do
     it "shows unapproved files" do
       upload = create(:upload)
