@@ -10,7 +10,7 @@
     <% @submission.comments.unscoped.all.asc(:created_at).reject(&:new_record?).each do |comment| %>
     <% next if comment.deleted_at && !user_is_admin %>
     <div class="comment <%= cycle('comment-odd', 'comment-even') %>">
-      <div class="text">
+      <div class="text" title="<%= comment_timestamp(comment) %>">
         <% if user_is_admin || (current_user && current_user == comment.user) %>
           <% if !comment.deleted_at %>
             <%= link_to "<i class='fa fa-trash'></i>".html_safe, submission_comment_path(@submission, comment), method: :delete, data: {confirm: 'Are you sure you want to delete this comment?'} %>
