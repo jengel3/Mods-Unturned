@@ -53,4 +53,6 @@ Rails.application.routes.draw do
     post '/tohtml', to: 'application#tohtml'
     post '/contact', to: 'application#contact', as: 'contact'
   end
+
+  get '/unsubscribe', to: 'application#unsubscribe', as: 'unsubscribe'
 end
