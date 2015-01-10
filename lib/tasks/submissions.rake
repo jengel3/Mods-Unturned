@@ -1,5 +1,3 @@
-require 'faker'
-
 namespace :submissions do
   desc "Clean out dead or inactive submissions"
   task :clean => :environment do
