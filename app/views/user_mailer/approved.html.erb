@@ -1,9 +1,9 @@
 <html>
 <head>
-	<link href='http://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
 
 	<style>
-
+	
 
 		body {
 			margin: 0;
@@ -36,7 +36,7 @@
 			color: #aaafc0;
 			text-decoration:none;
 		}
-
+	
 		.fullmessagewrap {
 			width:700px;
 			height:450px;
@@ -52,40 +52,17 @@
 			height:57px;
 			width:100%;
 			background-color: #2a2a2a;
-			background-image: url(gamecontrollerbackground.png);
-			background-position:top-left;
-			background-repeat: repeat-x;
 			position:relative;
 			z-index:1;
 		}
 		
-		.logowrap {
-			text-align:center;
-			padding-top:7px;
-		}
-		
-		.headercolorsquares {
-			width: 622px;
-			background-color: #2a2a2a;
-			background-image: url(headersquares.png);
-			background-position:bottom-left;
-			height:3px;
-			margin-left:39px;
-			bottom:0;
-			position:absolute;
-			z-index:2;
-			
-		}
-		
-		.topshadowwrap {
+		.imgheader {
+			font-size:42px;
+			color:white;
+			font-family: Gill Sans MT, sans-serif;
 			width:100%;
-			height:3px;
-			position:absolute;
-			bottom:0;
-			z-index:5;
-			background-image: url(topshadow.png);
-			background-position:top-left;
-			background-repeat: repeat-x;
+			height:57px;
+			font-weight:bold;
 		}
 		
 		.whitecongratswrap {
@@ -127,11 +104,11 @@
 			height:174px;
 			background-color: #323b40;
 			-moz-box-shadow:    inset  0  8px 8px -8px #000, 
-			inset  0 -8px 8px -8px #000;
+								inset  0 -8px 8px -8px #000;
 			-webkit-box-shadow: inset  0  8px 8px -8px #000, 
-			inset  0 -8px 8px -8px #000;
-			box-shadow:        inset  0  8px 8px -8px #000, 
-			inset  0 -8px 8px -8px #000;
+								inset  0 -8px 8px -8px #000;
+			 box-shadow:        inset  0  8px 8px -8px #000, 
+								inset  0 -8px 8px -8px #000;
 		}
 		
 		.imageswrap {
@@ -173,6 +150,17 @@
 			color: #f75858;
 			display:inline-block;
 		}
+		
+		.optout {		
+			width:440px;
+			font-family: Gill Sans MT, sans-serif;
+			font-size:14px;
+			text-align:center;
+			margin:0 auto;
+			margin-top:30px;
+			padding:4px;
+			color:rgb(90,90,90);
+		}
 
 	</style>
 </head>
@@ -182,15 +170,7 @@
 
 	<div class="fullmessagewrap">
 		<div class="messageheader">
-
-			<div class="logowrap"><img src="textlogo.png" alt="Mods-Unturned" class="toplogo" /></div>
-
-			<div class="headercolorsquares">
-
-			</div>
-			<div class="topshadowwrap">
-
-			</div>
+			<img class="imgheader" src="imgheader.png" alt="Mods-Unturned" />
 		</div>
 		
 		<div class="whitecongratswrap">
@@ -206,14 +186,20 @@
 				<img class="imageholders" src="testimage.jpg" alt="Screenshot" />
 				<img class="imageholders" src="testimage.jpg" alt="Screenshot" />
 			</div>
-			<div class="mapname"><a href=""> <%= @submission.name %> </a></div>
+			<div class="mapname"><a href=""> WickerVille </a></div>
 		</div>
 		
 		<div class="bottommessage">
 			Your submission is now <div class="downloadcount">available</div> to the public
 		</div>
 		
+		<div class="optout">
+			Don't want to receive emails from Mods-Unturned? <a href=""><u>Unsubscribe</u></a>
+		</div>
+		
 	</div>
 
 </body>
+
+
 </html>
