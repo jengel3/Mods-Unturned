@@ -23,15 +23,11 @@ class User
   field :current_sign_in_ip, type: String
   field :last_sign_in_ip,    type: String
 
-  def total_downloads
-    total = 0
-    submissions.each { |s| total += s.downloads.weekly.count }
-    return total
-  end
-
   has_many :submissions, :dependent => :destroy
   has_many :comments, :dependent => :destroy
   has_many :downloads, class_name: 'Download', inverse_of: :user
   has_many :owned_downloads, inverse_of: :creator, class_name: 'Download'
   has_many :submitted_videos, :inverse_of => :submitter, class_name: 'Video'
+  has_many :reports
+  has_many :resolved_reports, :inverse_of => :resolver, class_name: 'Report'
 end

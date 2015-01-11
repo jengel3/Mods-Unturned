@@ -1,8 +1,11 @@
 class ReportsController < ApplicationController
+  before_filter :authenticate_user
+
   def create
     @reportable = find_reportable
     @report = @reportable.reports.build(report_params)
     if @report.save
+      current_user.reports << @report
       redirect_to @reportable, :notice => "Successfully reported content."
     else
       redirect_to @reportable, :alert => "Unable to report content."
