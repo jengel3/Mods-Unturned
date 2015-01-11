@@ -5,7 +5,7 @@ class Admin::ReportsController < ApplicationController
 
   def index
     if params[:status] == 'active' || !params[:status]
-      @reports = Report.where(:status => params[:status])
+      @reports = Report.where(:status => params[:status].titleize)
     else
       @reports = Report.ne(:status => "Active")
     end

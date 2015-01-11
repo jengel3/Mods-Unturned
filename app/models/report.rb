@@ -22,8 +22,8 @@ class Report
   belongs_to :reportable, polymorphic: true
 
   def delete_content
-    reportable.destroy!
     self.status = 'Content Deleted'
+    reportable.destroy
     self.save
   end
 
