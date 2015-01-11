@@ -25,7 +25,7 @@ class Submission
 
   belongs_to :user
   has_many :comments, :dependent => :destroy
-  has_many :reports, :as => :reportable, :dependent => :destroy
+  has_many :reports, :as => :reportable
 
   scope :recent, -> { where(:approved_at.exists => true).desc(:last_update) }
   scope :valid, -> { where(:approved_at.exists => true) }

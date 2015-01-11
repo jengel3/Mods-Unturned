@@ -60,8 +60,19 @@
 					<th colspan="2"><%= @report.reportable_type %></th>
 				</tr>
 				<tr>
+					<th colspan="2">Status:</th>
+					<th colspan="2"><%= @report.status %></th>
+				</tr>
+				<tr>
 					<th colspan="2">Content:</th>
-					<th colspan="2"><%= report_content(@report) %></th>
+					<th colspan="2">
+						<% content = report_content(@report) %>
+						<% if content %>
+						<%= link_to content, @report.reportable %></th>
+						<% else %>
+						DELETED
+						<% end %>
+					</th>
 				</tr>
 				<tr>
 					<th colspan="2">Report Comments:</th>

@@ -16,35 +16,40 @@ class Report
   field :status, type: String, default: 'Active'
   field :resolved_at, type: Time
 
-  belongs_to :resolver, class_name: 'User', inverse_of: :created_reports# report resolver
+  belongs_to :resolver, class_name: 'User', inverse_of: :created_reports # report resolver
   belongs_to :reporter, class_name: 'User', inverse_of: :resolved_reports # report creator
 
   belongs_to :reportable, polymorphic: true
 
-  def delete_content
+  def delete_content(completed_by)
     self.status = 'Content Deleted'
+    self.resolver = completed_by
     reportable.destroy
     self.save
   end
 
-  def resolve
+  def resolve(completed_by)
     self.status = 'Resolved'
+    self.resolver = completed_by
     self.save
   end
 
-  def close
+  def close(completed_by)
     self.status = 'Closed'
+    self.resolver = completed_by
     self.save
   end
 
-  def reopen
+  def reopen(completed_by)
     self.status = 'Active'
     self.resolved_at = nil
+    self.resolver = nil
     self.save
   end
 
-  def deny
+  def deny(completed_by)
     self.status = 'Denied'
+    self.resolver = completed_by
     self.save
   end
 end
