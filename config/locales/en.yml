@@ -103,7 +103,17 @@ en:
         actions: "Actions"
         approve: "Approve"
         deny: "Deny"
-      no_uploads: "No uploads awaiting moderation."
+        no_uploads: "No uploads awaiting moderation."
+    reports:
+      index:
+        report_moderation: "Report Moderation"
+        active: "Active"
+        closed: "Closed"
+        content: "Content"
+        reason: "Reason"
+        date_reported: "Date Reported"
+        reporter: "Reporter"
+        no_reports: "No Reports"
   shared:
     footer:
       about: "About"

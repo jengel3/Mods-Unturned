@@ -1,14 +1,13 @@
 Rails.application.routes.draw do
   namespace :admin do
-    get 'stats/index'
-  end
-
-  namespace :admin do
-    get 'listings/index'
-  end
-
-  namespace :admin do
-    get 'moderation/index'
+    get 'moderation', to: 'moderation#index'
+    resources :reports do
+      get :delete_content
+      get :resolve
+      get :deny
+      get :reopen
+      get :close
+    end
   end
 
   # Users

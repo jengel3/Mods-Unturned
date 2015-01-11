@@ -1,0 +1,76 @@
+<style>
+  .moderation, .moderation th, .moderation td {    
+    border: 1px solid black;
+    border-collapse: collapse;
+  }
+  .moderation {   
+    width: 100%;
+  }
+  .moderation th, .moderation td {
+    padding: 5px;
+    text-align: left;
+  }
+  .selector {
+    width:100%; 
+    text-align: center; 
+    margin-top:5px; 
+    font-size:16px;
+  }
+</style>
+<div id="centerpage">
+  <%= render 'shared/tabs' %>
+  <div id="mainpagewrap">
+    <div class="box effect1">
+      <h2><%= t '.report_moderation' %></h2>
+    </div>
+    <div class="mainpageleft">
+      <p class='selector'>
+        <% if params[:status] == "active" || !params[:status] %>
+        <b>
+          <%= link_to (t '.active'), params.merge(:status => "active") %>
+        </b>
+        <% else %>
+        <%= link_to (t '.active'), params.merge(:status => "active") %>
+        <% end %>
+        <% if params[:status] == "closed" %>
+        &bull;
+        <b>
+          <%= link_to (t '.closed'), params.merge(:status => "closed") %>
+        </b>
+        <% else %>
+        &bull;
+        <%= link_to (t '.closed'), params.merge(:status => "closed") %>
+        <% end %>
+      </p>
+      <% if @reports.any? %>
+      <table class='moderation'>
+        <tr>
+          <th><%= t '.content' %></th>
+          <th><%= t '.reason' %></th>
+          <th><%= t '.date_reported' %></th>
+          <th><%= t '.reporter' %></th>
+        </tr>
+        <% @reports.each do |report| %>
+        <tr>
+          <td>
+            <%= link_to report.reportable.class.name.to_s, report.reportable %>
+          </td>
+          <td>
+            <%= link_to report.report_type, admin_report_path(report) %>
+          </td>
+          <td title=<%= report.created_at %>>
+            <%= time_ago_in_words(report.created_at) + ' ago' %>
+          </td>
+          <td>
+            <%= link_to report.reporter.username, user_uploads_path(report.reporter.username) %>
+          </td>
+        </tr>
+        <% end %>
+      </table>
+      <% else %>
+      <p align="center" id="none"><%= t '.no_reports' %></p>
+      <% end %>
+    </div>
+    <div id="mainpage" />
+  </div>
+</div>

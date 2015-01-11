@@ -45,7 +45,7 @@
       <%= stylesheet_link_tag 'users' %>
     <% end %>
   <% end %>
-  <% if params[:controller] == "uploads" || params[:controller] == "images" || params[:controller] == "admin/moderation" || params[:controller] == "devise/passwords" %>
+  <% if params[:controller] == "uploads" || params[:controller] == "images" || params[:controller] == "admin/moderation" || params[:controller] == "devise/passwords" || params[:controller] == "admin/reports" %>
     <%= stylesheet_link_tag "upload" %>
   <% end %>
   <%= javascript_include_tag 'application' %>
