@@ -25,13 +25,13 @@
     <div class="menu effect1">
       <div class="menuitem">
         <% if params[:controller] == "submissions" and params[:user] %>
-          <%= link_to "<div class='menutext'>#{if current_user then t('users.log_out') else t('users.log_in') end}</div>".html_safe, destroy_user_session_path, :method => :delete %>
+        <%= link_to "<div class='menutext'>#{if current_user then t('users.log_out') else t('users.log_in') end}</div>".html_safe, destroy_user_session_path, :method => :delete %>
         <% else %>
-          <a href=<%= if current_user then user_uploads_path(current_user.username) else new_user_registration_path end %>>
-            <div class="menutext">
-              <%= if current_user then current_user.username else t('users.log_in') end %>
-            </div>
-          </a>
+        <a href=<%= if current_user then user_uploads_path(current_user.username) else new_user_registration_path end %>>
+          <div class="menutext">
+            <%= if current_user then current_user.username else t('users.log_in') end %>
+          </div>
+        </a>
         <% end %>
       </div>
       <div class="menuitem">
@@ -45,10 +45,33 @@
         </a>
       </div>
       <div class="menuitem">
-        <a>
+        <a class="search-button" href="#search-popup">
           <div class="menutext"><%= t '.search' %></div>
         </a>
       </div>
     </div>
   </div>
 </div>
+
+<div id="search-popup" class="add-video-popup mfp-hide">
+  <h1>
+    Searching
+  </h1>
+
+  <%= form_tag search_path, method: 'GET' do %>
+  <%= label_tag 'Query:' %>
+  <p>
+  <%= text_field :search, :search, class: 'text-box', style: 'width: 87%; display: inline;', placeholder: 'Enter search terms here...', value: params[:search] ? params[:search][:search] : "" %>
+
+    <%= submit_tag 'Search', class: 'text-box', style: 'display: inline;' %>
+  </p>
+  <% end %>
+</div>
+
+<script>
+  $('.search-button').magnificPopup({
+    type:'inline',
+    midClick: true,
+    mainClass: 'mfp-fade'
+  });
+</script>

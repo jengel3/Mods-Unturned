@@ -5,8 +5,8 @@
 
   <%= form_for([@submission, @submission.videos.build]) do |f| %>
   <%= f.label :url, 'URL:' %>
-  <p>
-  <%= f.text_field :url, autocomplete: 'off', class: 'text-box', style: 'width: 87%; display: inline;', placeholder: 'Youtube videos only' %>
+  <p style='display: inline;'>
+    <%= f.text_field :url, autocomplete: 'off', class: 'text-box', style: 'width: 87%; display: inline;', placeholder: 'Youtube videos only' %>
 
     <%= f.submit 'Submit', class: 'text-box', style: 'display: inline;' %>
   </p>

@@ -52,6 +52,8 @@ Rails.application.routes.draw do
     # get '/moderation', to: 'moderation#home', as: 'moderation'
   end
 
+  get '/api/search', to: 'submissions#index', as: 'search'
+
   scope '/api' do
     get '/news', to: 'application#news'
     post '/tohtml', to: 'application#tohtml'

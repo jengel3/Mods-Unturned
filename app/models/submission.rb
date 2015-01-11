@@ -2,8 +2,8 @@ class Submission
   include Mongoid::Document
   include Mongoid::Slug
   include Mongoid::Timestamps
-  # include Mongoid::Elasticsearch
-  # elasticsearch!
+  include Mongoid::Elasticsearch
+  elasticsearch!
   
   validates :name, presence: true, uniqueness: true, length: { :minimum => 3, :maximum => 30 }
   validates :body, presence: true
@@ -119,10 +119,12 @@ class Submission
   end
 
   def is_new?
+    return false
     Time.now - 24.hour < created_at
   end
 
   def is_updated?
+    return false
     last_update && Time.now - 24.hour < last_update
   end
 
