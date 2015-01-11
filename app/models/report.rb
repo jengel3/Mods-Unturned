@@ -6,10 +6,7 @@ class Report
   
   validates :report_type, presence: true, inclusion: { in: ['Spam', 'Inappropriate', 'Not Original', 'Other'], message: "Invalid report type."}
   validates :status, inclusion: { in: ['Active', 'Denied', 'Content Deleted', 'Resolved', 'Closed'] }
-
-  def set_resolved
-    self.resolved_at = Time.now unless !self.resolved_at
-  end
+  validate :one_per_user
 
   field :report_type, type: String, default: 'Spam'
   field :comments, type: String
@@ -20,6 +17,14 @@ class Report
   belongs_to :reporter, class_name: 'User', inverse_of: :resolved_reports # report creator
 
   belongs_to :reportable, polymorphic: true
+
+  def one_per_user
+    errors.add(:base, "You already have an active report for this content.") if self.reporter.created_reports.where(:reportable => reportable).where(:status => 'Active').any?
+  end
+
+  def set_resolved
+    self.resolved_at = Time.now unless !self.resolved_at
+  end
 
   def delete_content(completed_by)
     self.status = 'Content Deleted'
