@@ -67,6 +67,7 @@ class SubmissionsController < ApplicationController
     if !@submission
       return redirect_to root_path
     end
+    @comments = @submission.comments.unscoped.all.asc(:created_at).reject(&:new_record?)
   end
 
   def new

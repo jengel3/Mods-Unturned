@@ -40,6 +40,11 @@ Rails.application.routes.draw do
     resources :images
     get :favorite
     resources :videos
+    resources :reports
+  end
+
+  resources :comments do
+    resources :reports
   end
 
   # Admin Panel

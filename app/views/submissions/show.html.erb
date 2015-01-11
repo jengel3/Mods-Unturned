@@ -38,7 +38,7 @@
             <%= @submission.created_at.strftime("%B #{@submission.created_at.day.ordinalize}, #{@submission.created_at.year}") %>
           </p>
           <p class="description">
-          <%= best_in_place_if can_manage(@submission), @submission, :body, :as => :textarea, tabindex: "2", class: 'description_filter', :data => {:description => @submission.body}, raw: true, :display_with => lambda { |v| sanitize(v).gsub(/(\r)?\n/, "<br/>").html_safe } %>
+            <%= best_in_place_if can_manage(@submission), @submission, :body, :as => :textarea, tabindex: "2", class: 'description_filter', :data => {:description => @submission.body}, raw: true, :display_with => lambda { |v| sanitize(v).gsub(/(\r)?\n/, "<br/>").html_safe } %>
           </p>
           <p class="uploadby">
             <b><%= t '.created_by' %></b>
@@ -62,6 +62,14 @@
               <%= pluralize(@submission.download_count, "#{t '.download'}") %>
             </b>
           </p>
+          <div class="manage">
+           <p class="uploadby" style="margin: 0px;">
+            <a class="report-submission-button" href="#add-report-submission">
+              <b><%= t '.report_submission' %></b>
+            </a>
+           </p>
+          </div>
+          <%= render 'reports/form', reportable: [@submission] %>
           <div class="manage">
             <% if can_manage(@submission) %>
             <p class="title" style="margin-bottom: 3px; margin-top: 2px;"><%= t '.manage' %></p>

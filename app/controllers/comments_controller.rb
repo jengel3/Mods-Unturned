@@ -1,5 +1,5 @@
 class CommentsController < ApplicationController
-  before_filter :set_comment, only: [:destroy, :restore]
+  before_filter :set_comment, only: [:destroy, :restore, :show]
   before_filter :require_admin, only: [:restore]
 
   def create
@@ -13,6 +13,10 @@ class CommentsController < ApplicationController
     else
       redirect_to @submission, :alert => "You did not create a valid comment."
     end
+  end
+
+  def show
+    redirect_to @comment.submission
   end
 
   def destroy

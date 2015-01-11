@@ -142,6 +142,7 @@ en:
       edit: "Edit Submission"
       delete: "Delete Submission"
       favorite: "Favorite Submission"
+      report_submission: "Report Submission"
   uploads:
     edit:
       editing: "Editing Uploaded File"
@@ -160,3 +161,6 @@ en:
       videos: "Videos"
     popup:
       considerate: "Please be considerate of the video that you are about to submit. Submitting videos unrelated to this submission will have your video permissions revoked. Admins and submission creators reserve the right to delete any video, under any circumstances."
+  reports:
+    form:
+      report_text: "You are creating a report for this content. Reports are handled by the moderation team at their discretion. You may be contacted for additional information if necessary. False reports or falsifying any information may result in consequences."
