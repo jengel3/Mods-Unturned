@@ -17,17 +17,14 @@
         <td class="todaymostpopular"> 
           <div class="mostpopularcontent">
             <div id="slider" class="nivoSlider mainthumblarge">
-              <% @slider.each do |img| %>
-              <a href="<%= submission_path(img) %>"><img style="height: 100%;" src="<%= img ? img.main_image.image_url : image_path('uploadthumb.png')  %>" alt="" title="<%= img.name %>" /></a>
+              <% @slider.each do |sub| %>
+              <a href="<%= submission_path(sub['slug']) %>"><img style="height: 100%;" src="<%= sub ? sub['cached_image'] : image_path('uploadthumb.png')  %>" alt="" title="<%= sub['name'] %>" /></a>
               <% end %>
             </div>
           </div>
           <script>
             $('#slider').nivoSlider({
                 effect: 'slideInRight',               // Specify sets like: 'fold,fade,sliceDown'
-                slices: 15,                     // For slice animations
-                boxCols: 8,                     // For box animations
-                boxRows: 4,                     // For box animations
                 animSpeed: 500,                 // Slide transition speed
                 pauseTime: 6000,                // How long each slide will show
                 startSlide: 0,                  // Set starting Slide (0 index)
@@ -39,11 +36,6 @@
                 prevText: '',               // Prev directionNav text
                 nextText: '',               // Next directionNav text
                 randomStart: false,             // Start on a random slide
-                beforeChange: function(){},     // Triggers before a slide transition
-                afterChange: function(){},      // Triggers after a slide transition
-                slideshowEnd: function(){},     // Triggers after all slides have been shown
-                lastSlide: function(){},        // Triggers when last slide is shown
-                afterLoad: function(){}         // Triggers when slider has loaded
             });
           </script>
         </td>
@@ -114,7 +106,7 @@
         <td style="width:860px;"colspan="2">
           <% @favorites.each do |favorite| %>
           <div class="content">
-            <a href=<%= submission_path(favorite) %>><img src=<%= favorite.get_cached_image %> class="levelthumb"></a>
+            <a href=<%= submission_path(favorite) %>><img src=<%= favorite.cached_image %> class="levelthumb"></a>
             <div class="contentdetails">
               <h4 style= "height: 18px; overflow: hidden; word-wrap: break-word;"><a href=<%= submission_path(favorite) %>><%= favorite.name %></a></h4>
               <div class="madebyuser"><a href=<%= user_uploads_path(favorite.user.username) %>><%= favorite.user.username %></a><div class="downloadcount">&nbsp;&bull; <%= favorite.download_count %> <img src=<%= image_path('downarrow.png') %> /></div></div> 

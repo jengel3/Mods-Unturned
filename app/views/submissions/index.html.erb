@@ -36,7 +36,7 @@
           <% end %>
         </div>
         <% @submissions.each do |submission| %>
-          <% main_image = submission.get_cached_image %>
+          <% main_image = submission.cached_image %>
           <% username = submission.get_username %>
           <div class="content">
             <a href="<%= url_for(submission) %>">

@@ -17,7 +17,6 @@ class Submission
   field :name, type: String
   field :body, type: String
   field :type, type: String
-  field :old_downloads, type: Integer
   field :last_update, type: Time, default: nil
   field :approved_at, type: Time, default: nil
   field :last_favorited, type: Time, default: nil
@@ -34,50 +33,27 @@ class Submission
 
   class << self
 
-    def slider_submissions
-      key = "STAT:slider_submissions"
+    def slider
+      key = "STAT:slider"
       result = REDIS.get(key)
       if !result
-        result = Array.new
         new_popular = Submission.valid.where(:approved_at.gte => Date.today - 24.hours).where(:total_downloads.gte => 20).limit(2)
         veteran = Submission.valid.where(:approved_at.lt => Date.today - 48.hours).where(:total_downloads.gte => 250).limit(2)
-        all_ids = Submission.distinct(:_id)
-        randoms = Submission.find(all_ids.sample(2))
-        result.concat(new_popular).concat(veteran).concat(randoms)
-        puts "RESULT:::: " + result.to_s
-      end
-      return result
-    end
-
-    def most_popular_today
-      key = "STAT:most_popular_today"
-      result = REDIS.get(key)
-      if !result
-        result = Array.new
-        sort = { "$sort" => { count: -1 } }
-        limit = {"$limit" => 2}
-        group = { "$group" =>
-          { "_id" => "$submission_id", "count" => { "$sum" => 1 } }
-        }
-        result = Download.daily.collection.aggregate([group, sort, limit])[0]
-        if !result
-          return nil
-        else
-          result = result['_id']
-        end
+        randoms = Submission.in(id: Submission.distinct(:id).sample(2))
+        result = Submission.or(veteran.selector, randoms.selector, new_popular.selector)
+        result = result.to_json(:only => [:name], :methods => [:cached_image, :slug])
         REDIS.set(key, result)
-        REDIS.expire(key, 1.hour)
+        REDIS.expire(key, 12.hours)
       end
-      return Submission.find(result)
+      return JSON.parse(result)
     end
 
-
-    def get_favorites
+    def favorites
       return where(:last_favorited.exists => true).desc(:last_favorited).limit(4)
     end
   end
 
-  def get_cached_image
+  def cached_image
     key = "IMAGE:#{id}"
     result = REDIS.get(key)
     if !result
