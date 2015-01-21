@@ -1,7 +1,7 @@
 class HomeController < ApplicationController
   include HomeHelper
   def home
-    @most_popular_today = Submission.most_popular_today
+    @slider = Submission.slider_submissions
     @favorites = Submission.get_favorites
     @recent = Submission.recent.limit(2)
     @recent = @recent.any? ? @recent : []

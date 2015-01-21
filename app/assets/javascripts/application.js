@@ -19,3 +19,4 @@
 //= require admin/moderation
 //= require news
 //= require magnific-popup/dist/jquery.magnific-popup
+//= require jquery.nivo.slider.pack

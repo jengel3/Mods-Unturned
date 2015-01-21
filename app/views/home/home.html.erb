@@ -16,11 +16,36 @@
       <tr>
         <td class="todaymostpopular"> 
           <div class="mostpopularcontent">
-            <a href=<%= @most_popular_today ? submission_path(@most_popular_today) : '' %>>
-              <img class="mainthumblarge"src=<%= @most_popular_today ? @most_popular_today.main_image.image_url : image_path('uploadthumb.png') %>>
-              <div class="mostpopularmodtitle homesubtitle"><%= @most_popular_today ? @most_popular_today.name : 'Most Popular' %></div>
-            </a>
-          </div>  
+            <div id="slider" class="nivoSlider mainthumblarge">
+              <% @slider.each do |img| %>
+              <a href="<%= submission_path(img) %>"><img style="height: 100%;" src="<%= img ? img.main_image.image_url : image_path('uploadthumb.png')  %>" alt="" title="<%= img.name %>" /></a>
+              <% end %>
+            </div>
+          </div>
+          <script>
+            $('#slider').nivoSlider({
+                effect: 'slideInRight',               // Specify sets like: 'fold,fade,sliceDown'
+                slices: 15,                     // For slice animations
+                boxCols: 8,                     // For box animations
+                boxRows: 4,                     // For box animations
+                animSpeed: 500,                 // Slide transition speed
+                pauseTime: 6000,                // How long each slide will show
+                startSlide: 0,                  // Set starting Slide (0 index)
+                directionNav: false,             // Next & Prev navigation
+                controlNav: false,               // 1,2,3... navigation
+                controlNavThumbs: false,        // Use thumbnails for Control Nav
+                pauseOnHover: true,             // Stop animation while hovering
+                manualAdvance: false,           // Force manual transitions
+                prevText: '',               // Prev directionNav text
+                nextText: '',               // Next directionNav text
+                randomStart: false,             // Start on a random slide
+                beforeChange: function(){},     // Triggers before a slide transition
+                afterChange: function(){},      // Triggers after a slide transition
+                slideshowEnd: function(){},     // Triggers after all slides have been shown
+                lastSlide: function(){},        // Triggers when last slide is shown
+                afterLoad: function(){}         // Triggers when slider has loaded
+            });
+          </script>
         </td>
         <td class="community"> 
           <table>

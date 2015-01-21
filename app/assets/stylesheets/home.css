@@ -106,12 +106,15 @@ td.todaymostpopular {
 
 .mainthumblarge {
   width:96%;
-  max-height:276px;
   margin-left:2%; 
   margin-top:2%; 
-  margin-bottom:5px;
+  margin-bottom:2%;
   outline:1px solid rgb(180,180,180); 
   float:left;
+}
+
+.nivoSlider {
+  height: 95%;
 }
 
 .toplistitem {

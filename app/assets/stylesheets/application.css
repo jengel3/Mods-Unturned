@@ -13,5 +13,6 @@
  *= require main
  *= require magnific-popup/dist/magnific-popup
  *= require jquery-ui/themes/smoothness/jquery-ui.min
+ *= require nivo-slider
  *= require_self
  */

@@ -34,13 +34,28 @@ class Submission
 
   class << self
 
+    def slider_submissions
+      key = "STAT:slider_submissions"
+      result = REDIS.get(key)
+      if !result
+        result = Array.new
+        new_popular = Submission.valid.where(:approved_at.gte => Date.today - 24.hours).where(:total_downloads.gte => 20).limit(2)
+        veteran = Submission.valid.where(:approved_at.lt => Date.today - 48.hours).where(:total_downloads.gte => 250).limit(2)
+        all_ids = Submission.distinct(:_id)
+        randoms = Submission.find(all_ids.sample(2))
+        result.concat(new_popular).concat(veteran).concat(randoms)
+        puts "RESULT:::: " + result.to_s
+      end
+      return result
+    end
+
     def most_popular_today
       key = "STAT:most_popular_today"
       result = REDIS.get(key)
       if !result
         result = Array.new
         sort = { "$sort" => { count: -1 } }
-        limit = {"$limit" => 1}
+        limit = {"$limit" => 2}
         group = { "$group" =>
           { "_id" => "$submission_id", "count" => { "$sum" => 1 } }
         }
