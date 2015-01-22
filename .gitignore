@@ -2,7 +2,6 @@
 tmp/
 public/uploads/
 public/assets/
-config.rb
 vendor/assets/components/**
 node_modules/
 spec/support/uploads/
