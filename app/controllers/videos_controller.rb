@@ -25,7 +25,7 @@ class VideosController < ApplicationController
     if can_manage(@video.submission)
       @video.destroy
     end
-    redirect_to submission_path(@video.submission), :notice => "Successfully deleted a submission."
+    redirect_to submission_path(@video.submission), :notice => "Successfully deleted a video."
   end
 
   private

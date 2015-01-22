@@ -30,7 +30,7 @@ class UploadsController < ApplicationController
 
   def new
     @submission = Submission.find(params[:submission_id])
-    return redirect_to root_path unless can_manage(@submission)
+    return redirect_to root_path, :alert => "No permission." unless can_manage(@submission)
     @upload = @submission.uploads.build
     respond_with(@upload)
   end

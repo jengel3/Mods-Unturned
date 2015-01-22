@@ -36,12 +36,12 @@ class SubmissionsController < ApplicationController
       end
       @submissions = projects.page(params[:page]).per(20)
     elsif params[:search]
-      @submissions = Submission.es.search(params[:search][:search], page: params[:page])
+      @submissions = Kaminari.paginate_array(Submission.es.search(params[:search][:search], page: params[:page]).results).page(params[:page]).per(20)
     end
     if params[:user]
       @title = params[:user] + "'s" + ' Creations'
     elsif params[:search]
-      @title = 'Search'
+      @title = 'Results'
     else
       @title = @type.singularize.capitalize + ' Creations'
     end
@@ -69,7 +69,7 @@ class SubmissionsController < ApplicationController
 
   def show
     if !@submission
-      return redirect_to root_path
+      return redirect_to root_path, :alert => "Submission does not exist."
     end
     @comments = @submission.comments.unscoped.all.asc(:created_at).reject(&:new_record?)
   end
@@ -106,7 +106,7 @@ class SubmissionsController < ApplicationController
 
   def destroy
     @submission.destroy
-    redirect_to submissions_path
+    redirect_to submissions_path, :notice => "Successfully deleted a submission."
   end
 
   private
