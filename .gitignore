@@ -2,7 +2,6 @@
 tmp/
 public/uploads/
 public/assets/
-mongoid.yml
 config.rb
 vendor/assets/components/**
 node_modules/
