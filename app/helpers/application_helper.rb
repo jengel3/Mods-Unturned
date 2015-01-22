@@ -22,4 +22,8 @@ module ApplicationHelper
   def image_full_url(source)
     "#{root_url}#{image_path(source)}"
   end
+
+  def get_active(tab)
+    return (params[:controller] == tab || (params[:controller].start_with?('devise') && tab == 'users') ? 'active' : '')
+  end
 end

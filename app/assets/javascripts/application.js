@@ -14,6 +14,7 @@
 //= require jquery-ui/ui/widget
 //= require jquery-ui/ui/effect
 //= require jquery-ui/ui/effect-highlight
+//= require jquery-ui/ui/effect-fade
 //= require best_in_place
 //= require content
 //= require admin/moderation

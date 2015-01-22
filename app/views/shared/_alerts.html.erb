@@ -1,0 +1,18 @@
+<% if notice %>
+	<div class="notificationwrap notice">
+		<span class="notificationtext"><%= notice %></span><a class="notificationclosebutton" href="#">&times;</a>
+	</div>
+<% elsif alert %>
+	<div class="notificationwrap alert">
+		<span class="notificationtext"><%= alert %></span><a class="notificationclosebutton" href="#">&times;</a>
+	</div>
+<% end %>
+
+<script>
+  $('.notificationclosebutton').click(function() {
+    $('.notificationwrap').fadeOut( "slow", function() { });
+  });
+  setTimeout(function(){ 
+    $('.notificationwrap').fadeOut( "slow", function() { });
+  }, 10000);
+</script>
