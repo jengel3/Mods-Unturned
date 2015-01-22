@@ -46,34 +46,19 @@ table.homelowerlayout {
   margin:0 auto;
 }
 
-.contentboxes {
-}
-
-
-tr td {
-  /*border:1px solid black;*/
-}
-
 td {
   font-weight: bold;
   color:rgb(45,45,45);
-  /*border:1px solid black;*/
 }
 
 .homesubtitle {
   font-size:25px;
 }
 
-td.todaymostpopular {
-  width:561px;
-  height:325px;
-  text-align:center;
-}
-
-td.todaymostpopular {
-  width:65%;
-  height:335px;
-  text-align:center;
+.homesubtitle img {
+  width:28px;
+  vertical-align:text-bottom;
+  margin-right:-3px;
 }
 
 .contentdesc {
@@ -85,6 +70,11 @@ td.todaymostpopular {
   min-height: 48px;
 }
 
+td.todaymostpopular {
+  width:561px;
+  height:325px;
+  text-align:center;
+}
 
 .mostpopularcontent {
   background-color:rgb(245,245,245);
@@ -105,6 +95,7 @@ td.todaymostpopular {
   height:96%;
   /*height:253;*/
   margin-left:4px;
+  margin-right: 4px;
   margin-top:5px;
   border:1px solid rgb(180,180,180);
   float:left;
@@ -123,7 +114,6 @@ td.todaymostpopular {
   margin-right:5px;
   background-color:rgb(240,240,240);
   padding-left:6px;
-  
 }
 
 .toplistitem:hover {
