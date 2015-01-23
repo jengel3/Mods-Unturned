@@ -3,6 +3,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   before_action :configure_permitted_parameters, if: :devise_controller?
   before_filter :is_maintenance
+  before_filter :require_admin, only: [:flush_cache]
 
   def is_maintenance
     if MAINTENANCE
@@ -35,6 +36,11 @@ class ApplicationController < ActionController::Base
     end
     UserMailer.contact(username, email, inquiry).deliver
     redirect_to root_path, :notice => "Successfully sent an inquiry to Mods Unturned."
+  end
+
+  def flush_cache
+    REDIS.flushall
+    redirect_to admin_path, :notice => "Successfully flushed cache."
   end
   
   def after_sign_in_path_for(resource)

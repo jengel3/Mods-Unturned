@@ -22,9 +22,9 @@
 		</div>
 		<div class="mainpageleft">
 			<div class="buttoncont">
-				<%= button_to 'Content Moderation', admin_moderation_path, method: 'GET' %>
-				<%= button_to 'Reports Moderation', admin_reports_path, method: 'GET' %>
-				<%= button_to 'Flush Cache', '' %>
+				<%= button_to 'Content Moderation', admin_moderation_path, {:method => :get } %>
+				<%= button_to 'Reports Moderation', admin_reports_path, {:method => :get } %>
+				<%= button_to 'Flush Cache', flush_cache_path, {:method => :get } %>
 			</div>
 			<div class="buttoncont">
 				<%= button_to 'Statistics', '' %>

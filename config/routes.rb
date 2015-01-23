@@ -64,6 +64,7 @@ Rails.application.routes.draw do
     get '/news', to: 'application#news'
     post '/tohtml', to: 'application#tohtml'
     post '/contact', to: 'application#contact', as: 'contact'
+    get '/flush', to: 'application#flush_cache', as: 'flush_cache'
   end
 
   get '/unsubscribe', to: 'application#unsubscribe', as: 'unsubscribe'
