@@ -2,7 +2,11 @@ if Rails.env.test?
   CarrierWave.configure do |config|
     config.storage = :file
     config.enable_processing = false
+    if ENV['RAILS_ENV'] == 'staging'
+      config.cache_dir = "#{Rails.root}/tmp/uploads"
+    end
   end
+
   # make sure our uploader is auto-loaded
   ImageUploader
   UploadUploader
