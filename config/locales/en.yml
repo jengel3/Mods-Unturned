@@ -114,6 +114,9 @@ en:
         date_reported: "Date Reported"
         reporter: "Reporter"
         no_reports: "No Reports"
+    control:
+      index:
+        control_panel: "Control Panel"
   shared:
     footer:
       about: "About"

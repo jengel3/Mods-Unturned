@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   namespace :admin do
+    get '/', to: 'control#index'
     get 'moderation', to: 'moderation#index'
     resources :reports do
       get :delete_content
@@ -51,11 +52,11 @@ Rails.application.routes.draw do
     resources :reports
   end
 
-  # Admin Panel
-  namespace :admin do
-    # resources :moderation, controller: :moderation
-    # get '/moderation', to: 'moderation#home', as: 'moderation'
-  end
+  # # Admin Panel
+  # namespace :admin do
+  #   # resources :moderation, controller: :moderation
+  #   # get '/moderation', to: 'moderation#home', as: 'moderation'
+  # end
 
   get '/api/search', to: 'submissions#index', as: 'search'
 

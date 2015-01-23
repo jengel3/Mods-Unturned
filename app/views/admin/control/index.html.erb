@@ -1,0 +1,37 @@
+<style>
+	.buttoncont {
+		width:860px;
+		height:40px;
+		line-height:40px;
+		display: table;
+	}
+	.button_to {
+		display: table-cell;
+		width: 33%;
+	}
+	.button_to input[type="submit"] {
+		width: 100%;
+		height: 100%;
+	}
+</style>
+<div id="centerpage">
+	<%= render 'shared/tabs' %>
+	<div id="mainpagewrap">
+		<div class="box effect1">
+			<h2><%= t '.control_panel' %></h2>
+		</div>
+		<div class="mainpageleft">
+			<div class="buttoncont">
+				<%= button_to 'Content Moderation', admin_moderation_path, method: 'GET' %>
+				<%= button_to 'Reports Moderation', admin_reports_path, method: 'GET' %>
+				<%= button_to 'Flush Cache', '' %>
+			</div>
+			<div class="buttoncont">
+				<%= button_to 'Statistics', '' %>
+				<%= button_to 'Mass Listings', '' %>
+				<%= button_to 'User Permissions', '' %>
+			</div>
+		</div>
+		<div id="mainpage" />
+	</div>
+</div>
