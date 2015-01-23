@@ -7,11 +7,11 @@
   <div class="box effect1">
     <h2><%= t '.about_us' %> </h2>
   </div>        
-
+  <% menu = user_menu %>
   <div class="mainpageleft">
     <div class="biowraps">
       <div class="profile">
-        <a href=<%= user_uploads_path('LCBradley3k') %>><img src=<%= image_path("bradley.png") %> class="avatar"></a>
+        <a href="<%= user_uploads_path('LCBradley3k') %>"><img src=<%= image_path("bradley.png") %> class="avatar"></a>
         <div class="persondetails">
           <div class="username">LCBradley3k</div> 
           <div class="userdescriptionshort"><%= t '.bradley_role' %></div>

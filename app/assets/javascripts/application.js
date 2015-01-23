@@ -17,7 +17,6 @@
 //= require jquery-ui/ui/effect-fade
 //= require best_in_place
 //= require content
-//= require admin/moderation
 //= require news
 //= require magnific-popup/dist/jquery.magnific-popup
 //= require jquery.nivo.slider.pack

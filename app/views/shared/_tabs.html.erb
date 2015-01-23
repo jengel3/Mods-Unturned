@@ -6,14 +6,15 @@
     </div>
 
   </div>
+  <% menu = user_menu %>
   <div class="iconheaderbar">
     <div id="tabs">
       <div class="menu">
         <a class="menuimgwrap <%= get_active('home', 'active-image') %>" href=<%= root_path %>></a> 
-        <a class="menuimgwrap <%= get_active('users', 'active-image') %>" href=""></a>       
-        <a class="menuimgwrap <%= get_active('submissions', 'active-image') %>" href=<%= projects_path(:type => "levels") %>></a>
-        <a class="menuimgwrap <%= get_active('submissions', 'active-image') %>" href=<%= projects_path(:type => "models") %>></a>
-        <a class="menuimgwrap <%= get_active('submissions', 'active-image') %>" href=<%= new_submission_path %>></a>  
+        <%= user_img_menu %>
+        <a class="menuimgwrap <%= params[:controller] == 'submissions' && params[:action] == 'index' && params[:type] == 'levels' ? 'active-image' : '' %>" href=<%= projects_path(:type => "levels") %>></a>
+        <a class="menuimgwrap <%= params[:controller] == 'submissions' && params[:action] == 'index' && params[:type] == 'models' ? 'active-image' : ''  %>" href=<%= projects_path(:type => "models") %>></a>
+        <a class="menuimgwrap <%= params[:controller] == 'submissions' && (params[:action] == 'new' || params[:action] == 'edit') ? 'active-image' : '' %>" href=<%= new_submission_path %>></a>  
       </div>
     </div>      
   </div>
@@ -21,10 +22,10 @@
   <div id="tabs">
     <div class="menu">
       <div class="menuitem <%= get_active('home') %>"><a href=<%= root_path %>><div class="menutext"><%= t '.home' %></div></a></div>               
-      <div class="menuitem <%= get_active('users') %>"><a href=""><div class="menutext">Bradley</div></a></div>              
-      <div class="menuitem <%= get_active('submissions') %>"><a href=<%= projects_path(:type => "levels") %>><div class="menutext"><%= t '.levels' %></div></a></div>
-      <div class="menuitem <%= get_active('submissions') %>"><a href=<%= projects_path(:type => "models") %>><div class="menutext"><%= t '.models' %></div></a></div>
-      <div class="menuitem <%= get_active('submissions') %>"><a href=<%= new_submission_path %>><div class="menutext"><%= t '.upload' %></div></a></div>
+      <div class="menuitem <%= params[:user] && params[:controller] == 'submissions' ? 'active' : '' %>"><%= user_menu %></div>              
+      <div class="menuitem <%= params[:controller] == 'submissions' && params[:action] == 'index' && params[:type] == 'levels' ? 'active' : '' %>"><a href=<%= projects_path(:type => "levels") %>><div class="menutext"><%= t '.levels' %></div></a></div>
+      <div class="menuitem <%= params[:controller] == 'submissions' && params[:action] == 'index' && params[:type] == 'models' ? 'active' : '' %>"><a href=<%= projects_path(:type => "models") %>><div class="menutext"><%= t '.models' %></div></a></div>
+      <div class="menuitem <%= params[:controller] == 'submissions' && (params[:action] == 'new' || params[:action] == 'edit') ? 'active' : '' %>"><a href=<%= new_submission_path %>><div class="menutext"><%= t '.upload' %></div></a></div>
 
       <div class="searchwrap">
         <%= form_tag search_path, method: 'GET' do %>
