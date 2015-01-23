@@ -38,13 +38,13 @@
 						<%= link_to upload.submission.user.username, user_uploads_path(upload.submission.user.username) %>
 					</td>
 					<td>
-						<div align="center" class="approve">
-							<%= link_to (t '.approve'), submission_upload_approve_path(upload.submission, upload) %>
+						<div align="center">
+							<%= link_to t('.approve'), '#', id: 'approve-' + upload.id, class: 'approve' %>
 						</div>
 					</td>
 					<td>
-						<div align="center" class="deny">
-							<%= link_to (t '.deny'), submission_upload_deny_path(upload.submission, upload) %>
+						<div align="center">
+							<%= link_to t('.deny'), '#', id: 'deny-'+ upload.id, class: 'deny' %>
 						</div>
 					</td>
 				</tr>
@@ -58,10 +58,43 @@
 	</div>
 </div>
 <script>
-	if ($('.moderation').length) {
+	function recalcHeight() {
 		var height = $('.moderation').height();
 		$('#mainpage').height(height);
 		$('#mainpagewrap').height(height + 85);
 		$('.mainpageleft').height(height);
 	}
+	if ($('.moderation').length) {
+		recalcHeight();
+	}
+</script>
+<script>
+	$('.approve, .deny').click(function() {
+		var element = $(this);
+		var id = 0;
+		var url = '';
+		if ($(this).attr('id').startsWith('deny')) {
+			id = $(this).attr('id').split('deny-')[1];
+			url = "/uploads/" + id + '/deny';
+		} else {
+			id = $(this).attr('id').split('approve-')[1];
+			url = "/uploads/" + id + '/approve';
+		}
+		url += '.json';
+		var prompt = 'No reason provided.';
+		if ($(this).hasClass('deny')) {
+			prompt = window.prompt("Why is this file being denied?", "Content is not up to Mods-Unturned standards.");
+		}
+		$.ajax({
+			url: url,
+			type: "POST",
+			data: JSON.stringify({"reason": prompt}),
+			success: function(resp) {
+				$(element).closest('tr').fadeOut( "slow", function() { 
+					$(element).remove();
+					recalcHeight();
+				});
+			}
+		});
+	});
 </script>

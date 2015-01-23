@@ -33,13 +33,18 @@ Rails.application.routes.draw do
       get :restore
     end
     resources :uploads do
-      get :approve
-      get :deny
+      post :approve
+      post :deny
     end
     resources :images
     get :favorite
     resources :videos
     resources :reports
+  end
+
+  resources :uploads do
+    post :approve
+    post :deny
   end
 
   resources :comments do

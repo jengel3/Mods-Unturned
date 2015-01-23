@@ -6,16 +6,25 @@ class UploadsController < ApplicationController
   
   def approve
     @upload.approved = true
-    @upload.save
-    UserMailer.approved(@upload).deliver
-    redirect_to controller: 'admin/moderation', action: 'index', :notice => "Successfully approved an uploaded file."
+    if @upload.save
+      UserMailer.approved(@upload).deliver
+    end 
+    respond_to do |format|
+      format.json { render json: @upload.errors.to_json }
+    end
   end
 
   def deny
     @upload.denied = true
-    @upload.save
-    UserMailer.denied(@upload, 'Content is not original.').deliver
-    redirect_to controller: 'admin/moderation', action: 'index', :notice => "Succesfully denied an uploaded file."
+    if @upload.save
+      request_data = JSON.parse(request.body.read)
+      reason = request_data['reason']
+      puts 'REASON', reason
+      UserMailer.denied(@upload, reason).deliver
+    end
+    respond_to do |format|
+      format.json { render json: @upload.errors.to_json }
+    end
   end
 
   def index
@@ -64,11 +73,11 @@ class UploadsController < ApplicationController
   end
 
   private
-    def set_upload
-      @upload = Upload.find(params[:upload_id])
-    end
+  def set_upload
+    @upload = Upload.find(params[:upload_id])
+  end
 
-    def upload_params
-      params.require(:upload).permit(:upload, :name, :version)
-    end
+  def upload_params
+    params.require(:upload).permit(:upload, :name, :version)
+  end
 end
