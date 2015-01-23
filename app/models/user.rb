@@ -23,6 +23,8 @@ class User
   field :current_sign_in_ip, type: String
   field :last_sign_in_ip,    type: String
 
+  field :accepts_emails, type: Boolean, default: true
+
   has_many :submissions, :dependent => :destroy
   has_many :comments, :dependent => :destroy
   has_many :downloads, class_name: 'Download', inverse_of: :user

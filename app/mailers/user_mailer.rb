@@ -14,6 +14,7 @@ class UserMailer < ActionMailer::Base
 
   def welcome(user)
     @user = user
+    return if !@user.accepts_emails
     mail(:to => @user.email,
         :subject => "Successfully Registered on Mods-Unturned",
         :reply_to => @@reply)
@@ -21,6 +22,7 @@ class UserMailer < ActionMailer::Base
 
   def denied(upload, reason)
     @user = upload.submission.user
+    return if !@user.accepts_emails
     @email = @user.email
     @upload = upload
     @reason = reason
@@ -31,6 +33,7 @@ class UserMailer < ActionMailer::Base
 
   def approved(upload)
     user = upload.submission.user
+    return if !user.accepts_emails
     @username = user.username
     @email = user.email
     @upload = upload
@@ -41,6 +44,7 @@ class UserMailer < ActionMailer::Base
 
   def milestone(submission, count)
     @user = submission.user
+    return if !@user.accepts_emails
     @submission = submission.name
     @count = count
     mail(:to => @user.email,
@@ -50,6 +54,8 @@ class UserMailer < ActionMailer::Base
 
   def comment(comment)
     @comment = comment
+    return if !@comment.user.accepts_emails
+    @submission = comment.submission
     mail(:to => @comment.submission.user.email,
         :subject => "Your Submission Has Received a Comment",
         :reply_to => @@reply)

@@ -5,6 +5,8 @@ class Submission
   include Mongoid::Elasticsearch
   elasticsearch!
   
+  @@milestones = [50, 100, 500, 1000, 2500, 5000, 10000, 20000, 30000, 40000, 50000, 60000]
+
   validates :name, presence: true, uniqueness: true, length: { :minimum => 3, :maximum => 30 }
   validates :body, presence: true
   validates :type, presence: true, inclusion: { in: %w(Level Asset), message: "Invalid submission type." }
@@ -28,10 +30,23 @@ class Submission
 
   scope :recent, -> { where(:approved_at.exists => true).desc(:last_update) }
   scope :valid, -> { where(:approved_at.exists => true) }
+  scope :popular, -> { desc(:total_downloads) }
 
   slug :name, history: true
 
   class << self
+
+    def assets
+      where(:type => "Asset")
+    end
+
+    def levels
+      where(:type => "Level")
+    end
+
+    def popular
+      desc(:total_downloads)
+    end
 
     def slider
       key = "STAT:slider"
@@ -102,10 +117,14 @@ class Submission
   def add_download(ip, downloader, upload)
     self.downloads.create(:ip => ip, :user => downloader, :upload => upload, creator: user).save!
     key = "DOWNLOADS:#{name.gsub(' ', '_')}"
+    count = 0
     if REDIS.get(key)
-      REDIS.incr(key)
+      count = REDIS.incr(key)
     else
-      download_count
+      count = download_count
+    end
+    if @@milestons.include?(count)
+      UserMailer.milestone(self, count)
     end
   end
 

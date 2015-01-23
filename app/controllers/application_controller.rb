@@ -15,6 +15,14 @@ class ApplicationController < ActionController::Base
   end
 
   def unsubscribe
+    email = params[:email]
+    user = User.where(email: email).first
+    if user
+      user.accepts_emails = false
+      user.save
+      return true
+    end
+    return false
   end
   
   def contact
