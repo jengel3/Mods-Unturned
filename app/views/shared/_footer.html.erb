@@ -23,7 +23,7 @@
   <%= label_tag 'Username '%><%= text_field :contact, :username, class: 'contactboxes', value: current_user ? current_user.username : "" %>
   <%= label_tag 'Email ' %><%= email_field :contact, :email, class: 'contactboxes', value: current_user ? current_user.email : "" %>
   <%= label_tag 'Message ' %><%= text_area :contact, :inquiry, class: 'contactboxes', rows: 7 %>
-  <%= submit_tag 'Send', class: 'contactsubmitbutton' %>
+  <%= submit_tag 'Send', class: 'contactsubmitbutton', :data => { :disable_with => "Sending" } %>
   <% end %>
 </div>
 <% content_for :scripts do %>

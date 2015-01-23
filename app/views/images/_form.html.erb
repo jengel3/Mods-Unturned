@@ -15,6 +15,6 @@
     <%= f.file_field :image, class: 'file' %>
   </p>
   <p>
-    <%= f.submit 'Submit' %>
+    <%= f.submit 'Submit', :data => { :disable_with => "Saving" } %>
   </p>
 <% end %>

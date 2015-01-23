@@ -16,7 +16,7 @@
     <%= f.text_area :comments, autocomplete: 'off', class: 'text-box', placeholder: 'Extra comments...', rows: 6, style: 'height: auto !important; width: 95%' %>
   </p>
   <p>
-    <%= f.submit 'Submit', class: 'text-box', style: 'display: inline;' %>
+    <%= f.submit 'Submit', class: 'text-box', style: 'display: inline;', :data => { :disable_with => "Saving" } %>
   </p>
   <% end %>
 </div>

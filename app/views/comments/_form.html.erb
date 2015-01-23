@@ -1,4 +1,4 @@
 <%= form_for([@submission, @submission.comments.build]) do |f| %>
   <%= f.text_field :text, class: 'feedback', :placeholder => "What do you think?", style: "display:inline;", autocomplete: 'off' %>
-  <%= f.submit 'Comment', class: 'text-box', style: "display:inline;" %>
+  <%= f.submit 'Comment', class: 'text-box', style: "display:inline;", :data => { :disable_with => "Saving" } %>
 <% end %>

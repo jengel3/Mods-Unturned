@@ -22,6 +22,6 @@
     <%= f.text_area :body, rows: 15, style: 'width: 600px;' %>
   </p>
   <p>
-    <%= f.submit 'Submit' %>
+    <%= f.submit 'Submit', :data => { :disable_with => "Saving" } %>
   </p>
 <% end %>

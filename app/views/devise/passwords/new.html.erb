@@ -21,7 +21,7 @@
               <%= f.email_field :email, autofocus: true %>
             </p>
             <p>
-              <%= f.submit "Sent Reset Instructions" %>
+              <%= f.submit "Send Reset Instructions", :data => { :disable_with => "Processing" } %>
             </p>
           <% end %>
           <%= render 'devise/shared/links' %>

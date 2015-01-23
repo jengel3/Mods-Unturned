@@ -35,7 +35,7 @@
               </div>
             <% end %>
             <p>
-              <%= f.submit "Login", class: 'text-box' %>
+              <%= f.submit "Login", class: 'text-box', :data => { :disable_with => "Logging in" } %>
             </p>
           <% end %>
         </div>
@@ -76,7 +76,7 @@
               <%= f.password_field :password_confirmation, autocomplete: "off", class: 'text-box' %>
             </p>
             <p>
-              <%= f.submit "Register", class: 'text-box' %>
+              <%= f.submit "Register", class: 'text-box', :data => { :disable_with => "Registering" } %>
             </p>
           <% end %>
         </div>
