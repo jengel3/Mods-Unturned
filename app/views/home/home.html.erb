@@ -17,8 +17,10 @@
         <td class="todaymostpopular"> 
           <div class="mostpopularcontent">
             <div id="slider" class="nivoSlider mainthumblarge">
+              <% if @slider.any? %>
               <% @slider.each do |sub| %>
               <a href="<%= submission_path(sub['slug']) %>"><img style="height: 100%;" src="<%= sub ? sub['cached_image'] : image_path('uploadthumb.png')  %>" alt="" title="<%= sub['name'] %>" /></a>
+              <% end %>
               <% end %>
             </div>
           </div>
@@ -36,7 +38,7 @@
                 prevText: '',               // Prev directionNav text
                 nextText: '',               // Next directionNav text
                 randomStart: false,             // Start on a random slide
-            });
+              });
           </script>
         </td>
         <td class="community"> 
