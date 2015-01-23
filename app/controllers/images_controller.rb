@@ -14,7 +14,7 @@ class ImagesController < ApplicationController
 
   def new
     @submission = Submission.find(params[:submission_id])
-    return redirect_to root_path unless, alert: 'No permission.' can_manage(@submission)
+    return redirect_to root_path, alert: 'No permission.' unless can_manage(@submission)
     @image = @submission.images.build
     respond_with(@image)
   end
@@ -25,7 +25,7 @@ class ImagesController < ApplicationController
 
   def create
     @submission = Submission.find(params[:submission_id])
-    return redirect_to root_path unless, alert: 'No permission.' can_manage(@submission)
+    return redirect_to root_path, alert: 'No permission.' unless can_manage(@submission)
     @image = Image.new(image_params)
     @submission.images << @image
     if @image.save
@@ -36,13 +36,13 @@ class ImagesController < ApplicationController
   end
 
   def update
-    return redirect_to root_path unless, alert: 'No permission.' can_manage(@image.submission)
+    return redirect_to root_path, alert: 'No permission.' unless can_manage(@image.submission)
     @image.update(image_params)
     respond_with(@image)
   end
 
   def destroy
-    return redirect_to root_path unless, alert: 'No permission.' can_manage(@image.submission)
+    return redirect_to root_path, alert: 'No permission.' unless can_manage(@image.submission)
     @image.destroy
     respond_with(@image)
   end
