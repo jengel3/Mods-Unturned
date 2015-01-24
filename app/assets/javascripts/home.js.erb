@@ -45,3 +45,29 @@ function renderErrors(text) {
 		return str.charAt(0).toUpperCase() + str.slice(1);
 	}
 }
+
+function checkPasswordMatch() {
+	var password = $(".registerwrap input[id='user_password']").val();
+	var confirmPassword = $(".registerwrap input[id='user_password_confirmation']").val();
+
+	if (confirmPassword === "" || password !== confirmPassword)
+		$(".register-input[id='user_password_confirmation']").css("background-image", "url('<%= asset_path('password25.png') %>')");
+	else
+		$(".register-input[id='user_password_confirmation']").css("background-image", "url('<%= asset_path('lock26.png') %>')");
+} 
+
+function checkUserPasswordLength() {
+	var userPassword = $(".signinwrap input[id='user_password']").val();
+
+	if (userPassword.length >= 6 && userPassword.length <= 128) {
+		$(".login-input[id='user_password']").css("background-image", "url('<%= asset_path('lock26.png') %>')")
+	} else {
+		$(".login-input[id='user_password']").css("background-image", "url('<%= asset_path('password25.png') %>')")
+	}
+}
+
+$(document).ready(function () {
+	$(".registerwrap input[id='user_password_confirmation']").keyup(checkPasswordMatch);
+	$(".registerwrap input[id='user_password']").keyup(checkPasswordMatch);
+	$(".signinwrap input[id='user_password']").keyup(checkUserPasswordLength);
+});
