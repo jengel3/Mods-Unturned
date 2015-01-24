@@ -24,6 +24,28 @@ $(document).on('submit', 'form#register_user', function(e) {
 	$('.registerwrap .errormessage').effect({effect: "shake", direction: "up", distance: 5, times: 2});
 });
 
+$(document).on('submit', 'form#change_password', function(e) {
+}).on('ajax:success', 'form#change_password', function(e, data, status, xhr) {
+	// reload the page now that the user is registered
+	location.reload(true);
+}).on('ajax:error', 'form#change_password', function(e, data, status, xhr) {
+	errorResponse = data.responseText;
+	formattedErrors = renderErrors(errorResponse);
+	$('.inputwrap').find('.passwordreset_notificationmessagewrap').html(formattedErrors);
+	$('.inputwrap .errormessage').effect({effect: "shake", direction: "up", distance: 5, times: 2});
+});
+
+$(document).on('submit', 'form#send_email', function(e) {
+}).on('ajax:success', 'form#send_email', function(e, data, status, xhr) {
+	// reload the page now that the user is registered
+	location.reload(true);
+}).on('ajax:error', 'form#send_email', function(e, data, status, xhr) {
+	errorResponse = data.responseText;
+	formattedErrors = renderErrors(errorResponse);
+	$('.passwordreset_notificationmessagewrap').find('.passwordreset_notificationtext').html(formattedErrors);
+	$('.passwordreset_notificationmessagewrap .errormessage').effect({effect: "shake", direction: "up", distance: 5, times: 2});
+});
+
 function renderErrors(text) {
 	var parsed = JSON.parse(text);
 	var formattedErrors = [];
@@ -44,6 +66,13 @@ function renderErrors(text) {
 	function capitaliseFirstLetter(str) {
 		return str.charAt(0).toUpperCase() + str.slice(1);
 	}
+}
+
+function getParameterByName(name) {
+	name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
+	var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
+	results = regex.exec(location.search);
+	return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
 }
 
 function checkPasswordMatch() {

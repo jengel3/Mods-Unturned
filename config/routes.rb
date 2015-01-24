@@ -12,7 +12,7 @@ Rails.application.routes.draw do
   end
 
   # Users
-  devise_for :users, :controllers => { sessions: 'sessions', registrations: 'registrations', :omniauth_callbacks => "omniauth_callbacks"}  
+  devise_for :users, :controllers => { sessions: 'sessions', registrations: 'registrations', :omniauth_callbacks => 'users/omniauth_callbacks', :passwords => 'passwords' }  
   get '/uploads/:user', to: 'submissions#index', as: 'user_uploads'
 
   # Root

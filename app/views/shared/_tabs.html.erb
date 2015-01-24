@@ -43,7 +43,7 @@
     <h1> Password Reset </h1>
   </div>
   <div class="passwordreset_inputwrap">
-    <%= form_for :password, url: user_password_path, html: { style: 'margin-bottom: 0px' } do |f| %>
+    <%= form_for :user, as: :user, url: password_path(:user, format: :json), remote: true, method: :post, html: { style: 'margin-bottom: 0px', id: 'send_email' } do |f| %>
     <%= f.email_field :email, autofocus: true, class: 'email-input', autocomplete: 'off', type: 'email', placeholder: 'Email' %>
     <div class="passwordreset_notificationmessagewrap errormessage"><span class="passwordreset_notificationtext">An email will be sent to you with instructions on resetting your password.</span></div>
     <a class="submitlink" href="#"><%= f.submit "Submit", class: 'signinbutton', :data => { :disable_with => "Sending" } %></a>

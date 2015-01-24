@@ -1,34 +1,28 @@
-<%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f| %>
-<%= devise_error_messages! %>
-<%= f.hidden_field :reset_password_token %>
-<div>
-  <%= f.label :password, "New password" %>
-  <br/>
-  <%= f.password_field :password, autofocus: true, autocomplete: "off" %>
-</div>
-<div>
-  <%= f.label :password_confirmation, "Confirm new password" %>
-  <br/>
-  <%= f.password_field :password_confirmation, autocomplete: "off" %>
-</div>
-<div>
-  <%= f.submit "Change my password", :data => { :disable_with => "Saving" } %>
-</div>
-<% end %>
+<div id="centerpage">
+  <%= render 'shared/tabs' %>
 
+  <div id="mainpagewrap"> 
 
-<div class="popupwrap">
-  <div class="popuptoptitlewrap">
-    <h1> Password Reset </h1>
-  </div>
-  <div class="inputwrap">
-    <input class="password-input" name="password" placeholder="Password" autocomplete="off" type="text" />
-    <input class="password-input" name="confrimpassword" placeholder="Confirm Password" autocomplete="off" type="text" />
-    <div class="notificationmessagewrap errormessage"><span class="notificationtext">Your password will now be permanently changed on Mods-Unturned.com </span></div>
-    <a class="submitlink" href=""><input class="signinbutton" name="submit" value="Submit" type="submit" /></a>
-    
-    <div class="inputbottomwrap">
-      
+    <div class="box effect1">
+      <h2> New Password </h2>
+    </div>        
+    <div class="mainpageleft" style="width: 100%; text-align: center;">
+
+      <div class="loginpagewrap" style="margin-left: 55px;">
+        <div class="signinwrap">
+          <div class="inputwrap" style='height: 250px;'>
+          <%= form_for(:user, url: user_password_path(format: :json), format: :json, remote: true, :html => { :style => 'margin-bottom: 0px;', :id => "change_password", method: :put }) do |f| %>
+            <%= f.hidden_field :reset_password_token, value: params[:reset_password_token] %>
+            <%= f.password_field :password, class: 'reset-page', autocomplete: 'off', type: 'password', placeholder: 'Password', autofocus: true %>
+            <%= f.password_field :password_confirmation, class: 'reset-page', autocomplete: 'off', type: 'password', placeholder: 'Confirm Password' %>
+            <div class="passwordreset_notificationmessagewrap errormessage"><span class="passwordreset_notificationtext">Your password will now be permanently changed on Mods-Unturned.com </span></div>
+            <a class="submitlink" href='#'><%= f.submit 'Change Password', class: 'signinbutton' %></a>
+            <% end %>
+          </div>
+        </div>
+      </div>  
     </div>
+    <div id="mainpage" style="height: 400px;">
+    </div>    
   </div>
 </div>

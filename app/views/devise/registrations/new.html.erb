@@ -9,9 +9,6 @@
     <div class="mainpageleft" style="width: 100%; text-align: center;">
 
       <div class="loginpagewrap" style="margin-left: 55px;">
-        <div class="popuptoptitlewrap">
-          <h1> Log in Panel </h1>
-        </div>
         <div class="signinwrap">
           <div class="inputwrap">
             <%= form_for(:user, url: user_session_path(format: :json), remote: true, format: :json, :html => { :style => 'margin-bottom: 0px;', :id => "log_in_user" }) do |f| %>

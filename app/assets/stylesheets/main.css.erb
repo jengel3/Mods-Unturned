@@ -1047,7 +1047,7 @@ a.submitlink:visited {
   box-shadow: 2px 2px 7px #E8E8E8 inset;
 }
 
-.login-inputpage {
+.login-inputpage, .reset-page {
   width:160px;
   background-color:rgb(238,238,238);
   border:none;
@@ -1071,11 +1071,11 @@ a.submitlink:visited {
 }
 
 .loginpagewrap {
-  background-color:#eef4fb;
+  /*background-color:#eef4fb;*/
   width:750px;
   height:450px;
   margin:0 auto;
-  -webkit-border-radius: 9px;
+  /*-webkit-border-radius: 9px;
   -webkit-border-top-left-radius: 14px;
   -webkit-border-top-right-radius: 14px;
   -moz-border-radius: 9px;
@@ -1086,7 +1086,7 @@ a.submitlink:visited {
   border-top-right-radius: 14px;
   -webkit-box-shadow: 0px 0px 10px 0px rgb(200,200,200);
   -moz-box-shadow:    0px 0px 10px 0px rgb(200,200,200);
-  box-shadow:         0px 0px 10px 0px rgb(200,200,200);  
+  box-shadow:         0px 0px 10px 0px rgb(200,200,200); */ 
 }
 
 .register-inputpage[id='user_email'] {
@@ -1155,6 +1155,24 @@ a.submitlink:visited {
   background-size:20px 20px;  
 }
 
+.register-inputpage {
+  width:200px;
+  background-color:rgb(238,238,238);
+  border:none;
+  display:inline-block;
+  height:35px;
+  padding-left:32px;
+  padding-right:3px;
+  outline:none;     
+}
+
+.register-inputpage:focus {
+  background-color:rgb(253,253,253);
+  -webkit-box-shadow: 2px 2px 7px #E8E8E8 inset;
+  -moz-box-shadow: 2px 2px 7px #E8E8E8 inset;
+  box-shadow: 2px 2px 7px #E8E8E8 inset;
+} 
+
 .login-inputpage[id='user_login'] {
   -webkit-border-top-left-radius: 4px;
   -webkit-border-top-right-radius: 4px;
@@ -1173,7 +1191,25 @@ a.submitlink:visited {
   margin-top:7px;
 }
 
-.login-inputpage[id='user_password'] {
+.reset-page[id='user_password'] {
+  -webkit-border-top-left-radius: 4px;
+  -webkit-border-top-right-radius: 4px;
+  -moz-border-radius-topleft: 4px;
+  -moz-border-radius-topright: 4px;
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px; 
+  border:1px solid rgb(190,190,190);
+  -webkit-box-shadow: inset 0 1px 3px 0 rgb(210,210,210);
+  -moz-box-shadow: inset 0 1px 3px 0 rgb(210,210,210);
+  box-shadow: inset 0 1px 3px 0 rgb(210,210,210);
+  background-image:url(<%= asset_path 'lock26.png' %>);
+  background-repeat:no-repeat;
+  background-position:5px center;
+  background-size:20px 20px;
+  margin-top:7px;
+}
+
+.login-inputpage[id='user_password'], .reset-page[id='user_password_confirmation'] {
   -webkit-border-bottom-right-radius: 4px;
   -webkit-border-bottom-left-radius: 4px;
   -moz-border-radius-bottomright: 4px;
@@ -1191,3 +1227,23 @@ a.submitlink:visited {
   background-position:5px center;
   background-size:18px 18px;
 }
+
+.login-inputpage, .reset-page {
+  width:200px;
+  background-color:rgb(238,238,238);
+  border:none;
+  display:block;
+  height:35px;
+  padding-left:32px;
+  padding-right:3px;
+  margin:0 auto;
+  outline:none;
+}
+
+.login-inputpage:focus, .reset-page:focus {
+  /*background: #F9F9F9;*/
+  background-color:rgb(253,253,253);
+  -webkit-box-shadow: 2px 2px 7px #E8E8E8 inset;
+  -moz-box-shadow: 2px 2px 7px #E8E8E8 inset;
+  box-shadow: 2px 2px 7px #E8E8E8 inset;
+}   
