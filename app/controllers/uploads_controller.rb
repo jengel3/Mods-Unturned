@@ -6,13 +6,8 @@ class UploadsController < ApplicationController
   
   def approve
     @upload.approved = true
-    puts "ID", params[:upload_id]
-    puts "NAME", @upload.submission.name
-    puts "ERRORS 1 ", @upload.errors.to_json
-    if @upload.save
-      puts "SAVED"
-      UserMailer.approved(@upload).deliver
-    end 
+    @upload.save
+    UserMailer.approved(@upload).deliver
     respond_to do |format|
       format.json { render json: @upload.errors.to_json }
     end
@@ -20,13 +15,10 @@ class UploadsController < ApplicationController
 
   def deny
     @upload.denied = true
-    puts "ERRORS", @upload.errors.to_json
-    if @upload.save
-      puts "SAVED 1"
-      request_data = JSON.parse(request.body.read)
-      reason = request_data['reason']
-      UserMailer.denied(@upload, reason).deliver
-    end
+    @upload.save
+    request_data = JSON.parse(request.body.read)
+    reason = request_data['reason']
+    UserMailer.denied(@upload, reason).deliver
     respond_to do |format|
       format.json { render json: @upload.errors.to_json }
     end
