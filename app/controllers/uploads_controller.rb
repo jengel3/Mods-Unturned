@@ -54,7 +54,7 @@ class UploadsController < ApplicationController
     @upload = Upload.new(upload_params)
     @submission.uploads << @upload
     if @upload.save
-      redirect_to @submission, :notice => "Successfully created a new download. It will be approved by moderators shortly."
+      redirect_to @submission, :notice => "Your upload will be approved by moderators shortly."
     else
       render 'edit'
     end

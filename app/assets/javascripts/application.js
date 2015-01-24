@@ -20,5 +20,6 @@
 //= require content
 //= require news
 //= require home
+//= require admin/reports
 //= require magnific-popup/dist/jquery.magnific-popup
 //= require jquery.nivo.slider.pack
