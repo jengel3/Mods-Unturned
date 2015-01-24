@@ -1,27 +1,69 @@
-<%= form_for(@submission) do |f| %>
-  <%= render 'shared/errors', object: @submission %>
-  <p>
-    <b>
-      <%= f.label :name %>
-    </b>
-    <br/>
-    <%= f.text_field :name, style: 'width: 300px;' %>
-  </p>
-  <p>
-    <b>
-      <%= f.label :type %>
-    </b>
-    <br/>
-    <%= f.select(:type, ['Level', 'Asset'].map { |value| [ value, value ] }) %>
-  </p>
-  <p>
-    <b>
-      <%= f.label :body %>
-    </b>
-    <br/>
-    <%= f.text_area :body, rows: 15, style: 'width: 600px;' %>
-  </p>
-  <p>
-    <%= f.submit 'Submit', :data => { :disable_with => "Saving" } %>
-  </p>
-<% end %>
+<div id="centerpage">
+  <%= render 'shared/tabs' %>
+  <div id="uploadpage_mainpagewrap" class="uploadpage_mainpagewrap">  
+
+    <div class="box effect1">
+      <h2> <%= title %> </h2>
+    </div>        
+    <div class="mainpageleft">
+      <table class="modsubmissiontable">
+        <tr>
+          <td>
+            <div class="modsubmissionwrap">
+              <div class="modsubmission_toptitlewrap">
+                <h1> Mod Submission </h1>
+              </div>
+              <%= form_for @submission do |f| %>
+              <%= f.text_field :name, class: 'modinfo-input', autocomplete: "off", placeholder: "Mod Name" %>
+              <%= f.select :type, options_for_select([["Level", {class: 'modtypeoption'}], ["Asset", {class: 'modtypeoption'}]], "Level"), {}, {:class=>'modtype', size: "3"} %>
+
+              <div class="modsubmissionbottomwrap">
+                <div class="modsubmission_descriptiontitle">
+                  Description
+                </div>
+
+                <%= f.text_area :body, class: 'uploadpage_moddescription' %>
+                <a class="submitlink" href="#save"><%= f.submit "Submit", class: 'signinbutton', :data => { :disable_with => "Saving..." } %></a>
+                <div class="uploadpage_notificationmessagewrap"><span class="uploadpage_notificationtext">Almost done! Next is file upload and screenshots.</span></div>
+              </div>
+              <% end %>
+            </div>
+          </td> 
+          <td>
+            <div class="modsubmission_quicknote effect4">
+              <div class="quicknote_headerwrap">
+                <%= image_tag 'lightbulb25.png', class: 'quicknote_lightbulb_img' %>
+                <div class="quicknote_title"> Quick Note </div>
+              </div>
+              <div class="quicknote_text"> 
+                All files are <span class="quicknote_highlight"> approved</span> by the moderation team before they go live to ensure all the downloads are safe.                     
+              </div>
+            </div>
+            <div class="modsubmission_quicknote">
+              <div class="quicknote_headerwrap">
+                <%= image_tag 'lightbulb25.png', class: 'quicknote_lightbulb_img' %>
+                <div class="quicknote_title"> Quick Note </div>
+              </div>
+              <div class="quicknote_text"> 
+                The next stage is adding a file and screenshots. Look for the <span class="quicknote_highlight">"Manage"</span> section on the left sidebar after you submit this.                    
+              </div>
+            </div>
+            <div class="modsubmission_quicknote">
+              <div class="quicknote_headerwrap">
+                <%= image_tag 'heart25.png', class: 'quicknote_lightbulb_img' %>
+                <div class="quicknote_title"> Thank You! </div>
+              </div>      
+              <div class="quicknote_text"> 
+                Mods-Unturned would not be able to <span class="quicknote_highlight">thrive</span> without your contributions.                  
+              </div>                    
+            </div>              
+          </td>
+        </tr>   
+      </table>
+    </div>        
+
+    <div id="uploadpage_mainpage">
+    </div>    
+
+  </div>
+</div>
