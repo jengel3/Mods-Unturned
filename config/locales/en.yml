@@ -129,6 +129,7 @@ en:
       levels: "Levels"
       models: "Models"
       search: "Search"
+      forgot_details: 'forgot details?'
   submissions:
     edit:
       upload_content: "Upload Content"

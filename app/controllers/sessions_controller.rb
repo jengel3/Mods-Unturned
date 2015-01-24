@@ -1,5 +1,3 @@
-class SessionsController < Devise::SessionsController
-  def new
-    redirect_to new_user_registration_path
-  end
-end
+class SessionsController < Devise::SessionsController  
+  respond_to :json
+end  

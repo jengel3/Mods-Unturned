@@ -15,6 +15,7 @@
     </tr>
   </table>
 </div>
+
 <div id="contact-popup" class="mfp-hide">
   <p>
     <%= t '.please_allow' %>
@@ -26,6 +27,7 @@
   <%= submit_tag 'Send', class: 'contactsubmitbutton', :data => { :disable_with => "Sending" } %>
   <% end %>
 </div>
+
 <% content_for :scripts do %>
   <script>
     $('.contact-button').magnificPopup({

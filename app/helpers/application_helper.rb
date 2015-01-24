@@ -29,7 +29,7 @@ module ApplicationHelper
 
   def user_menu
     if !current_user
-      return link_to "<div class=\"menutext\">#{t('users.log_in')}</div>".html_safe, new_user_registration_path
+      return link_to "<div class=\"menutext\">#{t('users.log_in')}</div>".html_safe, '#login-popup', class: (!current_user ? 'login-button' : '')
     elsif current_user && params[:controller] == 'submissions' && params[:action] == 'index' && params[:user]
       return link_to "<div class=\"menutext\">#{t('users.log_out')}</div>".html_safe, destroy_user_session_path, :method => :delete
     else
@@ -45,5 +45,17 @@ module ApplicationHelper
     else
       return link_to '', user_uploads_path(current_user.username), class: "menuimgwrap #{params[:user] && params[:controller] == 'submissions' ? 'active-image' : ''}"
     end
+  end
+
+  def resource_name
+    :user
+  end
+  
+  def resource
+    @resource ||= User.new
+  end
+  
+  def devise_mapping
+    @devise_mapping ||= Devise.mappings[:user]
   end
 end

@@ -21,8 +21,8 @@
 
   <div id="tabs">
     <div class="menu">
-      <div class="menuitem <%= get_active('home') %>"><a href=<%= root_path %>><div class="menutext"><%= t '.home' %></div></a></div>               
-      <div class="menuitem <%= params[:user] && params[:controller] == 'submissions' ? 'active' : '' %>"><%= user_menu %></div>              
+      <div class="menuitem <%= get_active('home') %>"><a href=<%= root_path %>><div class="menutext"><%= t '.home' %></div></a></div>
+      <div class="menuitem <%= params[:user] && params[:controller] == 'submissions' ? 'active' : '' %>"><%= user_menu %></div>
       <div class="menuitem <%= params[:controller] == 'submissions' && params[:action] == 'index' && params[:type] == 'levels' ? 'active' : '' %>"><a href=<%= projects_path(:type => "levels") %>><div class="menutext"><%= t '.levels' %></div></a></div>
       <div class="menuitem <%= params[:controller] == 'submissions' && params[:action] == 'index' && params[:type] == 'models' ? 'active' : '' %>"><a href=<%= projects_path(:type => "models") %>><div class="menutext"><%= t '.models' %></div></a></div>
       <div class="menuitem <%= params[:controller] == 'submissions' && (params[:action] == 'new' || params[:action] == 'edit') ? 'active' : '' %>"><a href=<%= new_submission_path %>><div class="menutext"><%= t '.upload' %></div></a></div>
@@ -36,6 +36,53 @@
     </div>
   </div>    
 </div>
+
+<div id='login-popup' class="popupwrap mfp-hide">
+  <div class="popuptoptitlewrap">
+    <h1> Log in Panel </h1>
+  </div>
+  <div class="signinwrap">
+    <div class="inputwrap">
+      <%= form_for(:user, url: user_session_path(format: :json), remote: true, format: :json, :html => { :style => 'margin-bottom: 0px;', :id => "log_in_user" }) do |f| %>
+      <%= f.text_field :email, class: 'login-input', autocomplete: 'off', type: 'text', placeholder: 'Login' %>
+      <%= f.password_field :password, class: 'login-input', autocomplete: 'off', type: 'password', placeholder: 'Password' %>
+      <div class="forgotwrap"> <%= link_to (t '.forgot_details'), new_password_path(:user) %></div>
+      <a class="submitlink" href='#'><%= f.submit 'Sign In', class: 'signinbutton' %></a>
+      <% end %>
+
+      <div class="inputbottomwrap">
+        <div class="notificationmessagewrap errormessage"><span class="notificationtext">Welcome back!</span></div>
+        <a href=""><%= image_tag 'steambutton.png', alt: 'Log in with Steam', class: 'steamloginbutton' %></a>
+      </div>
+    </div>
+  </div>
+
+  <div class="registerwrap">
+    <div class="inputwrap register">
+      <%= form_for(:user, url: user_registration_path(format: :json), remote: true, format: :json, :html => { :style => 'margin-bottom: 0px;', :id => "register_user" }) do |f| %>
+      <%= f.email_field :email, class: 'register-input', autocomplete: 'off', type: 'email', placeholder: 'Email' %>
+      <%= f.text_field :username, class: 'register-input', autocomplete: 'off', type: 'text', placeholder: 'Username' %>
+      <%= f.password_field :password, class: 'register-input', autocomplete: 'off', type: 'password', placeholder: 'Password' %>
+      <%= f.password_field :password_confirmation, class: 'register-input', autocomplete: 'off', type: 'password', placeholder: 'Confirm Password' %>
+      <a class="submitlink" href='#'><%= f.submit 'Register', class: 'registerbutton' %></a>
+      <% end %>
+
+      <div class="inputbottomwrap">
+        <div class="notificationmessagewrap errormessage"><span class="notificationtext">Join to access all our features.</span></div>
+        <div class="registercircleinfo"><div class="circletext">Upload</div></div>
+        <div class="registercircleinfo"><div class="circletext">Comment</div></div>
+        <div class="registercircleinfo"><div class="circletext">Manage</div></div>
+      </div>
+    </div>  
+  </div>
+</div>
+
+<script>
+  $('.login-button').magnificPopup({
+    type:'inline',
+    midClick: true
+  });
+</script>
 
 <script>
   function handleEnter(elem) {

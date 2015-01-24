@@ -15,8 +15,10 @@
 //= require jquery-ui/ui/effect
 //= require jquery-ui/ui/effect-highlight
 //= require jquery-ui/ui/effect-fade
+//= require jquery-ui/ui/effect-shake
 //= require best_in_place
 //= require content
 //= require news
+//= require home
 //= require magnific-popup/dist/jquery.magnific-popup
 //= require jquery.nivo.slider.pack

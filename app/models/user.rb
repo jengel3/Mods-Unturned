@@ -32,4 +32,9 @@ class User
   has_many :submitted_videos, :inverse_of => :submitter, class_name: 'Video'
   has_many :created_reports, :inverse_of => :creator, class_name: 'Report', foreign_key: 'reporter_id'
   has_many :resolved_reports, :inverse_of => :resolver, class_name: 'Report', foreign_key: 'resolver_id' 
+
+  # Auto remember-me
+  def remember_me
+    true
+  end
 end
