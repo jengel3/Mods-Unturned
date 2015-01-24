@@ -1,88 +1,55 @@
-<!-- <div>
-  <div id="centerpage">
-    <%= render 'shared/tabs'     %>
-    <div id="mainpagewrap">
-      <div class="box effect1">
-        <h2><%= t '.login_or_register' %></h2>
-      </div>
-      <div class="mainpageleft">
-        <div class="contenthead1">
-          <h2><%= t 'users.log_in' %></h2>
+<div id="centerpage">
+  <%= render 'shared/tabs' %>
+
+  <div id="mainpagewrap"> 
+
+    <div class="box effect1">
+      <h2> Log in </h2>
+    </div>        
+    <div class="mainpageleft" style="width: 100%; text-align: center;">
+
+      <div class="loginpagewrap">
+        <div class="popuptoptitlewrap">
+          <h1> Log in Panel </h1>
         </div>
-        <div class="form">
-          <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-            <%= render 'shared/errors', object: resource %>
-            <p>
-              <b>
-                <%= f.label :email, class: 'text-label' %>
-              </b>
-              <br/>
-              <%= f.email_field :email, autofocus: true, class: 'text-box' %>
-            </p>
-            <p>
-              <b>
-                <%= f.label :password, class: 'text-label' %>
-              </b>
-              <br/>
-              <%= f.password_field :password, autocomplete: "off", class: 'text-box' %>
-            </p>
-            <% if devise_mapping.rememberable? %>
-              <div>
-                <%= f.check_box :remember_me, class: 'checkbox' %>
-                <span>
-                  <%= f.label :remember_me %>
-                </span>
-              </div>
+        <div class="signinwrap">
+          <div class="inputwrap">
+            <%= form_for(:user, url: user_session_path(format: :json), remote: true, format: :json, :html => { :style => 'margin-bottom: 0px;', :id => "log_in_user" }) do |f| %>
+            <%= f.text_field :login, class: 'login-inputpage', autocomplete: 'off', type: 'text', placeholder: 'Email or Username' %>
+            <%= f.password_field :password, class: 'login-inputpage', autocomplete: 'off', type: 'password', placeholder: 'Password' %>
+            <div class="forgotwrap"> <%= link_to (t '.forgot_details'), '#reset-popup', class: 'reset-link-button' %></div>
+            <a class="submitlink" href='#'><%= f.submit 'Sign In', class: 'signinbutton' %></a>
             <% end %>
-            <p>
-              <%= f.submit "Login", class: 'text-box', :data => { :disable_with => "Logging in" } %>
-            </p>
-          <% end %>
+
+            <div class="inputbottomwrap">
+              <div class="notificationmessagewrap errormessage"><span class="notificationtext">Welcome back!</span></div>
+              <%= link_to image_tag('steambutton.png', alt: 'Log in with Steam', class: 'steamloginbutton'), user_omniauth_authorize_path(:steam)  %></a>
+            </div>
+          </div>
         </div>
-      </div>
-      <div class="mainpageright">
-        <div class="contenthead1">
-          <h2><%= t 'users.register' %></h2>
+
+        <div class="registerwrap">
+          <div class="inputwrap register">
+            <%= form_for(:user, url: user_registration_path(format: :json), remote: true, format: :json, :html => { :style => 'margin-bottom: 0px;', :id => "register_user" }) do |f| %>
+            <%= f.email_field :email, class: 'register-inputpage', autocomplete: 'off', type: 'email', placeholder: 'Email' %>
+            <%= f.text_field :username, class: 'register-inputpage', autocomplete: 'off', type: 'text', placeholder: 'Username' %>
+            <%= f.password_field :password, class: 'register-inputpage', autocomplete: 'off', type: 'password', placeholder: 'Password' %>
+            <%= f.password_field :password_confirmation, class: 'register-inputpage', autocomplete: 'off', type: 'password', placeholder: 'Confirm Password' %>
+            <a class="submitlink" href='#'><%= f.submit 'Register', class: 'registerbutton' %></a>
+            <% end %>
+
+            <div class="inputbottomwrap">
+              <div class="notificationmessagewrap errormessage"><span class="notificationtext">Join to access all our features.</span></div>
+              <div class="registercircleinfo"><div class="circletext">Upload</div></div>
+              <div class="registercircleinfo"><div class="circletext">Comment</div></div>
+              <div class="registercircleinfo"><div class="circletext">Manage</div></div>
+            </div>
+          </div>  
         </div>
-        <div class="form">
-          <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-            <%= render 'shared/errors', object: resource %>
-            <p>
-              <b>
-                <%= f.label :email, class: 'text-label' %>
-              </b>
-              <br/>
-              <%= f.email_field :email, autofocus: true, class: 'text-box' %>
-            </p>
-            <p>
-              <b>
-                <%= f.label :username, class: 'text-label' %>
-              </b>
-              <br/>
-              <%= f.text_field :username, class: 'text-box' %>
-            </p>
-            <p>
-              <b>
-                <%= f.label :password, class: 'text-label' %>
-              </b>
-              <br/>
-              <%= f.password_field :password, autocomplete: "off", class: 'text-box' %>
-            </p>
-            <p>
-              <b>
-                <%= f.label :password_confirmation, class: 'text-label' %>
-              </b>
-              <br/>
-              <%= f.password_field :password_confirmation, autocomplete: "off", class: 'text-box' %>
-            </p>
-            <p>
-              <%= f.submit "Register", class: 'text-box', :data => { :disable_with => "Registering" } %>
-            </p>
-          <% end %>
-        </div>
-      </div>
-      <div id="mainpage"></div>
+      </div>  
     </div>
+    <div id="mainpage">
+    </div>    
+
   </div>
 </div>
- -->
