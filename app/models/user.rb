@@ -1,7 +1,8 @@
 class User
   include Mongoid::Document
   devise :database_authenticatable, :registerable,
-  :recoverable, :rememberable, :trackable, :validatable
+  :recoverable, :rememberable, :trackable, :validatable,
+  :omniauthable, :omniauth_providers => [:steam]
 
   validates :username, presence: true, uniqueness: true, :length => { :maximum => 16 } # Max username length is 16
   validates :email, presence: true, uniqueness: true
@@ -27,6 +28,9 @@ class User
 
   field :accepts_emails, type: Boolean, default: true
 
+  field :provider, type: String
+  field :uid, type: String
+
   has_many :submissions, :dependent => :destroy
   has_many :comments, :dependent => :destroy
   has_many :downloads, class_name: 'Download', inverse_of: :user
@@ -46,6 +50,13 @@ class User
       self.any_of({ :username =>  /^#{Regexp.escape(login)}$/i }, { :email =>  /^#{Regexp.escape(login)}$/i }).first
     else
       super
+    end
+  end
+
+  def self.from_omniauth(auth)
+    where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
+      user.email = auth.extra.raw_info.steamid
+      user.password = Devise.friendly_token[0, 20]
     end
   end
 end

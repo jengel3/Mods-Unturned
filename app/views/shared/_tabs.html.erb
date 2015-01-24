@@ -52,7 +52,7 @@
 
       <div class="inputbottomwrap">
         <div class="notificationmessagewrap errormessage"><span class="notificationtext">Welcome back!</span></div>
-        <a href=""><%= image_tag 'steambutton.png', alt: 'Log in with Steam', class: 'steamloginbutton' %></a>
+        <%= link_to image_tag('steambutton.png', alt: 'Log in with Steam', class: 'steamloginbutton'), user_omniauth_authorize_path(:steam)  %></a>
       </div>
     </div>
   </div>

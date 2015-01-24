@@ -20,6 +20,8 @@ gem 'best_in_place', '~> 3.0.1'
 gem 'mongoid_paranoia'
 gem 'mongoid-elasticsearch'
 
+gem 'omniauth-steam'
+
 gem 'premailer-rails'
 gem 'nokogiri'
 
