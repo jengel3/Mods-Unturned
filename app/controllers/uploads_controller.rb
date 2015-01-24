@@ -6,7 +6,7 @@ class UploadsController < ApplicationController
   
   def approve
     @upload.approved = true
-    @upload.save
+    @upload.save!
     UserMailer.approved(@upload).deliver
     respond_to do |format|
       format.json { render json: @upload.errors.to_json }
@@ -15,7 +15,7 @@ class UploadsController < ApplicationController
 
   def deny
     @upload.denied = true
-    @upload.save
+    @upload.save!
     request_data = JSON.parse(request.body.read)
     reason = request_data['reason']
     UserMailer.denied(@upload, reason).deliver
