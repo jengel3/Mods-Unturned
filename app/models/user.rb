@@ -6,6 +6,8 @@ class User
   validates :username, presence: true, uniqueness: true, :length => { :maximum => 16 } # Max username length is 16
   validates :email, presence: true, uniqueness: true
 
+  attr_accessor :login
+
   field :email,              type: String, default: ""
   field :encrypted_password, type: String, default: ""
   field :username, type: String, default: ""
@@ -36,5 +38,14 @@ class User
   # Auto remember-me
   def remember_me
     true
+  end
+
+  def self.find_first_by_auth_conditions(warden_conditions)
+    conditions = warden_conditions.dup
+    if login = conditions.delete(:login)
+      self.any_of({ :username =>  /^#{Regexp.escape(login)}$/i }, { :email =>  /^#{Regexp.escape(login)}$/i }).first
+    else
+      super
+    end
   end
 end

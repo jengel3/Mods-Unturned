@@ -1,19 +1,34 @@
-<h2><%= t '.change_your' %></h2>
 <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f| %>
-  <%= devise_error_messages! %>
-  <%= f.hidden_field :reset_password_token %>
-  <div>
-    <%= f.label :password, "New password" %>
-    <br/>
-    <%= f.password_field :password, autofocus: true, autocomplete: "off" %>
-  </div>
-  <div>
-    <%= f.label :password_confirmation, "Confirm new password" %>
-    <br/>
-    <%= f.password_field :password_confirmation, autocomplete: "off" %>
-  </div>
-  <div>
-    <%= f.submit "Change my password", :data => { :disable_with => "Saving" } %>
-  </div>
+<%= devise_error_messages! %>
+<%= f.hidden_field :reset_password_token %>
+<div>
+  <%= f.label :password, "New password" %>
+  <br/>
+  <%= f.password_field :password, autofocus: true, autocomplete: "off" %>
+</div>
+<div>
+  <%= f.label :password_confirmation, "Confirm new password" %>
+  <br/>
+  <%= f.password_field :password_confirmation, autocomplete: "off" %>
+</div>
+<div>
+  <%= f.submit "Change my password", :data => { :disable_with => "Saving" } %>
+</div>
 <% end %>
-<%= render "devise/shared/links" %>
+
+
+<div class="popupwrap">
+  <div class="popuptoptitlewrap">
+    <h1> Password Reset </h1>
+  </div>
+  <div class="inputwrap">
+    <input class="password-input" name="password" placeholder="Password" autocomplete="off" type="text" />
+    <input class="password-input" name="confrimpassword" placeholder="Confirm Password" autocomplete="off" type="text" />
+    <div class="notificationmessagewrap errormessage"><span class="notificationtext">Your password will now be permanently changed on Mods-Unturned.com </span></div>
+    <a class="submitlink" href=""><input class="signinbutton" name="submit" value="Submit" type="submit" /></a>
+    
+    <div class="inputbottomwrap">
+      
+    </div>
+  </div>
+</div>

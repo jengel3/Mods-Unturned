@@ -44,7 +44,7 @@
   <div class="signinwrap">
     <div class="inputwrap">
       <%= form_for(:user, url: user_session_path(format: :json), remote: true, format: :json, :html => { :style => 'margin-bottom: 0px;', :id => "log_in_user" }) do |f| %>
-      <%= f.text_field :email, class: 'login-input', autocomplete: 'off', type: 'text', placeholder: 'Login' %>
+      <%= f.text_field :login, class: 'login-input', autocomplete: 'off', type: 'text', placeholder: 'Email or Username' %>
       <%= f.password_field :password, class: 'login-input', autocomplete: 'off', type: 'password', placeholder: 'Password' %>
       <div class="forgotwrap"> <%= link_to (t '.forgot_details'), new_password_path(:user) %></div>
       <a class="submitlink" href='#'><%= f.submit 'Sign In', class: 'signinbutton' %></a>
