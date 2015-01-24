@@ -6,6 +6,8 @@ class UploadsController < ApplicationController
   
   def approve
     @upload.approved = true
+    puts "ID", params[:upload_id]
+    puts "NAME", @upload.submission.name
     puts "ERRORS 1 ", @upload.errors.to_json
     if @upload.save
       puts "SAVED"
