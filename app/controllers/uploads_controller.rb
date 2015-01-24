@@ -6,7 +6,7 @@ class UploadsController < ApplicationController
   
   def approve
     @upload.approved = true
-    puts "ERRORS 1 ", @upload.errors
+    puts "ERRORS 1 ", @upload.errors.to_json
     if @upload.save
       puts "SAVED"
       UserMailer.approved(@upload).deliver
@@ -18,7 +18,7 @@ class UploadsController < ApplicationController
 
   def deny
     @upload.denied = true
-    puts "ERRORS", @upload.errors
+    puts "ERRORS", @upload.errors.to_json
     if @upload.save
       puts "SAVED 1"
       request_data = JSON.parse(request.body.read)
