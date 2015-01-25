@@ -126,7 +126,7 @@ class Submission
     else
       count = download_count
     end
-    if @@milestons.include?(count)
+    if @@milestones.include?(count)
       UserMailer.milestone(self, count)
     end
   end
