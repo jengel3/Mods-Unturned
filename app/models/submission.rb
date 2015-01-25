@@ -54,7 +54,7 @@ class Submission
       if !result
         new_popular = Submission.valid.where(:approved_at.gte => Date.today - 24.hours).where(:total_downloads.gte => 20).limit(2)
         veteran = Submission.valid.where(:approved_at.lt => Date.today - 48.hours).where(:total_downloads.gte => 250).limit(2)
-        randoms = Submission.valid.in(id: Submission.distinct(:id).sample(2))
+        randoms = Submission.valid.in(id: Submission.valid.distinct(:id).sample(2))
         result = Submission.or(veteran.selector, randoms.selector, new_popular.selector)
         if !result.any?
           return []
