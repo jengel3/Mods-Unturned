@@ -47,7 +47,7 @@ class ApplicationController < ActionController::Base
   def complete_steam_register
     return if params[:action] == 'finish_steam' || !request.get?
     @user = current_user
-    if @user.provider == 'steam' && (@user.email.end_with?("@steam-provider.com") || @user.username.start_with?('SteamUser'))
+    if @user && @user.provider == 'steam' && (@user.email.end_with?("@steam-provider.com") || @user.username.start_with?('SteamUser'))
       redirect_to finish_steam_path, :notice => "Complete your account before continuing"
     end
   end

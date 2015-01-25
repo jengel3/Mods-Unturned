@@ -31,7 +31,7 @@ class UploadsController < ApplicationController
   end
 
   def show
-    respond_with(@upload)
+    redirect_to @upload.submission
   end
 
   def new
@@ -50,10 +50,14 @@ class UploadsController < ApplicationController
     return redirect_to root_path unless can_manage(@submission)
     @upload = Upload.new(upload_params)
     @submission.uploads << @upload
-    if @upload.save
-      redirect_to @submission, :notice => "Your upload will be approved by moderators shortly."
-    else
-      render 'edit'
+    respond_to do |format|
+      if @upload.save
+        flash[:notice] = 'Upload was successfully saved.'
+        format.html { redirect_to(@submission) }
+      else
+        flash[:alert] = 'Unable to save upload, see errors below'
+        format.html { render action: "edit" }
+      end
     end
   end
 

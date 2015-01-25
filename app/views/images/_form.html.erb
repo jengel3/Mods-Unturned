@@ -1,20 +1,45 @@
-<%= form_for([@submission, @image]) do |f| %>
-  <%= render 'shared/errors', object: @image %>
-  <p>
-    <b>
-      <%= f.label :location %>
-    </b>
-    <br/>
-    <%= f.select(:location, ['Main', 'Thumbnail 1', 'Thumbnail 2', 'Thumbnail 3', 'Thumbnail 4', 'Thumbnail 5', 'Thumbnail 6'].map { |value| [ value, value.gsub(' ', '') ] }) %>
-  </p>
-  <p>
-    <b>
-      <%= f.label :image %>
-    </b>
-    <br/>
-    <%= f.file_field :image, class: 'file' %>
-  </p>
-  <p>
-    <%= f.submit 'Submit', :data => { :disable_with => "Saving" } %>
-  </p>
-<% end %>
+<div id="centerpage">
+  <%= render 'shared/tabs' %>
+  <div id="screenupload_mainpagewrap">  
+    <div class="box effect1">
+      <h2> Upload Images </h2>
+    </div>        
+    <div class="mainpageleft">
+      <table>
+        <tr>
+          <td>
+            <div class="uploadscreen_inputwrap">
+              <%= form_for([@submission, @image]) do |f| %>
+              <fieldset>
+                <legend class="screenupload_legend">Select an Image</legend>
+                <%= f.select(:location, options_for_select([['Main Image', 'Main'], ['Screenshot #1', 'Thumbnail1'], ['Screenshot #2', 'Thumbnail2'], ['Screenshot #3', 'Thumbnail3'], ['Screenshot #4', 'Thumbnail4'], ['Screenshot #5', 'Thumbnail5'], ['Screenshot #6', 'Thumbnail6']], "Main"), {}, {:class=>'thumbnailselectform', size: "2" }) %>
+              </fieldset>
+              <%= f.file_field :image, class: 'uploadscreenbutton', value: 'Choose file' %>
+              <div class="uploadscreenpage_notificationmessagewrap errormessage">
+              <% if @image.errors.any? %>
+              <span class="uploadscreenpage_notificationtext"><%= render 'shared/errors', object: @image %></span></div>
+              <% else %>
+              <span class="uploadscreenpage_notificationtext">Preview may not display image aspect ratio correctly. </span></div>
+              <% end %>
+              <a class="submitlink" href="#upload"><%= f.submit 'Upload', class: 'signinbutton' %></a>
+              <div class="uploadscreen_inputbottomwrap">
+              </div>
+            </div>
+            <% end %>
+          </td>
+          <td>
+            <div class="uploadscreen_tutorialwrap">
+              <div class="uploadscreen_headerwrap">
+                <%= image_tag 'preview25.png', class: 'uploadscreen_magnifyimg' %>
+                <div class="uploadscreen_tutorialtitle"> Image Preview</div>
+                <%= image_tag 'uploadthumb.png', alt: 'Image Preview', class: 'uploadscreen_previewimgwrap' %>
+              </div>
+            </div>
+          </td>
+        </tr>       
+      </table>
+    </div>          
+    <div id="screenupload_mainpage">
+    </div>    
+  </div>
+</div>

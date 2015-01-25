@@ -255,7 +255,7 @@
 		</div>
 		
 		<div class="fullmapshowcasewrap">
-			<% images = @upload.submission.images.limit(3) %>
+			<% images = @comment.submission.images.limit(3) %>
 			<% images.each do |img| %>
 			<%= image_tag((img.image_url || 'smallthumb.png'), alt: 'Screenshot', class: 'imageholders') %>
 			<% end %>

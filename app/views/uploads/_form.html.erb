@@ -1,30 +1,53 @@
-<%= form_for([@submission, @upload]) do |f| %>
-  <%= render 'shared/errors', object: @upload %>
-  <p>
-    <b>
-      <%= f.label :name %>
-    </b>
-    <br/>
-    <%= f.text_field :name %>
-  </p>
-  <p>
-    <b>
-      <%= f.label :version %>
-    </b>
-    <br/>
-    <%= f.text_field :version %>
-  </p>
-  <p>
-    <b>
-      <%= f.label :upload %>
-    </b>
-    <br/>
-    <%= f.file_field :upload, class: 'file' %>
-  </p>
-  <p>
-  <%= t '.note' %>
-  </p>
-  <p>
-    <%= f.submit 'Submit', :data => { :disable_with => "Saving" } %>
-  </p>
-<% end %>
+<div id="centerpage">
+  <%= render 'shared/tabs' %>
+  <div id="fileuploadpage_mainpagewrap">  
+    <div class="box effect1">
+      <h2> <%= title %> </h2>
+    </div>        
+    <div class="mainpageleft">
+      <table>
+        <tr>
+          <td>
+            <div class="filesubmit_inputwrap">
+              <%= form_for([@submission, @upload], authenticity_token: true, html: { style: 'margin-bottom: 0px', id: 'upload_file' }) do |f| %>
+              <%= f.text_field :name, class: 'uploadfile-input', autocomplete: "off", placeholder: 'Upload name' %>
+              <%= f.text_field :version, class: 'uploadfile-input', autocomplete: "off", placeholder: 'Submission version' %>
+              <%= f.file_field :upload, class: 'uploadfilebutton' %>
+              <div class="uploadfilepage_notificationmessagewrap errormessage"><span class="uploadfilepage_notificationtext">
+                <% if @upload.errors.any? %>
+                <%= render 'shared/errors', object: @upload %>
+                <% else %>
+                Your file will be approved by a moderator before it goes live. 
+                <% end %></span></div>
+                <a class="submitlink" href=""><%= f.submit 'Upload', class: 'signinbutton' %></a>
+                <% end %>
+                <div class="filesubmit_inputbottomwrap">
+                </div>
+              </div>
+            </td>
+            <td>
+              <div class="uploadfile_tutorialwrap">
+                <div class="uploadfile_headerwrap">
+                  <%= image_tag 'lightbulb25.png', class: 'uploadfile_lightbulbimg' %>
+                  <div class="uploadfile_tutorialtitle"> Tutorial - Map Upload</div>
+                  </div>
+                <ul class="uploadfile_tutoriallist">
+                  <li> Locate your map's folder in your Unturned Steam directory. </li>
+                  <ul class="uploadfile_tutoriallist_innerbullets">
+                    <li> <b>Windows:</b> Program Files (x86) / Steam / steamapps / common / Maps </li>
+                  </ul>
+                  <li> Right click on map folder, click "Send to", click "Compressed (zipped) Folder", and name that ZIP file. </li>
+                  <li> Upload the ZIP file to Mods-Unturned by clicking the "Choose File" button to the left of this tutorial. </li>
+                  <li> Wait for the moderators to approve your file and it will be uploaded to the site! </li>
+                </ul>
+
+              </div>
+            </td>
+
+          </tr>       
+        </table>
+      </div>          
+      <div id="fileuploadpage_mainpage">
+      </div>    
+    </div>
+  </div>

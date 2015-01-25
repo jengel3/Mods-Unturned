@@ -6,7 +6,6 @@ $(document).ready(function () {
     $('.mainpageright').height(height);
     $('.mainpageleft').height(height);
     $('#mainpagewrap').height(height + 85);
-    //$('#centerpage').height(height + 85); 
   }
 });
 

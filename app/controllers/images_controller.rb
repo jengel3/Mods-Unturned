@@ -31,7 +31,7 @@ class ImagesController < ApplicationController
     if @image.save
       redirect_to @submission, :notice => "Successfully created a new submission."
     else
-      render 'edit'
+      render 'edit', :alert => "Unable to upload image, see errors below."
     end
   end
 
