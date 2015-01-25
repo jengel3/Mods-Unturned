@@ -6,7 +6,10 @@ class UploadsController < ApplicationController
   
   def approve
     @upload.approved = true
-    @upload.save!
+    if !@upload.save
+      @upload.destroy
+      return redirect_to root_path, :alert => "Unable to save upload, was deleted."
+    end
     UserMailer.approved(@upload).deliver
     respond_to do |format|
       format.json { render json: @upload.errors.to_json }
@@ -15,7 +18,10 @@ class UploadsController < ApplicationController
 
   def deny
     @upload.denied = true
-    @upload.save!
+    if !@upload.save
+      @upload.destroy
+      return redirect_to root_path, :alert => "Unable to save upload, was deleted."
+    end
     request_data = JSON.parse(request.body.read)
     reason = request_data['reason']
     UserMailer.denied(@upload, reason).deliver
