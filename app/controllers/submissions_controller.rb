@@ -110,7 +110,7 @@ class SubmissionsController < ApplicationController
 
   def destroy
     @submission.destroy
-    redirect_to submissions_path, :notice => "Successfully deleted a submission."
+    redirect_to projects_path(:type => "all"), :notice => "Successfully deleted a submission."
   end
 
   private
