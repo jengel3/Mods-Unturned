@@ -4,6 +4,7 @@ class ApplicationController < ActionController::Base
   before_action :configure_permitted_parameters, if: :devise_controller?
   before_filter :is_maintenance
   before_filter :require_admin, only: [:flush_cache]
+  before_filter :complete_steam_register
 
   def is_maintenance
     if MAINTENANCE
@@ -21,9 +22,9 @@ class ApplicationController < ActionController::Base
     if user
       user.accepts_emails = false
       user.save
-      return true
+      return redirect_to root_path, :notice => 'Successfully unsubscribed from emails.'
     end
-    return false
+    return redirect_to root_path, :alert => 'Email address not found'
   end
   
   def contact
@@ -40,7 +41,19 @@ class ApplicationController < ActionController::Base
 
   def flush_cache
     REDIS.flushall
-    redirect_to admin_path, :notice => "Successfully flushed cache."
+    redirect_to admin_path, :notice => "Successfully flushed cache"
+  end
+
+  def complete_steam_register
+    return if params[:action] == 'finish_steam'
+    @user = current_user
+    if @user.provider == 'steam' && (@user.email.end_with?("@steam-provider.com") || @user.username.start_with?('SteamUser'))
+      redirect_to finish_steam_path, :notice => "Complete your account before continuing"
+    end
+  end
+
+  def finish_steam
+    @user = current_user
   end
   
   def after_sign_in_path_for(resource)

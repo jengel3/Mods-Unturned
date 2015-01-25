@@ -1,0 +1,27 @@
+<div id="centerpage">
+  <%= render 'shared/tabs' %>
+
+  <div id="mainpagewrap"> 
+
+    <div class="box effect1">
+      <h2> Finish Registration </h2>
+    </div>        
+    <div class="mainpageleft" style="width: 100%; text-align: center;">
+
+      <div class="loginpagewrap" style="margin-left: 55px;">
+        <div class="signinwrap">
+          <div class="inputwrap" style='height: 250px;'>
+          <%= form_for(:user, url: user_registration_path(format: :json), format: :json, remote: true, :html => { :style => 'margin-bottom: 0px;', :id => "finish_steam", method: :put }) do |f| %>
+            <%= f.text_field :username, class: 'reset-page', autocomplete: 'off', type: 'text', placeholder: 'Username', autofocus: true, value: @user.username %>
+            <%= f.email_field :email, class: 'reset-page', autocomplete: 'off', type: 'email', placeholder: 'Email' %>
+            <div class="passwordreset_notificationmessagewrap errormessage"><span class="passwordreset_notificationtext">You need to set a username and email for your account. </span></div>
+            <a class="submitlink" href='#'><%= f.submit 'Finish Registration', class: 'signinbutton' %></a>
+            <% end %>
+          </div>
+        </div>
+      </div>  
+    </div>
+    <div id="mainpage" style="height: 400px;">
+    </div>    
+  </div>
+</div>
