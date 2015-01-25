@@ -93,6 +93,7 @@ td.todaymostpopular {
 .mainthumblarge {
   width:550px;
   height:96%;
+  max-height: 96%;
   /*height:253;*/
   margin-left:5px;
   margin-right: 4px;
