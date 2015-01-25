@@ -5,6 +5,7 @@ class UploadsController < ApplicationController
   before_filter :require_admin, only: [:approve, :deny]
   
   def approve
+    puts @upload, "UPLOAD"
     @upload.approved = true
     if !@upload.save
       @upload.destroy
