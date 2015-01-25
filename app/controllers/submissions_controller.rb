@@ -43,7 +43,11 @@ class SubmissionsController < ApplicationController
     elsif params[:search]
       @title = 'Results'
     else
-      @title = @type.singularize.capitalize + ' Creations'
+      if @type
+        @title = @type.singularize.capitalize + ' Creations'
+      else 
+        @title = 'All Creations'
+      end
     end
     respond_to do |format|
       format.html
