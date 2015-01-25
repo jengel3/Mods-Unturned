@@ -64,55 +64,60 @@
           </p>
           <div class="manage">
            <p class="uploadby" style="margin: 0px;">
+            <i class="fa fa-exclamation-triangle"></i>
             <a class="report-submission-button" href="#add-report-submission">
               <b><%= t '.report_submission' %></b>
             </a>
-           </p>
-          </div>
-          <%= render 'reports/form', reportable: [@submission] %>
-          <div class="manage">
-            <% if can_manage(@submission) %>
-            <p class="title" style="margin-bottom: 3px; margin-top: 2px;"><%= t '.manage' %></p>
-            <div class="manage">
-              <p class="uploadby" style="margin: 0px;">
-                <a href="<%= new_submission_upload_path(@submission) %>">
-                  <b><%= t '.upload_file' %></b>
-                </a>
-                <br/>
-                <a href="<%= new_submission_image_path(@submission) %>">
-                  <b><%= t '.upload_image' %></b>
-                </a>
-                <br/>
-                <a href="<%= edit_submission_path(@submission) %>">
-                  <b><%= t '.edit' %></b>
-                </a>
-                <br/>
-                <b>
-                  <%= link_to (t '.delete'), submission_path(@submission), method: :delete, data: {confirm: 'Are you sure you want to delete this submission? This can not be undone.'} %>
-                </b>
-                <% if user_is_admin %>
-                <br/>
-                <a href="<%= submission_favorite_path(@submission) %>">
-                  <b><%= t '.favorite' %></b>
-                </a>
-                <% end %>
-              </p>
-            </div>
-            <% end %>
-          </div>
-          <%= render 'videos/display' %>
-          <%= render 'videos/popup' %>
+          </p>
         </div>
+        <%= render 'reports/form', reportable: [@submission] %>
+        <div class="manage">
+          <% if can_manage(@submission) %>
+          <p class="title" style="margin-bottom: 3px; margin-top: 2px;"><%= t '.manage' %></p>
+          <div class="manage">
+            <p class="uploadby" style="margin: 0px;">
+              <i class="fa fa-upload"></i>
+              <a href="<%= new_submission_upload_path(@submission) %>">
+                <b><%= t '.upload_file' %></b>
+              </a>
+              <br/>
+              <i class="fa fa-picture-o"></i>
+              <a href="<%= new_submission_image_path(@submission) %>">
+                <b><%= t '.upload_image' %></b>
+              </a>
+              <br/>
+              <i class="fa fa-pencil"></i>
+              <a href="<%= edit_submission_path(@submission) %>">
+                <b><%= t '.edit' %></b>
+              </a>
+              <br/>
+              <b>
+                <%= link_to "<i class='fa fa-trash-o'></i> #{t '.delete'}".html_safe, submission_path(@submission), method: :delete, data: {confirm: 'Are you sure you want to delete this submission? This can not be undone.'} %>
+              </b>
+              <% if user_is_admin %>
+              <br/>
+              <i class="fa fa-star"></i>
+              <a href="<%= submission_favorite_path(@submission) %>">
+                <b><%= t '.favorite' %></b>
+              </a>
+              <% end %>
+            </p>
+          </div>
+          <% end %>
+        </div>
+        <%= render 'videos/display' %>
+        <%= render 'videos/popup' %>
       </div>
     </div>
-    <div class="mainpageright">
-      <div class="rightbar">
-        <%= render 'images' %>
-        <%= render 'comments/display' %>
-      </div>
-    </div>
-    <div id="mainpage"></div>
   </div>
+  <div class="mainpageright">
+    <div class="rightbar">
+      <%= render 'images' %>
+      <%= render 'comments/display' %>
+    </div>
+  </div>
+  <div id="mainpage"></div>
+</div>
 </div>
 <script>
   // init best_in_place
