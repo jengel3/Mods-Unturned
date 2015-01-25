@@ -8,12 +8,13 @@
     </div>        
     <div class="mainpageleft" style="width: 100%; text-align: center;">
 
-      <div class="loginpagewrap" style="margin-left: 55px;">
+      <div class="loginpagewrap" style="margin-left: 115px;">
         <div class="signinwrap">
           <div class="inputwrap" style='height: 250px;'>
           <%= form_for(:user, url: user_registration_path(format: :json), format: :json, remote: true, :html => { :style => 'margin-bottom: 0px;', :id => "finish_steam", method: :put }) do |f| %>
-            <%= f.text_field :username, class: 'reset-page', autocomplete: 'off', type: 'text', placeholder: 'Username', autofocus: true, value: @user.username %>
-            <%= f.email_field :email, class: 'reset-page', autocomplete: 'off', type: 'email', placeholder: 'Email' %>
+            <%= f.hidden_field :user_id, value: current_user.id %>
+            <%= f.text_field :username, class: 'reset-page', autocomplete: 'off', type: 'text', placeholder: 'Username', autofocus: true, value: '' %>
+            <%= f.email_field :email, class: 'reset-page', autocomplete: 'off', type: 'email', placeholder: 'Email', value: '' %>
             <div class="passwordreset_notificationmessagewrap errormessage"><span class="passwordreset_notificationtext">You need to set a username and email for your account. </span></div>
             <a class="submitlink" href='#'><%= f.submit 'Finish Registration', class: 'signinbutton' %></a>
             <% end %>

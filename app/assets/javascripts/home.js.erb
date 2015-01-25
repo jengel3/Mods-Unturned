@@ -54,7 +54,7 @@ $(document).on('submit', 'form#finish_steam', function(e) {
 	errorResponse = data.responseText;
 	formattedErrors = renderErrors(errorResponse);
 	$('.passwordreset_notificationmessagewrap').find('.passwordreset_notificationtext').html(formattedErrors);
-	$('.passwordreset_notificationmessagewrap .errormessage').effect({effect: "shake", direction: "up", distance: 5, times: 2});
+	$('.loginpagewrap .errormessage').effect({effect: "shake", direction: "up", distance: 5, times: 2});
 });
 
 
