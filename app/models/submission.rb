@@ -28,8 +28,8 @@ class Submission
   has_many :comments, :dependent => :destroy
   has_many :reports, :as => :reportable
 
-  scope :recent, -> { where(:approved_at.exists => true).desc(:last_update) }
-  scope :valid, -> { where(:approved_at.exists => true) }
+  scope :recent, -> { where(:approved_at.ne => nil).desc(:last_update) }
+  scope :valid, -> { where(:approved_at.ne => nil) }
   scope :popular, -> { desc(:total_downloads) }
 
   slug :name, history: true

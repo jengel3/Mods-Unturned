@@ -21,7 +21,7 @@ class SubmissionsController < ApplicationController
       @submissions = @submissions.page(params[:page]).per(20)
     elsif params[:type]
       @type = params[:type]
-      projects = Submission.where(:approved_at.exists => true)
+      projects = Submission.valid
       if params[:type] && params[:type] != "all"
         projects = projects.where(:type => type_for(@type))
       else
