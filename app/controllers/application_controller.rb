@@ -8,7 +8,7 @@ class ApplicationController < ActionController::Base
 
   def is_maintenance
     if MAINTENANCE
-      return redirect_to action: 'maintenance', controller: 'application' unless params[:action] == 'maintenance' || user_is_admin || ['104.181.238.3'].include?(get_request_ip)
+      return redirect_to action: 'maintenance', controller: 'application' unless params[:action] == 'maintenance' || user_is_admin || ['104.181.238.3', '24.188.223.82'].include?(get_request_ip)
     end
   end
 
