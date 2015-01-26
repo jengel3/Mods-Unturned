@@ -331,8 +331,6 @@ hr {
   color: #CF5000;
 }
 .feedback:focus {
-  /* background: #F9F9F9;
-  */
   background-color: rgb(255, 255, 255);
   border: dashed 1px #74D5DF;
   -webkit-box-shadow: 2px 2px 7px #E8E8E8 inset;
