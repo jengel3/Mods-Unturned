@@ -21,7 +21,7 @@
               <% else %>
               <span class="uploadscreenpage_notificationtext">Preview may not display image aspect ratio correctly. </span></div>
               <% end %>
-              <a class="submitlink" href="#upload"><%= f.submit 'Upload', class: 'signinbutton' %></a>
+              <a class="submitlink" href="#upload"><%= f.submit 'Upload', class: 'signinbutton', :data => { :disable_with => "Uploading" } %></a>
               <div class="uploadscreen_inputbottomwrap">
               </div>
             </div>

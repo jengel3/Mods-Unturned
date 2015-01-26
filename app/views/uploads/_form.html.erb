@@ -19,7 +19,7 @@
                 <% else %>
                 Your file will be approved by a moderator before it goes live. 
                 <% end %></span></div>
-                <a class="submitlink" href=""><%= f.submit 'Upload', class: 'signinbutton' %></a>
+                <a class="submitlink" href=""><%= f.submit 'Upload', class: 'signinbutton', :data => { :disable_with => "Uploading" } %></a>
                 <% end %>
                 <div class="filesubmit_inputbottomwrap">
                 </div>
