@@ -313,7 +313,7 @@ hr {
 .comment {
   width: 100%;
   height: auto;
-  /*padding: 3px 0px 3px 0px;*/
+  padding: 3px 0px 3px 0px;
   word-wrap: break-word;
 }
 .comment-odd {
