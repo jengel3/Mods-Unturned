@@ -65,10 +65,10 @@ class ApplicationController < ActionController::Base
     response = HTTParty.get('http://api.steampowered.com/ISteamNews/GetNewsForApp/v0002/?appid=304930&count=1&format=json')
     result = JSON.parse(response.body)
     response_json = {}
-    article = result['appnews']['newsitems'][0];
-    response_json['title'] = article['title'];
-    response_json['url'] = article['url'];
-    response_json['content'] = article['contents'].bbcode_to_html.gsub(/[\r\n]+/, "<br>")
+    article = result['appnews']['newsitems'][0]
+    response_json['title'] = article['title']
+    response_json['url'] = article['url']
+    response_json['content'] = article['contents'].bbcode_to_html.gsub(/[\r\n]+/, "<br>").replace('http://', '//')
     respond_to do |format|
       format.json { render json: response_json.to_json }
     end
