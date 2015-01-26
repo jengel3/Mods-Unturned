@@ -15,7 +15,7 @@
               </div>
               <%= form_for @submission do |f| %>
               <%= f.text_field :name, class: 'modinfo-input', autocomplete: "off", placeholder: "Mod Name" %>
-              <%= f.select :type, options_for_select([["Level", {class: 'modtypeoption'}], ["Asset", {class: 'modtypeoption'}]], "Level"), {}, {:class=>'modtype', size: "3"} %>
+              <%= f.select :type, options_for_select([["Level", {class: 'modtypeoption'}], ["Asset", {class: 'modtypeoption'}]], @submission.type || "Level"), {}, {:class=>'modtype', size: "3"} %>
 
               <div class="modsubmissionbottomwrap">
                 <div class="modsubmission_descriptiontitle">
