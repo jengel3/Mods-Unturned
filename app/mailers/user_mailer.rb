@@ -49,6 +49,7 @@ class UserMailer < ActionMailer::Base
     return if !@user.accepts_emails
     @submission = submission.name
     @count = count
+    @email = @user.email
     mail(:to => @user.email,
         :subject => "A Submission of Yours on mods-unturned.com has reached #{count} downloads!",
         :reply_to => @@reply)
@@ -58,6 +59,7 @@ class UserMailer < ActionMailer::Base
     @comment = comment
     return if !@comment.user.accepts_emails
     @submission = comment.submission
+    @email = @submission.user.email
     mail(:to => @comment.submission.user.email,
         :subject => "Your Submission Has Received a Comment",
         :reply_to => @@reply)

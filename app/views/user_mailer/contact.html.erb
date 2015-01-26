@@ -14,7 +14,7 @@
 
   <p>
     <%= t '.no_longer_want' %>
-    <a href=<%= root_url %>><%= t '.unsubscribe' %></a>
+    <a href=<%= ubsubscribe_url(email: @email) %>><%= t '.unsubscribe' %></a>
   </p>
 </body>
 </html>
