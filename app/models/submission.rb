@@ -3,7 +3,16 @@ class Submission
   include Mongoid::Slug
   include Mongoid::Timestamps
   include Mongoid::Elasticsearch
-  elasticsearch!
+  elasticsearch! index_mappings: {
+    name: {
+      type: 'multi_field',
+      fields: {
+        name: {type: 'string', boost: 10},
+        suggest: {type: 'completion'}
+      }
+    },
+    desc: {type: 'string'},
+  }
   
   @@milestones = [50, 100, 500, 1000, 2500, 5000, 10000, 20000, 30000, 40000, 50000, 60000]
 

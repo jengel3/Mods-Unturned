@@ -1,4 +1,5 @@
 class SubmissionsController < ApplicationController
+  include SubmissionsHelper
   before_action :set_submission, only: [:show, :edit, :update, :destroy, :deny, :approve, :download, :favorite]
   before_filter :authenticate_user!, only: [:new, :edit, :create, :update, :destroy, :approve, :deny, :favorite]
   before_filter :require_admin, only: [:approve, :deny, :favorite]
@@ -36,7 +37,7 @@ class SubmissionsController < ApplicationController
       end
       @submissions = projects.page(params[:page]).per(20)
     elsif params[:search]
-      @submissions = Kaminari.paginate_array(Submission.es.search(params[:search][:search], page: params[:page]).results).page(params[:page]).per(20)
+      @submissions = search_submissions
     end
     if params[:user]
       @title = params[:user] + "'s" + ' Creations'
