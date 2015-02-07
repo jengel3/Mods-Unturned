@@ -1,12 +1,10 @@
 $(document).ready(function () {
-  if ($('.mainthumblarge').length) {
-    var height = Math.ceil(getPageHeight());
-    $('#mainpage').height(height);
-    $('.infosection').height(height);
-    $('.mainpageright').height(height);
-    $('.mainpageleft').height(height);
-    $('#mainpagewrap').height(height + 85);
-  }
+  var height = Math.ceil(getPageHeight());
+  $('#mainpage').height(height);
+  $('.infosection').height(height);
+  $('.mainpageright').height(height);
+  $('.mainpageleft').height(height);
+  $('#mainpagewrap').height(height + 85);
 });
 
 function getPageHeight() {

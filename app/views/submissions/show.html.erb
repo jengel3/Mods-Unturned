@@ -2,9 +2,7 @@
   <%= render 'shared/tabs' %>
   <div id="mainpagewrap" style="width: 900px; height:740px; margin: 0 auto; margin-bottom:10px;">
     <div class="box effect1">
-      <h2>
-        <%= @submission.name %>
-      </h2>
+      <h2><%= @submission.name %></h2>
     </div>
     <div class="mainpageleft">
       <div class="infosection effect3">
@@ -119,6 +117,7 @@
   <div id="mainpage"></div>
 </div>
 </div>
+<script src="<%= asset_path('content.js') %>"></script>
 <script>
   // init best_in_place
   $(".best_in_place").best_in_place();
