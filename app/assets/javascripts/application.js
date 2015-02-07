@@ -17,7 +17,6 @@
 //= require jquery-ui/ui/effect-fade
 //= require jquery-ui/ui/effect-shake
 //= require best_in_place
-//= require news
 //= require home
 //= require admin/reports
 //= require magnific-popup/dist/jquery.magnific-popup
