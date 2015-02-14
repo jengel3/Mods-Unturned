@@ -8,7 +8,7 @@ class UploadUploader < CarrierWave::Uploader::Base
   end
 
   def extension_white_list
-    %w(zip rar tar)
+    %w(zip)
   end
 
   def truncated_name

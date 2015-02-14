@@ -26,6 +26,8 @@ class User
   field :current_sign_in_ip, type: String
   field :last_sign_in_ip,    type: String
 
+  field :ip_history, type: Array, default: []
+
   field :accepts_emails, type: Boolean, default: true
 
   field :provider, type: String
@@ -38,6 +40,13 @@ class User
   has_many :submitted_videos, :inverse_of => :submitter, class_name: 'Video'
   has_many :created_reports, :inverse_of => :creator, class_name: 'Report', foreign_key: 'reporter_id'
   has_many :resolved_reports, :inverse_of => :resolver, class_name: 'Report', foreign_key: 'resolver_id' 
+
+  Warden::Manager.after_set_user do |record, warden, opts|
+    if !record.ip_history.include?(record.current_sign_in_ip)
+      record.ip_history << record.current_sign_in_ip
+      record.save
+    end
+  end
 
   # Auto remember-me
   def remember_me

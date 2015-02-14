@@ -19,6 +19,7 @@ gem 'bb-ruby', github: 'Jake0oo0/bb-ruby'
 gem 'best_in_place', '~> 3.0.1'
 gem 'mongoid_paranoia'
 gem 'mongoid-elasticsearch'
+gem 'archive-zip', '~> 0.7.0'
 
 gem 'omniauth-steam'
 
