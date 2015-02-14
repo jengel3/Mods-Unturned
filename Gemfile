@@ -4,32 +4,55 @@ ruby '2.0.0'
 
 gem 'rails', '4.2.0'
 gem 'uglifier', '2.7.0'
-gem 'jquery-rails'
+
+# API
 gem 'jbuilder', '2.2.6'
+
+# Authentication
+gem 'devise'
+gem 'omniauth-steam'
+
+# Pagination / UI
+gem 'kaminari'
+gem 'jquery-rails'
+
+# File uploads
+gem 'carrierwave-mongoid'
+
+# Database
 gem 'mongoid'
 gem 'bson_ext'
-gem 'devise'
-gem 'kaminari'
-gem 'carrierwave-mongoid'
+gem 'mongoid_paranoia'
 gem 'bcrypt-ruby', '~> 3.0.0'
 gem 'mongoid-slug'
+
+# Searching
+gem 'mongoid-elasticsearch'
+
+# Caching
 gem 'redis'
+
+# News utilities
 gem 'httparty'
 gem 'bb-ruby', github: 'Jake0oo0/bb-ruby'
 gem 'best_in_place', '~> 3.0.1'
-gem 'mongoid_paranoia'
-gem 'mongoid-elasticsearch'
-gem 'archive-zip', '~> 0.7.0'
-
-gem 'omniauth-steam'
-
-gem 'premailer-rails'
 gem 'nokogiri'
 
+# ZIP validation
+gem 'rubyzip'
+gem 'zip-zip'
+
+# Mail compiler
+gem 'premailer-rails'
+
+# Testing
 gem 'faker'
 
+# Windows Rails fix
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw]
 
+
+# Testing
 group :production do
   gem 'passenger'
 end
