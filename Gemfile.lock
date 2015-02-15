@@ -44,7 +44,6 @@ GEM
       tzinfo (~> 1.1)
     addressable (2.3.6)
     arel (6.0.0)
-    bcrypt (3.1.9)
     bcrypt (3.1.9-x64-mingw32)
     bcrypt-ruby (3.0.1)
     best_in_place (3.0.2)
@@ -155,8 +154,6 @@ GEM
     multi_json (1.10.1)
     multi_xml (0.5.5)
     multipart-post (2.0.0)
-    nokogiri (1.6.5)
-      mini_portile (~> 0.6.0)
     nokogiri (1.6.5-x64-mingw32)
       mini_portile (~> 0.6.0)
     omniauth (1.2.2)
@@ -276,7 +273,7 @@ DEPENDENCIES
   factory_girl_rails
   faker
   httparty
-  jbuilder (= 2.2.6)
+  jbuilder
   jquery-rails
   kaminari
   mongoid

@@ -6,7 +6,7 @@ gem 'rails', '4.2.0'
 gem 'uglifier', '2.7.0'
 
 # API
-gem 'jbuilder', '2.2.6'
+gem 'jbuilder'
 
 # Authentication
 gem 'devise'

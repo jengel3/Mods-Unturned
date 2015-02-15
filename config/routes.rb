@@ -52,15 +52,14 @@ Rails.application.routes.draw do
     resources :reports
   end
 
-  # # Admin Panel
-  # namespace :admin do
-  #   # resources :moderation, controller: :moderation
-  #   # get '/moderation', to: 'moderation#home', as: 'moderation'
-  # end
+  namespace :api, defaults: {format: 'json'} do
+    namespace :v1 do
+      resources :submissions, :only => [:show, :index], defaults: { :sort => 'popular', :type => 'all' }
+    end
+  end
 
-  get '/api/search', to: 'submissions#index', as: 'search'
-
-  scope '/api' do
+  scope '/api/v0' do
+    get '/search', to: 'submissions#index', as: 'search'
     get '/news', to: 'application#news'
     post '/tohtml', to: 'application#tohtml'
     post '/contact', to: 'application#contact', as: 'contact'
