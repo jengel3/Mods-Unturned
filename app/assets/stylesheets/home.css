@@ -1,3 +1,7 @@
+* {
+    font-family: "Arimo", sans-serif;
+}
+
 #mainpagewrap {
   width: 900px !important; 
   height:1185px !important; 
@@ -321,3 +325,8 @@ td.quicklinkswrap {
   }
   }*/
 
+@-moz-document url-prefix() { 
+  * {
+     font-family: Arial;
+  }
+}
