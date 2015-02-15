@@ -17,7 +17,7 @@
                 <% if @upload.errors.any? %>
                 <%= render 'shared/errors', object: @upload %>
                 <% else %>
-                Your file will be approved by a moderator before it goes live. 
+                ZIP files only! Your file will be approved by a moderator before it goes live. 
                 <% end %></span></div>
                 <a class="submitlink" href=""><%= f.submit 'Upload', class: 'signinbutton', :data => { :disable_with => "Uploading" } %></a>
                 <% end %>
@@ -37,8 +37,8 @@
                     <li> <b>Windows:</b> Program Files (x86) / Steam / steamapps / common / Maps </li>
                   </ul>
                   <li> Right click on map folder, click "Send to", click "Compressed (zipped) Folder", and name that ZIP file. </li>
-                  <li> Upload the ZIP file to Mods-Unturned by clicking the "Choose File" button to the left of this tutorial. </li>
-                  <li> Wait for the moderators to approve your file and it will be uploaded to the site! </li>
+                  <li> If you're using WinRar, click the zip option instead of rar under the "General" tab. </li>
+                  <li> Upload here and wait for the moderators to approve your file and it will be uploaded to the site! </li>
                 </ul>
 
               </div>
