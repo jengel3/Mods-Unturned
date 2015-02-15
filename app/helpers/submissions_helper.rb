@@ -3,15 +3,16 @@ module SubmissionsHelper
     submissions = Kaminari.paginate_array(Submission.es.search({
       body: {
         query: {
-          query_string: {
-            query: params[:search][:search]
+          match: {
+            name: {
+              query: params[:search][:search],
+              fuzziness: 2,
+              prefix_length: 1
+            }
           }
         },
         filter: {
           exists: { field: "approved_at" }
-        },
-        sort: { 
-          approved_at: { order: "desc" } 
         }
       }
     },
