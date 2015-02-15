@@ -6,10 +6,31 @@
       <h2><%= t '.api_documentation' %> </h2>
     </div>        
 
-    <div class="mainpageleft">
-      <h1>GET Submissions</h1>
-      <p>Test</p>
+    <div class="mainpageleft" style='padding-left: 8px; padding-right: -5px;'>
+      <p>Mods-Unturned provides a simple API for accessing the content that users have created on our site. Below you will find the documentation for the API. This API may be subject to change, but any breaking changes will be moved to a new version of the API.</p>
+      <p>This documentation is specific to Version 1 of the Mods-Unturned API.</p>
+      <p>Abuse of the API will result in a possible IP ban, or other consequences.</p>
+      <p>Base URL: /api/v1/</p>
+      <h1>Submissions</h1>
+      <div id="accordion">
+        <h3>GET /submissions</h3>
+        <div>
+          <p></p>
+        </div>
+        <h3>GET /submissions/{submissionId}</h3>
+        <div>
+          <p></p>
+        </div>
+      </div>
+    </div>
+    <div id="mainpage">
     </div>
   </div>
-  <div id="mainpage"></div>
 </div>
+<script>
+  $(function() {
+    $( "#accordion" ).accordion({
+      collapsible: true
+    });
+  });
+</script>

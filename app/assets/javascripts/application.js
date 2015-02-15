@@ -16,6 +16,7 @@
 //= require jquery-ui/ui/effect-highlight
 //= require jquery-ui/ui/effect-fade
 //= require jquery-ui/ui/effect-shake
+//= require jquery-ui/ui/accordion
 //= require best_in_place
 //= require home
 //= require admin/reports
