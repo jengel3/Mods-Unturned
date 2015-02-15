@@ -1,4 +1,4 @@
-class Api::V1::BaseController < Api::V1::BaseController
+class Api::V1::BaseController < ApplicationController
   skip_before_filter :verify_authenticity_token
  
   before_filter :cors_preflight_check

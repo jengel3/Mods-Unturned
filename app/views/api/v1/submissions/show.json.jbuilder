@@ -1,7 +1,7 @@
 json.(@submission, :name, :body, :type)
-json.summary submission.desc
-json.new submission.is_new?
-json.updated submission.is_updated?
+json.summary @submission.desc
+json.new @submission.is_new?
+json.updated @submission.is_updated?
 
 json.timestamps do
   json.last_update @submission.last_update
@@ -29,7 +29,8 @@ json.videos @submission.videos do |video|
 end
 
 json.comments do
-  json.count  @submission.comments.count
+  json.count @submission.comments.count
+  json.shown @comments.count
   json.list do
     json.array! @comments do |comment|
 

@@ -345,6 +345,41 @@ hr {
   color: #2146FF !important;
 }
 
+.comment_navigation_message {
+  font-size:14px;
+  font-weight:normal;
+  vertical-align: top;
+  float:right;
+  margin-right:5px;
+}
+
+.comment_navigation_message:hover {
+  color: #2146FF;
+}
+
+.commentfooter {
+  width:100%;
+  height:20px;
+  background-color:rgb(210,210,210);
+  border-top: 1px solid  #DEDEDE;
+  border-bottom: 1px solid #DEDEDE;  
+  font-size:14px;
+  font-weight:normal;
+  vertical-align: top;
+  text-align: center;
+  padding-top:3px;
+}
+
+.returntotoptext {
+  margin-top:4px;
+  color:white;
+}
+
+.returntotoptext:hover {
+  color: #2146FF;
+}
+
+
 /* VIDEO SECTION */
 
 .videosection {
@@ -446,3 +481,4 @@ hr {
 .mfp-fade.mfp-wrap.mfp-removing .mfp-content {
   opacity: 0;
 }
+
