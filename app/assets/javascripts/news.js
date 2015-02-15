@@ -1,6 +1,6 @@
 $(document).ready(function () {
   if ($('.unturnedupdates').length) {
-    $.getJSON("/api/news", function(result){
+    $.getJSON("/api/v0/news", function(result){
       var title = result['title'];
       var url = result['url'];
       var content = result['content'];

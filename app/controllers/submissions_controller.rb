@@ -52,7 +52,6 @@ class SubmissionsController < ApplicationController
     end
     respond_to do |format|
       format.html
-      format.json { @submissions }
       format.rss { render :layout => false }
     end
   end

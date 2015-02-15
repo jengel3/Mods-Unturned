@@ -29,6 +29,7 @@ Rails.application.routes.draw do
   # Submissions
   get '/projects/:type', to: 'submissions#index', as: 'projects', defaults: { :type => 'all' }
   resources :submissions do
+    # Latest download
     get :download
     resources :comments do
       get :restore
@@ -36,6 +37,8 @@ Rails.application.routes.draw do
     resources :uploads do
       post :approve
       post :deny
+      # Download specific version
+      get :download
     end
     resources :images
     get :favorite
@@ -52,8 +55,9 @@ Rails.application.routes.draw do
     resources :reports
   end
 
-  namespace :api, defaults: {format: 'json'} do
+  namespace :api, defaults: { format: 'json' } do
     namespace :v1 do
+      get '/documentation', to: 'documentation#index', defaults: { format: 'html' }
       resources :submissions, :only => [:show, :index], defaults: { :sort => 'popular', :type => 'all' }
     end
   end
@@ -61,7 +65,6 @@ Rails.application.routes.draw do
   scope '/api/v0' do
     get '/search', to: 'submissions#index', as: 'search'
     get '/news', to: 'application#news'
-    post '/tohtml', to: 'application#tohtml'
     post '/contact', to: 'application#contact', as: 'contact'
     get '/flush', to: 'application#flush_cache', as: 'flush_cache'
   end

@@ -22,13 +22,16 @@ class Api::V1::SubmissionsController < ApplicationController
 
   def show
     unless @submission = Submission.find(params[:id])
-      render json: { error: 'Resource not found' }, status: :not_found 
+      return render json: { error: 'Resource not found' }, status: :not_found 
     end
+    count = params[:comments].to_i ||= 10
+    @comments = @submission.comments.limit(count)
+    count = params[:uploads].to_i ||= 5
+    @uploads = @submission.uploads.where(:approved => true).desc(:created_at).limit(count)
   end
 
   private
   def type_for(type)
-    puts "TYPE", type
     case type.downcase
     when "models", "assets"
       "Asset"

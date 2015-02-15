@@ -1,11 +1,19 @@
 class UploadsController < ApplicationController
-  before_action :set_upload, only: [:show, :edit, :update, :destroy, :approve, :deny]
-  respond_to :html, :xml, :json
+  before_action :set_upload, only: [:show, :edit, :update, :destroy, :approve, :deny, :download]
+  respond_to :html
   before_filter :authenticate_user!, only: [:new, :edit, :create, :update, :destroy, :approve, :deny]
   before_filter :require_admin, only: [:approve, :deny]
   
+  def download
+    request_ip = get_request_ip
+    @submission = @upload.submission
+    unless request_ip == @submission.user.last_sign_in_ip
+      @submission.add_download(request_ip, current_user, latest)
+    end
+    send_file @upload.upload.path
+  end
+
   def approve
-    puts @upload, "UPLOAD"
     @upload.approved = true
     if !@upload.save
       @upload.destroy
@@ -34,7 +42,6 @@ class UploadsController < ApplicationController
   def index
     @submission = Submission.find(params[:submission_id])
     @uploads = @submission.uploads
-    respond_with(@uploads)
   end
 
   def show
@@ -45,7 +52,6 @@ class UploadsController < ApplicationController
     @submission = Submission.find(params[:submission_id])
     return redirect_to root_path, :alert => "No permission." unless can_manage(@submission)
     @upload = @submission.uploads.build
-    respond_with(@upload)
   end
 
   def edit
@@ -62,7 +68,7 @@ class UploadsController < ApplicationController
         flash[:notice] = 'Upload was successfully saved.'
         format.html { redirect_to(@submission) }
       else
-        flash[:alert] = 'Unable to save upload, see errors below'
+        flash[:alert] = 'Unable to save upload, see errors below.'
         format.html { render action: "edit" }
       end
     end
@@ -71,13 +77,11 @@ class UploadsController < ApplicationController
   def update
     return redirect_to root_path, :alert => "No permission." unless can_manage(@upload.submission)
     @upload.update(upload_params)
-    respond_with(@upload)
   end
 
   def destroy
     return redirect_to root_path, :alert => "No permission." unless can_manage(@upload.submission)
     @upload.destroy
-    respond_with(@upload)
   end
 
   private
