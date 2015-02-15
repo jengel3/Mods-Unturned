@@ -18,8 +18,4 @@ module SubmissionsHelper
     page: params[:page], wrapper: :load).results).page(params[:page]).per(20)
     return submissions
   end
-
-  def search_suggestions
-    # completion = Submission.es.completion('te', pa)
-  end
 end

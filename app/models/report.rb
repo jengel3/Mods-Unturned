@@ -23,7 +23,7 @@ class Report
   end
 
   def set_resolved
-    self.resolved_at = Time.now unless !self.resolved_at
+    self.resolved_at = Time.now unless !self.resolver
   end
 
   def delete_content(completed_by)
