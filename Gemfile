@@ -39,10 +39,10 @@ gem 'best_in_place', '~> 3.0.1'
 gem 'nokogiri'
 
 # ZIP validation
-gem 'rubyzip'
-gem 'zip-zip'
+# gem 'rubyzip'
+# gem 'zip-zip'
 
-# Mail compiler
+# Email compiler
 gem 'premailer-rails'
 
 # Testing

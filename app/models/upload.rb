@@ -10,7 +10,7 @@ class Upload
   validates :name, presence: true
   validates :version, presence: true
   validates :upload, presence: true
-  validate :verify_structure
+  # validate :verify_structure
 
   field :name, type: String
   field :version, type: String
@@ -20,21 +20,21 @@ class Upload
   has_many :downloads, :dependent => :destroy
   belongs_to :submission
 
-  def verify_structure
-    valid = false
-    if submission.type == 'Level'
-      Zip::File.open(upload.path) do |zipfile| 
-        zipfile.each do |entry|
-          if entry.name == 'Level.dat'
-            valid = true
-          end
-        end
-      end
-    end
-    unless valid
-      errors[:base] << "The files included in this ZIP are structured incorrectly. Please see the tips."
-    end
-  end
+  # def verify_structure
+  #   valid = false
+  #   if submission.type == 'Level'
+  #     Zip::File.open(upload.path) do |zipfile| 
+  #       zipfile.each do |entry|
+  #         if entry.name == 'Level.dat'
+  #           valid = true
+  #         end
+  #       end
+  #     end
+  #   end
+  #   unless valid
+  #     errors[:base] << "The files included in this ZIP are structured incorrectly. Please see the tips."
+  #   end
+  # end
 
   private
   def check_approval
