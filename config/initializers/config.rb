@@ -6,8 +6,8 @@ if ENV["REDISCLOUD_URL"]
     config.redis = { url: ENV["REDISCLOUD_URL"] }
   end
 else
-  REDIS = Redis.new(:host => "127.0.0.1")
+  REDIS = Redis.new( :host => "127.0.0.1" )
 end
 if ENV['BONSAI_URL']
-  Mongoid::Elasticsearch.client_options = {hosts: [ENV['BONSAI_URL']]}
+  Mongoid::Elasticsearch.client_options = { hosts: [ ENV['BONSAI_URL'] ] }
 end
