@@ -1,4 +1,4 @@
-json.(@submission, :name, :body, :type)
+json.(@submission, :name, :body, :type, :id)
 json.summary @submission.desc
 json.new @submission.is_new?
 json.updated @submission.is_updated?
@@ -15,6 +15,7 @@ json.downloads do
 end
 
 json.uploads @uploads do |upload|
+  json.id upload.id
   json.path submission_upload_download_path(@submission, upload)
   json.filename upload.upload.file.filename
   json.name upload.name
