@@ -130,7 +130,7 @@ class Submission
         count = download_count
       end
       if @@milestones.include?(count)
-        UserMailer.milestone(self, count)
+        UserMailer.milestone(self, count).deliver_later
       end
     end
   end

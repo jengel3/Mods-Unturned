@@ -35,7 +35,7 @@ class ApplicationController < ActionController::Base
     if email.empty? || username.empty? || inquiry.empty?
       return redirect_to root_path, :alert => "Please fill in all fields."
     end
-    UserMailer.contact(username, email, inquiry).deliver_now
+    UserMailer.contact(username, email, inquiry).deliver_later
     redirect_to root_path, :notice => "Successfully sent an inquiry to Mods Unturned."
   end
 
