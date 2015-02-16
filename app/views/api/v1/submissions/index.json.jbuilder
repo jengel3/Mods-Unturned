@@ -1,5 +1,5 @@
 json.array! @submissions do |submission|
-	json.id submission.id
+	json.id submission.id.to_s
 	json.name submission.name
 	json.body submission.body
 	json.type submission.type
