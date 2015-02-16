@@ -118,16 +118,20 @@ class Submission
   end
 
   def add_download(ip, downloader, upload)
-    self.downloads.create(:ip => ip, :user => downloader, :upload => upload, creator: user).save!
-    key = "DOWNLOADS:#{name.gsub(' ', '_')}"
-    count = 0
-    if REDIS.get(key)
-      count = REDIS.incr(key)
-    else
-      count = download_count
-    end
-    if @@milestones.include?(count)
-      UserMailer.milestone(self, count)
+    prev_download = downloads.where(:ip => ip).first
+    valid = prev_download ? prev_download.created_at < Time.now - 30.minutes : true
+    self.downloads.create(:ip => ip, :user => downloader, :upload => upload, creator: user, real: valid).save!
+    if valid
+      key = "DOWNLOADS:#{name.gsub(' ', '_')}"
+      count = 0
+      if REDIS.get(key)
+        count = REDIS.incr(key)
+      else
+        count = download_count
+      end
+      if @@milestones.include?(count)
+        UserMailer.milestone(self, count)
+      end
     end
   end
 

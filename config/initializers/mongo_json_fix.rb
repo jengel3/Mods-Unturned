@@ -1,6 +1,12 @@
-# module BSON
-#   class ObjectId
-#     alias :to_json :to_s
-#     alias :as_json :to_s
-#   end
-# end
+module Moped
+  module BSON
+    class ObjectId   
+      def to_json(*)
+        to_s.to_json
+      end
+      def as_json(*)
+        to_s.as_json
+      end
+    end
+  end
+end

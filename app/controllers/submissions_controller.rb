@@ -65,10 +65,10 @@ class SubmissionsController < ApplicationController
   def download
     latest = @submission.latest_download
     request_ip = get_request_ip
-    unless request_ip == @submission.user.last_sign_in_ip
+    # unless request_ip == @submission.user.last_sign_in_ip
       @submission.add_download(request_ip, current_user, latest)
-    end
-    send_file latest.upload.path
+    # end
+    send_file latest.upload.path, :length => File.size(latest.upload.path)
   end
 
   def show

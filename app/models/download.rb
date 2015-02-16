@@ -1,8 +1,9 @@
 class Download
   include Mongoid::Document
-  include Mongoid::Timestamps
+  include Mongoid::Timestamps::Created
 
   field :ip, type: String
+  field :real, type: String
 
   after_create :cache_downloads
 
@@ -20,7 +21,9 @@ class Download
   index({ created_at: 1 }, { unique: false, name: "download_timestamp", background: true })
 
   def cache_downloads
-    submission.total_downloads += 1
-    submission.save
+    if real
+      submission.total_downloads += 1
+      submission.save
+    end
   end
 end
