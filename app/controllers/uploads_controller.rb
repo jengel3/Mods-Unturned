@@ -19,7 +19,7 @@ class UploadsController < ApplicationController
       @upload.destroy
       return
     end
-    UserMailer.approved(@upload).deliver
+    UserMailer.approved(@upload).deliver_later
     respond_to do |format|
       format.json { render json: @upload.errors.to_json }
     end
@@ -33,7 +33,7 @@ class UploadsController < ApplicationController
     end
     request_data = JSON.parse(request.body.read)
     reason = request_data['reason']
-    UserMailer.denied(@upload, reason).deliver
+    UserMailer.denied(@upload, reason).deliver_later
     respond_to do |format|
       format.json { render json: @upload.errors.to_json }
     end

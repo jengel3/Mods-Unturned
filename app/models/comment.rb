@@ -2,6 +2,7 @@ class Comment
   include Mongoid::Document
   include Mongoid::Paranoia
   include Mongoid::Timestamps
+  include GlobalID::Identification
 
   field :text, type: String
   belongs_to :submission

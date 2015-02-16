@@ -3,7 +3,7 @@ class RegistrationsController < Devise::RegistrationsController
 
   def create
    super
-   UserMailer.welcome(@user).deliver unless @user.invalid?
+   UserMailer.welcome(@user).deliver_later unless @user.invalid?
   end
   protected
 

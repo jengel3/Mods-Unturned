@@ -32,6 +32,9 @@ gem 'mongoid-elasticsearch'
 # Caching
 gem 'redis'
 
+# Job management
+gem 'sidekiq'
+
 # News utilities
 gem 'httparty'
 gem 'bb-ruby', github: 'Jake0oo0/bb-ruby'
