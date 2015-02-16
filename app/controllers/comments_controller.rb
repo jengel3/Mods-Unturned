@@ -9,7 +9,7 @@ class CommentsController < ApplicationController
     @user.comments << @comment
     @submission.comments << @comment
     if @comment.save
-      UserMailer.comment(@comment).deliver_later
+      UserMailer.comment(@comment).deliver
       redirect_to @submission, :notice => "Your comment has been successfully saved."
     else
       redirect_to @submission, :alert => "Your comment was invalid, and was not saved."
