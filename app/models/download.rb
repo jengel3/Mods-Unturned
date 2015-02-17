@@ -1,6 +1,7 @@
 class Download
   include Mongoid::Document
   include Mongoid::Timestamps::Created
+  include GlobalID::Identification
 
   field :ip, type: String
   field :real, type: String

@@ -3,6 +3,7 @@ class Submission
   include Mongoid::Slug
   include Mongoid::Timestamps
   include Mongoid::Elasticsearch
+  include GlobalID::Identification
   elasticsearch! 
   
   @@milestones = [50, 100, 500, 1000, 2500, 5000, 10000, 20000, 30000, 40000, 50000, 60000]

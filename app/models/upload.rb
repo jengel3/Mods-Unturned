@@ -1,6 +1,7 @@
 class Upload
   include Mongoid::Document
   include Mongoid::Timestamps
+  include GlobalID::Identification
 
   before_save :set_update
   after_save :check_approval

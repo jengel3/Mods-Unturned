@@ -1,5 +1,6 @@
 class User
   include Mongoid::Document
+  include GlobalID::Identification
   devise :database_authenticatable, :registerable,
   :recoverable, :rememberable, :trackable, :validatable
   devise :omniauthable, :omniauth_providers => [:steam]
