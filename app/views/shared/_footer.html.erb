@@ -25,6 +25,7 @@
   <%= label_tag 'Email ' %><%= email_field :contact, :email, class: 'contactboxes', value: current_user ? current_user.email : "" %>
   <%= label_tag 'Message ' %><%= text_area :contact, :inquiry, class: 'contactboxes', rows: 7 %>
   <%= submit_tag 'Send', class: 'contactsubmitbutton', :data => { :disable_with => "Sending" } %>
+  <div class="g-recaptcha" data-sitekey="6LdXLQITAAAAAH39kLpg0OWSOEyIe5WgrMWbx00F"></div>
   <% end %>
 </div>
 
