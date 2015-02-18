@@ -1,4 +1,5 @@
 json.id @submission.id.to_s
+json.slug @submission.slug
 json.(@submission, :name, :body, :type)
 json.summary @submission.desc
 json.new @submission.is_new?

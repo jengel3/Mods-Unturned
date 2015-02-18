@@ -3,4 +3,7 @@ class Admin::ControlController < ApplicationController
   before_filter :require_admin
   def index
   end
+
+  def email
+  end
 end
