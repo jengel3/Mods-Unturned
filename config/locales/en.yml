@@ -178,3 +178,12 @@ en:
   reports:
     form:
       report_text: "You are creating a report for this content. Reports are handled by the moderation team at their discretion. You may be contacted for additional information if necessary. False reports or falsifying any information may result in consequences."
+  api:
+    v1:
+      documentation:
+        index:
+          api_documentation: "API Documentation"
+          intro: "Mods-Unturned provides a simple API for accessing the content that users have created on our site. Below you will find the documentation for the API. This API may be subject to change, but any breaking changes will be moved to a new version of the API."
+          version: "This documentation is specific to Version 1 of the Mods-Unturned API."
+          abuse: "Abuse of the API will result in a possible IP ban, or other consequences."
+          base: "Base URL: %{url}"

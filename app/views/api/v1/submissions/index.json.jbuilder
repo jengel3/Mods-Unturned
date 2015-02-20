@@ -1,3 +1,7 @@
+json.page do
+	json.current @page
+	json.max @max
+end
 json.array! @submissions do |submission|
 	json.id submission.id.to_s
 	json.name submission.name

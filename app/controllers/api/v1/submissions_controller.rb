@@ -3,6 +3,7 @@ class Api::V1::SubmissionsController < ApplicationController
   def index
     @type = type_for(params[:type])
     @sort = sort_for(params[:sort])
+
     @submissions = if params[:approved] == "0"
       Submission.all
     else
@@ -15,6 +16,8 @@ class Api::V1::SubmissionsController < ApplicationController
 
     @submissions = @submissions.desc(@sort)
     @submissions = @submissions.page(params[:page]).per(20)
+    @page = params[:page]
+    @max = @submissions.total_pages
     if !@submissions.any?
       render json: { error: 'No resources found' }, status: :no_content 
     end

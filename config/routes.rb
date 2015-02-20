@@ -58,7 +58,10 @@ Rails.application.routes.draw do
   namespace :api, defaults: { format: 'json' } do
     namespace :v1 do
       get '/documentation', to: 'documentation#index', defaults: { format: 'html' }
-      resources :submissions, :only => [:show, :index], defaults: { :sort => 'popular', :type => 'all' }
+      resources :submissions, :only => [:show, :index], defaults: { :sort => 'popular', :type => 'all' } do
+        resources :comments, :only => [:show, :index]
+        resources :uploads, :only => [:show, :index]
+      end
     end
   end
 
