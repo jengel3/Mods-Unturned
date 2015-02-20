@@ -1,0 +1,26 @@
+<div id="centerpage">
+	<%= render 'shared/tabs' %>
+	<div id="mainpagewrap">
+		<div class="box effect1">
+			<h2><%= t '.control_panel' %></h2>
+		</div>
+		<div class="mainpageleft" style="padding: 5px 0px 0px 10px;">
+			<%= form_tag email_path, method: 'POST' do %>
+
+			<%= label_tag 'Username '%>
+			<%= text_field :email, :username, class: 'contactboxes' %>
+
+			<%= label_tag 'From ' %>
+			<%= email_field :email, :email, class: 'contactboxes', value: 'no-reply@mods-unturned.com' %>
+
+			<%= label_tag 'Subject ' %>
+			<%= text_field :email, :subject, class: 'contactboxes', placeholder: 'Mods-Unturned Would like to contact you...' %>
+			<%= label_tag 'Message ' %>
+			<%= text_area :email, :message, class: 'contactboxes', rows: 7, placeholder: 'Enter a message to send here.' %>
+
+			<%= submit_tag 'Send', class: 'contactsubmitbutton', :data => { :disable_with => "Sending" } %>
+			<% end %>
+		</div>
+		<div id="mainpage" />
+	</div>
+</div>

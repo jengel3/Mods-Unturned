@@ -3,7 +3,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   before_action :configure_permitted_parameters, if: :devise_controller?
   before_filter :is_maintenance
-  before_filter :require_admin, only: [:flush_cache]
+  before_filter :require_admin, only: [:flush_cache, :email]
   before_filter :complete_steam_register
   @@secret = "6LdXLQITAAAAAJua6hwGRSIiP-pMAnN0ql-QZZwp"
 
@@ -26,6 +26,21 @@ class ApplicationController < ActionController::Base
       return redirect_to root_path, :notice => 'Successfully unsubscribed from emails.'
     end
     return redirect_to root_path, :alert => 'Email address not found'
+  end
+
+  def email
+    form = params[:email]
+    username = form[:username]
+    from = form[:email]
+    message = form[:message]
+    subject = form[:subject]
+    if from.empty? || username.empty? || message.empty? || subject.empty?
+      return redirect_to admin_path, :alert => "Please fill in all fields."
+    end
+    return redirect_to admin_path, :alert => "User not found" unless user = User.where(:username => username).first
+    to = user.email
+    UserMailer.single(to, from, subject, message).deliver_later
+    redirect_to admin_path, :notice => "Successfully sent an email"
   end
   
   def contact

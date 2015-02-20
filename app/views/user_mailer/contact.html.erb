@@ -6,7 +6,7 @@
     <img src="<%= image_full_url('header.png') %>"/>
   </a>
   <h2 style="margin-top: 0px;"><%= t '.inquiry_received', :username => (@username) %></h2>
-  <p style="margin-top: 0px;"><%= @inquiry %></p>
+  <p style="margin-top: 0px;"><%= raw @inquiry %></p>
   <p>
     <%= t '.reply_to' %>
     <a href="mailto:<%= @email%>"><%= @email %></a>

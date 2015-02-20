@@ -5,21 +5,28 @@ class UserMailer < ActionMailer::Base
   default from: "no-reply@mods-unturned.com"
   @@reply = "no-reply@mods-unturned.com"
 
+  def single(to, from, subject, message)
+    @message = message.gsub(/\r\n/, "<br>")
+    mail(:to => to,
+     :subject => subject,
+     :reply_to => "modsunturned@gmail.com")
+  end
+
   def contact(username, email, inquiry)
     @username = username
     @email = email
-    @inquiry = inquiry
+    @inquiry = inquiry.gsub(/\r\n/, "<br>")
     mail(:to => "jake0oo0dev@gmail.com; modsunturned@gmail.com",
-         :subject => "#{username} has sent an inquiry to Mods Unturned.",
-         :reply_to => @email)
+     :subject => "#{username} has sent an inquiry to Mods Unturned.",
+     :reply_to => @email)
   end
 
   def welcome(user)
     @user = user
     return if !@user.accepts_emails
     mail(:to => @user.email,
-        :subject => "Successfully Registered on Mods-Unturned",
-        :reply_to => @@reply)
+      :subject => "Successfully Registered on Mods-Unturned",
+      :reply_to => @@reply)
   end
 
   def denied(upload, reason)
@@ -29,8 +36,8 @@ class UserMailer < ActionMailer::Base
     @upload = upload
     @reason = reason
     mail(:to => @email,
-         :subject => "#{@upload.submission.name} Download Denied",
-         :reply_to => @@reply)
+     :subject => "#{@upload.submission.name} Download Denied",
+     :reply_to => @@reply)
   end
 
   def approved(upload)
@@ -40,8 +47,8 @@ class UserMailer < ActionMailer::Base
     @email = user.email
     @upload = upload
     mail(:to => @email,
-         :subject => "#{@upload.submission.name} Download Approved",
-         :reply_to => @@reply)
+     :subject => "#{@upload.submission.name} Download Approved",
+     :reply_to => @@reply)
   end
 
   def milestone(submission, count)
@@ -51,8 +58,8 @@ class UserMailer < ActionMailer::Base
     @count = count
     @email = @user.email
     mail(:to => @user.email,
-        :subject => "A Submission of Yours on mods-unturned.com has reached #{count} downloads!",
-        :reply_to => @@reply)
+      :subject => "A Submission of Yours on mods-unturned.com has reached #{count} downloads!",
+      :reply_to => @@reply)
   end
 
   def comment(comment)
@@ -61,7 +68,7 @@ class UserMailer < ActionMailer::Base
     @submission = comment.submission
     @email = @submission.user.email
     mail(:to => @comment.submission.user.email,
-        :subject => "Your Submission Has Received a Comment",
-        :reply_to => @@reply)
+      :subject => "Your Submission Has Received a Comment",
+      :reply_to => @@reply)
   end
 end

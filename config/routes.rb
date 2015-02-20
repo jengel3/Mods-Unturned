@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   namespace :admin do
     get '/', to: 'control#index'
     get 'moderation', to: 'moderation#index'
+    get 'email', to: 'control#email'
     resources :reports do
       get :delete_content
       get :resolve
@@ -70,6 +71,7 @@ Rails.application.routes.draw do
     get '/news', to: 'application#news'
     post '/contact', to: 'application#contact', as: 'contact'
     get '/flush', to: 'application#flush_cache', as: 'flush_cache'
+    post '/email', to: 'application#email', as: 'email'
   end
 
   get '/unsubscribe', to: 'application#unsubscribe', as: 'unsubscribe'
