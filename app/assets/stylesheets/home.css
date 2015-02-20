@@ -329,4 +329,7 @@ td.quicklinkswrap {
   * {
      font-family: Arial;
   }
+  .quicklinkitem {
+        font-size:15px;
+    }
 }
