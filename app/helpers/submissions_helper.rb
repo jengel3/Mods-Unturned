@@ -19,4 +19,14 @@ module SubmissionsHelper
     page: params[:page], wrapper: :load).results).page(params[:page]).per(20)
     return submissions
   end
+
+  def waiting(submission)
+    count = submission.uploads.where(:denied => false).where(:approved => false).count
+    if count == 0
+      "No files awaiting approval."
+    else
+      plural = pluralize(count, "file")
+      "You have #{plural} awaiting approval."
+    end
+  end
 end

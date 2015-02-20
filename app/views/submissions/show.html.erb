@@ -75,7 +75,7 @@
           <div class="manage">
             <p class="uploadby" style="margin: 0px;">
               <i class="fa fa-upload"></i>
-              <a href="<%= new_submission_upload_path(@submission) %>">
+              <a href="<%= new_submission_upload_path(@submission) %>" title='<%= waiting(@submission) %>'>
                 <b><%= t '.upload_file' %></b>
               </a>
               <br/>
