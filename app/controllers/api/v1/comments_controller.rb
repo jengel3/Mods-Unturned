@@ -1,5 +1,6 @@
 class Api::V1::CommentsController < ApplicationController
   include ActionController::ImplicitRender
+  include SubmissionsHelper
   def index
     @submission = Submission.where(:id => params[:submission_id]).first
     return render json: { error: 'Resource not found' }, status: :not_found unless @submission
@@ -18,5 +19,10 @@ class Api::V1::CommentsController < ApplicationController
     unless @comment = @submission.comments.where(:id => params[:id]).first
       return render json: { error: 'Resource not found' }, status: :not_found 
     end
+  end
+
+  def stats
+    stats = group_by Comment, 'created_at'
+    render json: stats.to_json 
   end
 end

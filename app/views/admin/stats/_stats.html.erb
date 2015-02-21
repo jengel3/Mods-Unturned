@@ -1,0 +1,133 @@
+<div id="content" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
+<div id="types" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
+<script>
+	$(function () {
+		$('#content').highcharts({
+			credits: {
+				enabled: false
+			},
+			chart: {
+				type: 'spline',
+				events: {
+					load: function (event) {
+						console.log(event)
+						loadContent('submissions', function(data) {
+							for (var i = 0; i < data.length; i++) {
+								event.delegateTarget.series[0].addPoint(data[i]);
+							}
+						});
+						loadContent('comments', function(data) {
+							for (var i = 0; i < data.length; i++) {
+								event.delegateTarget.series[1].addPoint(data[i]);
+							}
+						});
+						loadContent('uploads', function(data) {
+							for (var i = 0; i < data.length; i++) {
+								event.delegateTarget.series[2].addPoint(data[i]);
+							}
+						});
+					}
+				}
+			},
+			title: {
+				text: 'Content Creation'
+			},
+			xAxis: {
+				type: 'datetime',
+				dateTimeLabelFormats: {
+					month: '%e. %b',
+					year: '%b'
+				},
+				title: {
+					text: 'Date'
+				}
+			},
+			yAxis: {
+				title: {
+					text: 'Content Count'
+				},
+				min: 0
+			},
+			tooltip: {
+				headerFormat: '<b>{series.name}</b><br>',
+				pointFormat: '{point.x:%b %e}: {point.y}'
+			},
+			plotOptions: {
+				spline: {
+					marker: {
+						enabled: true
+					}
+				}
+			},
+			series: [{
+				name: 'Submissions',
+				data: []
+			},
+			{
+				name: 'Comments',
+				data: []
+			},
+			{
+				name: 'Uploads',
+				data: []
+			}]
+		});
+});
+function loadContent(which, callback) {
+	$.getJSON( "/api/v1/stats/" + which, function( data ) {
+		var items = [];
+		$.each( data, function( i, val ) {
+			var date = val['_id'];
+			var year = parseInt(date['year']);
+			var month = parseInt(date['month'])
+			var day = parseInt(date['day']);
+			items.push([Date.UTC(year, month, day), parseInt(val['count'])]);
+			if (i === data.length - 1) {
+				callback(items);
+			}
+		});
+	});
+}
+</script>
+
+<script>
+	$(function () {
+		$('#types').highcharts({
+			chart: {
+				plotBackgroundColor: null,
+				plotBorderWidth: null,
+				plotShadow: false
+			},
+			title: {
+				text: 'Mods-Unturned submission variation'
+			},
+			credits: {
+				enabled: false
+			},
+			tooltip: {
+				pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+			},
+			plotOptions: {
+				pie: {
+					allowPointSelect: true,
+					cursor: 'pointer',
+					dataLabels: {
+						enabled: true,
+						format: '<b>{point.name}</b>: {point.percentage:.1f} %',
+						style: {
+							color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black'
+						}
+					}
+				}
+			},
+			series: [{
+				type: 'pie',
+				name: 'Submission Types',
+				data: [
+				['Level', <%= Submission.where(:type => "Level").count %>],
+				['Asset', <%= Submission.where(:type => "Asset").count %>]
+				]
+			}]
+		});
+	});
+</script>

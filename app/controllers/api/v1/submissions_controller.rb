@@ -1,5 +1,6 @@
 class Api::V1::SubmissionsController < ApplicationController
   include ActionController::ImplicitRender
+  include SubmissionsHelper
   def index
     @type = type_for(params[:type])
     @sort = sort_for(params[:sort])
@@ -31,6 +32,11 @@ class Api::V1::SubmissionsController < ApplicationController
     @comments = @submission.comments.limit(count)
     count = params[:uploads].to_i ||= 5
     @uploads = @submission.uploads.where(:approved => true).desc(:created_at).limit(count)
+  end
+
+  def stats
+    stats = group_by Submission, 'created_at'
+    render json: stats.to_json 
   end
 
   private

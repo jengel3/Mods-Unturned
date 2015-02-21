@@ -1,5 +1,5 @@
 include ActionView::Helpers::TextHelper
-class Admin::ListingsController < ApplicationController
+class Admin::ListingsController < Admin::BaseController
   def users
     @users = User.all
     @users = @users.order_by(sort_users(params[:sort] ||= ''))

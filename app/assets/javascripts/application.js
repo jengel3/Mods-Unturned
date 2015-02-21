@@ -22,3 +22,4 @@
 //= require admin/reports
 //= require magnific-popup/dist/jquery.magnific-popup
 //= require jquery.nivo.slider.pack
+//= require highcharts/highcharts.js

@@ -1,5 +1,6 @@
 class Api::V1::UploadsController < ApplicationController
   include ActionController::ImplicitRender
+  include SubmissionsHelper
   def index
     @submission = Submission.where(:id => params[:submission_id]).first
     return render json: { error: 'Resource not found' }, status: :not_found unless @submission
@@ -18,5 +19,10 @@ class Api::V1::UploadsController < ApplicationController
     unless @upload = @submission.uploads.where(:id => params[:id]).first
       return render json: { error: 'Resource not found' }, status: :not_found 
     end
+  end
+
+  def stats
+    stats = group_by Upload, 'created_at'
+    render json: stats.to_json 
   end
 end

@@ -1,7 +1,4 @@
-class Admin::ModerationController < ApplicationController
-  before_filter :authenticate_user!
-  before_filter :require_admin
-  
+class Admin::ModerationController < Admin::BaseController
   def index
     @uploads = Upload.where(:denied => false).where(:approved => false)
   end

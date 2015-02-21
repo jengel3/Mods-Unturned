@@ -1,2 +1,12 @@
-<h1>Admin::Stats#index</h1>
-<p>Find me in app/views/admin/stats/index.html.erb</p>
+<div id="centerpage">
+	<%= render 'shared/tabs' %>
+	<div id="mainpagewrap">
+		<div class="box effect1">
+			<h2><%= t '.stats' %></h2>
+		</div>
+		<div class="mainpageleft">
+			<%= render '/admin/stats/stats' %>
+		</div>
+		<div id="mainpage" />
+	</div>
+</div>

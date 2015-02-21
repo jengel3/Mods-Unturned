@@ -1,6 +1,4 @@
-class Admin::ReportsController < ApplicationController
-  before_filter :authenticate_user!
-  before_filter :require_admin
+class Admin::ReportsController < Admin::BaseController
   before_filter :set_report, only: [:show, :delete_content, :deny, :resolve, :close, :reopen]
 
   def index

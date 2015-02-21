@@ -3,6 +3,7 @@ Rails.application.routes.draw do
     get '/', to: 'control#index'
     get 'moderation', to: 'moderation#index'
     get 'email', to: 'control#email'
+    get 'stats', to: 'stats#index'
     resources :reports do
       get :delete_content
       get :resolve
@@ -66,6 +67,11 @@ Rails.application.routes.draw do
       resources :submissions, :only => [:show, :index], defaults: { :sort => 'popular', :type => 'all' } do
         resources :comments, :only => [:show, :index]
         resources :uploads, :only => [:show, :index]
+      end
+      scope 'stats' do
+        get :submissions, :to => 'submissions#stats'
+        get :uploads, :to => 'uploads#stats'
+        get :comments, :to => 'comments#stats'
       end
     end
   end
