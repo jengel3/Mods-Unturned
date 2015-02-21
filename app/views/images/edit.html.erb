@@ -1,1 +1,29 @@
-<%= render 'form' %>
+<div id="centerpage">
+  <%= render 'shared/tabs' %>
+  <div id="screenupload_mainpagewrap">  
+    <div class="box effect1">
+      <h2> Upload Images </h2>
+    </div>        
+    <div class="mainpageleft">
+      <table>
+        <tr>
+          <td>
+            <div class="uploadscreen_inputwrap">
+              <%= render 'form' %>
+          </td>
+          <td>
+            <div class="uploadscreen_tutorialwrap">
+              <div class="uploadscreen_headerwrap">
+                <%= image_tag 'preview25.png', class: 'uploadscreen_magnifyimg' %>
+                <div class="uploadscreen_tutorialtitle"> Image Preview</div>
+                <%= image_tag 'uploadthumb.png', alt: 'Image Preview', class: 'uploadscreen_previewimgwrap' %>
+              </div>
+            </div>
+          </td>
+        </tr>       
+      </table>
+    </div>          
+    <div id="screenupload_mainpage">
+    </div>    
+  </div>
+</div>

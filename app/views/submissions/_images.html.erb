@@ -1,18 +1,26 @@
-<div class="mainscreen">
-  <%= image_tag("#{@submission.main_image ? @submission.main_image.image_url : 'uploadthumb.png'}", class: 'mainthumblarge') %>
+<div class='mainscreen'>
+  <div class="large-imgwrap imgwrap">
+    <%= image_tag "#{@submission.main_image ? @submission.main_image.image_url : 'uploadthumb.png'}", class: 'mainthumblarge', alt: 'Main Image' %>
+    <div class='edit-image edit-image-large'><a class='add-image-button' href='#add-image'>Upload</a></div>
+  </div>
 </div>
 <div class="screenshots">
   <% 6.times do |count| %>
-  <% thumb = @submission.thumbnails[count] %>
-  <% if thumb %>
-  <a class='valid-thumb' href="<%= thumb.image_url %>">
-    <img class="levelthumb" src="<%= thumb.image_url %>" title="Map Thumbnail"/>
-  </a>
-  <% else %>
-  <a>
-    <%= image_tag 'smallthumb.png', class: 'levelthumb', title: "Placeholder" %>
-  </a>
-  <% end %>
+  <% thumb = @thumbnails[count] %>
+  <div class='imgwrap'>
+    <% if thumb %>
+    <a id="thumb-<%= count %>" class='valid-thumb' href="<%= thumb.image_url %>">
+      <img class="levelthumb" src="<%= thumb.image_url %>" title="Map Thumbnail" alt='Map Thumbnail'/>
+    </a>
+    <% else %>
+    <a>
+      <%= image_tag 'smallthumb.png', class: 'levelthumb', title: "Placeholder", id: "thumb-#{count}", alt: 'Placeholder Thumbnail' %>
+    </a>
+    <% end %>
+    <% if can_manage(@submission) %>
+    <div class='edit-image'><a class='add-image-button' href='#add-image'>Upload</a></div>
+    <% end %>
+  </div>
   <% end %>
   <script>
     $('.screenshots').magnificPopup({

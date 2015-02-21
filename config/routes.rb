@@ -41,7 +41,7 @@ Rails.application.routes.draw do
       # Download specific version
       get :download
     end
-    resources :images
+    resources :images, :only => [:edit, :create, :destroy]
     get :favorite
     resources :videos
     resources :reports

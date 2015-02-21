@@ -65,15 +65,27 @@ class SubmissionsController < ApplicationController
   def download
     latest = @submission.latest_download
     request_ip = get_request_ip
-    # unless request_ip == @submission.user.last_sign_in_ip
+    unless request_ip == @submission.user.last_sign_in_ip
       @submission.add_download(request_ip, current_user, latest)
-    # end
+    end
     send_file latest.upload.path, :length => File.size(latest.upload.path)
   end
 
   def show
     if !@submission
       return redirect_to root_path, :alert => "Submission does not exist."
+    end
+    images = @submission.thumbnails.sort_by { |i| [i.location[ -1..-1 ], i] }
+
+    @thumbnails = {}
+    previous = 0
+    images.each do |image|
+      while image.num != previous + 1 do
+        @thumbnails[previous + 1] = nil
+        previous += 1
+      end
+      @thumbnails[previous] = image
+      previous += 1
     end
     @comments = @submission.comments.unscoped.all.asc(:created_at).reject(&:new_record?)
   end

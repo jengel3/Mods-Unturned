@@ -79,11 +79,6 @@
                 <b><%= t '.upload_file' %></b>
               </a>
               <br/>
-              <i class="fa fa-picture-o"></i>
-              <a href="<%= new_submission_image_path(@submission) %>">
-                <b><%= t '.upload_image' %></b>
-              </a>
-              <br/>
               <i class="fa fa-pencil"></i>
               <a href="<%= edit_submission_path(@submission) %>">
                 <b><%= t '.edit' %></b>
@@ -130,3 +125,7 @@
     $(this).effect('highlight', {color: 'lightgreen'}, 1800);
   });
 </script>
+
+<% if can_manage(@submission) %>
+<%= render 'images/popup' %>
+<% end %>

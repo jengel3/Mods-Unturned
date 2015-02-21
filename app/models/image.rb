@@ -15,6 +15,10 @@ class Image
 
   index({ location: 1 }, { unique: false, name: "image_loc_index", background: true })
 
+  def num
+    location[ -1..-1 ].to_i
+  end
+
   private
   def delete_old
     if old = submission.images.where(:location => self.location).first

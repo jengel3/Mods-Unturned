@@ -24,6 +24,7 @@ class Submission
   field :approved_at, type: Time, default: nil
   field :last_favorited, type: Time, default: nil
   field :total_downloads, type: Integer, default: 0
+  field :dependencies, type: String, default: ""
 
   belongs_to :user
   has_many :comments, :dependent => :destroy

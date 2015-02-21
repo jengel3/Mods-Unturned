@@ -1,0 +1,55 @@
+<div id="add-image" class="add-image-popup mfp-hide">
+  <div class='popupwrap'>
+    <table>
+      <tr>
+        <td>
+          <div class="uploadscreen_inputwrap">
+            <%= form_for([@submission, @submission.images.new]) do |f| %>
+            <fieldset>
+              <legend class="screenupload_legend">Select an Image</legend>
+              <%= f.select(:location, options_for_select([['Main Image', 'Main'], ['Screenshot #1', 'Thumbnail1'], ['Screenshot #2', 'Thumbnail2'], ['Screenshot #3', 'Thumbnail3'], ['Screenshot #4', 'Thumbnail4'], ['Screenshot #5', 'Thumbnail5'], ['Screenshot #6', 'Thumbnail6']], 'Thumbnail1'), {}, { :class=>'thumbnailselectform', size: "2" }) %>
+            </fieldset>
+            <%= f.file_field :image, class: 'uploadscreenbutton', value: 'Choose file' %>
+            <div class="uploadscreenpage_notificationmessagewrap errormessage">
+              <span class="uploadscreenpage_notificationtext">Preview may not display image aspect ratio correctly. </span></div>
+              <a class="submitlink" href="#upload"><%= f.submit 'Upload', class: 'signinbutton' %></a>
+              <div class="uploadscreen_inputbottomwrap">
+              </div>
+            </div>
+            <% end %>
+          </div>
+        </td>
+        <td>
+          <div class="uploadscreen_tutorialwrap">
+            <div class="uploadscreen_headerwrap">
+              <%= image_tag 'preview25.png', class: 'uploadscreen_magnifyimg' %>
+              <div class="uploadscreen_tutorialtitle"> Image Preview</div>
+              <%= image_tag 'uploadthumb.png', alt: 'Image Preview', class: 'uploadscreen_previewimgwrap' %>
+            </div>
+          </div>
+        </td>
+      </tr>       
+    </table>
+  </div>
+</div>
+
+<script>
+  $('.add-image-button').click(function() {
+    if ($(this).parent().hasClass('edit-image-large')) {
+      $('#image_location').val('Main');
+      return;
+    }
+    var location = $(this).parent().parent().index() + 2;
+    var selected = $('option[selected="selected"]').removeAttr('selected');
+    var to_select = $('#image_location option:nth-child(' + location + ')');
+    if (selected[0] == to_select[0]) {
+      return;
+    }
+    to_select.parent().val(to_select.val());
+  });
+  $('.add-image-button').magnificPopup({
+    type:'inline',
+    midClick: true,
+    mainClass: 'mfp-fade'
+  });
+</script>
