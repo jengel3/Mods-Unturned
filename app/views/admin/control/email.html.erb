@@ -8,7 +8,7 @@
 			<%= form_tag email_path, method: 'POST' do %>
 
 			<%= label_tag 'Username '%>
-			<%= text_field :email, :username, class: 'contactboxes' %>
+			<%= text_field :email, :username, class: 'contactboxes', value: params[:username] %>
 
 			<%= label_tag 'From ' %>
 			<%= email_field :email, :email, class: 'contactboxes', value: 'no-reply@mods-unturned.com' %>

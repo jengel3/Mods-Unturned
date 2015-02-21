@@ -58,4 +58,20 @@ module ApplicationHelper
   def devise_mapping
     @devise_mapping ||= Devise.mappings[:user]
   end
+
+  def sortable(field, name=nil)
+    name ||= field.humanize
+    current_sort = params[:sort]
+    opposite = ''
+    if current_sort == field
+      name += ' ^'
+      opposite = '-' + field
+    elsif current_sort == '-' + field
+      name += ' \/'
+      opposite = field
+    else
+      opposite = field
+    end
+    return link_to name, params.merge(:sort => opposite)
+  end
 end

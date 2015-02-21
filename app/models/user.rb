@@ -10,7 +10,7 @@ class User
 
   attr_accessor :login
 
-  field :email,              type: String, default: ""
+  field :email, type: String, default: ""
   field :encrypted_password, type: String, default: ""
   field :username, type: String, default: ""
 
@@ -21,6 +21,7 @@ class User
 
   field :remember_created_at, type: Time
 
+  # Track user history
   field :sign_in_count,      type: Integer, default: 0
   field :current_sign_in_at, type: Time
   field :last_sign_in_at,    type: Time
@@ -29,8 +30,10 @@ class User
 
   field :ip_history, type: Array, default: []
 
+  # Whether or not we can send this user emails
   field :accepts_emails, type: Boolean, default: true
 
+  # Omniauth
   field :provider, type: String
   field :uid, type: String
 
@@ -42,6 +45,7 @@ class User
   has_many :created_reports, :inverse_of => :creator, class_name: 'Report', foreign_key: 'reporter_id'
   has_many :resolved_reports, :inverse_of => :resolver, class_name: 'Report', foreign_key: 'resolver_id' 
 
+  # Track user IP history
   Warden::Manager.after_set_user do |record, warden, opts|
     if !record.ip_history.include?(record.current_sign_in_ip)
       record.ip_history << record.current_sign_in_ip
@@ -63,7 +67,7 @@ class User
     end
   end
 
-  def self.from_omniauth(auth)
+  def self.from_steam(auth)
     new_user = where(provider: auth.provider, uid: auth.uid).first_or_initialize do |user|
       user.email = "#{auth.uid}@steam-provider.com"
       user.username = "SteamUser#{auth.uid}"

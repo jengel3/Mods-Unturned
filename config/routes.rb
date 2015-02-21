@@ -10,6 +10,10 @@ Rails.application.routes.draw do
       get :reopen
       get :close
     end
+    scope '/lists' do
+      get 'users', to: 'listings#users'
+      post 'mass_moderation', to: 'listings#moderate'
+    end
   end
 
   # Users

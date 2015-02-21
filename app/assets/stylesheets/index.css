@@ -225,74 +225,7 @@ h4 a:hover {
   color: white;
 }
 
-/* PAGINATION SECTION */
-.pagination-wrap {
-  text-align:center;
-  margin-top: 15px;
-}
-
-.page-worded {
-  display:inline-block;
-  background-color:rgb(100,100,100);
-  background: #88bfe8; /* Old browsers */
-  background: rgba(62,201,217,1);
-  background: -moz-linear-gradient(top, rgba(62,201,217,1) 0%, rgba(65,176,217,1) 100%);
-  background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(62,201,217,1)), color-stop(100%, rgba(65,176,217,1)));
-  background: -webkit-linear-gradient(top, rgba(62,201,217,1) 0%, rgba(65,176,217,1) 100%);
-  background: -o-linear-gradient(top, rgba(62,201,217,1) 0%, rgba(65,176,217,1) 100%);
-  background: -ms-linear-gradient(top, rgba(62,201,217,1) 0%, rgba(65,176,217,1) 100%);
-  background: linear-gradient(to bottom, rgba(62,201,217,1) 0%, rgba(65,176,217,1) 100%);
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#3ec9d9', endColorstr='#41b0d9', GradientType=0 );
-  margin:1px;
-  padding:5px 7px 5px 7px;
-  border:2px solid #1C1C1C;
-  color:white;
-  -webkit-border-radius: 5px;
-  -moz-border-radius: 5px;
-  border-radius: 5px;
-}
-
-.page-worded:hover {
-  color:white;
-  -o-transition:.1s ease-in-out;
-  -ms-transition:.1s ease-in-out;
-  -moz-transition:.1s ease-in-out;
-  -webkit-transition:.1s ease-in-out;
-  /* ...and now for the proper property */
-  transition:.1s ease-in-out;
-}
-.inner-pagination-wrap {
-  background-color:rgb(242,242,242);
-  display:inline-block;
-  padding:5px;
-  font-size:0;
-  -webkit-border-radius: 5px;
-  -moz-border-radius: 5px;
-  border-radius: 5px;
-}
-
-.page {
-  padding:5px;
-  font-size:16px;
-  border-left:1px solid rgb(242,242,242);
-  border-right:1px solid rgb(242,242,242);
-  font-weight:bold;
-  color: black;
-}
-
-.page:hover, .current {
-  background-color:rgb(215,215,215);
-  border-left:1px solid rgb(200,200,200);
-  border-right:1px solid rgb(200,200,200);
-  border-bottom:1px solid rgb(200,200,200);
-  -o-transition:.1s ease-in-out;
-  -ms-transition:.1s ease-in-out;
-  -moz-transition:.1s ease-in-out;
-  -webkit-transition:.1s ease-in-out;
-  /* ...and now for the proper property */
-  transition:.1s ease-in-out;
-}
-
+/* Fix Firefox margins */
 @-moz-document url-prefix() { 
   * {
      font-family: Arial;
