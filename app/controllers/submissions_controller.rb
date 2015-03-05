@@ -20,7 +20,9 @@ class SubmissionsController < ApplicationController
         @submissions = @submissions.desc(:last_update)
       end
       @submissions = @submissions.page(params[:page]).per(20)
-    elsif params[:type]
+    elsif params[:search]
+      @submissions = search_submissions
+    else params[:type]
       @type = params[:type]
       projects = Submission.valid
       if params[:type] && params[:type] != "all"
@@ -36,8 +38,6 @@ class SubmissionsController < ApplicationController
         projects = projects.desc(:last_update)
       end
       @submissions = projects.page(params[:page]).per(20)
-    elsif params[:search]
-      @submissions = search_submissions
     end
     if params[:user]
       @title = params[:user] + "'s" + ' Creations'

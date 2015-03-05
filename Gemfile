@@ -3,7 +3,6 @@ source 'https://rubygems.org'
 ruby '2.0.0'
 
 gem 'rails', '4.2.0'
-gem 'uglifier', '2.7.0'
 
 # API
 gem 'jbuilder'
@@ -18,6 +17,10 @@ gem 'jquery-rails'
 
 # File uploads
 gem 'carrierwave-mongoid'
+
+# Styling
+gem 'sass-rails'
+gem 'uglifier', '2.7.0'
 
 # Database
 gem 'mongoid'
@@ -40,10 +43,6 @@ gem 'httparty'
 gem 'bb-ruby', github: 'Jake0oo0/bb-ruby'
 gem 'best_in_place', '~> 3.0.1'
 gem 'nokogiri'
-
-# ZIP validation
-# gem 'rubyzip'
-# gem 'zip-zip'
 
 # Email compiler
 gem 'premailer-rails'

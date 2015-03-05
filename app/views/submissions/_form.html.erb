@@ -25,46 +25,61 @@
                 <%= f.text_area :body, class: 'uploadpage_moddescription' %>
 
                 <a class="submitlink" href="#save"><%= f.submit "Submit", class: 'signinbutton', :data => { :disable_with => "Saving..." } %></a>
-                <div class="uploadpage_notificationmessagewrap"><span class="uploadpage_notificationtext">Almost done! Next is file upload and screenshots.</span></div>
+                <% if !@submission.errors.any? %>
+                <div class="uploadpage_notificationmessagewrap">
+                  <span class="uploadpage_notificationtext">
+                    Almost done! Next is file upload and screenshots.
+                  </span>
+                </div>
+                <% else %>
+                <div class="uploadpage_notificationmessagewrap errormessage">
+                  <span class='uploadpage_notificationtext'>
+                    <% @submission.errors.full_messages.each do |error| %>
+                    <%= error %>
+                    <br/>
+                    <% end %>
+                  </span>
+                </div>
+                <% end %>
+
               </div>
               <% end %>
-            </div>
-          </td> 
-          <td>
-            <div class="modsubmission_quicknote effect4">
-              <div class="quicknote_headerwrap">
-                <%= image_tag 'lightbulb25.png', class: 'quicknote_lightbulb_img' %>
-                <div class="quicknote_title"> Quick Note </div>
+            </td> 
+            <td>
+              <div class="modsubmission_quicknote effect4">
+                <div class="quicknote_headerwrap">
+                  <%= image_tag 'lightbulb25.png', class: 'quicknote_lightbulb_img' %>
+                  <div class="quicknote_title"> Quick Note </div>
+                </div>
+                <div class="quicknote_text"> 
+                  All files are <span class="quicknote_highlight"> approved</span> by the moderation team before they go live to ensure all the downloads are safe.                     
+                </div>
               </div>
-              <div class="quicknote_text"> 
-                All files are <span class="quicknote_highlight"> approved</span> by the moderation team before they go live to ensure all the downloads are safe.                     
+              <div class="modsubmission_quicknote">
+                <div class="quicknote_headerwrap">
+                  <%= image_tag 'lightbulb25.png', class: 'quicknote_lightbulb_img' %>
+                  <div class="quicknote_title"> Quick Note </div>
+                </div>
+                <div class="quicknote_text"> 
+                  The next stage is adding a file and screenshots. Look for the <span class="quicknote_highlight">"Manage"</span> section on the left sidebar after you submit this.                    
+                </div>
               </div>
-            </div>
-            <div class="modsubmission_quicknote">
-              <div class="quicknote_headerwrap">
-                <%= image_tag 'lightbulb25.png', class: 'quicknote_lightbulb_img' %>
-                <div class="quicknote_title"> Quick Note </div>
-              </div>
-              <div class="quicknote_text"> 
-                The next stage is adding a file and screenshots. Look for the <span class="quicknote_highlight">"Manage"</span> section on the left sidebar after you submit this.                    
-              </div>
-            </div>
-            <div class="modsubmission_quicknote">
-              <div class="quicknote_headerwrap">
-                <%= image_tag 'heart25.png', class: 'quicknote_lightbulb_img' %>
-                <div class="quicknote_title"> Thank You! </div>
-              </div>      
-              <div class="quicknote_text"> 
-                Mods-Unturned would not be able to <span class="quicknote_highlight">thrive</span> without your contributions.                  
-              </div>                    
-            </div>              
-          </td>
-        </tr>   
-      </table>
-    </div>        
+              <div class="modsubmission_quicknote">
+                <div class="quicknote_headerwrap">
+                  <%= image_tag 'heart25.png', class: 'quicknote_lightbulb_img' %>
+                  <div class="quicknote_title"> Thank You! </div>
+                </div>      
+                <div class="quicknote_text"> 
+                  Mods-Unturned would not be able to <span class="quicknote_highlight">thrive</span> without your contributions.                  
+                </div>                    
+              </div>              
+            </td>
+          </tr>   
+        </table>
+      </div>        
 
-    <div id="uploadpage_mainpage">
-    </div>    
+      <div id="uploadpage_mainpage">
+      </div>    
 
+    </div>
   </div>
-</div>
