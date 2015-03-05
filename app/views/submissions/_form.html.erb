@@ -34,10 +34,7 @@
                 <% else %>
                 <div class="uploadpage_notificationmessagewrap errormessage">
                   <span class='uploadpage_notificationtext'>
-                    <% @submission.errors.full_messages.each do |error| %>
-                    <%= error %>
-                    <br/>
-                    <% end %>
+                    <%= render 'shared/errors', object: @submission %>
                   </span>
                 </div>
                 <% end %>
