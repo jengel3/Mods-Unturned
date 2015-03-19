@@ -21,6 +21,7 @@ class Upload
   has_many :downloads, :dependent => :destroy
   belongs_to :submission
 
+  # Verifies structure of the uploaded ZIP file
   # def verify_structure
   #   valid = false
   #   if submission.type == 'Level'

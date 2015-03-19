@@ -18,8 +18,8 @@ class ApplicationController < ActionController::Base
   end
 
   def unsubscribe
-    email = params[:email]
-    user = User.where(email: email).first
+    user_email = params[:email]
+    user = User.where(email: user_email).first
     if user
       user.accepts_emails = false
       user.save
@@ -28,7 +28,7 @@ class ApplicationController < ActionController::Base
     return redirect_to root_path, :alert => 'Email address not found'
   end
 
-  def email
+  def send_mail
     form = params[:email]
     username = form[:username]
     from = form[:email]
