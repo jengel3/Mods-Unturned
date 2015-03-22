@@ -79,7 +79,7 @@ function loadContent(which, callback) {
 		$.each( data, function( i, val ) {
 			var date = val['_id'];
 			var year = parseInt(date['year']);
-			var month = parseInt(date['month'])
+			var month = parseInt(date['month']) - 1;
 			var day = parseInt(date['day']);
 			items.push([Date.UTC(year, month, day), parseInt(val['count'])]);
 			if (i === data.length - 1) {
