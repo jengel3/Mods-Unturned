@@ -30,7 +30,6 @@ class UserMailer < ActionMailer::Base
   end
 
   def denied(upload, reason)
-    return if !upload
     @user = upload.submission.user
     return if !@user.accepts_emails
     @email = @user.email
@@ -42,7 +41,6 @@ class UserMailer < ActionMailer::Base
   end
 
   def approved(upload)
-    return if !upload
     user = upload.submission.user
     return if !user.accepts_emails
     @username = user.username
