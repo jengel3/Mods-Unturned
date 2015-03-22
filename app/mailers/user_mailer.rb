@@ -66,7 +66,7 @@ class UserMailer < ActionMailer::Base
 
   def comment(comment)
     @comment = comment
-    return if !@comment.user.accepts_emails
+    return if !@comment.submission.user.accepts_emails
     @submission = comment.submission
     @email = @submission.user.email
     mail(:to => @comment.submission.user.email,
