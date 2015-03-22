@@ -3,7 +3,7 @@
 </head>
 <body>
   <a href="<%= root_url %>">
-    <img src="<%= image_full_url('header.png') %>"/>
+    <img src="<%= image_path('header.png') %>"/>
   </a>
   <h2 style="margin-top: 0px;"><%= t '.inquiry_received', :username => (@username) %></h2>
   <p style="margin-top: 0px;"><%= raw @inquiry %></p>
