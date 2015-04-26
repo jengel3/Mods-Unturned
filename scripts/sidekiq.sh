@@ -1,0 +1,1 @@
+bundle exec sidekiq -q mailers -e production -d -L log/sidekiq.log
