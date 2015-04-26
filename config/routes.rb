@@ -18,7 +18,7 @@ Rails.application.routes.draw do
   end
 
   # Users
-  devise_for :users, :controllers => { sessions: 'sessions', registrations: 'registrations', :omniauth_callbacks => 'users/omniauth_callbacks', :passwords => 'passwords' }  
+  devise_for :users, :controllers => { sessions: 'users/sessions', registrations: 'users/registrations', :omniauth_callbacks => 'users/omniauth_callbacks', :passwords => 'usesr/passwords' }  
   get '/uploads/:user', to: 'submissions#index', as: 'user_uploads'
   get '/accounts/finish_steam', to: 'application#finish_steam', as: 'finish_steam'
   # Root

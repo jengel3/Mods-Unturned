@@ -1,12 +1,12 @@
-class RegistrationsController < Devise::RegistrationsController
+class Users::RegistrationsController < Devise::RegistrationsController
   respond_to :json
 
   def create
    super
    UserMailer.welcome(@user).deliver_later unless @user.invalid?
   end
-  protected
 
+  protected
   def update_resource(resource, params)
     resource.update_without_password(params)
   end
