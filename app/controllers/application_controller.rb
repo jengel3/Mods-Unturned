@@ -90,15 +90,24 @@ class ApplicationController < ActionController::Base
   end
 
   def news
-    response = HTTParty.get('http://api.steampowered.com/ISteamNews/GetNewsForApp/v0002/?appid=304930&count=1&format=json')
-    result = JSON.parse(response.body)
-    response_json = {}
-    article = result['appnews']['newsitems'][0]
-    response_json['title'] = article['title']
-    response_json['url'] = article['url']
-    response_json['content'] = article['contents'].bbcode_to_html.gsub(/[\r\n]+/, "<br>").gsub('http://', '//')
+    key = 'UNTURNED:news'
+    result = REDIS.get(key)
+    if !result
+      response = HTTParty.get('http://api.steampowered.com/ISteamNews/GetNewsForApp/v0002/?appid=304930&count=1&format=json')
+      result = JSON.parse(response.body)
+      response_json = {}
+      article = result['appnews']['newsitems'][0]
+      response_json['title'] = article['title']
+      response_json['url'] = article['url']
+      response_json['content'] = article['contents'].bbcode_to_html.gsub(/[\r\n]+/, "<br>").gsub('http://', '//')
+      result = response_json.to_json
+      REDIS.set(key, result)
+      REDIS.expire(key, 10.minutes)
+    else
+      result = JSON.load(result)
+    end
     respond_to do |format|
-      format.json { render json: response_json.to_json }
+      format.json { render json: result }
     end
   end
 
