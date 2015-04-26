@@ -1,9 +1,27 @@
 <head>
   <title><%= t '.unturned_mods' %></title>
   <link href=<%= root_url %> rel="alternate" title="RSS" type="application/rss+xml" />
+
   <meta content="Welcome to Mods-Unturned! This is your central place for quality map and model mods for Unturned the game." name="description"/>
   <meta content="Unturned, Unturned Mods, Unturned Maps, Unturned models, unturned map mods, unturned model mods, unturned mod, unturned mod download, unturned modding, unturned tutorial, unturned database" name="keywords"/>
   <meta content="Bradley Mitchell" name="author"/>
+
+  <meta charset="utf-8">
+  <meta property="og:title" content="Unturned Mods">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="http://www.Mods-Unturned.com">
+  <meta property="og:image" content="http://i.imgur.com/CPCIBLl.png">
+  <meta property="og:description" content="The #1 source for GTA 5 Modifications. PC Mods for Grand Theft Auto V include maps, scipts, tools, textures, models and more!">
+
+  <!--[if lt IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+  <!-- Twitter display meta -->
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:creator" content="@Mods-Unturned_com">
 
 
   <%= csrf_meta_tags %>
@@ -28,6 +46,20 @@
 
   <link href="https://fonts.googleapis.com/css?family=Arimo" rel="stylesheet" type="text/css" />
   <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet" />
+
+  <script type="application/ld+json">
+    { "@context" : "http://schema.org",
+    "@type" : "CreativeWork",
+    "name" : "Mods-Unturned",
+    "url" : "http://www.mods-unturned.com",
+    "sameAs" : ["http://twitter.com/Mods_Unturned",
+    "https://plus.google.com/103886656948838780928"],
+    "dateCreated": "2014-11-22",
+    "dateModified": "2014-11-22",
+    "keywords": "Unturned, Unturned Maps, Unturned Mods, Unturned Custom Content, Unturned on Steam",
+    "audience": "Unturned players" }
+  </script>
+
   <% if params[:controller] == "home" %>
   <%= stylesheet_link_tag 'application' %>
   <%= stylesheet_link_tag 'home' %>
@@ -68,7 +100,6 @@
   <% end %>
   <%= javascript_include_tag 'application' %>
   <%= render 'shared/analytics' %>
-  <script src='https://www.google.com/recaptcha/api.js'></script>
 </head>
 <body>
   <%= yield %>
@@ -76,4 +107,5 @@
   <%= render 'shared/footer' %>
   <% end %>
   <%= yield :scripts %>
+  <script defer async src='https://www.google.com/recaptcha/api.js'></script>
 </body>
