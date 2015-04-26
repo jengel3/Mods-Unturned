@@ -98,7 +98,6 @@
   <% if params[:controller] == "uploads" || params[:controller] == "images" || params[:controller] == "admin/moderation" || params[:controller] == 'admin/control' || params[:controller] == "passwords" || params[:controller] == "admin/reports" || params[:controller] == "api/v1/documentation" || params[:controller] == 'admin/listings' || params[:controller] == 'admin/stats' %>
   <%= stylesheet_link_tag "upload" %>
   <% end %>
-  <%= javascript_include_tag 'application' %>
   <%= render 'shared/analytics' %>
 </head>
 <body>
@@ -106,6 +105,7 @@
   <% unless params[:action] == "maintenance" %>
   <%= render 'shared/footer' %>
   <% end %>
+  <%= javascript_include_tag 'application' %>
   <%= yield :scripts %>
   <script defer async src='https://www.google.com/recaptcha/api.js'></script>
 </body>

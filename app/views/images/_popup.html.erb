@@ -33,6 +33,7 @@
   </div>
 </div>
 
+<%= content_for :scripts do %>
 <script>
   $('.add-image-button').click(function() {
     if ($(this).parent().hasClass('edit-image-large')) {
@@ -53,3 +54,4 @@
     mainClass: 'mfp-fade'
   });
 </script>
+<% end %>

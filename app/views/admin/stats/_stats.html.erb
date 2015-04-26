@@ -1,7 +1,8 @@
 <div id="content" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
 <div id="types" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
+<%= content_for :scripts do %>
 <script>
-	$(function () {
+	$(document).ready(function() {
 		$('#content').highcharts({
 			credits: {
 				enabled: false
@@ -72,6 +73,44 @@
 				data: []
 			}]
 		});
+
+$('#types').highcharts({
+	chart: {
+		plotBackgroundColor: null,
+		plotBorderWidth: null,
+		plotShadow: false
+	},
+	title: {
+		text: 'Mods-Unturned submission variation'
+	},
+	credits: {
+		enabled: false
+	},
+	tooltip: {
+		pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+	},
+	plotOptions: {
+		pie: {
+			allowPointSelect: true,
+			cursor: 'pointer',
+			dataLabels: {
+				enabled: true,
+				format: '<b>{point.name}</b>: {point.percentage:.1f} %',
+				style: {
+					color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black'
+				}
+			}
+		}
+	},
+	series: [{
+		type: 'pie',
+		name: 'Submission Types',
+		data: [
+		['Level', <%= Submission.where(:type => "Level").count %>],
+		['Asset', <%= Submission.where(:type => "Asset").count %>]
+		]
+	}]
+});
 });
 function loadContent(which, callback) {
 	$.getJSON( "/api/v1/stats/" + which, function( data ) {
@@ -89,45 +128,4 @@ function loadContent(which, callback) {
 	});
 }
 </script>
-
-<script>
-	$(function () {
-		$('#types').highcharts({
-			chart: {
-				plotBackgroundColor: null,
-				plotBorderWidth: null,
-				plotShadow: false
-			},
-			title: {
-				text: 'Mods-Unturned submission variation'
-			},
-			credits: {
-				enabled: false
-			},
-			tooltip: {
-				pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
-			},
-			plotOptions: {
-				pie: {
-					allowPointSelect: true,
-					cursor: 'pointer',
-					dataLabels: {
-						enabled: true,
-						format: '<b>{point.name}</b>: {point.percentage:.1f} %',
-						style: {
-							color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black'
-						}
-					}
-				}
-			},
-			series: [{
-				type: 'pie',
-				name: 'Submission Types',
-				data: [
-				['Level', <%= Submission.where(:type => "Level").count %>],
-				['Asset', <%= Submission.where(:type => "Asset").count %>]
-				]
-			}]
-		});
-	});
-</script>
+<% end %>

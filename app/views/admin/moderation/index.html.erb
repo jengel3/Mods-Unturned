@@ -57,14 +57,18 @@
 		<div id="mainpage" />
 	</div>
 </div>
+<%= content_for :scripts do %>
 <script>
-	function recalcHeight() {
-		var height = $('.moderation').height();
-		$('#mainpage').height(height);
-		$('#mainpagewrap').height(height + 85);
-		$('.mainpageleft').height(height);
-	}
-	if ($('.moderation').length) {
-		recalcHeight();
-	}
+$(document).ready(function(){ 
+		function recalcHeight() {
+			var height = $('.moderation').height();
+			$('#mainpage').height(height);
+			$('#mainpagewrap').height(height + 85);
+			$('.mainpageleft').height(height);
+		}
+		if ($('.moderation').length) {
+			recalcHeight();
+		}
+	});
 </script>
+<% end %>

@@ -95,9 +95,11 @@
 		<div id="mainpage" />
 	</div>
 </div>
+<%= content_for :scripts do %>
 <script>
 	var height = $('.moderation').height();
 	$('#mainpage').height(height);
 	$('#mainpagewrap').height(height + 85);
 	$('.mainpageleft').height(height);
 </script>
+<% end %>

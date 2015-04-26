@@ -13,3 +13,5 @@
 //= require magnific-popup/dist/jquery.magnific-popup
 //= require jquery.nivo.slider.pack
 //= require highcharts/highcharts.js
+//= require news
+//= require content

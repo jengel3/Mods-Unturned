@@ -20,7 +20,7 @@
   </p>
   <% end %>
 </div>
-
+<%= content_for :scripts do %>
 <script>
   $('.report-<%= reportable[-2].class.name.downcase %>-button').magnificPopup({
     type:'inline',
@@ -28,3 +28,4 @@
     mainClass: 'mfp-fade'
   });
 </script>
+<% end %>

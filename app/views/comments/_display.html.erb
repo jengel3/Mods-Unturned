@@ -6,38 +6,26 @@
   <div class="list">
     <% @comments.each_with_index do |comment, i| %>
     <% next if comment.deleted_at && !user_is_admin %>
-      <div class="comment <%= cycle('comment-odd', 'comment-even') %>" id="comment-<%= comment.id %>">
-        <div class="text" title="<%= comment_timestamp(comment) %>">
-          <% if user_is_admin || (current_user && current_user == comment.user) %>
-            <% if !comment.deleted_at %>
-              <%= link_to "<i class='fa fa-trash'></i>".html_safe, submission_comment_path(@submission, comment), title: 'Delete Comment', method: :delete, data: {confirm: 'Are you sure you want to delete this comment?'} %>
-            <% else %>
-              <%= link_to "<i class='fa fa-plus-circle'></i>".html_safe, submission_comment_restore_path(@submission, comment), title: 'Restore Comment', data: {confirm: 'Are you sure you want to restore this comment?'} %>
-            <% end %>
-          <% end %>
-          <% if current_user %>
-          <%= link_to "<i class='fa fa-exclamation-triangle'></i>".html_safe, "#add-report-comment", title: 'Report Comment', class: 'report-comment-button' %>
-          <% end %>
-          <b>
-            <%= link_to comment.user.username + ':', user_uploads_path(comment.user.username), class: "#{if comment.user.admin? then 'admin' elsif comment.user == @submission.user then 'submitter' end}" %>
-          </b>
-          <span class="<%= if comment.deleted_at then 'deleted-comment' end %>"><%= comment.text %></span>
-        </div>
+    <div class="comment <%= cycle('comment-odd', 'comment-even') %>" id="comment-<%= comment.id %>">
+      <div class="text" title="<%= comment_timestamp(comment) %>">
+        <% if user_is_admin || (current_user && current_user == comment.user) %>
+        <% if !comment.deleted_at %>
+        <%= link_to "<i class='fa fa-trash'></i>".html_safe, submission_comment_path(@submission, comment), title: 'Delete Comment', method: :delete, data: {confirm: 'Are you sure you want to delete this comment?'} %>
+        <% else %>
+        <%= link_to "<i class='fa fa-plus-circle'></i>".html_safe, submission_comment_restore_path(@submission, comment), title: 'Restore Comment', data: {confirm: 'Are you sure you want to restore this comment?'} %>
+        <% end %>
+        <% end %>
+        <% if current_user %>
+        <%= link_to "<i class='fa fa-exclamation-triangle'></i>".html_safe, "#add-report-comment", title: 'Report Comment', class: 'report-comment-button' %>
+        <% end %>
+        <b>
+          <%= link_to comment.user.username + ':', user_uploads_path(comment.user.username), class: "#{if comment.user.admin? then 'admin' elsif comment.user == @submission.user then 'submitter' end}" %>
+        </b>
+        <span class="<%= if comment.deleted_at then 'deleted-comment' end %>"><%= comment.text %></span>
       </div>
-      <%= if i == @comments.size - 1 then render 'reports/form', reportable: [comment] end %>
+    </div>
+    <%= if i == @comments.size - 1 then render 'reports/form', reportable: [comment] end %>
     <% end %>
     <div class="commentfooter" id="bottom"><a class="returntotoptext" href="#comments">Return to top</a></div>
   </div>
-  <script>
-    $('.report-comment-button').click(function() {
-      // This code allows us to only generate one popup, and
-      // dynamically change the form's action
-      var comment_id = $(this).closest('.comment').attr('id').replace('comment-', '');
-      var form = $('#add-report-comment form');
-      var old_action = form.attr('action');
-      var action_split = old_action.split('/');
-      var new_action = old_action.replace(action_split[action_split.length - 2], comment_id);
-      form.attr('action', new_action);
-    });
-  </script>
 </div>

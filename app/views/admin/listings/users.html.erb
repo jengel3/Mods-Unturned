@@ -56,14 +56,6 @@
 				</div>
 				<%= paginate @users %>
 			</div>
-			<script>
-				// Check all checkboxes when the main one is checked
-				$(document).ready(function () {
-					$("#all").change(function () {
-						$("input:checkbox[class=content-check]").prop('checked', this.checked);
-					});
-				});
-			</script>
 			<% else %>
 			<p align="center" id="none"><%= t '.no_users' %></p>
 			<% end %>
@@ -72,3 +64,12 @@
 		<div id="mainpage" />
 	</div>
 </div>
+<%= content_for :scripts do %>
+<script>
+	$(document).ready(function () {
+		$("#all").change(function () {
+			$("input:checkbox[class=content-check]").prop('checked', this.checked);
+		});
+	});
+</script>
+<% end %>

@@ -8,6 +8,7 @@
 	</div>
 <% end %>
 
+<%= content_for :scripts do %>
 <script>
   $('.notificationclosebutton').click(function() {
     $('.notificationwrap').fadeOut( "slow", function() { });
@@ -16,3 +17,4 @@
     $('.notificationwrap').fadeOut( "slow", function() { });
   }, 10000);
 </script>
+<% end %>
