@@ -9,8 +9,8 @@
   <meta charset="utf-8">
   <meta property="og:title" content="Unturned Mods">
   <meta property="og:type" content="website">
-  <meta property="og:url" content="http://www.Mods-Unturned.com">
-  <meta property="og:image" content="http://i.imgur.com/CPCIBLl.png">
+  <meta property="og:url" content="https://www.Mods-Unturned.com">
+  <meta property="og:image" content="https://i.imgur.com/Jq4ZlER.png">
   <meta property="og:description" content="The #1 source for Unturned Mods. Mods for Unturned including Maps, Vehicles, Guns, Items, and more!">
 
   <!--[if lt IE 9]>
@@ -43,9 +43,6 @@
   <meta name="msapplication-TileColor" content="#ffffff">
   <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
   <meta name="theme-color" content="#ffffff">
-
-  <link href="https://fonts.googleapis.com/css?family=Arimo" rel="stylesheet" type="text/css" />
-  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet" />
 
   <script type="application/ld+json">
     { "@context" : "http://schema.org",
@@ -98,13 +95,15 @@
   <% if params[:controller] == "uploads" || params[:controller] == "images" || params[:controller] == "admin/moderation" || params[:controller] == 'admin/control' || params[:controller] == "passwords" || params[:controller] == "admin/reports" || params[:controller] == "api/v1/documentation" || params[:controller] == 'admin/listings' || params[:controller] == 'admin/stats' %>
   <%= stylesheet_link_tag "upload" %>
   <% end %>
-  <%= render 'shared/analytics' %>
 </head>
 <body>
   <%= yield %>
   <% unless params[:action] == "maintenance" %>
   <%= render 'shared/footer' %>
   <% end %>
+  <link href="https://fonts.googleapis.com/css?family=Arimo" rel="stylesheet" type="text/css" />
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet" />
+  <%= render 'shared/analytics' %>
   <%= javascript_include_tag 'application' %>
   <%= yield :scripts %>
   <script defer async src='https://www.google.com/recaptcha/api.js'></script>
