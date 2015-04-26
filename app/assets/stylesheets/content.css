@@ -1,14 +1,11 @@
 * {
   font-family: 'Arimo', Helvetica, sans-serif;
 }
-
 #mainpage {
   width: 860px;
   height: 780px;
   margin-bottom: 40px;
 }
-
-/* 538 and 320 */
 .mainpageright {
   width: 558px;
   height: 100%;
@@ -24,48 +21,35 @@
 .nivo-main-image {
   height: 100% !important;
 }
-
-/* DOWNLOAD SECTION */
 h4.download {
   font-size: 35px;
   text-align: center;
-  /* font-family: 'Arial', Helvetica, sans-serif;
-  */
   letter-spacing: 1px;
   text-align: center;
   margin: 0;
   padding: 15px;
 }
-
 h4.videoheading {
   font-size: 35px;
   text-align: center;
-  /* font-family: 'Arial', Helvetica, sans-serif;
-  */
   letter-spacing: 1px;
   text-align: center;
   margin: 0;
   padding: 20px;
 }
-
 .filename {
-  font-size:12px;
+  font-size: 12px;
 }
 .downloadbutton {
-  /* background-color: #E2E2E2;
-  */
   background-color: rgb(242, 242, 242);
   width: 100%;
   height: 80px;
   margin-bottom: 20px;
   text-decoration: none;
-
   -webkit-box-shadow: 0px 1px 4px 0px rgba(20, 20, 20, 0.42);
   -moz-box-shadow: 0px 1px 4px 0px rgba(20, 20, 20, 0.42);
   box-shadow: 0px 1px 4px 0px rgba(20, 20, 20, 0.42);
 }
-
-
 a {
   text-decoration: none;
 }
@@ -75,11 +59,7 @@ a:link {
 a:visited {
   color: #464646;
 }
-
-/* SIDEBAR SECTION */
 .infosection {
-  /* background-color: #EBEBEB;
-  */
   background-color: rgb(245, 245, 245);
   width: 100%;
   height: 740px;
@@ -87,16 +67,12 @@ a:visited {
   -moz-box-shadow: 0px 0px 6px 0px rgba(50, 50, 50, 0.12);
   box-shadow: 0px 0px 6px 0px rgba(50, 50, 50, 0.12);
 }
-
-/* ABOUT CREATOR SECTION */
 .persondetails {
   margin-top: 3px;
 }
 .profile {
   width: 94%;
   margin-left: 3%;
-  /* background-color: #F9F9F9;
-  */
   background-color: rgb(253, 253, 253);
   height: 60px;
   border: 1px dashed #D7D7D7;
@@ -106,7 +82,7 @@ a:visited {
   -o-transition: .1s ease-in-out;
   -ms-transition: .1s ease-in-out;
   -moz-transition: .1s ease-in-out;
-  -webkit-transition: .1s ease-in-out; /* ...and now for the proper property */
+  -webkit-transition: .1s ease-in-out;
   transition: .1s ease-in-out;
 }
 .avatar {
@@ -130,8 +106,6 @@ a:visited {
   margin-left: 65px;
   font-size: 14px;
 }
-
-/* STATS AND INFORMATION SECTION */
 .stats {
   margin-left: 65px;
   font-size: 14px;
@@ -139,11 +113,9 @@ a:visited {
 .manage .uploadby a:hover {
   color: black;
 }
-
 p {
   color: #141414;
 }
-
 p.title {
   padding-top: 0px;
   padding-left: 10px;
@@ -158,15 +130,15 @@ p.description {
   padding-left: 10px;
   padding-right: 10px;
   font-size: 14px;
-  word-wrap: break-word; 
+  word-wrap: break-word;
   overflow-x: hidden;
   overflow-y: scroll;
   max-height: 174px;
   -webkit-box-shadow: 0px -7px 5px -5px rgba(100, 100, 100, 0.2) inset;
-  -moz-box-shadow:    0px -7px 5px -5px rgba(100, 100, 100, 0.2) inset;
-  box-shadow:         0px -7x 5px -5px rgba(100, 100, 100, 0.2) inset;
-  border-bottom:1px solid rgb(200,200,200);
-  padding-bottom:10px;
+  -moz-box-shadow: 0px -7px 5px -5px rgba(100, 100, 100, 0.2) inset;
+  box-shadow: 0px -7x 5px -5px rgba(100, 100, 100, 0.2) inset;
+  border-bottom: 1px solid rgb(200, 200, 200);
+  padding-bottom: 10px;
 }
 p.uploadby {
   padding-left: 10px;
@@ -189,13 +161,11 @@ hr {
   -o-transition: .2s ease-in-out;
   -ms-transition: .2s ease-in-out;
   -moz-transition: .2s ease-in-out;
-  -webkit-transition: .2s ease-in-out; /* ...and now for the proper property */
+  -webkit-transition: .2s ease-in-out;
   transition: .2s ease-in-out;
   background-color: #32C75F !important;
 }
 .mainscreen {
-  /* background-color: #E5E5E5;
-  */
   background-color: rgb(245, 245, 245);
   width: 96%;
   height: 310px;
@@ -209,21 +179,15 @@ hr {
   -moz-box-shadow: 0px 0px 6px 0px rgba(50, 50, 50, 0.12);
   box-shadow: 0px 0px 6px 0px rgba(50, 50, 50, 0.12);
 }
-
 .large-imgwrap {
   width: 100% !important;
   height: 292px !important;
 }
-
 .edit-image-large {
   top: 14 !important;
   left: 20 !important;
 }
-
-/* THUMBNAIL SECTION */
 .screenshots {
-  /* background-color: #EBEBEB;
-  */
   background-color: rgb(242, 242, 242);
   width: 92%;
   height: 200px;
@@ -260,7 +224,6 @@ hr {
 .levelthumb:hover {
   opacity: 1;
 }
-
 .mainthumblarge {
   width: 96%;
   height: 100%;
@@ -270,11 +233,7 @@ hr {
   outline: 1px solid black;
   float: left;
 }
-
-/* COMMENT SECTION */
 .comments {
-  /* background-color: #E5E5E5;
-  */
   background-color: rgb(235, 235, 235);
   width: 96%;
   height: 150px;
@@ -285,11 +244,9 @@ hr {
   -moz-box-shadow: 0px 0px 6px 0px rgba(50, 50, 50, 0.12);
   box-shadow: 0px 0px 6px 0px rgba(50, 50, 50, 0.12);
 }
-
 .header form {
   margin: 0px;
 }
-
 .text-box {
   display: inline;
   height: 30px;
@@ -329,7 +286,7 @@ hr {
 }
 .comment-odd {
   background-color: #EBEBEB;
-  border-top: 1px solid  #DEDEDE;
+  border-top: 1px solid #DEDEDE;
   border-bottom: 1px solid #DEDEDE;
 }
 .comment-even {
@@ -351,67 +308,45 @@ hr {
 .admin {
   color: red !important;
 }
-
 .submitter {
   color: #2146FF !important;
 }
-
 .comment_navigation_message {
-  font-size:14px;
-  font-weight:normal;
+  font-size: 14px;
+  font-weight: normal;
   vertical-align: top;
-  float:right;
-  margin-right:5px;
+  float: right;
+  margin-right: 5px;
 }
-
 .comment_navigation_message:hover {
   color: #2146FF;
 }
-
 .commentfooter {
-  width:100%;
-  height:20px;
-  background-color:rgb(210,210,210);
-  border-top: 1px solid  #DEDEDE;
-  border-bottom: 1px solid #DEDEDE;  
-  font-size:14px;
-  font-weight:normal;
+  width: 100%;
+  height: 20px;
+  background-color: rgb(210, 210, 210);
+  border-top: 1px solid #DEDEDE;
+  border-bottom: 1px solid #DEDEDE;
+  font-size: 14px;
+  font-weight: normal;
   vertical-align: top;
   text-align: center;
-  padding-top:3px;
+  padding-top: 3px;
 }
-
 .returntotoptext {
-  margin-top:4px;
-  color:white;
+  margin-top: 4px;
+  color: white;
 }
-
 .returntotoptext:hover {
   color: #2146FF;
 }
-
-
-/* VIDEO SECTION */
-
 .videosection {
-  /* background-color: #E2E2E2;
-  */
   background-color: rgb(242, 242, 242);
   width: 100%;
   height: 80px;
   margin-top: 20px;
   margin-bottom: 20px;
   text-decoration: none;
-  /* border-left: 5px solid #505050;
-  */
-  /* -webkit-border-top-left-radius: 5px;
-  -webkit-border-bottom-left-radius: 5px;
-  -moz-border-radius-topleft: 5px;
-  -moz-border-radius-bottomleft: 5px;
-  */
-  /* border-top-left-radius: 5px;
-  border-bottom-left-radius: 5px;
-  */
   -webkit-box-shadow: 0px 1px 4px 0px rgba(20, 20, 20, 0.42);
   -moz-box-shadow: 0px 1px 4px 0px rgba(20, 20, 20, 0.42);
   box-shadow: 0px 1px 4px 0px rgba(20, 20, 20, 0.42);
@@ -425,81 +360,63 @@ hr {
   margin-bottom: 10px;
   opacity: 0.9;
 }
-
 .video {
   display: inline-block;
   width: 133px;
   height: 75px;
 }
-
 .video .delete-video {
   position: absolute;
   top: 1px;
   left: 15px;
 }
-
 .add-video-popup {
   position: relative;
-  background: rgb(248,248,248);
+  background: rgb(248, 248, 248);
   padding: 20px;
   width: auto;
   max-width: 500px;
   margin: 20px auto;
   border-radius: 3px;
-  font-size:14px;
-  font-weight:bold;
-  color:rgb(50,50,50);
+  font-size: 14px;
+  font-weight: bold;
+  color: rgb(50, 50, 50);
 }
-
 .delete-video:hover {
   color: white;
 }
-
 .vidthumb:hover {
   opacity: 1;
 }
-
-/* POPUP FADING */
-/* overlay at start */
 .mfp-fade.mfp-bg {
   opacity: 0;
-
   -webkit-transition: all 0.5s ease-out;
   -moz-transition: all 0.5s ease-out;
   transition: all 0.5s ease-out;
 }
-/* overlay animate in */
 .mfp-fade.mfp-bg.mfp-ready {
   opacity: 0.8;
 }
-/* overlay animate out */
 .mfp-fade.mfp-bg.mfp-removing {
   opacity: 0;
 }
-
-/* content at start */
 .mfp-fade.mfp-wrap .mfp-content {
   opacity: 0;
   -webkit-transition: all 0.15s ease-out;
   -moz-transition: all 0.15s ease-out;
   transition: all 0.15s ease-out;
 }
-/* content animate it */
 .mfp-fade.mfp-wrap.mfp-ready .mfp-content {
   opacity: 1;
 }
-/* content animate out */
 .mfp-fade.mfp-wrap.mfp-removing .mfp-content {
   opacity: 0;
 }
-
-/* IMAGE UPLOADS */
 .imgwrap {
   position: relative;
   height: 80px;
   display: inline-block;
 }
-
 .edit-image {
   position: absolute;
   top: 10;
@@ -507,15 +424,13 @@ hr {
   visibility: hidden;
   opacity: 0;
 }
-
-.add-image-button:link, .add-image-button:visited {
+.add-image-button:link,
+.add-image-button:visited {
   color: white;
 }
-
 .imgwrap:hover .edit-image {
   visibility: visible;
   opacity: 1;
-
   -webkit-transition: all 1s ease;
   -moz-transition: all 1s ease;
   -ms-transition: all 1s ease;

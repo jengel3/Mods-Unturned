@@ -1,187 +1,162 @@
 #mainpagewrap {
-  width: 900px; 
-  height:840px !important;
-  margin: 0 auto; 
-  margin-bottom:10px;
+  width: 900px;
+  height: 840px !important;
+  margin: 0 auto;
+  margin-bottom: 10px;
 }
-
 #mainpage {
-  width:860px; 
-  height:840px !important;
-  /*background-color:rgb(217,217,217);*/
+  width: 860px;
+  height: 840px !important;
 }
-
 a {
   text-decoration: none;
-  color:#2354f3;
-  font-weight:bold;
+  color: #2354f3;
+  font-weight: bold;
 }
-
-a:visited, a:link
-{
-  color:#2354f3;
+a:visited,
+a:link {
+  color: #2354f3;
 }
-
 .mainpageleft {
-  width:860px; 
-  height:100%; 
-  float:left; 
-  margin-left:20px;
-  /*border-right:1px dashed #C3C3C3;*/
+  width: 860px;
+  height: 100%;
+  float: left;
+  margin-left: 20px;
 }
-
 .creatorstitle {
-  background-color:rgb(245,245,245); 
-  background-color:rgb(245,245,245); 
-  width:180px;
-  height:25px; 
-  text-align:center;
-  margin-top:15px;
-  margin-left:5px;
+  background-color: rgb(245, 245, 245);
+  background-color: rgb(245, 245, 245);
+  width: 180px;
+  height: 25px;
+  text-align: center;
+  margin-top: 15px;
+  margin-left: 5px;
   -webkit-border-radius: 6px;
   -moz-border-radius: 6px;
-  border-radius: 6px;   
+  border-radius: 6px;
   -webkit-box-shadow: 0px -1px 16px 5px rgba(100, 100, 100, 0.12);
-  -moz-box-shadow:    0px -1px 16px 5px rgba(100, 100, 100, 0.12);
-  box-shadow:         0px -1px 16px 5px rgba(100, 100, 100, 0.12);
-  margin:0 auto;
-  margin-top:20px;
-  padding-top:5px;
-  font-weight:bold;
-  letter-spacing:1px;
-  border:1px solid rgb(200,200,200);
+  -moz-box-shadow: 0px -1px 16px 5px rgba(100, 100, 100, 0.12);
+  box-shadow: 0px -1px 16px 5px rgba(100, 100, 100, 0.12);
+  margin: 0 auto;
+  margin-top: 20px;
+  padding-top: 5px;
+  font-weight: bold;
+  letter-spacing: 1px;
+  border: 1px solid rgb(200, 200, 200);
 }
-
 .honorstitle {
-  margin-top:30px;
+  margin-top: 30px;
 }
-
 .biowraps {
-  background-color:rgb(245,245,245); 
-  background-color:rgb(245,245,245); 
-  width:400px;
-  /*border-left:5px solid #505050;*/
-  min-height:280px; 
-  margin-top:15px;
-  margin-left:5px;
+  background-color: rgb(245, 245, 245);
+  background-color: rgb(245, 245, 245);
+  width: 400px;
+  min-height: 280px;
+  margin-top: 15px;
+  margin-left: 5px;
   -webkit-border-radius: 6px;
   -moz-border-radius: 6px;
-  border-radius: 6px; 
+  border-radius: 6px;
   -webkit-box-shadow: 0px -1px 6px 0px rgba(100, 100, 100, 0.12);
-  -moz-box-shadow:    0px -1px 6px 0px rgba(100, 100, 100, 0.12);
-  box-shadow:         0px -1px 6px 0px rgba(100, 100, 100, 0.12);
-  margin:0 auto;
-  margin-top:20px;
-  margin-left:12px;
-  padding:5px;
-  font-weight:bold;
-  display:inline-block;
-  border: 1px solid rgb(200,200,200);
-
+  -moz-box-shadow: 0px -1px 6px 0px rgba(100, 100, 100, 0.12);
+  box-shadow: 0px -1px 6px 0px rgba(100, 100, 100, 0.12);
+  margin: 0 auto;
+  margin-top: 20px;
+  margin-left: 12px;
+  padding: 5px;
+  font-weight: bold;
+  display: inline-block;
+  border: 1px solid rgb(200, 200, 200);
 }
-
 .honorbiowrap {
-  width:660px;
+  width: 660px;
   margin-top: 30px;
-  margin-left:100px;
-  min-height:82px;
-  font-weight:normal;
-  padding:15px;
-  background-color:rgb(245,245,245); 
-
+  margin-left: 100px;
+  min-height: 82px;
+  font-weight: normal;
+  padding: 15px;
+  background-color: rgb(245, 245, 245);
 }
-
 .statswrap {
-  width:520px;
+  width: 520px;
   margin-top: 30px;
-  margin-left:170px;
-  min-height:220px;
-  font-weight:normal;
-  padding:5px;  
-  background-color:rgb(245,245,245); 
-  display:inline-block;
-  text-align:center;
+  margin-left: 170px;
+  min-height: 220px;
+  font-weight: normal;
+  padding: 5px;
+  background-color: rgb(245, 245, 245);
+  display: inline-block;
+  text-align: center;
 }
-
 .statstitle {
-  font-weight:bold;
-  font-size:35px;
-  color: rgb(50,50,50);
+  font-weight: bold;
+  font-size: 35px;
+  color: rgb(50, 50, 50);
 }
-
 .statstable {
-  width:100%;
-  height:180px;
+  width: 100%;
+  height: 180px;
 }
-
 .statstable td {
-  border:1px solid rgb(200,200,200);
-  width:50%;
-  font-weight:bold;
-  color:rgb(60,60,60);
+  border: 1px solid rgb(200, 200, 200);
+  width: 50%;
+  font-weight: bold;
+  color: rgb(60, 60, 60);
 }
-
-.effect7
-{
-  position:relative;       
-  -webkit-box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
-  -moz-box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
-  box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
+.effect7 {
+  position: relative;
+  -webkit-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
+  -moz-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
 }
-.effect7:before, .effect7:after
-{
-  content:"";
-  position:absolute; 
-  z-index:-1;
-  -webkit-box-shadow:0 0 20px rgba(0,0,0,0.8);
-  -moz-box-shadow:0 0 20px rgba(0,0,0,0.8);
-  box-shadow:0 0 20px rgba(0,0,0,0.8);
-  top:0;
-  bottom:0;
-  left:10px;
-  right:10px;
-  -moz-border-radius:100px / 10px;
-  border-radius:100px / 10px;
-} 
-.effect7:after
-{
-  right:10px; 
-  left:auto;
-  -webkit-transform:skew(8deg) rotate(3deg); 
-  -moz-transform:skew(8deg) rotate(3deg);     
-  -ms-transform:skew(8deg) rotate(3deg);     
-  -o-transform:skew(8deg) rotate(3deg); 
-  transform:skew(8deg) rotate(3deg);
+.effect7:before,
+.effect7:after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  -webkit-box-shadow: 0 0 20px rgba(0, 0, 0, 0.8);
+  -moz-box-shadow: 0 0 20px rgba(0, 0, 0, 0.8);
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.8);
+  top: 0;
+  bottom: 0;
+  left: 10px;
+  right: 10px;
+  -moz-border-radius: 100px / 10px;
+  border-radius: 100px / 10px;
 }
-
+.effect7:after {
+  right: 10px;
+  left: auto;
+  -webkit-transform: skew(8deg) rotate(3deg);
+  -moz-transform: skew(8deg) rotate(3deg);
+  -ms-transform: skew(8deg) rotate(3deg);
+  -o-transform: skew(8deg) rotate(3deg);
+  transform: skew(8deg) rotate(3deg);
+}
 .profile {
-  margin:5px;
+  margin: 5px;
 }
-
 .avatar {
-  width:60px;
-  height:60px;
-  float:left;
-  border:1px solid rgb(100,100,100);
+  width: 60px;
+  height: 60px;
+  float: left;
+  border: 1px solid rgb(100, 100, 100);
 }
-
 .username {
-  color: rgb(50,50,50);
+  color: rgb(50, 50, 50);
   margin-left: 67px;
-  font-weight:bold;
-  font-size:35px;
+  font-weight: bold;
+  font-size: 35px;
 }
-
 .userdescriptionshort {
   margin-left: 67px;
-  font-size:16px;
+  font-size: 16px;
 }
-
 .userdescriptionlong {
-  padding:5px;
-  overflow:hidden;
-  margin-top:8px;
-  height:280px;
-  font-weight:normal;
-  text-indent:12px;
+  padding: 5px;
+  overflow: hidden;
+  margin-top: 8px;
+  height: 280px;
+  font-weight: normal;
+  text-indent: 12px;
 }

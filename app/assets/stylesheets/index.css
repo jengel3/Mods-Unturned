@@ -19,20 +19,18 @@ a:visited {
   height: 1240px;
 }
 .sorting {
-  width:100%; 
-  text-align:center; 
-  height:8px;
-  margin-top:5px; 
-  font-size:14px; 
-  margin-left:0px;
+  width: 100%;
+  text-align: center;
+  height: 8px;
+  margin-top: 5px;
+  font-size: 14px;
+  margin-left: 0px;
 }
 .mainpageleft {
   width: 860px;
   height: 100%;
   float: left;
   margin-left: 20px;
-  /* border-right: 1px dashed #C3C3C3;
-  */
   border: none;
 }
 .mainpageright {
@@ -40,38 +38,14 @@ a:visited {
   height: 100%;
   float: right;
   margin-right: 20px;
-  /* border-left: 1px dashed #C3C3C3;
-  */
   border: none;
 }
-
-/* div for each individual level or model */
 .content {
-  background-color: rgb(245, 245, 245); /* EBEBEB */
-  /* background-image: -webkit-gradient(
-  linear, left top, left bottom, color-stop(0, #EBEBEB), color-stop(1, #DCDCDC)
-  );
-  background-image: -o-linear-gradient(bottom, #EBEBEB 0%, #DCDCDC 100%);
-  background-image: -moz-linear-gradient(bottom, #EBEBEB 0%, #DCDCDC 100%);
-  background-image: -webkit-linear-gradient(bottom, #EBEBEB 0%, #DCDCDC 100%);
-  background-image: -ms-linear-gradient(bottom, #EBEBEB 0%, #DCDCDC 100%);
-  background-image: linear-gradient(to bottom, #EBEBEB 0%, #DCDCDC 100%);
-  */
-  /* width: 428px;
-  */
+  background-color: rgb(245, 245, 245);
   width: 418px;
-  /* border-left: 5px solid #505050;
-  */
   height: 105px;
   margin-top: 15px;
   margin-left: 5px;
-  /* -webkit-border-top-left-radius: 6px;
-  -webkit-border-bottom-left-radius: 6px;
-  -moz-border-radius-topleft: 6px;
-  -moz-border-radius-bottomleft: 6px;
-  border-top-left-radius: 6px;
-  border-bottom-left-radius: 6px;
-  */
   -webkit-border-radius: 6px;
   -moz-border-radius: 6px;
   border-radius: 6px;
@@ -79,60 +53,24 @@ a:visited {
   -moz-box-shadow: 0px -1px 6px 0px rgba(100, 100, 100, 0.12);
   box-shadow: 0px -1px 6px 0px rgba(100, 100, 100, 0.12);
   display: inline-block;
-  /* -webkit-box-shadow: 0px -2px 6x 0px rgba(100, 100, 100, 0.15);
-  -moz-box-shadow: 0px -2px 6px 0px rgba(100, 100, 100, 0.15);
-  box-shadow: 0px -2px 6px 0px rgba(100, 100, 100, 0.15);
-  */
-  /* border-bottom: 1px solid #D5D5D5;
-  */
-  /* border-top: 1px solid #D5D5D5;
-  */
   border: 1px solid #C3C3C3;
-  vertical-align:top;
+  vertical-align: top;
 }
-
-/* #D8D8D8 original content color */
 .content:hover {
-  /* border-left: 5px solid #1C1C1C;
-  */
-  
   -o-transition: .1s ease-in-out;
   -ms-transition: .1s ease-in-out;
   -moz-transition: .1s ease-in-out;
-  -webkit-transition: .1s ease-in-out; /* ...and now for the proper property */
+  -webkit-transition: .1s ease-in-out;
   transition: .1s ease-in-out;
   background-color: rgb(250, 250, 250) !important;
   border-radius: 0;
 }
-
-/* right side for models */
 .content2 {
-  background-color: rgb(245, 245, 245); /* EBEBEB */
-  /* background-image: -webkit-gradient(
-  linear, left top, left bottom, color-stop(0, #EBEBEB), color-stop(1, #DCDCDC)
-  );
-  background-image: -o-linear-gradient(bottom, #EBEBEB 0%, #DCDCDC 100%);
-  background-image: -moz-linear-gradient(bottom, #EBEBEB 0%, #DCDCDC 100%);
-  background-image: -webkit-linear-gradient(bottom, #EBEBEB 0%, #DCDCDC 100%);
-  background-image: -ms-linear-gradient(bottom, #EBEBEB 0%, #DCDCDC 100%);
-  background-image: linear-gradient(to bottom, #EBEBEB 0%, #DCDCDC 100%);
-  */
-  /* width: 428px;
-  */
+  background-color: rgb(245, 245, 245);
   width: 418px;
-  /* border-left: 5px solid #505050;
-  */
   height: 105px;
   margin-top: 15px;
   margin-left: 5px;
-  /* -webkit-border-top-right-radius: 6px;
-  -webkit-border-bottom-right-radius: 6px;
-  -moz-border-radius-topright: 6px;
-  -moz-border-radius-bottomright: 6px;
-  border-top-right-radius: 6px;
-  border-bottom-right-radius: 6px;
-  */
-  
   -webkit-border-radius: 6px;
   -moz-border-radius: 6px;
   border-radius: 6px;
@@ -143,18 +81,14 @@ a:visited {
   display: inline-block;
 }
 .content2:hover {
-  /* border-right: 5px solid #5495D2;
-  */
   -o-transition: .1s ease-in-out;
   -ms-transition: .1s ease-in-out;
   -moz-transition: .1s ease-in-out;
-  -webkit-transition: .1s ease-in-out; /* ...and now for the proper property */
+  -webkit-transition: .1s ease-in-out;
   transition: .1s ease-in-out;
   background-color: #EEEEEE !important;
   border-radius: 0px;
 }
-
-/* thumbnail for each mod on index */
 .levelthumb {
   height: 88px;
   width: 150px;
@@ -163,49 +97,38 @@ a:visited {
   outline: 1px solid rgb(150, 150, 150);
   float: left;
 }
-
-/* Mod description next to thumb */
 .contentdetails {
   margin-left: 170px;
   padding-top: 10px;
   margin-right: 5px;
 }
-
 .madebyuser a:visited {
-  font-size:13px;
-  color:#473AFA;
+  font-size: 13px;
+  color: #473AFA;
   font-family: 'Arimo', sans-serif;
   color: #473AFA;
 }
-
-
 .madebyuser a {
-  font-size:13px;
-  color:#473AFA;
+  font-size: 13px;
+  color: #473AFA;
   font-family: 'Arimo', sans-serif;
   color: #473AFA;
 }
-
 .downloadcount {
   display: inline-block;
-  color:rgb(100,100,100);
-  font-size:13px;
+  color: rgb(100, 100, 100);
+  font-size: 13px;
 }
-
 .downloadcount img {
-  width:11px;
-  vertical-align:bottom;
-  padding-bottom:2px;
+  width: 11px;
+  vertical-align: bottom;
+  padding-bottom: 2px;
 }
-
-/* Mod (content) titles */
 h4 {
   margin: 0;
-  /* font-family: 'Arial', Helvetica, sans-serif;
-  */
   letter-spacing: 1px;
-  height: 18px; 
-  overflow: hidden; 
+  height: 18px;
+  overflow: hidden;
   word-wrap: break-word;
 }
 h4 a:hover {
@@ -215,19 +138,15 @@ h4 a:hover {
   font-family: 'Arimo', sans-serif;
   font-size: 14px;
   margin-top: 5px;
-  word-wrap: break-word; 
-  overflow: hidden; 
+  word-wrap: break-word;
+  overflow: hidden;
   min-height: 48px;
 }
-
-/* text in footer */
 .footertext {
   color: white;
 }
-
-/* Fix Firefox margins */
-@-moz-document url-prefix() { 
+@-moz-document url-prefix() {
   * {
-     font-family: Arial;
+    font-family: Arial;
   }
 }
