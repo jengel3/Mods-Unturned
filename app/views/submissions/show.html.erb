@@ -39,16 +39,6 @@
             <%= best_in_place_if can_manage(@submission), @submission, :body, :as => :textarea, tabindex: "2", class: 'description_filter', :data => {:description => @submission.body}, raw: true, :display_with => lambda { |v| sanitize(v).gsub(/(\r)?\n/, "<br/>").html_safe } %>
           </p>
           
-        <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-        <!-- Mods-Unturned Sidebar Link -->
-        <ins class="adsbygoogle"
-          style="display:block;margin-top:10px;margin-left:10px;width:200px;height:90px"
-          data-ad-client="ca-pub-3000890138855017"
-          data-ad-slot="9767886582"></ins>
-        <script>
-        (adsbygoogle = window.adsbygoogle || []).push({});
-        </script> 
-          
           <p class="uploadby">
             <b><%= t '.created_by' %></b>
           </p>
@@ -121,6 +111,16 @@
         <script>
         (adsbygoogle = window.adsbygoogle || []).push({});
         </script>
+        
+        <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+        <!-- Mods-Unturned Sidebar Link -->
+        <ins class="adsbygoogle"
+          style="display:block;margin-top:10px;margin-left:10px;width:200px;height:90px"
+          data-ad-client="ca-pub-3000890138855017"
+          data-ad-slot="9767886582"></ins>
+        <script>
+        (adsbygoogle = window.adsbygoogle || []).push({});
+        </script> 
         
         <%= render 'videos/display' %>
         <%= render 'videos/popup' %>
