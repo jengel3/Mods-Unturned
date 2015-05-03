@@ -1,16 +1,16 @@
 <%= form_for([@submission, @image]) do |f| %>
 <fieldset>
-  <legend class="screenupload_legend">Select an Image</legend>
+  <legend class="screenupload_legend"><%= t('images.select_image') %></legend>
   <%= f.select(:location, options_for_select([['Main Image', 'Main'], ['Screenshot #1', 'Thumbnail1'], ['Screenshot #2', 'Thumbnail2'], ['Screenshot #3', 'Thumbnail3'], ['Screenshot #4', 'Thumbnail4'], ['Screenshot #5', 'Thumbnail5'], ['Screenshot #6', 'Thumbnail6']], "Main"), {}, {:class=>'thumbnailselectform', size: "2" }) %>
 </fieldset>
-<%= f.file_field :image, class: 'uploadscreenbutton', value: 'Choose file' %>
+<%= f.file_field :image, class: 'uploadscreenbutton', value: t('.choose_file') %>
 <div class="uploadscreenpage_notificationmessagewrap errormessage">
   <% if @image.errors.any? %>
   <span class="uploadscreenpage_notificationtext"><%= render 'shared/errors', object: @image %></span></div>
   <% else %>
-  <span class="uploadscreenpage_notificationtext">Preview may not display image aspect ratio correctly. </span></div>
+  <span class="uploadscreenpage_notificationtext"><%= t('images.preview_display') %> </span></div>
   <% end %>
-  <a class="submitlink" href="#upload"><%= f.submit 'Upload', class: 'signinbutton', :data => { :disable_with => "Uploading" } %></a>
+  <a class="submitlink" href="#upload"><%= f.submit t('common.upload'), class: 'signinbutton', :data => { :disable_with => t('common.uploading') } %></a>
   <div class="uploadscreen_inputbottomwrap">
   </div>
 </div>

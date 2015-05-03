@@ -10,16 +10,16 @@
           <td>
             <div class="filesubmit_inputwrap">
               <%= form_for([@submission, @upload], authenticity_token: true, html: { style: 'margin-bottom: 0px', id: 'upload_file' }) do |f| %>
-              <%= f.text_field :name, class: 'uploadfile-input', autocomplete: "off", placeholder: 'Upload name' %>
+              <%= f.text_field :name, class: 'uploadfile-input', autocomplete: "off", placeholder: t('.upload_name') %>
               <%= f.text_field :version, class: 'uploadfile-input', autocomplete: "off", placeholder: 'Submission version' %>
               <%= f.file_field :upload, class: 'uploadfilebutton' %>
               <div class="uploadfilepage_notificationmessagewrap errormessage"><span class="uploadfilepage_notificationtext">
                 <% if @upload.errors.any? %>
                 <%= render 'shared/errors', object: @upload %>
                 <% else %>
-                ZIP files only! Your file will be approved by a moderator before it goes live. 
+                <%= t('.zip_files') %>
                 <% end %></span></div>
-                <a class="submitlink" href=""><%= f.submit 'Upload', class: 'signinbutton', :data => { :disable_with => "Uploading" } %></a>
+                <a class="submitlink" href=""><%= f.submit t('common.upload'), class: 'signinbutton', :data => { :disable_with => t('common.uploading') } %></a>
                 <% end %>
                 <div class="filesubmit_inputbottomwrap">
                 </div>

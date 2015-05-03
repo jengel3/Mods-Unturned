@@ -1,9 +1,5 @@
 <div id="add-report-<%= reportable.last.class.name.downcase %>" class="add-video-popup mfp-hide">
-  <p>
-    <%= t '.report_text' %>
-  </p>
-
-
+  <p><%= t '.report_text' %></p>
   <%= form_for(reportable.concat([Report.new])) do |f| %>
   <p>
     <%= f.label :report_type, 'Reason:' %>
@@ -11,12 +7,12 @@
     <%= f.select(:report_type, ['Spam', 'Inappropriate', 'Not Original', 'Other'].map { |value| [ value, value ] }) %>
   </p>
   <p>
-    <%= f.label :comments, 'Comments:' %>
+    <%= f.label :comments, t('comments.comments') + ':' %>
     <br/>
-    <%= f.text_area :comments, autocomplete: 'off', class: 'text-box', placeholder: 'Extra comments...', rows: 6, style: 'height: auto !important; width: 95%' %>
+    <%= f.text_area :comments, autocomplete: 'off', class: 'text-box', placeholder: t('.extra_comments'), rows: 6, style: 'height: auto !important; width: 95%' %>
   </p>
   <p>
-    <%= f.submit 'Submit', class: 'text-box', style: 'display: inline;', :data => { :disable_with => "Saving" } %>
+    <%= f.submit t('common.submit'), class: 'text-box', style: 'display: inline;', :data => { :disable_with => "Saving" } %>
   </p>
   <% end %>
 </div>

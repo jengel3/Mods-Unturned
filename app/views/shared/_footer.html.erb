@@ -3,14 +3,14 @@
     <tr>
       <td><a href=<%= about_path %>><%= t '.about' %></a></td>
       <td><a href="#contact-popup" class='contact-button'><%= t '.contact' %></a></td>
-      <td><a href=<%= new_submission_path %>><%= t '.submit' %></a></td>
+      <td><a href=<%= new_submission_path %>><%= t 'common.submit' %></a></td>
     </tr>
     <tr>
       <td colspan="3" class="socialmedialogos">
-        <%= link_to image_tag('facebook.png', class: 'socialmediaimg'), "https://www.facebook.com/pages/Mods-Unturnedcom/846719095349217", target: "_blank" %>
-        <%= link_to image_tag('twitter.png', class: 'socialmediaimg'), "https://twitter.com/Mods_Unturned", target: "_blank" %>
-        <%= link_to image_tag('google.png', class: 'socialmediaimg'), "https://plus.google.com/103886656948838780928/about", target: "_blank" %>
-        <%= link_to image_tag('youtube.png', class: 'socialmediaimg'), "", target: "_blank" %>
+        <%= link_to image_tag('facebook.png', class: 'socialmediaimg', alt: t('.facebook')), "https://www.facebook.com/pages/Mods-Unturnedcom/846719095349217", target: "_blank" %>
+        <%= link_to image_tag('twitter.png', class: 'socialmediaimg', alt: t('.twitter')), "https://twitter.com/Mods_Unturned", target: "_blank" %>
+        <%= link_to image_tag('google.png', class: 'socialmediaimg', alt: t('.google')), "https://plus.google.com/103886656948838780928/about", target: "_blank" %>
+        <%= link_to image_tag('youtube.png', class: 'socialmediaimg', alt: t('.youtube')), "", target: "_blank" %>
       </td>
     </tr>
   </table>
@@ -21,10 +21,10 @@
     <%= t '.please_allow' %>
   </p>
   <%= form_tag contact_path, method: 'POST' do %>
-  <%= label_tag 'Username '%><%= text_field :contact, :username, class: 'contactboxes', value: current_user ? current_user.username : "" %>
-  <%= label_tag 'Email ' %><%= email_field :contact, :email, class: 'contactboxes', value: current_user ? current_user.email : "" %>
-  <%= label_tag 'Message ' %><%= text_area :contact, :inquiry, class: 'contactboxes', rows: 7 %>
-  <%= submit_tag 'Send', class: 'contactsubmitbutton', :data => { :disable_with => "Sending" } %>
+  <%= label_tag 'Username', t('.username') %> <%= text_field :contact, :username, class: 'contactboxes', value: current_user ? current_user.username : "" %>
+  <%= label_tag 'Email', t('.email') %> <%= email_field :contact, :email, class: 'contactboxes', value: current_user ? current_user.email : "" %>
+  <%= label_tag 'Message', t('.message') %><%= text_area :contact, :inquiry, class: 'contactboxes', rows: 7 %>
+  <%= submit_tag 'Send', class: 'contactsubmitbutton', :data => { :disable_with => t('.sending') } %>
   <div class="g-recaptcha" data-sitekey="6LdXLQITAAAAAH39kLpg0OWSOEyIe5WgrMWbx00F"></div>
   <% end %>
 </div>

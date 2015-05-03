@@ -5,7 +5,6 @@ class ApplicationController < ActionController::Base
   before_filter :is_maintenance
   before_filter :require_admin, only: [:flush_cache, :email]
   before_filter :complete_steam_register
-  @@secret = "6LdXLQITAAAAAJua6hwGRSIiP-pMAnN0ql-QZZwp"
 
   def is_maintenance
     if MAINTENANCE
@@ -50,7 +49,8 @@ class ApplicationController < ActionController::Base
       flash[:alert] = "Please complete the captcha."
       return redirect_to root_path
     end
-    google_resp = HTTParty.get("https://www.google.com/recaptcha/api/siteverify?secret=#{@@secret}&response=#{captcha_resp}&remoteip=#{request_ip}")
+    secret = "6LdXLQITAAAAAJua6hwGRSIiP-pMAnN0ql-QZZwp"
+    google_resp = HTTParty.get("https://www.google.com/recaptcha/api/siteverify?secret=#{secret}&response=#{captcha_resp}&remoteip=#{request_ip}")
     result = JSON.parse(google_resp.body)
     if !result['success']
       flash[:alert] = "It appears you are a bot. Please try again."

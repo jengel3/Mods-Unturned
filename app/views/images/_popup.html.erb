@@ -6,13 +6,13 @@
           <div class="uploadscreen_inputwrap">
             <%= form_for([@submission, @submission.images.new]) do |f| %>
             <fieldset>
-              <legend class="screenupload_legend">Select an Image</legend>
+              <legend class="screenupload_legend"><%= t('images.select_image') %></legend>
               <%= f.select(:location, options_for_select([['Main Image', 'Main'], ['Screenshot #1', 'Thumbnail1'], ['Screenshot #2', 'Thumbnail2'], ['Screenshot #3', 'Thumbnail3'], ['Screenshot #4', 'Thumbnail4'], ['Screenshot #5', 'Thumbnail5'], ['Screenshot #6', 'Thumbnail6']], 'Thumbnail1'), {}, { :class=>'thumbnailselectform', size: "2" }) %>
             </fieldset>
             <%= f.file_field :image, class: 'uploadscreenbutton', value: 'Choose file' %>
             <div class="uploadscreenpage_notificationmessagewrap errormessage">
-              <span class="uploadscreenpage_notificationtext">Preview may not display image aspect ratio correctly. </span></div>
-              <a class="submitlink" href="#upload"><%= f.submit 'Upload', class: 'signinbutton' %></a>
+              <span class="uploadscreenpage_notificationtext"><%= t('images.preview_display') %> </span></div>
+              <a class="submitlink" href="#upload"><%= f.submit t('common.upload'), class: 'signinbutton' %></a>
               <div class="uploadscreen_inputbottomwrap">
               </div>
             </div>
@@ -23,7 +23,7 @@
           <div class="uploadscreen_tutorialwrap">
             <div class="uploadscreen_headerwrap">
               <%= image_tag 'preview25.png', class: 'uploadscreen_magnifyimg' %>
-              <div class="uploadscreen_tutorialtitle"> Image Preview</div>
+              <div class="uploadscreen_tutorialtitle"> <%= t('images.image_preview') %></div>
               <%= image_tag 'uploadthumb.png', alt: 'Image Preview', class: 'uploadscreen_previewimgwrap' %>
             </div>
           </div>
