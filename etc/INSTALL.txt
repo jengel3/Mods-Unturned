@@ -66,7 +66,7 @@ git clone git@github.com:Jake0oo0/Unturned-Mods.git
 gem install bundler
 bundle install
 npm install
-bower install
+./node_modules/bower/bin/bower install
 
 rvmsudo passenger-install-nginx-module
 wget -O init-deb.sh https://www.linode.com/docs/assets/660-init-deb.sh
