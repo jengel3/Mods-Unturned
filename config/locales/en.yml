@@ -205,3 +205,8 @@ en:
         email: "Email"
         log_in_steam: "Log in with Steam"
         email_or_username: "Email or Username"
+  application:
+    maintenance:
+      right_place: "Right Place, Wrong Time"
+      down_for_short: "Down for short maintenance"
+      be_back_soon: "Be back soon! - <a href=\"https://twitter.com/Mods_Unturned\" target=\"_blank\">Twitter</a></span>"
