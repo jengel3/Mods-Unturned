@@ -38,6 +38,7 @@
           <p class="description">
             <%= best_in_place_if can_manage(@submission), @submission, :body, :as => :textarea, tabindex: "2", class: 'description_filter', :data => {:description => @submission.body}, raw: true, :display_with => lambda { |v| sanitize(v).gsub(/(\r)?\n/, "<br/>").html_safe } %>
           </p>
+          
           <p class="uploadby">
             <b><%= t '.created_by' %></b>
           </p>
@@ -99,15 +100,27 @@
           <% end %>
         </div>
         
+        
+        
         <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
         <!-- Mods-Unturned Sidebar Fixed -->
         <ins class="adsbygoogle"
-        style="display:block;margin-top:10px;margin-left:0;width:300px;height:250px"
-        data-ad-client="ca-pub-3000890138855017"
-        data-ad-slot="8899392583"></ins>
+            style="display:block;margin-top:10px;margin-left:0;width:300px;height:250px"
+            data-ad-client="ca-pub-3000890138855017"
+            data-ad-slot="8899392583"></ins>
         <script>
         (adsbygoogle = window.adsbygoogle || []).push({});
-        </script>	        
+        </script>
+        
+        <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+        <!-- Mods-Unturned Sidebar Link -->
+        <ins class="adsbygoogle"
+          style="display:block;margin-top:10px;margin-left:10px;width:200px;height:90px"
+          data-ad-client="ca-pub-3000890138855017"
+          data-ad-slot="9767886582"></ins>
+        <script>
+        (adsbygoogle = window.adsbygoogle || []).push({});
+        </script> 
         
         <%= render 'videos/display' %>
         <%= render 'videos/popup' %>
@@ -116,6 +129,17 @@
   </div>
   <div class="mainpageright">
     <div class="rightbar">
+      
+      <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+      <!-- Mods-Unturned Top Link -->
+      <ins class="adsbygoogle"
+           style="display:block;margin:0 auto;margin-top:7px;width:468px;height:15px"
+           data-ad-client="ca-pub-3000890138855017"
+           data-ad-slot="6237180583"></ins>
+      <script>
+      (adsbygoogle = window.adsbygoogle || []).push({});
+      </script>
+      
       <%= render 'images' %>
       
       <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
@@ -127,6 +151,7 @@
       <script>
     (adsbygoogle = window.adsbygoogle || []).push({});
     </script>
+    
       
       <%= render 'comments/display' %>
     </div>
