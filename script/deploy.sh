@@ -1,5 +1,6 @@
 git reset --hard
 git pull
 npm install
-bower install
+./node_modules/bower/bin/bower install
 rake assets:precompile RAILS_ENV=production
+touch tmp/restart.txt
