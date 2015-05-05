@@ -1,10 +1,8 @@
 <html lang="en">
 <head>
-  <title>Unturned Mods</title>
-  <link href="<%= root_url %>" rel="alternate" title="RSS" type="application/rss+xml" />
-
-  <meta content="Welcome to Mods-Unturned! This is your central place for quality map and model mods for Unturned the game." name="description"/>
-  <meta content="Unturned, Unturned Mods, Unturned Maps, Unturned models, unturned map mods, unturned model mods, unturned mod, unturned mod download, unturned modding, unturned tutorial, unturned database" name="keywords"/>
+  <title><%= content_for?(:title) ? yield(:title) + ' :: Mods Unturned ' : 'Mods Unturned' %></title>
+  <meta content="Welcome to Mods-Unturned! This is your central place for quality map, model, and mods for Unturned the game." name="description"/>
+  <meta content="Unturned, Unturned Mods, Unturned Maps, Unturned models, unturned map mods, unturned model mods, unturned mod, unturned mod download, unturned modding, unturned tutorial, unturned database, steam workshop" name="keywords"/>
   <meta content="Bradley Mitchell" name="author"/>
 
   <meta charset="utf-8">
@@ -23,7 +21,6 @@
   <!-- Twitter display meta -->
   <meta name="twitter:card" content="summary">
   <meta name="twitter:creator" content="@Mods-Unturned_com">
-
 
   <%= csrf_meta_tags %>
 

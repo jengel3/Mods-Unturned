@@ -39,7 +39,7 @@
         </td>
       </tr>
     </table>
-    <br /><!--<hr />--><br />
+    <br/><br/>
     <table class="homelowerlayout">
       <tr>
         <td class="homesubtitle"><img src=<%= image_path('updated.png') %> /> <%= t '.recently_updated' %> </td>
@@ -49,7 +49,7 @@
         <td class="recentlyupdatedmods">
           <% @recent.each do |recent| %>
           <div class="content">
-            <a href=<%= submission_path(recent) %>><img src=<%= recent.main_image.image_url %> class="levelthumb"></a>
+            <a href="<%= submission_path(recent) %>"> <img src="<%= recent.main_image.image_url %>" class="levelthumb"></a>
             <div class="contentdetails">
               <h4 style= "height: 18px; overflow: hidden; word-wrap: break-word;"><a href=<%= submission_path(recent) %>><%= recent.name %></a></h4>
               <div class="madebyuser"><a href=<%= user_uploads_path(recent.user.username) %>><%= recent.user.username %></a><div class="downloadcount">&nbsp;&bull; <%= recent.download_count %> <img src=<%= image_path('downarrow.png') %> /></div></div> 
@@ -113,9 +113,9 @@
             <div>
               <%= link_to (t '.about_mods_unturned'), about_path, class: 'quicklinkitem' %>
               <%= link_to (t '.tutorials'), "https://www.youtube.com/playlist?list=PLOjtCLyAWSfkJSZn4NdBsqvZKZhWOQ29q", class: 'quicklinkitem', target: '_blank' %>
-              <%= link_to (t '.item_id_list'), "http://www.reddit.com/r/unturned/comments/2njy5b/unturned_id_list/", class: 'quicklinkitem', target: '_blank' %>
+              <%= link_to (t '.item_id_list'), "https://www.reddit.com/r/unturned/comments/2njy5b/unturned_id_list/", class: 'quicklinkitem', target: '_blank' %>
               <%= link_to (t '.facebook_page'), "https://www.facebook.com/pages/Mods-Unturnedcom/846719095349217", class: 'quicklinkitem', target: '_blank' %>
-              <%= link_to (t '.twitter_page'), "https://twitter.com/Mods_Unturned", class: 'quicklinkitem', target: '_blank' %>
+              <%= link_to (t '.twitter'), "https://twitter.com/Mods_Unturned", class: 'quicklinkitem', target: '_blank' %>
               <%= link_to (t '.unturned_steam'), "http://steamcommunity.com/app/304930", class: 'quicklinkitem', target: '_blank' %>
             </div>
           </td>

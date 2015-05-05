@@ -10,7 +10,7 @@
       <div class="text" title="<%= comment_timestamp(comment) %>">
         <% if user_is_admin || (current_user && current_user == comment.user) %>
         <% if !comment.deleted_at %>
-        <%= link_to "<i class='fa fa-trash'></i>".html_safe, submission_comment_path(@submission, comment), title: 'Delete Comment', method: :delete, data: { confirm: t('.confirm_delete') } %>
+        <%= link_to "<i class='fa fa-trash'></i>".html_safe, submission_comment_path(@submission, comment), title: t('.delete_comment'), method: :delete, data: { confirm: t('.confirm_delete') } %>
         <% else %>
         <%= link_to "<i class='fa fa-plus-circle'></i>".html_safe, submission_comment_restore_path(@submission, comment), title: t('.restore_comment'), data: { confirm: t('.confirm_restore') } %>
         <% end %>

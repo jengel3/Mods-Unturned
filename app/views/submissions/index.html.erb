@@ -11,28 +11,28 @@
         <div style="width:100%; text-align:center; height:8px;margin-top:5px; font-size:14px; margin-left:0px;">
           <% if params[:sort] == "newest" || !params[:sort] %>
             <b>
-              <%= link_to (t '.newest'), params.merge(:sort => "newest", :page => 1) %>
+              <%= link_to t('.newest'), params.merge(:sort => "newest", :page => 1) %>
             </b>
           <% else %>
-            <%= link_to (t '.newest'), params.merge(:sort => "newest", :page => 1) %>
+            <%= link_to t('.newest'), params.merge(:sort => "newest", :page => 1) %>
           <% end %>
           <% if params[:sort] == "popular" %>
             &bull;
             <b>
-              <%= link_to (t '.popular'), params.merge(:sort => "popular", :page => 1) %>
+              <%= link_to t('.popular'), params.merge(:sort => "popular", :page => 1) %>
             </b>
           <% else %>
             &bull;
-            <%= link_to (t '.popular'), params.merge(:sort => "popular", :page => 1) %>
+            <%= link_to t('.popular'), params.merge(:sort => "popular", :page => 1) %>
           <% end %>
           <% if params[:sort] == "updated" %>
             &bull;
             <b>
-              <%= link_to (t '.recent'), params.merge(:sort => "updated", :page => 1) %>
+              <%= link_to t('.recent'), params.merge(:sort => "updated", :page => 1) %>
             </b>
           <% else %>
             &bull;
-            <%= link_to (t '.recent'), params.merge(:sort => "updated", :page => 1) %>
+            <%= link_to t('.recent'), params.merge(:sort => "updated", :page => 1) %>
           <% end %>
         </div>
         <% @submissions.each do |submission| %>
@@ -58,7 +58,7 @@
                 <div class="downloadcount">
                   &bull;
                   <%= submission.download_count %>
-                  <%= image_tag("downarrow.png") %>
+                  <%= image_tag("downarrow.png", alt: "DL") %>
                 </div>
               </div>
               <div class="contentdesc">

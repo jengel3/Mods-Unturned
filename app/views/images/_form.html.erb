@@ -3,7 +3,7 @@
   <legend class="screenupload_legend"><%= t('images.select_image') %></legend>
   <%= f.select(:location, options_for_select([['Main Image', 'Main'], ['Screenshot #1', 'Thumbnail1'], ['Screenshot #2', 'Thumbnail2'], ['Screenshot #3', 'Thumbnail3'], ['Screenshot #4', 'Thumbnail4'], ['Screenshot #5', 'Thumbnail5'], ['Screenshot #6', 'Thumbnail6']], "Main"), {}, {:class=>'thumbnailselectform', size: "2" }) %>
 </fieldset>
-<%= f.file_field :image, class: 'uploadscreenbutton', value: t('.choose_file') %>
+<%= f.file_field :image, class: 'uploadscreenbutton', value: t('images.choose_file') %>
 <div class="uploadscreenpage_notificationmessagewrap errormessage">
   <% if @image.errors.any? %>
   <span class="uploadscreenpage_notificationtext"><%= render 'shared/errors', object: @image %></span></div>

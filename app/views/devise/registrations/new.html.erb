@@ -1,24 +1,23 @@
 <div id="centerpage">
   <%= render 'shared/tabs' %>
-
   <div id="mainpagewrap"> 
     <div class="box effect1">
-      <h2> <%= t('.login') %> </h2>
+      <h2> <%= t('users.log_in') %> </h2>
     </div>        
     <div class="mainpageleft" style="width: 100%; text-align: center;">
       <div class="loginpagewrap" style="margin-left: 55px;">
         <div class="signinwrap">
           <div class="inputwrap">
             <%= form_for(:user, url: user_session_path(format: :json), remote: true, format: :json, :html => { :style => 'margin-bottom: 0px;', :id => "log_in_user" }) do |f| %>
-            <%= f.text_field :login, class: 'login-inputpage', autocomplete: 'off', type: 'text', placeholder: t('.email_or_username') %>
-            <%= f.password_field :password, class: 'login-inputpage', autocomplete: 'off', type: 'password', placeholder: t('.password') %>
-            <div class="forgotwrap"> <%= link_to (t '.forgot_details'), '#reset-popup', class: 'reset-link-button' %></div>
-            <a class="submitlink" href='#'><%= f.submit t('.login'), class: 'signinbutton' %></a>
+            <%= f.text_field :login, class: 'login-inputpage', autocomplete: 'off', type: 'text', placeholder: t('users.email_or_username') %>
+            <%= f.password_field :password, class: 'login-inputpage', autocomplete: 'off', type: 'password', placeholder: t('activerecord.attributes.user.password') %>
+            <div class="forgotwrap"> <%= link_to t('users.forgot_details'), '#reset-popup', class: 'reset-link-button' %></div>
+            <a class="submitlink" href='#'><%= f.submit t('users.log_in'), class: 'signinbutton' %></a>
             <% end %>
 
             <div class="inputbottomwrap">
               <div class="notificationmessagewrap errormessage"><span class="notificationtext">Welcome back!</span></div>
-              <%= link_to image_tag('steambutton.png', alt: t('.log_in_steam'), class: 'steamloginbutton'), user_omniauth_authorize_path(:steam)  %></a>
+              <%= link_to image_tag('steambutton.png', alt: t('users.log_in_steam'), class: 'steamloginbutton'), user_omniauth_authorize_path(:steam)  %></a>
             </div>
           </div>
         </div>
@@ -26,18 +25,18 @@
         <div class="registerwrap">
           <div class="inputwrap register">
             <%= form_for(:user, url: user_registration_path(format: :json), remote: true, format: :json, :html => { :style => 'margin-bottom: 0px;', :id => "register_user" }) do |f| %>
-            <%= f.email_field :email, class: 'register-inputpage', autocomplete: 'off', type: 'email', placeholder: t('.email') %>
-            <%= f.text_field :username, class: 'register-inputpage', autocomplete: 'off', type: 'text', placeholder: t('.username') %>
-            <%= f.password_field :password, class: 'register-inputpage', autocomplete: 'off', type: 'password', placeholder: t('.password') %>
-            <%= f.password_field :password_confirmation, class: 'register-inputpage', autocomplete: 'off', type: 'password', placeholder: t('.confirm_password') %>
-            <a class="submitlink" href='#'><%= f.submit t('.register'), class: 'registerbutton' %></a>
+            <%= f.email_field :email, class: 'register-inputpage', autocomplete: 'off', type: 'email', placeholder: t('activerecord.attributes.user.email') %>
+            <%= f.text_field :username, class: 'register-inputpage', autocomplete: 'off', type: 'text', placeholder: t('activerecord.attributes.user.username') %>
+            <%= f.password_field :password, class: 'register-inputpage', autocomplete: 'off', type: 'password', placeholder: t('activerecord.attributes.user.password') %>
+            <%= f.password_field :password_confirmation, class: 'register-inputpage', autocomplete: 'off', type: 'password', placeholder: t('devise.passwords.form.confirm_password') %>
+            <a class="submitlink" href='#'><%= f.submit t('users.register'), class: 'registerbutton' %></a>
             <% end %>
 
             <div class="inputbottomwrap">
-              <div class="notificationmessagewrap errormessage"><span class="notificationtext"><%= t('.join_us') %></span></div>
-              <div class="registercircleinfo"><div class="circletext"><%= t('.upload') %></div></div>
-              <div class="registercircleinfo"><div class="circletext"><%= t('.comment') %></div></div>
-              <div class="registercircleinfo"><div class="circletext"><%= t('.manage') %></div></div>
+              <div class="notificationmessagewrap errormessage"><span class="notificationtext"><%= t('users.join_us') %></span></div>
+              <div class="registercircleinfo"><div class="circletext"><%= t('common.upload') %></div></div>
+              <div class="registercircleinfo"><div class="circletext"><%= t('comments.form.comment') %></div></div>
+              <div class="registercircleinfo"><div class="circletext"><%= t('common.manage') %></div></div>
             </div>
           </div>  
         </div>
@@ -45,6 +44,5 @@
     </div>
     <div id="mainpage">
     </div>    
-
   </div>
 </div>

@@ -44,49 +44,49 @@
 				<tr>
 					<th style="width: 60px; height: 60px;" class='reporter-avatar'><%= avatar(@report.reporter) %></th>
 					<th style="vertical-align: middle;" class='reporter-info'>
-						<h1>Reporter: <%= @report.reporter.username %></h1>
+						<h1><%= t('reports.common.reporter') + @report.reporter.username %></h1>
 						<span><%= pluralize(@report.reporter.created_reports.count, 'Total Report') %></span>
 						<span><%= pluralize(@report.reporter.created_reports.where(:statue => 'Active').count, 'Active Report') %></span>
 					</th>
 					<th style="vertical-align: middle; text-align: right;" class='resolver-info'>
-						<h1>Resolver: <%= @report.resolver ? @report.resolver.username : 'Unresolved' %></h1>
+						<h1><%= t('reports.common.resolver') +  @report.resolver ? @report.resolver.username : 'Unresolved' %></h1>
 						<span><%= pluralize(@report.reporter.created_reports.count, 'Total Report') %></span>
 						<span><%= pluralize(@report.reporter.created_reports.where(:statue => 'Active').count, 'Active Report') %></span>
 					</th>
 					<th style="width: 60px; height: 60px;" class='resolver-avatar'><%= @report.resolver ? avatar(@report.resolver) : image_tag('unknown.png', style: 'width: 60px; height: 60px;') %></th>
 				</tr>
 				<tr>
-					<th colspan="2">Content Type:</th>
+					<th colspan="2"><%= t('.content_type') %></th>
 					<th colspan="2"><%= @report.reportable_type %></th>
 				</tr>
 				<tr>
-					<th colspan="2">Status:</th>
+					<th colspan="2"><%= t('.status') %></th>
 					<th colspan="2"><%= @report.status %></th>
 				</tr>
 				<tr>
-					<th colspan="2">Content:</th>
+					<th colspan="2"><%= t('.content') %></th>
 					<th colspan="2">
 						<% content = report_content(@report) %>
 						<% if content %>
 						<%= link_to content, @report.reportable %></th>
 						<% else %>
-						DELETED
+						<%= t('common.deleted') %>
 						<% end %>
 					</th>
 				</tr>
 				<tr>
-					<th colspan="2">Report Comments:</th>
+					<th colspan="2"><%= t('.report_comments') %></th>
 					<th colspan="2"><%= @report.comments %></th>
 				</tr>
 				<table class='moderation actions-table' style='border-top: 0px;'>
 					<tr class='actions'>
-						<th><%= link_to 'Delete Content', admin_report_delete_content_path(@report) %></th>
-						<th><%= link_to 'Resolve Report', admin_report_resolve_path(@report) %></th>
-						<th><%= link_to 'Deny Report', admin_report_deny_path(@report) %></th>
+						<th><%= link_to t('.delete_content'), admin_report_delete_content_path(@report) %></th>
+						<th><%= link_to t('.resolve_content'), admin_report_resolve_path(@report) %></th>
+						<th><%= link_to t('.deny_report'), admin_report_deny_path(@report) %></th>
 						<% if @report.resolved_at %>
-						<th><%= link_to 'Reopen Report', admin_report_reopen_path(@report) %></th>
+						<th><%= link_to t('.reopen_report'), admin_report_reopen_path(@report) %></th>
 						<% else %>
-						<th><%= link_to 'Close Report', admin_report_close_path(@report) %></th>
+						<th><%= link_to t('.close_report'), admin_report_close_path(@report) %></th>
 						<% end %>
 					</tr>
 				</table>

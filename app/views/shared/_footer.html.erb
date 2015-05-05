@@ -21,10 +21,10 @@
     <%= t '.please_allow' %>
   </p>
   <%= form_tag contact_path, method: 'POST' do %>
-  <%= label_tag 'Username', t('.username') %> <%= text_field :contact, :username, class: 'contactboxes', value: current_user ? current_user.username : "" %>
-  <%= label_tag 'Email', t('.email') %> <%= email_field :contact, :email, class: 'contactboxes', value: current_user ? current_user.email : "" %>
+  <%= label_tag 'Username', t('activerecord.attributes.user.username') %> <%= text_field :contact, :username, class: 'contactboxes', value: current_user ? current_user.username : "" %>
+  <%= label_tag 'Email', t('activerecord.attributes.user.email') %> <%= email_field :contact, :email, class: 'contactboxes', value: current_user ? current_user.email : "" %>
   <%= label_tag 'Message', t('.message') %><%= text_area :contact, :inquiry, class: 'contactboxes', rows: 7 %>
-  <%= submit_tag 'Send', class: 'contactsubmitbutton', :data => { :disable_with => t('.sending') } %>
+  <%= submit_tag t('common.send'), class: 'contactsubmitbutton', :data => { :disable_with => t('common.sending') } %>
   <div class="g-recaptcha" data-sitekey="6LdXLQITAAAAAH39kLpg0OWSOEyIe5WgrMWbx00F"></div>
   <% end %>
 </div>

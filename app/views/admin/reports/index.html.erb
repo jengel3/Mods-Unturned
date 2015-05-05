@@ -48,7 +48,7 @@
           <th><%= t '.content' %></th>
           <th><%= t '.reason' %></th>
           <th><%= t '.date_reported' %></th>
-          <th><%= t '.reporter' %></th>
+          <th><%= t 'reports.common.reporter' %></th>
         </tr>
         <% @reports.each do |report| %>
         <tr>
@@ -62,7 +62,7 @@
           <td>
             <%= link_to report.report_type, admin_report_path(report) %>
           </td>
-          <td title=<%= report.created_at %>>
+          <td title="<%= report.created_at %>">
             <%= time_ago_in_words(report.created_at) + ' ago' %>
           </td>
           <td>

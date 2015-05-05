@@ -1,7 +1,7 @@
 <div class='mainscreen'>
   <div class="large-imgwrap imgwrap">
-    <%= image_tag "#{@submission.main_image ? @submission.main_image.image_url : 'uploadthumb.png'}", class: 'mainthumblarge', alt: 'Main Image' %>
-    <div class='edit-image edit-image-large'><a class='add-image-button' href='#add-image'>Upload</a></div>
+    <%= image_tag "#{@submission.main_image ? @submission.main_image.image_url : 'uploadthumb.png'}", class: 'mainthumblarge', alt: t('.main_image') %>
+    <div class='edit-image edit-image-large'><a class='add-image-button' href='#add-image'><%= t('common.upload') %></a></div>
   </div>
 </div>
 <div class="screenshots">
@@ -10,15 +10,15 @@
   <div class='imgwrap'>
     <% if thumb %>
     <a id="thumb-<%= count %>" class='valid-thumb' href="<%= thumb.image_url %>">
-      <img class="levelthumb" src="<%= thumb.image_url %>" title="Map Thumbnail" alt='Map Thumbnail'/>
+      <img class="levelthumb" src="<%= thumb.image_url %>" title="<%= t('.map_thumbnail') %>" alt='<%= t('.map_thumbnail') %>'/>
     </a>
     <% else %>
     <a>
-      <%= image_tag 'smallthumb.png', class: 'levelthumb', title: "Placeholder", id: "thumb-#{count}", alt: 'Placeholder Thumbnail' %>
+      <%= image_tag 'smallthumb.png', class: 'levelthumb', title: "Placeholder", id: "thumb-#{count}", alt: t('.placeholder_thumbnail') %>
     </a>
     <% end %>
     <% if can_manage(@submission) %>
-    <div class='edit-image'><a class='add-image-button' href='#add-image'>Upload</a></div>
+    <div class='edit-image'><a class='add-image-button' href='#add-image'><%= t('common.upload') %></a></div>
     <% end %>
   </div>
   <% end %>

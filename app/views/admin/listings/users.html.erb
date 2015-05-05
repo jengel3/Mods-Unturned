@@ -21,7 +21,7 @@
 	<%= render 'shared/tabs' %>
 	<div id="mainpagewrap">
 		<div class="box effect1">
-			<h2><%= t '.user_list' %></h2>
+			<h2><%= t('admin.categories.user_list') %></h2>
 		</div>
 		<div class="mainpageleft">
 			<%= form_tag admin_mass_moderation_path, :method => :post do %>
@@ -40,8 +40,8 @@
 					<% @users.each do |user| %>
 					<tr>
 						<td><%= check_box_tag("objects[#{user.id}]", 1, false, class: 'content-check') %></td>
-						<td><%= link_to user.username, user_uploads_path(user.username), title: 'Go to profile' %></td>
-						<td><%= link_to user.email, admin_email_path(username: user.username), title: 'Send an email' %></td>
+						<td><%= link_to user.username, user_uploads_path(user.username), title: t('.go_to_profile') %></td>
+						<td><%= link_to user.email, admin_email_path(username: user.username), title: t('admin.categories.send_email') %></td>
 						<td><%= user.admin %></td>
 						<td><%= user.sign_in_count %></td>
 					</tr>
@@ -52,7 +52,7 @@
 			<div id='content-paginator' align='center' class='pagination-wrap'>
 				<div class='action'>
 					<%= select_tag :action, options_for_select([['Delete', 'delete']], "Delete") %>
-					<%= submit_tag 'Confirm', data: { confirm: "Are you sure?" } %>
+					<%= submit_tag t('common.confirm'), data: { confirm: t('common.sure') } %>
 				</div>
 				<%= paginate @users %>
 			</div>
