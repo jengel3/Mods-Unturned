@@ -17,27 +17,27 @@ class Admin::ReportsController < Admin::BaseController
 
   def delete_content
     @report.delete_content(current_user)
-    redirect_to admin_reports_path, :notice => "Successfully deleted the content pertaining to this report."
+    redirect_to admin_reports_path, :notice => t('admin.reports.successfully_deleted_content')
   end
 
   def deny
     @report.deny(current_user)
-    redirect_to admin_reports_path, :notice => "Successfully denied a report."
+    redirect_to admin_reports_path, :notice => t('admin.reports.successfully_denied')
   end
   
   def resolve
     @report.resolve(current_user)
-    redirect_to admin_reports_path, :notice => "Successfully resolved a report."
+    redirect_to admin_reports_path, :notice => t('admin.reports.successfully_resolved')
   end
 
   def reopen
     @report.reopen(current_user)
-    redirect_to admin_report_path(@report), :notice => "Successfully reopened a report."
+    redirect_to admin_report_path(@report), :notice => t('admin.reports.successfully_reopened')
   end
 
   def close
     @report.close(current_user)
-    redirect_to admin_reports_path, :notice => "Successfully closed a report."
+    redirect_to admin_reports_path, :notice => t('admin.reports.successfully_closed')
   end
 
   private

@@ -5,7 +5,7 @@ module CommentsHelper
     elsif comment.created_at
       'Created ' + time_ago_in_words(comment.created_at) + ' ago'
     else
-      "Created before timestamps were tracked."
+      t('comments.created_before')
     end
   end
 end

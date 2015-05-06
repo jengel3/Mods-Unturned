@@ -4,7 +4,7 @@ module ApplicationHelper
   end
 
   def verify_manager
-    redirect_to root_path, :alert => "No permission." unless can_manage(@submission)
+    redirect_to root_path, :alert => t('users.no_permission') unless can_manage(@submission)
   end
 
   def user_is_admin
@@ -12,7 +12,7 @@ module ApplicationHelper
   end
 
   def require_admin
-    redirect_to root_path, :alert => "No permission." unless user_is_admin
+    redirect_to root_path, :alert => t('users.no_permission') unless user_is_admin
   end
 
   def get_request_ip

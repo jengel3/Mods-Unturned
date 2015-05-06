@@ -12,9 +12,8 @@
     <a href="mailto:<%= @email%>"><%= @email %></a>
   </p>
 
-  <p>
-    <%= t '.no_longer_want' %>
-    <a href=<%= unsubscribe_url(email: @email) %>><%= t '.unsubscribe' %></a>
-  </p>
+  <div class="optout">
+    <%= t('user_mailer.dont_want') %> <a href="<%= unsubscribe_url(email: @email) %>"><u><%= t('user_mailer.unsubscribe') %></u></a>
+  </div>  
 </body>
 </html>

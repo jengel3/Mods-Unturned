@@ -4,11 +4,11 @@
   </p>
 
   <%= form_for([@submission, @submission.videos.build]) do |f| %>
-  <%= f.label :url, 'URL:' %>
+  <%= f.label :url, t('.url') %>
   <p style='display: inline;'>
-    <%= f.text_field :url, autocomplete: 'off', class: 'text-box', style: 'width: 87%; display: inline;', placeholder: 'Youtube videos only' %>
+    <%= f.text_field :url, autocomplete: 'off', class: 'text-box', style: 'width: 87%; display: inline;', placeholder: t('.youtube_videos') %>
 
-    <%= f.submit 'Submit', class: 'text-box', style: 'display: inline;', :data => { :disable_with => "Saving" } %>
+    <%= f.submit t('common.submit'), class: 'text-box', style: 'display: inline;', :data => { :disable_with => t('common.saving') } %>
   </p>
   <% end %>
 </div>

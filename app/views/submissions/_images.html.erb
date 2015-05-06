@@ -14,7 +14,7 @@
     </a>
     <% else %>
     <a>
-      <%= image_tag 'smallthumb.png', class: 'levelthumb', title: "Placeholder", id: "thumb-#{count}", alt: t('.placeholder_thumbnail') %>
+      <%= image_tag 'smallthumb.png', class: 'levelthumb', title: t('.placeholder'), id: "thumb-#{count}", alt: t('.placeholder_thumbnail') %>
     </a>
     <% end %>
     <% if can_manage(@submission) %>

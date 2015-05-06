@@ -8,9 +8,11 @@
       <img src=<%= video.thumbnail ? video.thumbnail : image_path('addvideothumb.png') %> class="vidthumb">
     </a>
     <% if can_manage(@submission) %>
-    <%= link_to "<span class='fa fa-trash delete-video'></span>".html_safe, submission_video_path(@submission, video), method: :delete, data: {confirm: 'Are you sure you want to delete this video?'} %>
+    <%= link_to submission_video_path(@submission, video), method: :delete, data: {confirm: t('common.sure') } do %>
+    <span class='fa fa-trash delete-video'></span>
+    <% end %>
     <% end %>
   </div>
   <% end %>
-  <%= link_to image_tag('addvideothumb.png', class: 'vidthumb'), '#add-video', class: 'add-video-button', title: "Add Video" %>
+  <%= link_to image_tag('addvideothumb.png', class: 'vidthumb'), '#add-video', class: 'add-video-button', title: t('.add_video') %>
 </div>

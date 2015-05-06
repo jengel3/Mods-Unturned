@@ -8,7 +8,7 @@ class Admin::ListingsController < Admin::BaseController
 
   def moderate
     if !params[:type] || params[:type].blank?
-      flash[:alert] = "Please specify a class."
+      flash[:alert] = t('admin.listings.please_specify')
       return redirect_to :back
     end
     object = params[:type].singularize.classify.constantize

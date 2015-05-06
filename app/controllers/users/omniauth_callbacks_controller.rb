@@ -8,7 +8,7 @@ class Users::OmniauthCallbacksController < ApplicationController
       sign_in_and_redirect @user, :event => :authentication
     else
       session["devise.steam_data"] = request.env["omniauth.auth"].except('extra')
-      redirect_to new_user_registration_url, :notice => "Unable to use this Steam account."
+      redirect_to new_user_registration_url, :notice => t('steam.unable')
     end
   end
 end

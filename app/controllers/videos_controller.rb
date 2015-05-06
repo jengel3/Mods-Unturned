@@ -9,14 +9,14 @@ class VideosController < ApplicationController
     if thumbnail
       @video.thumbnail = thumbnail
     else
-      return redirect_to @submission, :alert => "Youtube video ID not found."
+      return redirect_to @submission, :alert => t('videos.id_not_found')
     end
     if @video.save
       @submission.videos << @video
       current_user.submitted_videos << @video
-      redirect_to @video.submission, :notice => "Successfully added a new video to #{@submission.name}." # Success
+      redirect_to @video.submission, :notice => t('videos.successfully_added', name: @submission.name)
     else
-      redirect_to @video.submission, :alert => "This video has already been added to #{@submission.name}." # Error message
+      redirect_to @video.submission, :alert => t('videos.already_added', name: @submission.name)
     end
   end
 
@@ -25,7 +25,7 @@ class VideosController < ApplicationController
     if can_manage(@video.submission)
       @video.destroy
     end
-    redirect_to submission_path(@video.submission), :notice => "Successfully deleted a video."
+    redirect_to submission_path(@video.submission), :notice => t('videos.successfully_deleted')
   end
 
   private

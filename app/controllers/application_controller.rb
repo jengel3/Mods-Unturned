@@ -22,9 +22,9 @@ class ApplicationController < ActionController::Base
     if user
       user.accepts_emails = false
       user.save
-      return redirect_to root_path, :notice => 'Successfully unsubscribed from emails.'
+      return redirect_to root_path, :notice => t('emails.successfully_unsubscribed')
     end
-    return redirect_to root_path, :alert => 'Email address not found'
+    return redirect_to root_path, :alert => t('emails.not_found')
   end
 
   def send_mail
@@ -34,26 +34,26 @@ class ApplicationController < ActionController::Base
     message = form[:message]
     subject = form[:subject]
     if from.empty? || username.empty? || message.empty? || subject.empty?
-      return redirect_to admin_path, :alert => "Please fill in all fields."
+      return redirect_to admin_path, :alert => t('emails.please_fill')
     end
-    return redirect_to admin_path, :alert => "User not found" unless user = User.where(:username => username).first
+    return redirect_to admin_path, :alert => t('emails.not_found') unless user = User.where(:username => username).first
     to = user.email
     UserMailer.single(to, from, subject, message).deliver_later
-    redirect_to admin_path, :notice => "Successfully sent an email"
+    redirect_to admin_path, :notice => t('emails.successfully_sent')
   end
   
   def contact
     request_ip = get_request_ip
     captcha_resp = params["g-recaptcha-response"]
     if !captcha_resp || captcha_resp.blank?
-      flash[:alert] = "Please complete the captcha."
+      flash[:alert] = t('contact.please_complete')
       return redirect_to root_path
     end
     secret = "6LdXLQITAAAAAJua6hwGRSIiP-pMAnN0ql-QZZwp"
     google_resp = HTTParty.get("https://www.google.com/recaptcha/api/siteverify?secret=#{secret}&response=#{captcha_resp}&remoteip=#{request_ip}")
     result = JSON.parse(google_resp.body)
     if !result['success']
-      flash[:alert] = "It appears you are a bot. Please try again."
+      flash[:alert] = t('contact.it_appears')
       return redirect_to root_path
     end
     form = params[:contact]
@@ -61,28 +61,28 @@ class ApplicationController < ActionController::Base
     username = form[:username]
     inquiry = form[:inquiry]
     if email.empty? || username.empty? || inquiry.empty?
-      return redirect_to root_path, :alert => "Please fill in all fields."
+      return redirect_to root_path, :alert => t('emails.please_fill')
     end
     UserMailer.contact(username, email, inquiry).deliver_later
-    redirect_to root_path, :notice => "Successfully sent an inquiry to Mods Unturned."
+    redirect_to root_path, :notice => t('contact.successfully_sent_inquiry')
   end
 
   def flush_cache
     REDIS.flushall
-    redirect_to admin_path, :notice => "Successfully flushed cache"
+    redirect_to admin_path, :notice => t('admin.flushed_cache')
   end
 
   def complete_steam_register
     return if params[:action] == 'finish_steam' || !request.get?
     @user = current_user
     if @user && @user.provider == 'steam' && (@user.email.end_with?("@steam-provider.com") || @user.username.start_with?('SteamUser'))
-      redirect_to finish_steam_path, :notice => "Complete your account before continuing"
+      redirect_to finish_steam_path, :notice => t('steam.please_complete')
     end
   end
 
   def finish_steam
     @user = current_user
-    redirect_to root_path, :notice => "Your Steam registration is already complete." unless (@user.provider == 'steam' && (@user.email.end_with?("@steam-provider.com") || @user.username.start_with?('SteamUser')))
+    redirect_to root_path, :notice => t('steam.already_complete') unless (@user.provider == 'steam' && (@user.email.end_with?("@steam-provider.com") || @user.username.start_with?('SteamUser')))
   end
   
   def after_sign_in_path_for(resource)

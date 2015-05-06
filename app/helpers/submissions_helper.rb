@@ -23,7 +23,7 @@ module SubmissionsHelper
   def waiting(submission)
     count = submission.uploads.where(:denied => false).where(:approved => false).count
     if count == 0
-      "No files awaiting approval."
+      t('submissions.no_files')
     else
       plural = pluralize(count, "file")
       "You have #{plural} awaiting approval."

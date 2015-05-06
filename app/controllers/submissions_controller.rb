@@ -42,12 +42,12 @@ class SubmissionsController < ApplicationController
     if params[:user]
       @title = params[:user] + "'s" + ' Creations'
     elsif params[:search]
-      @title = 'Results'
+      @title = t('submissions.results')
     else
       if @type
         @title = @type.singularize.capitalize + ' Creations'
       else 
-        @title = 'All Creations'
+        @title = t('submissions.all_creations')
       end
     end
     respond_to do |format|
@@ -59,7 +59,7 @@ class SubmissionsController < ApplicationController
   def favorite
     @submission.last_favorited = Time.now
     @submission.save
-    redirect_to @submission, :notice => "Successfully favorited #{@submission.name}."
+    redirect_to @submission, :notice => t('submissions.successfully_favorited', name: @submission.name)
   end
 
   def download
@@ -73,7 +73,7 @@ class SubmissionsController < ApplicationController
 
   def show
     if !@submission
-      return redirect_to root_path, :alert => "Submission does not exist."
+      return redirect_to root_path, :alert => t('submissions.does_not_exist')
     end
     images = @submission.thumbnails.sort_by { |i| [i.location[ -1..-1 ], i] }
 
@@ -102,7 +102,7 @@ class SubmissionsController < ApplicationController
     current_user.submissions << @submission
 
     if @submission.save
-      redirect_to @submission, :notice => "Successfully created a new submission."
+      redirect_to @submission, :notice => t('submissions.successfully_created')
     else
       render 'edit'
     end

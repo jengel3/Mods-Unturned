@@ -187,7 +187,6 @@
 			padding-left:55px;
 		}
 		
-		
 		.imageholders {
 			height:101px;
 			width:180px;
@@ -235,19 +234,15 @@
 
 	</style>
 </head>
-
-
 <body>
-
 	<div class="fullmessagewrap">
 		<div class="messageheader">
 			<a href="<%= root_url %>"><img class="imgheader" src="<%= image_path('emailheader.png') %>" alt="Mods-Unturned" /></a>
 		</div>
-		
 		<div class="whitecongratswrap">
 			<div class="congratsspacer"></div>
 			<div class="innercongratswrap">
-				<h1 class="congrats"> New Notification!</h1>
+				<h1 class="congrats"> <%= t('.new_notification') %></h1>
 			</div>
 			<div class="commentwrap">
 				<div class="comment"><div class="uploader"><%= @comment.user.username %>:</div> <%= @comment.text %></div>
@@ -257,7 +252,7 @@
 		<div class="fullmapshowcasewrap">
 			<% images = @comment.submission.images.limit(3) %>
 			<% images.each do |img| %>
-			<%= image_tag((img.image_url || 'smallthumb.png'), alt: 'Screenshot', class: 'imageholders') %>
+			<%= image_tag((img.image_url || 'smallthumb.png'), alt: t('common.screenshot'), class: 'imageholders') %>
 			<% end %>
 			<div class="mapname"><a class="mapnamelink" href="<%= submission_url(@submission) %>"><%= @submission.name %></a></div>
 		</div>
@@ -267,7 +262,7 @@
 		</div>
 		
 		<div class="optout">
-			Don't want to receive emails from Mods-Unturned? <a href="<%= unsubscribe_url(email: @email) %>"><u>Unsubscribe</u></a>
+			<%= t('user_mailer.dont_want') %> <a href="<%= unsubscribe_url(email: @email) %>"><u><%= t('user_mailer.unsubscribe') %></u></a>
 		</div>	
 	</div>
 </body>

@@ -6,4 +6,6 @@
     per_page:      number of items to fetch per page
     remote:        data-remote
 -%>
-<%= link_to_unless current_page.last?, "<span class='last page-worded' style='background-color:rgb(100,100,100);'>#{ t('views.pagination.last') }</span>".html_safe, url, :remote => remote %>
+<%= link_to_unless current_page.last?, url, :remote => remote  do %>
+<span class='last page-worded' style='background-color:rgb(100,100,100);'><%= t('pagination.last') %></span>
+<% end %>

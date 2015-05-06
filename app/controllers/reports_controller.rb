@@ -6,9 +6,9 @@ class ReportsController < ApplicationController
     @report = @reportable.reports.build(report_params)
     @report.reporter = current_user
     if @report.save
-      redirect_to @reportable, :notice => "Successfully reported content."
+      redirect_to @reportable, :notice => t('reports.successfully_reported')
     else
-      redirect_to @reportable, :alert => "Unable to report content."
+      redirect_to @reportable, :alert => t('reports.unable_to_report')
     end
   end
 

@@ -255,12 +255,8 @@
 		</div>
 		
 		<div class="optout">
-			Don't want to receive emails from Mods-Unturned? <a class="unsubscribe" href="<%= unsubscribe_url(email: @email) %>"><u>Unsubscribe</u></a>
+			<%= t('user_mailer.dont_want') %> <a class="unsubscribe" href="<%= unsubscribe_url(email: @email) %>"><u><%= t('user_mailer.unsubscribe') %></u></a>
 		</div>
-		
 	</div>
-
 </body>
-
-
 </html>

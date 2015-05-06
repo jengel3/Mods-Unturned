@@ -2,7 +2,7 @@ module AvatarHelper
   require 'cgi'
   def avatar(user, options = {})
     image = gravatar_url user.email, options
-    image_tag image, :alt => "Avatar", class: 'avatar' if image.present?
+    image_tag image, :alt => t('users.avatar'), class: 'avatar' if image.present?
   end
 
   def gravatar_url(email, options = {})

@@ -10,9 +10,9 @@ class CommentsController < ApplicationController
     @submission.comments << @comment
     if @comment.save
       UserMailer.comment(@comment).deliver_later
-      redirect_to @submission, :notice => "Your comment has been successfully saved."
+      redirect_to @submission, :notice => t('comments.successfully_saved')
     else
-      redirect_to @submission, :alert => "Your comment was invalid, and was not saved."
+      redirect_to @submission, :alert => t('comments.save_failed')
     end
   end
 
@@ -25,12 +25,12 @@ class CommentsController < ApplicationController
       return require_admin
     end
     @comment.destroy
-    redirect_to @submission, :notice => "Successfully deleted a comment."
+    redirect_to @submission, :notice => t('comments.successfully_deleted')
   end
 
   def restore
     @comment.restore
-    redirect_to @submission, :notice => "Successfully restored a comment."
+    redirect_to @submission, :notice => t('comments.successfully_restored')
   end
 
   private

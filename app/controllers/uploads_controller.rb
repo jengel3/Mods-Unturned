@@ -50,12 +50,12 @@ class UploadsController < ApplicationController
 
   def new
     @submission = Submission.find(params[:submission_id])
-    return redirect_to root_path, :alert => "No permission." unless can_manage(@submission)
+    return redirect_to root_path, :alert => t('users.no_permission') unless can_manage(@submission)
     @upload = @submission.uploads.build
   end
 
   def edit
-    return redirect_to root_path, :alert => "No permission." unless can_manage(@upload.submission)
+    return redirect_to root_path, :alert => t('users.no_permission') unless can_manage(@upload.submission)
   end
 
   def create
@@ -65,22 +65,22 @@ class UploadsController < ApplicationController
     @submission.uploads << @upload
     respond_to do |format|
       if @upload.save
-        flash[:notice] = 'Upload was successfully saved.'
+        flash[:notice] = t('uploads.was_saved')
         format.html { redirect_to(@submission) }
       else
-        flash[:alert] = 'Unable to save upload, see errors below.'
+        flash[:alert] = t('uploads.unable_to_save')
         format.html { render action: "edit" }
       end
     end
   end
 
   def update
-    return redirect_to root_path, :alert => "No permission." unless can_manage(@upload.submission)
+    return redirect_to root_path, :alert => t('users.no_permission') unless can_manage(@upload.submission)
     @upload.update(upload_params)
   end
 
   def destroy
-    return redirect_to root_path, :alert => "No permission." unless can_manage(@upload.submission)
+    return redirect_to root_path, :alert => t('users.no_permission') unless can_manage(@upload.submission)
     @upload.destroy
   end
 

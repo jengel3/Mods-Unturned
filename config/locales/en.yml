@@ -10,6 +10,11 @@ en:
         body: "Description"
         name: "Name"
         type: "Type"
+  pagination:
+    first: "&laquo; First"
+    next: "Next &rsaquo;"
+    prev: "&lsaquo; Prev"
+    last: "Last &raquo;"
   home:
     about:
       about_us: "About Us"
@@ -42,6 +47,10 @@ en:
       twitter: "Twitter"
       unturned_steam: "Unturned Steam"
   comments:
+    successfully_saved: "Your comment has been successfully saved."
+    save_failed: "Your comment was invalid, and was not saved."
+    successfully_deleted: "Successfully deleted a comment."
+    successfully_restored: "Successfully restored a comment."
     comments: "Comments"
     display:
       to_bottom: "Go to bottom (newest)"
@@ -60,10 +69,17 @@ en:
     preview_display: "Preview may not display image aspect ratio correctly."
     image_preview: "Image Preview"
     choose_file: "Choose File"
+    unable_to_upload: "Unable to upload image, see errors below."
+    successfully_created: "Successfully created a new submission."
     edit:
       upload_image: "Upload Image"
       upload_images: "Upload Images"
   submissions:
+    all_creations: "All Creations"
+    results: "Results"
+    successfully_favorited: "Successfully favorited %{name}."
+    does_not_exist: "Submission does not exist."
+    successfully_created: "Successfully created a new submission."
     form:
       mod_submission: "Mod Submission"
       almost_done: "Almost done! Next is file upload and screenshots."
@@ -80,6 +96,7 @@ en:
       main_image: "Main Image"
       map_thumbnail: "Map Thumbnail"
       placeholder_thumbnail: "Placeholder Thumbnail"
+      placeholder: "Placeholder"
     index:
       newest: "Newest First"
       popular: "Most Popular"
@@ -100,6 +117,8 @@ en:
       favorite: "Favorite Submission"
       report_submission: "Report Submission"
   uploads:
+    unable_to_save: "Unable to save upload, see errors below."
+    was_saved:  "Upload was successfully saved."
     edit:
       editing: "Editing Uploaded File"
     new:
@@ -109,11 +128,20 @@ en:
       upload_name: "Upload name"
       zip_files: "ZIP files only! Your file will be approved by a moderator before it goes live."
   videos:
+    id_not_found: "Youtube video ID not found."
+    successfully_deleted: "Successfully deleted a video."
+    already_added: "This video has already been added to %{name}."
+    successfully_added: "Successfully added a new video to %{name}." 
     display:
       videos: "Videos"
+      add_video: "Add Video"
     popup:
       considerate: "Please be considerate of the video that you are about to submit. Submitting videos unrelated to this submission will have your video permissions revoked. Admins and submission creators reserve the right to delete any video, under any circumstances."
+      url: "URL"
+      youtube_videos: "Youtube videos only"
   reports:
+    unable_to_report: "Unable to report content."
+    successfully_reported: "Successfully reported content."
     form:
       report_text: "You are creating a report for this content. Reports are handled by the moderation team at their discretion. You may be contacted for additional information if necessary. False reports or falsifying any information may result in consequences."
       reason: "Reason"
@@ -122,12 +150,29 @@ en:
       not_original: "Not Original"
       other: "Other"
   user_mailer:
+    dont_want: "Don't want to receive emails from Mods-Unturned?"
+    unsubsribe: "Unsubscribe"
     contact:
       inquiry_received: "The user %{username} has sent an inquiry to Mods Unturned."
       reply_to: "To respond to this email, reply to"
-      no_longer_want: "If you would no longer like to receive these emails please"
-      unsubsribe: "unsubscribe."
+    comment:
+      new_notification: "New Notification!"
+  emails:
+    successfully_unsubscribed: "Successfully unsubscribed from emails."
+    not_found: 'Email address not found'
+    please_fill: "Please fill in all fields."
+    not_found: "User not found."
+    successfully_sent: "Successfully sent an email"
+  contact:
+    please_complete: "Please complete the captcha."
+    it_appears: "It appears you are a bot. Please try again."
+    successfully_sent_inquiry: "Successfully sent an inquiry to Mods Unturned."
+  steam:
+    please_complete: "Complete your account before continuing"
+    already_complete: "Your Steam registration is already complete."
+    unable: "Unable to use this Steam account."
   admin:
+    flushed_cache: "Successfully flushed cache."
     titles:
       control_panel: "Control Panel"
       content_moderation: "Content Moderation"
@@ -143,6 +188,7 @@ en:
       submission_variation: "Mods-Unturned submission variation"
       submission_types: "Submission Types"
     listings:
+      please_specify: "Please specify a class."
       users:
         go_to_profile: "Go to profile"
     moderation:
@@ -155,6 +201,11 @@ en:
         deny: "Deny"
         no_uploads: "No uploads awaiting moderation."
     reports:
+      successfully_deleted_content: "Successfully deleted the content pertaining to this report."
+      successfully_denied: "Successfully denied a report."
+      successfully_resolved: "Successfully resolved a report."
+      successfully_reopened: "Successfully reopened a report."
+      successfully_closed: "Successfully closed a report."
       common:
         reporter: "Reporter"
         resolver: "Resolver"
@@ -194,6 +245,7 @@ en:
     delete: "Delete"
     manage: "Manage"
     sending: "Sending"
+    screenshot: "Screenshot"
   shared:
     footer:
       about: "About"
@@ -210,13 +262,11 @@ en:
       levels: "Levels"
       models: "Models"
       search: "Search"
-      forgot_details: 'forgot details?'
       next_project: "Our Next Project"
       search: "Search..."
       password_reset: "Password Reset"
       an_email: "An email will be sent to you with instructions on resetting your password."
       log_in_panel: "Log in Panel"
-      welcome_back: "Welcome back!"
   users:
     log_in: "Log in"
     log_out: "Log out
@@ -225,6 +275,10 @@ en:
     confirm_password: "Confirm Password"
     log_in_steam: "Log in with Steam"
     email_or_username: "Email or Username"
+    forgot_details: 'forgot details?'
+    welcome_back: "Welcome back!"
+    no_permission: "No permission."
+    avatar: "Avatar"
   devise:
     mailer:
       reset_password_instructions:
