@@ -1,16 +1,16 @@
 <div id="centerpage">
   <%= render 'shared/tabs' %>
-    <div class="box effect1">
-      <h2><%= @submission.name %></h2>
-    </div>
-    <div id="mainpage">
+  <div class="box effect1">
+    <h2><%= @submission.name %></h2>
+  </div>
+  <div id="mainpage">
     <div class="mainpageleft">
       <div class="infosection effect3">
         <div class='sidebar'>
           <% if !@submission.ready? %>
-          <p class="title" style="margin-top: 0px; margin-bottom: 0px;"><%= t '.warning_title' %></p>
+          <p class="title" style="margin-top: 0px; margin-bottom: 0px;"><%= t('.warning_title') %></p>
           <p class="uploadby" style="margin-top: 5px;">
-            <b><%= t '.warning_text' %></b>
+            <b><%= t('.warning_text') %></b>
           </p>
           <% else %>
           <% if @submission.latest_download %>
@@ -18,11 +18,11 @@
           <div class="downloadbutton">
             <a href="<%= submission_download_path(@submission) %>">
               <h4 class="download">
-                <%= t '.download' %>
+                <%= t('.download') %>
                 <div class="filename">
                   <%= @submission.latest_download.upload.truncated_name %>
                   <% size = latest.upload.download_size %>
-                  (<%= t '.upload_size', :size => (size[0]), :unit => (size[1]) %>)
+                  (<%= t('.upload_size', :size => size[0], :unit => size[1]) %>)
                 </div>
               </h4>
             </a>
@@ -40,7 +40,7 @@
           </p>
           
           <p class="uploadby">
-            <b><%= t '.created_by' %></b>
+            <b><%= t('.created_by') %></b>
           </p>
           <div class="profile">
             <a href="<%= user_uploads_path(@submission.user.username) %>">
@@ -50,7 +50,7 @@
               <div class="username">
                 <%= link_to @submission.user.username, user_uploads_path(@submission.user.username) %>
               </div>
-              <div class="userdescription"><%= t '.map_maker' %></div>
+              <div class="userdescription"><%= t('.map_maker') %></div>
               <div class="stats">
                 <%= pluralize(@submission.user.submissions.count, t('.submission') %>
               </div>
@@ -65,24 +65,24 @@
            <p class="uploadby" style="margin: 0px;">
             <i class="fa fa-exclamation-triangle"></i>
             <a class="report-submission-button" href="#add-report-submission">
-              <b><%= t '.report_submission' %></b>
+              <b><%= t('.report_submission') %></b>
             </a>
           </p>
         </div>
         <%= render 'reports/form', reportable: [@submission] %>
         <div class="manage">
           <% if can_manage(@submission) %>
-          <p class="title" style="margin-bottom: 3px; margin-top: 2px;"><%= t 'common.manage' %></p>
+          <p class="title" style="margin-bottom: 3px; margin-top: 2px;"><%= t('common.manage') %></p>
           <div class="manage">
             <p class="uploadby" style="margin: 0px;">
               <i class="fa fa-upload"></i>
               <a href="<%= new_submission_upload_path(@submission) %>" title='<%= waiting(@submission) %>'>
-                <b><%= t '.upload_file' %></b>
+                <b><%= t('.upload_file') %></b>
               </a>
               <br/>
               <i class="fa fa-pencil"></i>
               <a href="<%= edit_submission_path(@submission) %>">
-                <b><%= t '.edit' %></b>
+                <b><%= t('.edit') %></b>
               </a>
               <br/>
               <b>
@@ -92,33 +92,13 @@
               <br/>
               <i class="fa fa-star"></i>
               <a href="<%= submission_favorite_path(@submission) %>">
-                <b><%= t '.favorite' %></b>
+                <b><%= t('.favorite') %></b>
               </a>
               <% end %>
             </p>
           </div>
           <% end %>
         </div>
-        <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-        <!-- Mods-Unturned Sidebar Fixed -->
-        <ins class="adsbygoogle"
-        style="display:block;margin-top:10px;margin-left:0;width:300px;height:250px"
-        data-ad-client="ca-pub-3000890138855017"
-        data-ad-slot="8899392583"></ins>
-        <script>
-          (adsbygoogle = window.adsbygoogle || []).push({});
-        </script>
-        
-        <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-        <!-- Mods-Unturned Sidebar Link -->
-        <ins class="adsbygoogle"
-        style="display:block;margin-top:10px;margin-left:10px;width:200px;height:90px"
-        data-ad-client="ca-pub-3000890138855017"
-        data-ad-slot="9767886582"></ins>
-        <script>
-          (adsbygoogle = window.adsbygoogle || []).push({});
-        </script> 
-        
         <%= render 'videos/display' %>
         <%= render 'videos/popup' %>
       </div>
@@ -126,43 +106,10 @@
   </div>
   <div class="mainpageright">
     <div class="rightbar">
-
-      <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-      <!-- Mods-Unturned Top Link -->
-      <ins class="adsbygoogle"
-      style="display:block;margin:0 auto;margin-top:7px;width:468px;height:15px"
-      data-ad-client="ca-pub-3000890138855017"
-      data-ad-slot="6237180583"></ins>
-      <script>
-        (adsbygoogle = window.adsbygoogle || []).push({});
-      </script>
-      
-      <%= render 'images' %>
-      
-      <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-      <!-- Mods-Unturned Link Only -->
-      <ins class="adsbygoogle"
-      style="display:block;margin:0 auto;margin-top:7px;width:468px;height:15px"
-      data-ad-client="ca-pub-3000890138855017"
-      data-ad-slot="7503384582"></ins>
-      <script>
-        (adsbygoogle = window.adsbygoogle || []).push({});
-      </script>
-
-      
+      <%= render 'images' %>      
       <%= render 'comments/display' %>
     </div>
   </div>
-  </div>
-  <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-  <!-- Mods-Unturned -->
-  <ins class="adsbygoogle"
-  style="display:block;margin:0 auto;width:728px;height:90px"
-  data-ad-client="ca-pub-3000890138855017"
-  data-ad-slot="2920237782"></ins>
-  <script>
-    (adsbygoogle = window.adsbygoogle || []).push({});
-  </script>
 </div>
 <% if can_manage(@submission) %>
 <%= render 'images/popup' %>
