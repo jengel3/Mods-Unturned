@@ -12,7 +12,7 @@ $(document).ready(function(){
 	});
 
 	$('.login-button').magnificPopup({
-		type:'inline',
+		type: 'inline',
 		midClick: true,
 		mainClass: 'mfp-zoom-in',
       	removalDelay: 500
