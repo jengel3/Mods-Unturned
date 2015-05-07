@@ -20,14 +20,14 @@ $(document).ready(function(){
 
 	$('.reset-link-button').magnificPopup({
 		type:'inline',
-		midClick: true
+		midClick: true,
 		mainClass: 'mfp-zoom-in',
       	removalDelay: 500
 	});
 
 	$('.contact-button').magnificPopup({
       type:'inline',
-      midClick: true
+      midClick: true,
       mainClass: 'mfp-zoom-in',
       removalDelay: 500
     });
