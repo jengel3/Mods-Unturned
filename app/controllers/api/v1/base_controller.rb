@@ -20,6 +20,5 @@ class Api::V1::BaseController < ApplicationController
  
       render :text => '', :content_type => 'text/plain'
     end
-  end
- 
+  end 
 end

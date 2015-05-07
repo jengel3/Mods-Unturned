@@ -75,51 +75,8 @@ $(document).ready(function(){
 	$(".signinwrap input[id='user_password']").keyup(checkUserPasswordLength);
 });
 
-function renderErrors(text) {
-	var parsed = JSON.parse(text);
-	var formattedErrors = [];
-	$.each(parsed['errors'], function( index, value ) {
-		var field_name = index;
-		var errors = value;
-		var uniqueErrors = [];
-		$.each(errors, function(i, el){
-			if($.inArray(el, uniqueErrors) === -1) { 
-				uniqueErrors.push(el);
-				var formatted = capitaliseFirstLetter(field_name.replace('_', ' ')) + " " + el;
-				formattedErrors.push(formatted + "<br/>");
-			}
-		});        
-	});
-	return formattedErrors;
 
-	function capitaliseFirstLetter(str) {
-		return str.charAt(0).toUpperCase() + str.slice(1);
-	}
-}
-
-function checkPasswordMatch() {
-	var password = $(".registerwrap input[id='user_password']").val();
-	var confirmPassword = $(".registerwrap input[id='user_password_confirmation']").val();
-
-	if (confirmPassword === "" || password !== confirmPassword)
-		$(".register-input[id='user_password_confirmation']").css("background-image", "url('<%= asset_path('password25.png') %>')");
-	else
-		$(".register-input[id='user_password_confirmation']").css("background-image", "url('<%= asset_path('lock26.png') %>')");
-} 
-
-function checkUserPasswordLength() {
-	var userPassword = $(".signinwrap input[id='user_password']").val();
-
-	if (userPassword.length >= 6 && userPassword.length <= 128) {
-		$(".login-input[id='user_password']").css("background-image", "url('<%= asset_path('lock26.png') %>')")
-	} else {
-		$(".login-input[id='user_password']").css("background-image", "url('<%= asset_path('password25.png') %>')")
-	}
-}
-
-$(document).on('submit', 'form#log_in_user', function(e) {
-}).on('ajax:success', 'form#log_in_user', function(e, data, status, xhr) {
-	// reload the page now that the user is logged in
+$(document).on('ajax:success', 'form#log_in_user', function(e, data, status, xhr) {
 	location.reload(true);
 }).on('ajax:error', 'form#log_in_user', function(e, data, status, xhr) {
 	error = data.responseJSON.error;
@@ -127,9 +84,7 @@ $(document).on('submit', 'form#log_in_user', function(e) {
 	$('.signinwrap .errormessage').effect({effect: "shake", direction: "up", distance: 5, times: 2});
 });
 
-$(document).on('submit', 'form#register_user', function(e) {
-}).on('ajax:success', 'form#register_user', function(e, data, status, xhr) {
-	// reload the page now that the user is registered
+$(document).on('ajax:success', 'form#register_user', function(e, data, status, xhr) {
 	location.reload(true);
 }).on('ajax:error', 'form#register_user', function(e, data, status, xhr) {
 	errorResponse = data.responseText;
@@ -143,9 +98,7 @@ $(document).on('submit', 'form#register_user', function(e) {
 	$('.registerwrap .errormessage').effect({effect: "shake", direction: "up", distance: 5, times: 2});
 });
 
-$(document).on('submit', 'form#change_password', function(e) {
-}).on('ajax:success', 'form#change_password', function(e, data, status, xhr) {
-	// reload the page now that the user is registered
+$(document).on('ajax:success', 'form#change_password', function(e, data, status, xhr) {
 	location.reload(true);
 }).on('ajax:error', 'form#change_password', function(e, data, status, xhr) {
 	errorResponse = data.responseText;
@@ -154,9 +107,7 @@ $(document).on('submit', 'form#change_password', function(e) {
 	$('.inputwrap .errormessage').effect({effect: "shake", direction: "up", distance: 5, times: 2});
 });
 
-$(document).on('submit', 'form#send_email', function(e) {
-}).on('ajax:success', 'form#send_email', function(e, data, status, xhr) {
-	// reload the page now that the user is registered
+$(document).on('ajax:success', 'form#send_email', function(e, data, status, xhr) {
 	location.reload(true);
 }).on('ajax:error', 'form#send_email', function(e, data, status, xhr) {
 	errorResponse = data.responseText;
@@ -165,9 +116,7 @@ $(document).on('submit', 'form#send_email', function(e) {
 	$('.passwordreset_notificationmessagewrap .errormessage').effect({effect: "shake", direction: "up", distance: 5, times: 2});
 });
 
-$(document).on('submit', 'form#finish_steam', function(e) {
-}).on('ajax:success', 'form#finish_steam', function(e, data, status, xhr) {
-	// reload the page now that the user is registered
+$(document).on('ajax:success', 'form#finish_steam', function(e, data, status, xhr) {
 	location.reload(true);
 }).on('ajax:error', 'form#finish_steam', function(e, data, status, xhr) {
 	errorResponse = data.responseText;

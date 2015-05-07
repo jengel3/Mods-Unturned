@@ -10,6 +10,20 @@ en:
         body: "Description"
         name: "Name"
         type: "Type"
+      comment:
+        text: "Text"
+      image:
+        location: "Location"
+      report:
+        status: "Status"
+        resolve_at: "Resolved At"
+        report_type: "Report Type"
+      upload:
+        name: "Name"
+        version: "Version"
+      video:
+        url: "URL"
+        thumbnail: "Thumbnail"
   pagination:
     first: "&laquo; First"
     next: "Next &rsaquo;"
@@ -52,6 +66,7 @@ en:
     successfully_deleted: "Successfully deleted a comment."
     successfully_restored: "Successfully restored a comment."
     comments: "Comments"
+    created_before: "Created before timestamps were tracked."
     display:
       to_bottom: "Go to bottom (newest)"
       to_top: "Return to top"
@@ -75,6 +90,7 @@ en:
       upload_image: "Upload Image"
       upload_images: "Upload Images"
   submissions:
+    no_files: "No files awaiting approval."
     all_creations: "All Creations"
     results: "Results"
     successfully_favorited: "Successfully favorited %{name}."
@@ -269,7 +285,7 @@ en:
       log_in_panel: "Log in Panel"
   users:
     log_in: "Log in"
-    log_out: "Log out
+    log_out: "Log out"
     register: "Register"
     join_us: "Join to access all our features."
     confirm_password: "Confirm Password"

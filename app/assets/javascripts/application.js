@@ -3,11 +3,10 @@
 //= require jquery-ui/ui/core
 //= require jquery-ui/ui/widget
 //= require jquery-ui/ui/effect
-//= require jquery-ui/ui/effect-highlight
 //= require jquery-ui/ui/effect-fade
 //= require jquery-ui/ui/effect-shake
 //= require jquery-ui/ui/accordion
-//= require best_in_place
+//= require utils
 //= require home
 //= require admin/reports
 //= require magnific-popup/dist/jquery.magnific-popup

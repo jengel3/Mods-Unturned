@@ -30,13 +30,13 @@
           <% end %>
           <% end %>
           <p class="title">
-            <%= best_in_place_if can_manage(@submission), @submission, :name, :as => :input, tabindex: "1" %>
+            <%= @submission.name %>
           </p>
           <p class="dateupload" title="<%= 'Uploaded ' + time_ago_in_words(@submission.created_at) + ' ago' %>">
             <%= @submission.created_at.strftime("%B #{@submission.created_at.day.ordinalize}, #{@submission.created_at.year}") %>
           </p>
           <p class="description">
-            <%= best_in_place_if can_manage(@submission), @submission, :body, :as => :textarea, tabindex: "2", class: 'description_filter', :data => {:description => @submission.body}, raw: true, :display_with => lambda { |v| sanitize(v).gsub(/(\r)?\n/, "<br/>").html_safe } %>
+            <%= @submission.body %>
           </p>
           
           <p class="uploadby">
@@ -52,13 +52,13 @@
               </div>
               <div class="userdescription"><%= t '.map_maker' %></div>
               <div class="stats">
-                <%= pluralize(@submission.user.submissions.count, "#{t '.submission'}") %>
+                <%= pluralize(@submission.user.submissions.count, t('.submission') %>
               </div>
             </div>
           </div>
           <p class="uploadby">
             <b>
-              <%= pluralize(@submission.download_count, "#{t 'common.download'}") %>
+              <%= pluralize(@submission.download_count, t('common.download') %>
             </b>
           </p>
           <div class="manage">
@@ -99,9 +99,6 @@
           </div>
           <% end %>
         </div>
-        
-        
-        
         <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
         <!-- Mods-Unturned Sidebar Fixed -->
         <ins class="adsbygoogle"
@@ -168,18 +165,6 @@
   </script>
 </div>
 </div>
-<%= content_for :scripts do %>
-<script src="<%= asset_path('content.js') %>"></script>
-<script>
-  $(".best_in_place").best_in_place();
-  $('.description_filter').bind("ajax:success", function () {
-    $('.description_filter').html($('.description_filter').html().replace(/(\r)?\n/g, "<br/>"));
-  });
-  $('.best_in_place').bind("ajax:success", function () {
-    $(this).effect('highlight', {color: 'lightgreen'}, 1800);
-  });
-</script>
-<% end %>
 <% if can_manage(@submission) %>
 <%= render 'images/popup' %>
 <% end %>

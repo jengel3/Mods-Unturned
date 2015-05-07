@@ -112,17 +112,15 @@ class SubmissionsController < ApplicationController
     respond_to do |format|
       if @submission.update!(submission_params)
         format.html { redirect_to @submission }
-        format.json { respond_with_bip(@submission) }
       else
         format.html { render :action => "edit" }
-        format.json { respond_with_bip(@submission) }
       end
     end
   end
 
   def destroy
     @submission.destroy
-    redirect_to projects_path(:type => "all"), :notice => "Successfully deleted a submission."
+    redirect_to projects_path(:type => "all"), :notice => t('submissions.successfully_deleted')
   end
 
   private

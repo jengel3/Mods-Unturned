@@ -41,7 +41,6 @@ gem 'sidekiq'
 # News utilities
 gem 'httparty'
 gem 'bb-ruby', github: 'Jake0oo0/bb-ruby'
-gem 'best_in_place', '~> 3.0.1'
 gem 'nokogiri'
 
 # Email compiler
