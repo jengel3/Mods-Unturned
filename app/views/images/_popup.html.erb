@@ -1,4 +1,4 @@
-<div id="add-image" class="add-image-popup mfp-hide">
+<div id="add-image" class="add-image-popup mfp-hide mfp-with-anim">
   <div class='popupwrap'>
     <table>
       <tr>
@@ -32,26 +32,3 @@
     </table>
   </div>
 </div>
-
-<%= content_for :scripts do %>
-<script>
-  $('.add-image-button').click(function() {
-    if ($(this).parent().hasClass('edit-image-large')) {
-      $('#image_location').val('Main');
-      return;
-    }
-    var location = $(this).parent().parent().index() + 2;
-    var selected = $('option[selected="selected"]').removeAttr('selected');
-    var to_select = $('#image_location option:nth-child(' + location + ')');
-    if (selected[0] == to_select[0]) {
-      return;
-    }
-    to_select.parent().val(to_select.val());
-  });
-  $('.add-image-button').magnificPopup({
-    type:'inline',
-    midClick: true,
-    mainClass: 'mfp-fade'
-  });
-</script>
-<% end %>
