@@ -262,6 +262,7 @@ en:
     manage: "Manage"
     sending: "Sending"
     screenshot: "Screenshot"
+    download: "Download"
   shared:
     footer:
       about: "About"

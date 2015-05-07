@@ -52,13 +52,13 @@
               </div>
               <div class="userdescription"><%= t('.map_maker') %></div>
               <div class="stats">
-                <%= pluralize(@submission.user.submissions.count, t('.submission') %>
+                <%= pluralize(@submission.user.submissions.count, t('.submission')) %>
               </div>
             </div>
           </div>
           <p class="uploadby">
             <b>
-              <%= pluralize(@submission.download_count, t('common.download') %>
+              <%= pluralize(@submission.download_count, t('common.download')) %>
             </b>
           </p>
           <div class="manage">
@@ -86,7 +86,7 @@
               </a>
               <br/>
               <b>
-                <%= link_to "<i class='fa fa-trash-o'></i> #{t 'common.delete'}".html_safe, submission_path(@submission), method: :delete, data: {confirm: t('common.sure')} %>
+                <%= link_to "<i class='fa fa-trash-o'></i> #{t 'common.delete'}".html_safe, submission_path(@submission), method: :delete, data: {confirm: t('common.sure') } %>
               </b>
               <% if user_is_admin %>
               <br/>
