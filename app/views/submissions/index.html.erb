@@ -1,13 +1,12 @@
 <div>
   <div id="centerpage">
     <%= render 'shared/tabs' %>
-    <div id="mainpagewrap">
       <div class="box effect1">
         <h2>
           <%= @title %>
         </h2>
       </div>
-      <div class="mainpageleft">
+      <div id="mainpage">
         <div style="width:100%; text-align:center; height:8px;margin-top:5px; font-size:14px; margin-left:0px;">
           <% if params[:sort] == "newest" || !params[:sort] %>
             <b>
@@ -68,7 +67,6 @@
           </div>
         <% end %>
       </div>
-      <div id="mainpage" style="margin-bottom: 2px !important;"></div>
       <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
       <!-- Mods-Unturned -->
       <ins class="adsbygoogle"
@@ -81,6 +79,5 @@
       <div class="pagination-wrap">
         <%= paginate @submissions %>
       </div>
-    </div>
   </div>
 </div>

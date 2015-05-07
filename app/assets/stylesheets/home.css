@@ -1,22 +1,6 @@
 * {
   font-family: "Arimo", sans-serif;
 }
-#mainpagewrap {
-  width: 900px !important;
-  height: 1185px !important;
-  margin: 0 auto !important;
-  margin-bottom: 10px !important;
-}
-#mainpage {
-  width: 860px !important;
-  height: 1185px !important;
-}
-.mainpageleft {
-  width: 860px !important;
-  height: 100%;
-  float: left;
-  margin-left: 20px;
-}
 hr {
   width: 75%;
   color: rgb(180, 180, 180);
@@ -138,11 +122,13 @@ td.recentlyupdatedmods {
   vertical-align: text-top;
 }
 .content {
-  margin-top: 0px !important;
-  margin-bottom: 10px !important;
-  margin-left: 0px !important;
-  font-weight: normal;
-  width: 400px !important;
+	margin-top:0px !important;
+	margin-bottom:10px !important;
+	margin-left:0px !important;
+	font-weight:normal !important;
+	width:415px !important;
+    margin-right:2px !important;
+    margin-left:3px !important;
 }
 .see_more_recent_button {
   width: 60%;
