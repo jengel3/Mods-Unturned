@@ -3,15 +3,31 @@ $(document).ready(function () {
     $('.add-video-button').magnificPopup({
       type:'inline',
       midClick: true,
-      mainClass: 'mfp-fade'
+      mainClass: 'mfp-zoom-in',
+      removalDelay: 500
     });
 
     $('.popup-youtube').magnificPopup({
       disableOn: 700,
       type: 'iframe',
-      mainClass: 'mfp-fade',
-      removalDelay: 160,
+      mainClass: 'mfp-zoom-in',
+      removalDelay: 500,
       preloader: false,
+    });
+
+    $('.add-image-button').magnificPopup({
+      type: 'inline',
+      midClick: true,
+      mainClass: 'mfp-zoom-in',
+      removalDelay: 500
+    });
+
+    $('.screenshots').magnificPopup({
+      delegate: '.valid-thumb',
+      type: 'image',
+      gallery: {
+        enabled: true
+      }
     });
 
     $('.add-image-button').click(function() {
@@ -28,20 +44,6 @@ $(document).ready(function () {
       to_select.parent().val(to_select.val());
     });
 
-    $('.add-image-button').magnificPopup({
-      type:'inline',
-      midClick: true,
-      mainClass: 'mfp-fade'
-    });
-
-    $('.screenshots').magnificPopup({
-      delegate: '.valid-thumb',
-      type: 'image',
-      gallery: {
-        enabled: true
-      }
-    });
-
     $('.report-comment-button').click(function() {
       var comment_id = $(this).closest('.comment').attr('id').replace('comment-', '');
       var form = $('#add-report-comment form');
@@ -50,6 +52,5 @@ $(document).ready(function () {
       var new_action = old_action.replace(action_split[action_split.length - 2], comment_id);
       form.attr('action', new_action);
     });
-    
   }
 });

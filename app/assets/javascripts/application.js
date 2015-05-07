@@ -7,7 +7,7 @@
 //= require jquery-ui/ui/effect-shake
 //= require jquery-ui/ui/accordion
 //= require utils
-//= require home
+//= require base
 //= require admin/reports
 //= require magnific-popup/dist/jquery.magnific-popup
 //= require jquery.nivo.slider.pack

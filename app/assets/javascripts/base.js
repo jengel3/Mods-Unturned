@@ -1,4 +1,3 @@
-// handle image previewing for screenshots
 $(document).ready(function(){
 	var preview = $(".uploadscreen_previewimgwrap");
 	$(".uploadscreenbutton").change(function(event){
@@ -14,12 +13,24 @@ $(document).ready(function(){
 
 	$('.login-button').magnificPopup({
 		type:'inline',
-		midClick: true
+		midClick: true,
+		mainClass: 'mfp-zoom-in',
+      	removalDelay: 500
 	});
+
 	$('.reset-link-button').magnificPopup({
 		type:'inline',
 		midClick: true
+		mainClass: 'mfp-zoom-in',
+      	removalDelay: 500
 	});
+
+	$('.contact-button').magnificPopup({
+      type:'inline',
+      midClick: true
+      mainClass: 'mfp-zoom-in',
+      removalDelay: 500
+    });
 
 	function handleEnter(elem) {
 		elem = elem.target;
@@ -37,6 +48,7 @@ $(document).ready(function(){
 			$(image_elem).addClass('hovering');
 		}
 	}
+
 	function handleLeave(elem) {
 		elem = elem.target;
 		var location = -1;

@@ -1,9 +1,9 @@
 <div id="footerpage">
   <table class="footertable">
     <tr>
-      <td><a href=<%= about_path %>><%= t '.about' %></a></td>
-      <td><a href="#contact-popup" class='contact-button'><%= t '.contact' %></a></td>
-      <td><a href=<%= new_submission_path %>><%= t 'common.submit' %></a></td>
+      <td><%= link_to t('.about'), about_path %></td>
+      <td><%= link_to t('.contact'), '#contact-popup', class: 'contact-button' %></td>
+      <td><%= link_to t('common.submit'), new_submission_path %></td>
     </tr>
     <tr>
       <td colspan="3" class="socialmedialogos">
@@ -16,7 +16,7 @@
   </table>
 </div>
 
-<div id="contact-popup" class="mfp-hide">
+<div id="contact-popup" class="mfp-hide mfp-with-anim">
   <p>
     <%= t '.please_allow' %>
   </p>
@@ -28,12 +28,3 @@
   <div class="g-recaptcha" data-sitekey="6LdXLQITAAAAAH39kLpg0OWSOEyIe5WgrMWbx00F"></div>
   <% end %>
 </div>
-
-<% content_for :scripts do %>
-  <script>
-    $('.contact-button').magnificPopup({
-      type:'inline',
-      midClick: true
-    });
-  </script>
-<% end %>
