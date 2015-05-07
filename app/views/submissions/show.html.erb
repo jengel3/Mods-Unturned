@@ -1,9 +1,9 @@
 <div id="centerpage">
   <%= render 'shared/tabs' %>
-  <div id="mainpagewrap" style="width: 900px; height:640px; margin: 0 auto; margin-bottom:10px;">
     <div class="box effect1">
       <h2><%= @submission.name %></h2>
     </div>
+    <div id="mainpage">
     <div class="mainpageleft">
       <div class="infosection effect3">
         <div class='sidebar'>
@@ -156,7 +156,7 @@
       <%= render 'comments/display' %>
     </div>
   </div>
-  <div id="mainpage"></div>
+  </div>
   <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
   <!-- Mods-Unturned -->
   <ins class="adsbygoogle"
@@ -166,7 +166,6 @@
   <script>
     (adsbygoogle = window.adsbygoogle || []).push({});
   </script>
-</div>
 </div>
 <%= content_for :scripts do %>
 <script src="<%= asset_path('content.js') %>"></script>
