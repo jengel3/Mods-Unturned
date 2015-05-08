@@ -1,11 +1,9 @@
-<div id="centerpage">
+
   <%= render 'shared/tabs' %>
   <div class="box effect1">
     <h2><%= @submission.name %></h2>
   </div>
   <div id="mainpage">
-    <div class="mainpageleft">
-      <div class="infosection effect3">
         <div class='sidebar'>
           <% if !@submission.ready? %>
           <p class="title" style="margin-top: 0px; margin-bottom: 0px;"><%= t('.warning_title') %></p>
@@ -102,14 +100,13 @@
         <%= render 'videos/display' %>
         <%= render 'videos/popup' %>
       </div>
-    </div>
-  </div>
   <div class="mainpageright">
     <div class="rightbar">
       <%= render 'images' %>      
       <%= render 'comments/display' %>
     </div>
   </div>
+ <div class="sidebarfix"></div>
 </div>
 <% if can_manage(@submission) %>
 <%= render 'images/popup' %>
