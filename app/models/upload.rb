@@ -1,6 +1,6 @@
 class Upload
   include Mongoid::Document
-  include Mongoid::Timestamps
+  include Mongoid::Timestamps::Created
   include GlobalID::Identification
 
   before_save :set_update
@@ -22,18 +22,14 @@ class Upload
 
   private
   def check_approval
-    if !approved || submission.approved_at
-      return
-    elsif submission.can_show?
+    if !(approved && submission.approved_at) && submission.can_show?
       submission.approved_at = Time.now
       submission.save
     end
   end
 
   def set_update
-    if not approved
-      return
-    end
+    return if !approved
     self.submission.last_update = Time.now
     self.submission.save
   end

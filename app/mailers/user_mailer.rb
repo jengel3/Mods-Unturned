@@ -1,10 +1,4 @@
-require 'digest/sha2'
-class UserMailer < ActionMailer::Base
-  default "Message-ID"=>"#{Digest::SHA2.hexdigest(Time.now.to_i.to_s)}@mods-unturned.com"
-  add_template_helper(ApplicationHelper)
-  default from: "no-reply@mods-unturned.com"
-  @@reply = "no-reply@mods-unturned.com"
-
+class UserMailer < BaseMailer
   def single(to, from, subject, message)
     @message = message.gsub(/\r\n/, "<br>")
     mail(:to => to,
@@ -26,7 +20,7 @@ class UserMailer < ActionMailer::Base
     return if !@user.accepts_emails
     mail(:to => @user.email,
       :subject => "Successfully Registered on Mods-Unturned",
-      :reply_to => @@reply)
+      :reply_to => BaseMailer.no_reply)
   end
 
   def denied(upload, reason)
@@ -37,7 +31,7 @@ class UserMailer < ActionMailer::Base
     @reason = reason
     mail(:to => @email,
      :subject => "#{@upload.submission.name} Download Denied",
-     :reply_to => @@reply)
+     :reply_to => BaseMailer.no_reply)
   end
 
   def approved(upload)
@@ -48,7 +42,7 @@ class UserMailer < ActionMailer::Base
     @upload = upload
     mail(:to => @email,
      :subject => "#{@upload.submission.name} Download Approved",
-     :reply_to => @@reply)
+     :reply_to => BaseMailer.no_reply)
   end
 
   def milestone(submission, count)
@@ -59,7 +53,7 @@ class UserMailer < ActionMailer::Base
     @email = @user.email
     mail(:to => @user.email,
       :subject => "A Submission of Yours on mods-unturned.com has reached #{count} downloads!",
-      :reply_to => @@reply)
+      :reply_to => BaseMailer.no_reply)
   end
 
   def comment(comment)
@@ -69,6 +63,6 @@ class UserMailer < ActionMailer::Base
     @email = @submission.user.email
     mail(:to => @comment.submission.user.email,
       :subject => "Your Submission Has Received a Comment",
-      :reply_to => @@reply)
+      :reply_to => BaseMailer.no_reply)
   end
 end

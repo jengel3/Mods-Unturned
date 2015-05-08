@@ -93,7 +93,7 @@ $(document).on('ajax:success', 'form#log_in_user', function(e, data, status, xhr
 }).on('ajax:error', 'form#log_in_user', function(e, data, status, xhr) {
 	error = data.responseJSON.error;
 	$('.signinwrap').find('.notificationtext').text(error);
-	$('.signinwrap .errormessage').effect({effect: "shake", direction: "up", distance: 5, times: 2});
+	$('.signinwrap .errormessage').shake();
 });
 
 $(document).on('ajax:success', 'form#register_user', function(e, data, status, xhr) {
@@ -107,7 +107,7 @@ $(document).on('ajax:success', 'form#register_user', function(e, data, status, x
 	} else {
 		$('.registercircleinfo').css('visibility', 'visible');
 	}
-	$('.registerwrap .errormessage').effect({effect: "shake", direction: "up", distance: 5, times: 2});
+	$('.registerwrap .errormessage').shake();
 });
 
 $(document).on('ajax:success', 'form#change_password', function(e, data, status, xhr) {
@@ -125,7 +125,7 @@ $(document).on('ajax:success', 'form#send_email', function(e, data, status, xhr)
 	errorResponse = data.responseText;
 	formattedErrors = renderErrors(errorResponse);
 	$('.passwordreset_notificationmessagewrap').find('.passwordreset_notificationtext').html(formattedErrors);
-	$('.passwordreset_notificationmessagewrap .errormessage').effect({effect: "shake", direction: "up", distance: 5, times: 2});
+	$('.passwordreset_notificationmessagewrap .errormessage').shake();
 });
 
 $(document).on('ajax:success', 'form#finish_steam', function(e, data, status, xhr) {
@@ -134,5 +134,5 @@ $(document).on('ajax:success', 'form#finish_steam', function(e, data, status, xh
 	errorResponse = data.responseText;
 	formattedErrors = renderErrors(errorResponse);
 	$('.passwordreset_notificationmessagewrap').find('.passwordreset_notificationtext').html(formattedErrors);
-	$('.loginpagewrap .errormessage').effect({effect: "shake", direction: "up", distance: 5, times: 2});
+	$('.loginpagewrap .errormessage').shake();
 });

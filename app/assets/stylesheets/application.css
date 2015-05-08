@@ -6,7 +6,7 @@
  *= require_self
  */
  
-.mfp-zoom-in .mfp-with-anim {
+ .mfp-zoom-in .mfp-with-anim {
   opacity: 0;
   transition: all 0.2s ease-in-out;
   transform: scale(0.8);
@@ -28,4 +28,28 @@
 }
 .mfp-zoom-in.mfp-removing.mfp-bg {
   opacity: 0;
+}
+
+.accordion-toggle {
+  display: block;
+  cursor: pointer;
+  position: relative;
+  margin: 2px 0px 0px;
+  padding: 0.5em 0.5em 0.5em 0.7em;
+  min-height: 0px;
+  border: 1px solid #AAA;
+  background: white;
+  color: #212121;
+  border-radius: 3px 3px 0 0;
+}
+.accordion-content {
+  display: none;
+  padding: 1em 2.2em;
+  border: 1px solid #AAA;
+  border-top: 0px none;
+  overflow: auto;
+  background-color: white;
+}
+.accordion-content.default {
+  display: block;
 }

@@ -85,7 +85,7 @@ en:
     image_preview: "Image Preview"
     choose_file: "Choose File"
     unable_to_upload: "Unable to upload image, see errors below."
-    successfully_created: "Successfully created a new submission."
+    successfully_created: "Successfully uploaded a new image."
     edit:
       upload_image: "Upload Image"
       upload_images: "Upload Images"
@@ -165,6 +165,7 @@ en:
       inappropriate: "Inappropriate"
       not_original: "Not Original"
       other: "Other"
+      extra_comments: "Extra comments..."
   user_mailer:
     dont_want: "Don't want to receive emails from Mods-Unturned?"
     unsubsribe: "Unsubscribe"

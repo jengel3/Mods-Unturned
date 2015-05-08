@@ -1,5 +1,5 @@
 {
-  "name": "ModsUnturned",
+  "name": "Mods-Unturned",
   "version": "2.1.0",
   "private": "true",
   "homepage": "https://github.com/Jake0oo0/Unturned-Mods",
@@ -22,7 +22,7 @@
   ],
   "dependencies": {
     "magnific-popup": "~1.0.0",
-    "jquery-ui": "~1.11.2",
-    "highcharts": "~4.1.1"
+    "highcharts": "~4.1.1",
+    "jq-animations": "*"
   }
 }
