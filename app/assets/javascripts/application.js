@@ -6,6 +6,6 @@
 //= require magnific-popup/dist/jquery.magnific-popup
 //= require utils
 //= require base
-//= require admin/reports
+//= require admin/uploads
 //= require news
 //= require content

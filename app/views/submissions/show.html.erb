@@ -1,112 +1,112 @@
 
-  <%= render 'shared/tabs' %>
-  <div class="box effect1">
-    <h2><%= @submission.name %></h2>
-  </div>
-  <div id="mainpage">
-        <div class='sidebar'>
-          <% if !@submission.ready? %>
-          <p class="title" style="margin-top: 0px; margin-bottom: 0px;"><%= t('.warning_title') %></p>
-          <p class="uploadby" style="margin-top: 5px;">
-            <b><%= t('.warning_text') %></b>
-          </p>
-          <% else %>
-          <% if @submission.latest_download %>
-          <% latest = @submission.latest_download %>
-          <div class="downloadbutton">
-            <a href="<%= submission_download_path(@submission) %>">
-              <h4 class="download">
-                <%= t('.download') %>
-                <div class="filename">
-                  <%= @submission.latest_download.upload.truncated_name %>
-                  <% size = latest.upload.download_size %>
-                  (<%= t('.upload_size', :size => size[0], :unit => size[1]) %>)
-                </div>
-              </h4>
-            </a>
+<%= render 'shared/tabs' %>
+<div class="box effect1">
+  <h2><%= @submission.name %></h2>
+</div>
+<div id="mainpage">
+  <div class='sidebar'>
+    <% if !@submission.ready? %>
+    <p class="title" style="margin-top: 0px; margin-bottom: 0px;"><%= t('.warning_title') %></p>
+    <p class="uploadby" style="margin-top: 5px;">
+      <b><%= t('.warning_text') %></b>
+    </p>
+    <% else %>
+    <% if @submission.latest_download %>
+    <% latest = @submission.latest_download %>
+    <div class="downloadbutton">
+      <a href="<%= submission_download_path(@submission) %>">
+        <h4 class="download">
+          <%= t('.download') %>
+          <div class="filename">
+            <%= @submission.latest_download.upload.truncated_name %>
+            <% size = latest.upload.download_size %>
+            (<%= t('.upload_size', :size => size[0], :unit => size[1]) %>)
           </div>
-          <% end %>
-          <% end %>
-          <p class="title">
-            <%= @submission.name %>
-          </p>
-          <p class="dateupload" title="<%= 'Uploaded ' + time_ago_in_words(@submission.created_at) + ' ago' %>">
-            <%= @submission.created_at.strftime("%B #{@submission.created_at.day.ordinalize}, #{@submission.created_at.year}") %>
-          </p>
-          <p class="description">
-            <%= @submission.body %>
-          </p>
-          
-          <p class="uploadby">
-            <b><%= t('.created_by') %></b>
-          </p>
-          <div class="profile">
-            <a href="<%= user_uploads_path(@submission.user.username) %>">
-              <%= avatar(@submission.user) %>
-            </a>
-            <div class="persondetails">
-              <div class="username">
-                <%= link_to @submission.user.username, user_uploads_path(@submission.user.username) %>
-              </div>
-              <div class="userdescription"><%= t('.map_maker') %></div>
-              <div class="stats">
-                <%= pluralize(@submission.user.submissions.count, t('.submission')) %>
-              </div>
-            </div>
-          </div>
-          <p class="uploadby">
-            <b>
-              <%= pluralize(@submission.download_count, t('common.download')) %>
-            </b>
-          </p>
-          <div class="manage">
-           <p class="uploadby" style="margin: 0px;">
-            <i class="fa fa-exclamation-triangle"></i>
-            <a class="report-submission-button" href="#add-report-submission">
-              <b><%= t('.report_submission') %></b>
-            </a>
-          </p>
-        </div>
-        <%= render 'reports/form', reportable: [@submission] %>
-        <div class="manage">
-          <% if can_manage(@submission) %>
-          <p class="title" style="margin-bottom: 3px; margin-top: 2px;"><%= t('common.manage') %></p>
-          <div class="manage">
-            <p class="uploadby" style="margin: 0px;">
-              <i class="fa fa-upload"></i>
-              <a href="<%= new_submission_upload_path(@submission) %>" title='<%= waiting(@submission) %>'>
-                <b><%= t('.upload_file') %></b>
-              </a>
-              <br/>
-              <i class="fa fa-pencil"></i>
-              <a href="<%= edit_submission_path(@submission) %>">
-                <b><%= t('.edit') %></b>
-              </a>
-              <br/>
-              <b>
-                <%= link_to "<i class='fa fa-trash-o'></i> #{t 'common.delete'}".html_safe, submission_path(@submission), method: :delete, data: {confirm: t('common.sure') } %>
-              </b>
-              <% if user_is_admin %>
-              <br/>
-              <i class="fa fa-star"></i>
-              <a href="<%= submission_favorite_path(@submission) %>">
-                <b><%= t('.favorite') %></b>
-              </a>
-              <% end %>
-            </p>
-          </div>
-          <% end %>
-        </div>
-        <%= render 'videos/display' %>
-        <%= render 'videos/popup' %>
-      </div>
-  <div class="mainpageright">
-    <div class="rightbar">
-      <%= render 'images' %>      
-      <%= render 'comments/display' %>
+        </h4>
+      </a>
     </div>
+    <% end %>
+    <% end %>
+    <p class="title">
+      <%= @submission.name %>
+    </p>
+    <p class="dateupload" title="<%= 'Uploaded ' + time_ago_in_words(@submission.created_at) + ' ago' %>">
+      <%= @submission.created_at.strftime("%B #{@submission.created_at.day.ordinalize}, #{@submission.created_at.year}") %>
+    </p>
+    <p class="description">
+      <%= @submission.body %>
+    </p>
+    
+    <p class="uploadby">
+      <b><%= t('.created_by') %></b>
+    </p>
+    <div class="profile">
+      <a href="<%= user_uploads_path(@submission.user.username) %>">
+        <%= avatar(@submission.user) %>
+      </a>
+      <div class="persondetails">
+        <div class="username">
+          <%= link_to @submission.user.username, user_uploads_path(@submission.user.username) %>
+        </div>
+        <div class="userdescription"><%= t('.map_maker') %></div>
+        <div class="stats">
+          <%= pluralize(@submission.user.submissions.count, t('.submission')) %>
+        </div>
+      </div>
+    </div>
+    <p class="uploadby">
+      <b>
+        <%= pluralize(@submission.download_count, t('common.download')) %>
+      </b>
+    </p>
+    <div class="manage">
+     <p class="uploadby" style="margin: 0px;">
+      <i class="fa fa-exclamation-triangle"></i>
+      <a class="report-submission-button" href="#add-report-submission">
+        <b><%= t('.report_submission') %></b>
+      </a>
+    </p>
   </div>
- <div class="sidebarfix"></div>
+  <%= render 'reports/form', reportable: [@submission] %>
+  <div class="manage">
+    <% if can_manage(@submission) %>
+    <p class="title" style="margin-bottom: 3px; margin-top: 2px;"><%= t('common.manage') %></p>
+    <div class="manage">
+      <p class="uploadby" style="margin: 0px;">
+        <i class="fa fa-upload"></i>
+        <a href="<%= new_submission_upload_path(@submission) %>" title='<%= waiting(@submission) %>'>
+          <b><%= t('.upload_file') %></b>
+        </a>
+        <br/>
+        <i class="fa fa-pencil"></i>
+        <a href="<%= edit_submission_path(@submission) %>">
+          <b><%= t('.edit') %></b>
+        </a>
+        <br/>
+        <b>
+          <%= link_to "<i class='fa fa-trash-o'></i> #{t 'common.delete'}".html_safe, submission_path(@submission), method: :delete, data: {confirm: t('common.sure') } %>
+        </b>
+        <% if user_is_admin %>
+        <br/>
+        <i class="fa fa-star"></i>
+        <a href="<%= submission_favorite_path(@submission) %>">
+          <b><%= t('.favorite') %></b>
+        </a>
+        <% end %>
+      </p>
+    </div>
+    <% end %>
+  </div>
+  <%= render 'videos/display' %>
+  <%= render 'videos/popup' %>
+</div>
+<div class="mainpageright">
+  <div class="rightbar">
+    <%= render 'images' %>      
+    <%= render 'comments/display' %>
+  </div>
+</div>
+<div class="sidebarfix"></div>
 </div>
 <% if can_manage(@submission) %>
 <%= render 'images/popup' %>

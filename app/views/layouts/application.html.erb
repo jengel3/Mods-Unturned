@@ -60,11 +60,6 @@
   <%= stylesheet_link_tag 'application' %>
   <%= stylesheet_link_tag 'home' %>
   <%= stylesheet_link_tag 'index' %>
-  <% elsif params[:action] != "maintenance" %>
-  <%= stylesheet_link_tag 'application' %>
-  <% end %>
-  <% if params[:action] == "maintenance" %>
-  <%= stylesheet_link_tag 'error' %>
   <% end %>
   <% if params[:action] == "about" %>
   <%= stylesheet_link_tag 'about' %>
@@ -98,7 +93,7 @@
 <body>
 
   <%= yield %>
-
+  <%= render 'shared/footer' %>
   <link href="https://fonts.googleapis.com/css?family=Arimo" rel="stylesheet" type="text/css" />
   <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet" />
   <%= render 'shared/analytics' %>
