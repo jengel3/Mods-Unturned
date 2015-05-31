@@ -1,74 +1,43 @@
-<style>
-	.moderation, .moderation th, .moderation td {    
-		border: 1px solid black;
-		border-collapse: collapse;
-	}
-	.moderation {   
-		width: 100%;
-	}
-	.moderation th, .moderation td {
-		padding: 5px;
-		text-align: left;
-	}
-</style>
-<div id="centerpage">
+<div id="centerpage" class="admin">
 	<%= render 'shared/tabs' %>
-	<div id="mainpagewrap">
-		<div class="box effect1">
-			<h2><%= t '.content_moderation' %></h2>
-		</div>
-		<div class="mainpageleft">
-			<% if @uploads.any? %>
-			<table class='moderation'>
-				<tr>
-					<th><%= t '.project_name' %></th>
-					<th><%= t '.file_name' %></th>
-					<th><%= t '.uploader' %></th>
-					<th colspan="2"><%= t '.actions' %></th>
-				</tr>
-				<% @uploads.each do |upload| %>
-				<tr>
-					<td>
-						<%= link_to upload.submission.name, upload.submission %>
-					</td>
-					<td>
-						<%= link_to upload.upload.file.filename, upload.upload.url %>
-					</td>
-					<td>
-						<%= link_to upload.submission.user.username, user_uploads_path(upload.submission.user.username) %>
-					</td>
-					<td>
-						<div align="center">
-							<%= link_to t('.approve'), '#', id: 'approve-' + upload.id, class: 'approve' %>
-						</div>
-					</td>
-					<td>
-						<div align="center">
-							<%= link_to t('.deny'), '#', id: 'deny-'+ upload.id, class: 'deny' %>
-						</div>
-					</td>
-				</tr>
-				<% end %>
-			</table>
-			<% else %>
-			<div align="center" id="none"><%= t '.no_uploads' %></div>
+	<div class="box effect1">
+		<h2><%= t 'admin.titles.content_moderation' %></h2>
+	</div>
+	<div id="mainpage">
+		<% if @uploads.any? %>
+		<table class='moderation'>
+			<tr>
+				<th><%= t '.project_name' %></th>
+				<th><%= t '.file_name' %></th>
+				<th><%= t '.uploader' %></th>
+				<th colspan="2"><%= t '.actions' %></th>
+			</tr>
+			<% @uploads.each do |upload| %>
+			<tr>
+				<td>
+					<%= link_to upload.submission.name, upload.submission %>
+				</td>
+				<td>
+					<%= link_to upload.upload.file.filename, upload.upload.url %>
+				</td>
+				<td>
+					<%= link_to upload.submission.user.username, user_uploads_path(upload.submission.user.username) %>
+				</td>
+				<td>
+					<div align="center">
+						<%= link_to t('.approve'), '#', id: 'approve-' + upload.id, class: 'approve' %>
+					</div>
+				</td>
+				<td>
+					<div align="center">
+						<%= link_to t('.deny'), '#', id: 'deny-'+ upload.id, class: 'deny' %>
+					</div>
+				</td>
+			</tr>
 			<% end %>
-		</div>
-		<div id="mainpage" />
+		</table>
+		<% else %>
+		<div align="center" id="none"><%= t '.no_uploads' %></div>
+		<% end %>
 	</div>
 </div>
-<%= content_for :scripts do %>
-<script>
-	$(document).ready(function(){ 
-		function recalcHeight() {
-			var height = $('.moderation').height();
-			$('#mainpage').height(height);
-			$('#mainpagewrap').height(height + 85);
-			$('.mainpageleft').height(height);
-		}
-		if ($('.moderation').length) {
-			recalcHeight();
-		}
-	});
-</script>
-<% end %>

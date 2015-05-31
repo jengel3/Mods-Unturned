@@ -1,12 +1,9 @@
 <div id="centerpage">
 	<%= render 'shared/tabs' %>
-	<div id="mainpagewrap">
-		<div class="box effect1">
-			<h2><%= t '.stats' %></h2>
-		</div>
-		<div class="mainpageleft">
-			<%= render '/admin/stats/stats' %>
-		</div>
-		<div id="mainpage" />
+	<div class="box effect1">
+		<h2><%= t '.stats' %></h2>
+	</div>
+	<div id="mainpage">
+		<%= render '/admin/stats/stats' %>
 	</div>
 </div>

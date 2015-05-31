@@ -121,6 +121,9 @@ $(document).ready(function(){
 			$(".readmoretext").attr('href', url);
 		});
 	}
+	$("#all").change(function () {
+		$("input:checkbox[class=content-check]").prop('checked', this.checked);
+	});
 });
 
 

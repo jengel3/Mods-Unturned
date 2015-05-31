@@ -1,37 +1,18 @@
-<style>
-.buttoncont {
-	width:860px;
-	height:40px;
-	line-height:40px;
-	display: table;
-}
-.button_to {
-	display: table-cell;
-	width: 33%;
-}
-.button_to input[type="submit"] {
-	width: 100%;
-	height: 100%;
-}
-</style>
 <div id="centerpage">
 	<%= render 'shared/tabs' %>
-	<div id="mainpagewrap">
-		<div class="box effect1">
-			<h2><%= t 'admin.titles.control_panel' %></h2>
+	<div class="box effect1">
+		<h2><%= t 'admin.titles.control_panel' %></h2>
+	</div>
+	<div id="mainpage">
+		<div class="buttoncont">
+			<%= button_to t('admin.titles.content_moderation'), admin_moderation_path, {:method => :get } %>
+			<%= button_to t('admin.titles.reports_moderation'), admin_reports_path, {:method => :get } %>
+			<%= button_to t('admin.titles.flush_cache'), flush_cache_path, {:method => :get } %>
 		</div>
-		<div class="mainpageleft">
-			<div class="buttoncont">
-				<%= button_to t('admin.titles.content_moderation'), admin_moderation_path, {:method => :get } %>
-				<%= button_to t('admin.titles.reports_moderation'), admin_reports_path, {:method => :get } %>
-				<%= button_to t('admin.titles.flush_cache'), flush_cache_path, {:method => :get } %>
-			</div>
-			<div class="buttoncont">
-				<%= button_to t('admin.titles.statistics'), admin_stats_path, {:method => :get} %>
-				<%= button_to t('admin.titles.user_list'), admin_users_path, {:method => :get } %>
-				<%= button_to t('admin.titles.send_email'), admin_email_path, {:method => :get } %>
-			</div>
+		<div class="buttoncont">
+			<%= button_to t('admin.titles.statistics'), admin_stats_path, {:method => :get} %>
+			<%= button_to t('admin.titles.user_list'), admin_users_path, {:method => :get } %>
+			<%= button_to t('admin.titles.send_email'), admin_email_path, {:method => :get } %>
 		</div>
-		<div id="mainpage" />
 	</div>
 </div>

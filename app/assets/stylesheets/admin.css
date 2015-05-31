@@ -1,0 +1,95 @@
+.admin table, .admin table th, .admin table td {    
+	border: 1px solid black;
+	border-collapse: collapse;
+}
+
+.admin table {   
+	width: 100%;
+}
+
+.admin table th, .admin table td {
+	padding: 5px;
+	text-align: left;
+}
+
+.action {
+	margin-bottom: 5px;
+}
+
+.selector {
+	width:100%; 
+	text-align: center; 
+	margin-top:5px; 
+	font-size:16px;
+}
+
+.report {
+	table-layout: fixed;
+	width: 300px;
+}
+
+.actions-table, .actions-table th, .acions-table td {
+	border-top: 0px none !important;
+}
+
+.actions-table th {
+	text-align: center !important;
+}
+
+.moderation th, .moderation td {
+	padding: 5px;
+	text-align: left;
+}
+
+.reporter-info span {
+	margin-left: 15px;
+}
+
+.resolver-info span {
+	margin-right: 15px;
+}
+
+h1 {
+	margin-bottom: 5px;
+}
+
+.actions th {
+	width: 25%;
+}
+
+.reporter-avatar, .resolver-avatar, .resolver-avatar img {
+	width: 60px; 
+	height: 60px;
+}
+
+.reporter-info {
+	vertical-align: middle;
+}
+
+.resolver-info {
+	vertical-align: middle; 
+	text-align: right;
+}
+
+.statistic {
+	min-width: 310px; 
+	height: 400px; 
+	margin: 0 auto;
+}
+
+.buttoncont {
+	width:860px;
+	height:40px;
+	line-height:40px;
+	display: table;
+}
+
+.button_to {
+	display: table-cell;
+	width: 33%;
+}
+
+.button_to input[type="submit"] {
+	width: 100%;
+	height: 100%;
+}

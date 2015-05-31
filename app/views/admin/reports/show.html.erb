@@ -1,105 +1,59 @@
-<style>
-	.moderation {
-		table-layout: fixed;
-		width: 300px;
-	}
-	.moderation, .moderation th, .moderation td {    
-		border: 1px solid black;
-		border-collapse: collapse;
-	}
-	.moderation {   
-		width: 100%;
-	}
-	.actions-table, .actions-table th, .acions-table td {
-		border-top: 0px none !important;
-	}
-	.actions-table th {
-		text-align: center !important;
-	}
-	.moderation th, .moderation td {
-		padding: 5px;
-		text-align: left;
-	}
-	.reporter-info span {
-		margin-left: 15px;
-	}
-	.resolver-info span {
-		margin-right: 15px;
-	}
-	h1 {
-		margin-bottom: 5px;
-	}
-	.actions th {
-		width: 25%;
-	}
-</style>
-<div id="centerpage">
+<div id="centerpage" class="admin">
 	<%= render 'shared/tabs' %>
-	<div id="mainpagewrap">
-		<div class="box effect1">
-			<h2><%= t '.report_moderation' %></h2>
-		</div>
-		<div class="mainpageleft">
-			<table class='moderation'>
-				<tr>
-					<th style="width: 60px; height: 60px;" class='reporter-avatar'><%= avatar(@report.reporter) %></th>
-					<th style="vertical-align: middle;" class='reporter-info'>
-						<h1><%= t('reports.common.reporter') + @report.reporter.username %></h1>
-						<span><%= pluralize(@report.reporter.created_reports.count, 'Total Report') %></span>
-						<span><%= pluralize(@report.reporter.created_reports.where(:statue => 'Active').count, 'Active Report') %></span>
-					</th>
-					<th style="vertical-align: middle; text-align: right;" class='resolver-info'>
-						<h1><%= t('reports.common.resolver') +  @report.resolver ? @report.resolver.username : 'Unresolved' %></h1>
-						<span><%= pluralize(@report.reporter.created_reports.count, 'Total Report') %></span>
-						<span><%= pluralize(@report.reporter.created_reports.where(:statue => 'Active').count, 'Active Report') %></span>
-					</th>
-					<th style="width: 60px; height: 60px;" class='resolver-avatar'><%= @report.resolver ? avatar(@report.resolver) : image_tag('unknown.png', style: 'width: 60px; height: 60px;') %></th>
+	<div class="box effect1">
+		<h2><%= t '.report_moderation' %></h2>
+	</div>
+	<div id="mainpage">
+		<table class='report'>
+			<tr>
+				<th class='reporter-avatar'><%= avatar(@report.reporter, alt: @report.reporter.username) %></th>
+				<th class='reporter-info'>
+					<h1><%= @report.reporter.username %></h1>
+					<span><%= pluralize(@report.reporter.created_reports.count, 'Total Report') %></span>
+					<span><%= pluralize(@report.reporter.created_reports.where(:statue => 'Active').count, 'Active Report') %></span>
+				</th>
+				<th class='resolver-info'>
+					<h1><%= @report.resolver ? + @report.resolver.username : 'Unresolved' %></h1>
+					<span><%= pluralize(@report.reporter.created_reports.count, 'Total Report') %></span>
+					<span><%= pluralize(@report.reporter.created_reports.where(:statue => 'Active').count, 'Active Report') %></span>
+				</th>
+				<th  class='resolver-avatar'><%= @report.resolver ? avatar(@report.resolver) : image_tag('unknown.png') %></th>
+			</tr>
+			<tr>
+				<th colspan="2"><%= t('.content_type') %></th>
+				<th colspan="2"><%= @report.reportable_type %></th>
+			</tr>
+			<tr>
+				<th colspan="2"><%= t('.status') %></th>
+				<th colspan="2"><%= @report.status %></th>
+			</tr>
+			<tr>
+				<th colspan="2"><%= t('.content') %></th>
+				<th colspan="2">
+					<% content = report_content(@report) %>
+					<% if content %>
+					<%= link_to content, @report.reportable %></th>
+					<% else %>
+					<%= t('common.deleted') %>
+					<% end %>
+				</th>
+			</tr>
+			<tr>
+				<th colspan="2"><%= t('.report_comments') %></th>
+				<th colspan="2"><%= @report.comments %></th>
+			</tr>
+			<table class='moderation actions-table'>
+				<tr class='actions'>
+					<th><%= link_to t('.delete_content'), admin_report_delete_content_path(@report) %></th>
+					<th><%= link_to t('.resolve_content'), admin_report_resolve_path(@report) %></th>
+					<th><%= link_to t('.deny_report'), admin_report_deny_path(@report) %></th>
+					<% if @report.resolved_at %>
+					<th><%= link_to t('.reopen_report'), admin_report_reopen_path(@report) %></th>
+					<% else %>
+					<th><%= link_to t('.close_report'), admin_report_close_path(@report) %></th>
+					<% end %>
 				</tr>
-				<tr>
-					<th colspan="2"><%= t('.content_type') %></th>
-					<th colspan="2"><%= @report.reportable_type %></th>
-				</tr>
-				<tr>
-					<th colspan="2"><%= t('.status') %></th>
-					<th colspan="2"><%= @report.status %></th>
-				</tr>
-				<tr>
-					<th colspan="2"><%= t('.content') %></th>
-					<th colspan="2">
-						<% content = report_content(@report) %>
-						<% if content %>
-						<%= link_to content, @report.reportable %></th>
-						<% else %>
-						<%= t('common.deleted') %>
-						<% end %>
-					</th>
-				</tr>
-				<tr>
-					<th colspan="2"><%= t('.report_comments') %></th>
-					<th colspan="2"><%= @report.comments %></th>
-				</tr>
-				<table class='moderation actions-table' style='border-top: 0px;'>
-					<tr class='actions'>
-						<th><%= link_to t('.delete_content'), admin_report_delete_content_path(@report) %></th>
-						<th><%= link_to t('.resolve_content'), admin_report_resolve_path(@report) %></th>
-						<th><%= link_to t('.deny_report'), admin_report_deny_path(@report) %></th>
-						<% if @report.resolved_at %>
-						<th><%= link_to t('.reopen_report'), admin_report_reopen_path(@report) %></th>
-						<% else %>
-						<th><%= link_to t('.close_report'), admin_report_close_path(@report) %></th>
-						<% end %>
-					</tr>
-				</table>
 			</table>
-		</div>
-		<div id="mainpage" />
+		</table>
 	</div>
 </div>
-<%= content_for :scripts do %>
-<script>
-	var height = $('.moderation').height();
-	$('#mainpage').height(height);
-	$('#mainpagewrap').height(height + 85);
-	$('.mainpageleft').height(height);
-</script>
-<% end %>
