@@ -1,7 +1,7 @@
 <div id="headerpage">
   <div class="logoheaderbar">
     <div class="logowrap">
-      <img src="logo.png" alt="Mods-Unturned" />
+      <%= image_tag "logo.png", alt: "Mods-Unturned" %>
       <ul>
         <li>
           <a class="username" href="#"><%= current_user ? current_user.username : "Account" %></a>

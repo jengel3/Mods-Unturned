@@ -86,12 +86,41 @@ $(document).ready(function(){
 	$(".registerwrap input[id='user_password']").keyup(checkPasswordMatch);
 	$(".signinwrap input[id='user_password']").keyup(checkUserPasswordLength);
 
-	$('.notificationclosebutton').click(function() {
-		$('.notificationwrap').fadeOut( "slow", function() { });
-	});
-	setTimeout(function(){ 
-		$('.notificationwrap').fadeOut( "slow", function() { });
-	}, 10000);
+	if ($('.notificationwrap').length) {
+		$('.notificationclosebutton').click(function() {
+			$('.notificationwrap').fadeOut( "slow", function() { });
+		});
+		setTimeout(function(){ 
+			$('.notificationwrap').fadeOut( "slow", function() { });
+		}, 10000);
+	}
+
+	if ($('.unturnedupdates').length) {
+		$.getJSON("/api/v0/news", function(result){
+			var title = result['title'];
+			var url = result['url'];
+			var content = result['content'];
+
+			$(".unturnednewsbubbletextarea").html(content);
+
+			$(".unturnednewsbubbletextarea img").each(function() {
+				var href = $(this).attr('src');
+				$(this).replaceWith("<strong><a href=" + href + " class=news-image>Click to open image. </a></strong>" );
+				$(this).addClass('news-image');
+			});
+
+			$('.unturnednewsbubbletextarea').magnificPopup({
+				delegate: '.news-image',
+				type: 'image',
+				gallery: {
+					enabled: true
+				}
+			});
+
+			$(".unturnednewsbubbleheading").text(title);
+			$(".readmoretext").attr('href', url);
+		});
+	}
 });
 
 
