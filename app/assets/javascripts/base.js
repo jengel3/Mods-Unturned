@@ -15,22 +15,22 @@ $(document).ready(function(){
 		type: 'inline',
 		midClick: true,
 		mainClass: 'mfp-zoom-in',
-      	removalDelay: 500
+		removalDelay: 500
 	});
 
 	$('.reset-link-button').magnificPopup({
 		type:'inline',
 		midClick: true,
 		mainClass: 'mfp-zoom-in',
-      	removalDelay: 500
+		removalDelay: 500
 	});
 
 	$('.contact-button').magnificPopup({
-      type:'inline',
-      midClick: true,
-      mainClass: 'mfp-zoom-in',
-      removalDelay: 500
-    });
+		type:'inline',
+		midClick: true,
+		mainClass: 'mfp-zoom-in',
+		removalDelay: 500
+	});
 
 	function handleEnter(elem) {
 		elem = elem.target;
@@ -85,6 +85,13 @@ $(document).ready(function(){
 	$(".registerwrap input[id='user_password_confirmation']").keyup(checkPasswordMatch);
 	$(".registerwrap input[id='user_password']").keyup(checkPasswordMatch);
 	$(".signinwrap input[id='user_password']").keyup(checkUserPasswordLength);
+
+	$('.notificationclosebutton').click(function() {
+		$('.notificationwrap').fadeOut( "slow", function() { });
+	});
+	setTimeout(function(){ 
+		$('.notificationwrap').fadeOut( "slow", function() { });
+	}, 10000);
 });
 
 

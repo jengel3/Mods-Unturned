@@ -1,7 +1,7 @@
 <% if object.errors.any? %>
 	<% object.errors.full_messages.each_with_index do |msg, i| %>
 		<% if i != 0 %>
-			<br/>
+			<br>
 		<% end %>
 		<%= msg %>
 	<% end %>

@@ -2,19 +2,8 @@ class ApplicationController < ActionController::Base
   include ApplicationHelper
   protect_from_forgery with: :exception
   before_action :configure_permitted_parameters, if: :devise_controller?
-  before_filter :is_maintenance
   before_filter :require_admin, only: [:flush_cache, :email]
   before_filter :complete_steam_register
-
-  def is_maintenance
-    if MAINTENANCE
-      return redirect_to action: 'maintenance', controller: 'application' unless params[:action] == 'maintenance' || user_is_admin || ['104.181.238.3', '24.188.223.82'].include?(get_request_ip)
-    end
-  end
-
-  def maintenance
-    return redirect_to root_path unless MAINTENANCE
-  end
 
   def unsubscribe
     user_email = params[:email]

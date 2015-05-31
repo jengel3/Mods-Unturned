@@ -7,14 +7,3 @@
 		<span class="notificationtext"><%= alert %></span><a class="notificationclosebutton" href="#">&times;</a>
 	</div>
 <% end %>
-
-<%= content_for :scripts do %>
-<script>
-  $('.notificationclosebutton').click(function() {
-    $('.notificationwrap').fadeOut( "slow", function() { });
-  });
-  setTimeout(function(){ 
-    $('.notificationwrap').fadeOut( "slow", function() { });
-  }, 10000);
-</script>
-<% end %>

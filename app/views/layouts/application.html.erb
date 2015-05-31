@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <title><%= content_for?(:title) ? yield(:title) + ' :: Mods Unturned ' : 'Mods Unturned' %></title>
@@ -95,10 +96,9 @@
   <% end %>
 </head>
 <body>
+
   <%= yield %>
-  <% unless params[:action] == "maintenance" %>
-  <%= render 'shared/footer' %>
-  <% end %>
+
   <link href="https://fonts.googleapis.com/css?family=Arimo" rel="stylesheet" type="text/css" />
   <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet" />
   <%= render 'shared/analytics' %>

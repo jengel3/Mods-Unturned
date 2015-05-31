@@ -17,6 +17,8 @@ Rails.application.routes.draw do
     end
   end
 
+  get '/c/:category', to: 'submissions#index', as: 'category'
+
   # Users
   devise_for :users, :controllers => { sessions: 'users/sessions', registrations: 'users/registrations', :omniauth_callbacks => 'users/omniauth_callbacks', :passwords => 'usesr/passwords' }  
   get '/uploads/:user', to: 'submissions#index', as: 'user_uploads'
