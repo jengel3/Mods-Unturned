@@ -30,7 +30,7 @@ module ApplicationHelper
   def category(name, image)
     link_to category_path(name.downcase) do
       content_tag :div, class: 'category' do
-        image_tag(image, alt :name) +
+        image_tag(image, alt: name) +
         content_tag(:h1, name)
       end
     end
