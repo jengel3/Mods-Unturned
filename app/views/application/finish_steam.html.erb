@@ -1,28 +1,22 @@
 <div id="centerpage">
   <%= render 'shared/tabs' %>
-
-  <div id="mainpagewrap"> 
-
-    <div class="box effect1">
-      <h2><%= t('.finish_registration') %></h2>
-    </div>        
-    <div class="mainpageleft" style="width: 100%; text-align: center;">
-
-      <div class="loginpagewrap" style="margin-left: 260px;">
-        <div class="signinwrap">
-          <div class="inputwrap" style='height: 250px;'>
+  <div class="box effect1">
+    <h2><%= t('.finish_registration') %></h2>
+  </div>        
+  <div id="mainpage"> 
+    <div class="loginpagewrap" style="margin-left: 260px;">
+      <div class="signinwrap">
+        <div class="inputwrap" style='height: 250px;'>
           <%= form_for(:user, url: user_registration_path(format: :json), format: :json, remote: true, :html => { :style => 'margin-bottom: 0px;', :id => "finish_steam", method: :put }) do |f| %>
-            <%= f.hidden_field :user_id, value: current_user.id %>
-            <%= f.text_field :username, class: 'reset-page', autocomplete: 'off', type: 'text', placeholder: t('activerecord.attributes.user.username'), autofocus: true, value: '' %>
-            <%= f.email_field :email, class: 'reset-page', autocomplete: 'off', type: 'email', placeholder: t('activerecord.attributes.user.email'), value: '' %>
-            <div class="passwordreset_notificationmessagewrap errormessage"><span class="passwordreset_notificationtext"><%= t('.you_need') %></span></div>
-            <a class="submitlink" href='#'><%= f.submit t('.finish_registration'), class: 'signinbutton' %></a>
-            <% end %>
-          </div>
+          <%= f.hidden_field :user_id, value: current_user.id %>
+          <%= f.text_field :username, class: 'reset-page', autocomplete: 'off', type: 'text', placeholder: t('activerecord.attributes.user.username'), autofocus: true, value: '' %>
+          <%= f.email_field :email, class: 'reset-page', autocomplete: 'off', type: 'email', placeholder: t('activerecord.attributes.user.email'), value: '' %>
+          <div class="passwordreset_notificationmessagewrap errormessage"><span class="passwordreset_notificationtext"><%= t('.you_need') %></span></div>
+          <a class="submitlink" href='#'><%= f.submit t('.finish_registration'), class: 'signinbutton' %></a>
+          <% end %>
         </div>
-      </div>  
-    </div>
-    <div id="mainpage" style="height: 400px;">
-    </div>    
-  </div>
+      </div>
+    </div>  
+  </div>    
+</div>
 </div>

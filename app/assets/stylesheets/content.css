@@ -1,32 +1,29 @@
 .mainpageright {
 	width:558px; 
 	height:auto;
-    margin-left:20px;
-    display: inline-block;
-    vertical-align: top;
+  margin-left:20px;
+  display: inline-block;
+  vertical-align: top;
 }
 #mainpage {
-    position: relative;
+  position: relative;
 }
 .sidebarfix {
-position: absolute;
-width:300px;
-height:100%;
-background-color:rgb(245,245,245);
-z-index:10;
-top:0;
+  position: absolute;
+  width:300px;
+  height:100%;
+  background-color:rgb(245,245,245);
+  z-index:10;
+  top:0;
 }
 
 .sidebar {
-width:300px; 
-height:100%;
-background-color: rgb(245,245,245);
-display: inline-block;
-z-index:500;
-position: relative;
-}
-.nivo-main-image {
-  height: 100% !important;
+  width:300px; 
+  height:100%;
+  background-color: rgb(245,245,245);
+  display: inline-block;
+  z-index:500;
+  position: relative;
 }
 h4.download {
   font-size: 35px;

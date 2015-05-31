@@ -1,14 +1,10 @@
 <div id="centerpage">
-  <%= render 'shared/tabs' %>
-</div>
-
-<div id="mainpagewrap"> 
-
+<%= render 'shared/tabs' %>
   <div class="box effect1">
     <h2><%= t '.about_us' %> </h2>
-  </div>        
-  <% menu = user_menu %>
-  <div class="mainpageleft">
+  </div>  
+  <div id="mainpage">       
+    <% menu = user_menu %>
     <div class="biowraps">
       <div class="profile">
         <%= link_to image_tag('bradley.png', class: 'avatar'), user_uploads_path('LCBradley3k') %></a>
@@ -55,7 +51,5 @@
     <div class="honorbiowrap effect7">
       We would like to thank<b><a href="https://twitter.com/SDGNelson" target="_blank">Nelson Sexton</a></b> for creating the game Unturned. It has provided entertainment, laughs, and creativity to the entire gaming community. We'd also like to thank the Youtuber <b><a href="https://www.youtube.com/user/xXMeLikeBigBoomXx" target="_blank">MeLikeBigBoom</a></b> for supporting our webite early on with his videos of the modifications. Overall, we're a team who's proud to provide a free of charge platform where the community can upload their creations.
     </div>
-  </div>          
-  <div id="mainpage">
   </div>
 </div>

@@ -1,15 +1,14 @@
 <div id="centerpage">
   <%= render 'shared/tabs' %>
-  <div id="screenupload_mainpagewrap">  
-    <div class="box effect1">
-      <h2> <%= t('.upload_images') %> </h2>
-    </div>        
-    <div class="mainpageleft">
-      <table>
-        <tr>
-          <td>
-            <div class="uploadscreen_inputwrap">
-              <%= render 'form' %>
+  <div class="box effect1">
+    <h2> <%= t('.upload_images') %> </h2>
+  </div>  
+  <div id="mainpage">        
+    <table>
+      <tr>
+        <td>
+          <div class="uploadscreen_inputwrap">
+            <%= render 'form' %>
           </td>
           <td>
             <div class="uploadscreen_tutorialwrap">
@@ -22,8 +21,6 @@
           </td>
         </tr>       
       </table>
-    </div>          
-    <div id="screenupload_mainpage">
     </div>    
   </div>
 </div>
