@@ -5,8 +5,8 @@
 
   <%= form_for([@submission, @submission.videos.build]) do |f| %>
   <%= f.label :url, t('.url') %>
-  <p style='display: inline;'>
-    <%= f.text_field :url, autocomplete: 'off', class: 'text-box', style: 'width: 87%; display: inline;', placeholder: t('.youtube_videos') %>
+  <p>
+    <%= f.text_field :url, autocomplete: 'off', class: 'text-box', placeholder: t('.youtube_videos') %>
 
     <%= f.submit t('common.submit'), class: 'text-box', style: 'display: inline;', :data => { :disable_with => t('common.saving') } %>
   </p>

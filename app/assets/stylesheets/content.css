@@ -386,30 +386,6 @@ hr {
 .vidthumb:hover {
   opacity: 1;
 }
-.mfp-fade.mfp-bg {
-  opacity: 0;
-  -webkit-transition: all 0.5s ease-out;
-  -moz-transition: all 0.5s ease-out;
-  transition: all 0.5s ease-out;
-}
-.mfp-fade.mfp-bg.mfp-ready {
-  opacity: 0.8;
-}
-.mfp-fade.mfp-bg.mfp-removing {
-  opacity: 0;
-}
-.mfp-fade.mfp-wrap .mfp-content {
-  opacity: 0;
-  -webkit-transition: all 0.15s ease-out;
-  -moz-transition: all 0.15s ease-out;
-  transition: all 0.15s ease-out;
-}
-.mfp-fade.mfp-wrap.mfp-ready .mfp-content {
-  opacity: 1;
-}
-.mfp-fade.mfp-wrap.mfp-removing .mfp-content {
-  opacity: 0;
-}
 .imgwrap {
   position: relative;
   height: 80px;
@@ -434,4 +410,31 @@ hr {
   -ms-transition: all 1s ease;
   -o-transition: all 1s ease;
   transition: all 1s ease;
+}
+
+.warning .title {
+  margin-top: 0px; 
+  margin-bottom: 0px;
+}
+
+.warning .uploadby {
+  margin-top: 5px;
+}
+
+.manage .uploadby {
+  margin: 0px;
+}
+
+.manage .title {
+  margin-bottom: 3px; 
+  margin-top: 2px;
+}
+
+.add-video form p {
+  display: inline;
+}
+
+.add-video form .text-box {
+  width: 87%; 
+  display: inline;
 }
