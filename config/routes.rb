@@ -18,6 +18,7 @@ Rails.application.routes.draw do
   end
 
   get '/c/:category', to: 'submissions#index', as: 'category'
+  get '/search', to: 'submissions#search', as: 'search'
 
   # Users
   devise_for :users, :controllers => { sessions: 'users/sessions', registrations: 'users/registrations', :omniauth_callbacks => 'users/omniauth_callbacks', :passwords => 'usesr/passwords' }  
@@ -79,7 +80,6 @@ Rails.application.routes.draw do
   end
 
   scope '/api/v0' do
-    get '/search', to: 'submissions#index', as: 'search'
     get '/news', to: 'application#news'
     post '/contact', to: 'application#contact', as: 'contact'
     get '/flush', to: 'application#flush_cache', as: 'flush_cache'

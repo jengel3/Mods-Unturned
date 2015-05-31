@@ -92,7 +92,7 @@ en:
   submissions:
     no_files: "No files awaiting approval."
     all_creations: "All Creations"
-    results: "Results"
+    results: "Search Results"
     successfully_favorited: "Successfully favorited %{name}."
     does_not_exist: "Submission does not exist."
     successfully_created: "Successfully created a new submission."

@@ -1,0 +1,70 @@
+<% if sorting %>
+<div class='sort-buttons'>
+  <% if params[:sort] == "newest" || !params[:sort] %>
+  <b>
+    <%= link_to t('.newest'), params.merge(:sort => "newest", :page => 1) %>
+  </b>
+  <% else %>
+  <%= link_to t('.newest'), params.merge(:sort => "newest", :page => 1) %>
+  <% end %>
+  <% if params[:sort] == "popular" %>
+  &bull;
+  <b>
+    <%= link_to t('.popular'), params.merge(:sort => "popular", :page => 1) %>
+  </b>
+  <% else %>
+  &bull;
+  <%= link_to t('.popular'), params.merge(:sort => "popular", :page => 1) %>
+  <% end %>
+  <% if params[:sort] == "updated" %>
+  &bull;
+  <b>
+    <%= link_to t('.recent'), params.merge(:sort => "updated", :page => 1) %>
+  </b>
+  <% else %>
+  &bull;
+  <%= link_to t('.recent'), params.merge(:sort => "updated", :page => 1) %>
+  <% end %>
+</div>
+<% end %>
+
+<% if @submissions.any? %>
+<% submissions.each do |submission| %>
+<% main_image = submission.cached_image %>
+<% username = submission.get_username %>
+<div class="content">
+  <a href="<%= url_for(submission) %>">
+    <%= link_to image_tag("#{main_image ? main_image : 'uploadthumb.png'}", class: 'levelthumb'), submission %>
+  </a>
+  <div class="contentdetails">
+    <h4>
+      <a href="<%= url_for(submission) %>">
+        <%= submission.name %>
+      </a>
+      <% if submission.is_new? %>
+      <span class="item-tag"><%= t '.new' %></span>
+      <% elsif submission.is_updated? %>
+      <span class="item-tag"><%= t '.updated' %></span>
+      <% end %>
+    </h4>
+    <div class="madebyuser">
+      <%= link_to username, user_uploads_path(username) %>
+      <div class="downloadcount">
+        &bull;
+        <%= submission.download_count %>
+        <%= image_tag("downarrow.png", alt: "DL") %>
+      </div>
+    </div>
+    <div class="contentdesc">
+      <%= submission.desc %>
+    </div>
+  </div>
+</div>
+<% end %>
+<% end %>
+
+<% if pagination %>
+<div class="pagination-wrap">
+  <%= paginate @submissions %>
+</div>
+<% end %>

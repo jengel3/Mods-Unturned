@@ -123,3 +123,17 @@ h4 a:hover {
     font-family: Arial;
   }
 }
+.sort-buttons {
+  width:100%; 
+  text-align:center; 
+  height:8px;
+  margin-top:5px; 
+  font-size:14px; 
+  margin-left:0px;
+}
+
+.contentdetails h4 {
+  height: 18px; 
+  overflow: hidden;
+  word-wrap: break-word;
+}

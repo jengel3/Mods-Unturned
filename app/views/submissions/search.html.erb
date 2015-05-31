@@ -2,10 +2,10 @@
   <%= render 'shared/tabs' %>
   <div class="box effect1">
     <h2>
-      <%= @category.capitalize %>
+      <%= t('submissions.results') %>
     </h2>
   </div>
   <div id="mainpage">
-    <%= render 'submissions', submissions: @submissions, sorting: true, pagination: true %>
+    <%= render 'submissions', submissions: @submissions, pagination: true, sorting: false %>
   </div>
 </div>

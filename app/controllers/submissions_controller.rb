@@ -6,54 +6,21 @@ class SubmissionsController < ApplicationController
   before_filter :verify_manager, only: [:edit, :destroy, :update]
 
   def index
-    if params[:user]
-      @user = User.where(:username => params[:user]).first
-      if !@user
-        return redirect_to root_path
-      end
-      @submissions = Submission.where(:user => @user)
-      @submissions = if params[:sort] == "newest" || !params[:sort]
-        @submissions.desc(:approved_at)
-      elsif params[:sort] == "popular"
-        @submissions = @submissions.desc(:total_downloads)
-      elsif params[:sort] == "updated"
-        @submissions = @submissions.desc(:last_update)
-      end
-      @submissions = @submissions.page(params[:page]).per(20)
-    elsif params[:search]
-      @submissions = search_submissions
-    else params[:type]
-      @type = params[:type]
-      projects = Submission.valid
-      if params[:type] && params[:type] != "all"
-        projects = projects.where(:type => type_for(@type))
-      else
-        @type = "All"
-      end
-      projects = if params[:sort] == "newest" || !params[:sort]
-        projects.desc(:approved_at)
-      elsif params[:sort] == "popular"
-        projects = projects.desc(:total_downloads)
-      elsif params[:sort] == "updated"
-        projects = projects.desc(:last_update)
-      end
-      @submissions = projects.page(params[:page]).per(20)
+    @category = params[:category]
+    @submissions = Submission.valid.where(:type => @category)
+    @submissions = if params[:sort] == "newest" || !params[:sort]
+      @submissions.desc(:approved_at)
+    elsif params[:sort] == "popular"
+      @submissions = @submissions.desc(:total_downloads)
+    elsif params[:sort] == "updated"
+      @submissions = @submissions.desc(:last_update)
     end
-    if params[:user]
-      @title = params[:user] + "'s" + ' Creations'
-    elsif params[:search]
-      @title = t('submissions.results')
-    else
-      if @type
-        @title = @type.singularize.capitalize + ' Creations'
-      else 
-        @title = t('submissions.all_creations')
-      end
-    end
-    respond_to do |format|
-      format.html
-      format.rss { render :layout => false }
-    end
+    @submissions = @submissions.page(params[:page]).per(20)
+  end
+
+  def search
+    puts @submissions, "Isbvndfikvdfv"
+    @submissions = search_submissions
   end
 
   def favorite
@@ -124,16 +91,6 @@ class SubmissionsController < ApplicationController
   end
 
   private
-  def type_for(type)
-    if type == "models"
-      return "Asset"
-    elsif type == "levels"
-      return "Level"
-    else
-      return "Level"
-    end
-  end
-
   def set_submission
     @submission = Submission.find(params[:id] || params[:submission_id])
   end

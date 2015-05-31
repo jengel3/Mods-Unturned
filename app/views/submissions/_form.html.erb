@@ -1,75 +1,75 @@
 <div id="centerpage">
   <%= render 'shared/tabs' %>
-    <div class="box effect1">
-      <h2> <%= title %> </h2>
-    </div>        
-    <div id="mainpage">
-      <table class="modsubmissiontable">
-        <tr>
-          <td>
-            <div class="modsubmissionwrap">
-              <div class="modsubmission_toptitlewrap">
-                <h1><%= t('.mod_submission') %></h1>
+  <div class="box effect1">
+    <h2> <%= title %> </h2>
+  </div>        
+  <div id="mainpage">
+    <table class="modsubmissiontable">
+      <tr>
+        <td>
+          <div class="modsubmissionwrap">
+            <div class="modsubmission_toptitlewrap">
+              <h1><%= t('.mod_submission') %></h1>
+            </div>
+            <%= form_for @submission do |f| %>
+            <%= f.text_field :name, class: 'modinfo-input', autocomplete: "off", placeholder: "Mod Name" %>
+            <%= f.select :type, options_for_select([["Level", {class: 'modtypeoption'}], ["Asset", {class: 'modtypeoption'}]], @submission.type || "Level"), {}, {:class=>'modtype', size: "3"} %>
+
+            <div class="modsubmissionbottomwrap">
+              <div class="modsubmission_descriptiontitle">
+                <%= t('activerecord.attributes.submission.body') %>
               </div>
-              <%= form_for @submission do |f| %>
-              <%= f.text_field :name, class: 'modinfo-input', autocomplete: "off", placeholder: "Mod Name" %>
-              <%= f.select :type, options_for_select([["Level", {class: 'modtypeoption'}], ["Asset", {class: 'modtypeoption'}]], @submission.type || "Level"), {}, {:class=>'modtype', size: "3"} %>
 
-              <div class="modsubmissionbottomwrap">
-                <div class="modsubmission_descriptiontitle">
-                  <%= t('activerecord.attributes.submission.body') %>
-                </div>
+              <%= f.text_area :body, class: 'uploadpage_moddescription' %>
 
-                <%= f.text_area :body, class: 'uploadpage_moddescription' %>
-
-                <a class="submitlink" href="#save"><%= f.submit t('common.submit'), class: 'signinbutton', :data => { :disable_with => t('common.saving') } %></a>
-                <% if !@submission.errors.any? %>
-                <div class="uploadpage_notificationmessagewrap">
-                  <span class="uploadpage_notificationtext">
-                    <%= t('.almost_done') %>
-                  </span>
-                </div>
-                <% else %>
-                <div class="uploadpage_notificationmessagewrap errormessage">
-                  <span class='uploadpage_notificationtext'>
-                    <%= render 'shared/errors', object: @submission %>
-                  </span>
-                </div>
-                <% end %>
-
+              <a class="submitlink" href="#save"><%= f.submit t('common.submit'), class: 'signinbutton', :data => { :disable_with => t('common.saving') } %></a>
+              <% if !@submission.errors.any? %>
+              <div class="uploadpage_notificationmessagewrap">
+                <span class="uploadpage_notificationtext">
+                  <%= t('.almost_done') %>
+                </span>
+              </div>
+              <% else %>
+              <div class="uploadpage_notificationmessagewrap errormessage">
+                <span class='uploadpage_notificationtext'>
+                  <%= render 'shared/errors', object: @submission %>
+                </span>
               </div>
               <% end %>
-            </td> 
-            <td>
-              <div class="modsubmission_quicknote effect4">
-                <div class="quicknote_headerwrap">
-                  <%= image_tag 'lightbulb25.png', class: 'quicknote_lightbulb_img' %>
-                  <div class="quicknote_title"> <%= t('.quick_note') %> </div>
-                </div>
-                <div class="quicknote_text"> 
-                  <%= t('.all_files') %>                    
-                </div>
+
+            </div>
+            <% end %>
+          </td> 
+          <td>
+            <div class="modsubmission_quicknote effect4">
+              <div class="quicknote_headerwrap">
+                <%= image_tag 'lightbulb25.png', class: 'quicknote_lightbulb_img' %>
+                <div class="quicknote_title"> <%= t('.quick_note') %> </div>
               </div>
-              <div class="modsubmission_quicknote">
-                <div class="quicknote_headerwrap">
-                  <%= image_tag 'lightbulb25.png', class: 'quicknote_lightbulb_img' %>
-                  <div class="quicknote_title"> <%= t('.quick_note') %> </div>
-                </div>
-                <div class="quicknote_text"> 
-                  <%= t('.next_stage') %>       
-                </div>
+              <div class="quicknote_text"> 
+                <%= t('.all_files') %>                    
               </div>
-              <div class="modsubmission_quicknote">
-                <div class="quicknote_headerwrap">
-                  <%= image_tag 'heart25.png', class: 'quicknote_lightbulb_img' %>
-                  <div class="quicknote_title"> <%= t('.thank_you') %> </div>
-                </div>      
-                <div class="quicknote_text"> 
-                  <%= t('.thrive') %>                  
-                </div>                    
-              </div>              
-            </td>
-          </tr>   
-        </table>
-      </div>        
+            </div>
+            <div class="modsubmission_quicknote">
+              <div class="quicknote_headerwrap">
+                <%= image_tag 'lightbulb25.png', class: 'quicknote_lightbulb_img' %>
+                <div class="quicknote_title"> <%= t('.quick_note') %> </div>
+              </div>
+              <div class="quicknote_text"> 
+                <%= t('.next_stage') %>       
+              </div>
+            </div>
+            <div class="modsubmission_quicknote">
+              <div class="quicknote_headerwrap">
+                <%= image_tag 'heart25.png', class: 'quicknote_lightbulb_img' %>
+                <div class="quicknote_title"> <%= t('.thank_you') %> </div>
+              </div>      
+              <div class="quicknote_text"> 
+                <%= t('.thrive') %>                  
+              </div>                    
+            </div>              
+          </td>
+        </tr>   
+      </table>
+    </div>        
   </div>
