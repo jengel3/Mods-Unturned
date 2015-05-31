@@ -288,11 +288,6 @@ pre {
 .doc-params tbody tr td {
   border-bottom: 1px solid #CCC;
 }
-@-moz-document url-prefix() {
-  * {
-    font-family: "Arial", sans-serif;
-  }
-}
 .uploadscreen_inputwrap {
   margin: 30px;
   width: 264px;
@@ -327,12 +322,7 @@ pre {
 .screenupload_legend {
   margin: 0 auto;
 }
-@-moz-document url-prefix() {
-  .screenupload_legend {
-    margin-left: 60px;
-    text-align: left;
-  }
-}
+
 .thumbnailselectform {
   height: 144px;
   overflow: hidden;
@@ -670,3 +660,23 @@ input.searchbutton{
   padding:9px 9px 6px 0;
   background-color:#3e444a;
 }
+
+/** Moved from other stylesheets **/
+
+/** HomePage **/
+
+
+@-moz-document url-prefix() {
+    * {
+        font-family: "Arial", sans-serif;
+    }
+    .screenupload_legend {
+        margin-left: 60px;
+        text-align: left;
+    }
+    .quicklinkitem {
+        font-size: 15px;
+    }
+}
+
+/** Content **/

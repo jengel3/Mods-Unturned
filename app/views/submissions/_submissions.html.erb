@@ -32,13 +32,13 @@
 <% submissions.each do |submission| %>
 <% main_image = submission.cached_image %>
 <% username = submission.get_username %>
-<div class="content">
+<div class="modsubmissionwrap">
   <a href="<%= url_for(submission) %>">
     <%= link_to image_tag("#{main_image ? main_image : 'uploadthumb.png'}", class: 'levelthumb'), submission %>
   </a>
   <div class="contentdetails">
-    <h4>
-      <a href="<%= url_for(submission) %>">
+    <h4 class="modsubmissiontitle">
+      <a class="modsubmissiontitlelink" href="<%= url_for(submission) %>">
         <%= submission.name %>
       </a>
       <% if submission.is_new? %>
@@ -49,7 +49,7 @@
     </h4>
     <div class="madebyuser">
       <%= link_to username, user_uploads_path(username) %>
-      <div class="downloadcount">
+      <div class="downloadcountwrap">
         &bull;
         <%= submission.download_count %>
         <%= image_tag("downarrow.png", alt: "DL") %>

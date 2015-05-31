@@ -1,12 +1,19 @@
-.mainpageright {
+a.downloadlink {
+  text-decoration: none;
+}
+a.downloadlink:link {
+  color: #464646;
+}
+a.downloadlink:visited {
+  color: #464646;
+}
+
+.contentpage_mainpageright {
 	width:558px; 
 	height:auto;
   margin-left:20px;
   display: inline-block;
   vertical-align: top;
-}
-#mainpage {
-  position: relative;
 }
 .sidebarfix {
   position: absolute;
@@ -16,7 +23,6 @@
   z-index:10;
   top:0;
 }
-
 .sidebar {
   width:300px; 
   height:100%;
@@ -53,15 +59,6 @@ h4.videoheading {
   -webkit-box-shadow: 0px 1px 4px 0px rgba(20, 20, 20, 0.42);
   -moz-box-shadow: 0px 1px 4px 0px rgba(20, 20, 20, 0.42);
   box-shadow: 0px 1px 4px 0px rgba(20, 20, 20, 0.42);
-}
-a {
-  text-decoration: none;
-}
-a:link {
-  color: #464646;
-}
-a:visited {
-  color: #464646;
 }
 .persondetails {
   margin-top: 3px;
@@ -109,18 +106,17 @@ a:visited {
 .manage .uploadby a:hover {
   color: black;
 }
-p {
-  color: #141414;
-}
 p.title {
   padding-top: 0px;
   padding-left: 10px;
   font-size: 18px;
   font-weight: bold;
+    color: #141414;
 }
 p.dateupload {
   padding-left: 10px;
   font-size: 18px;
+    color: #141414;
 }
 p.description {
   padding-left: 10px;
@@ -135,20 +131,19 @@ p.description {
   box-shadow: 0px -7x 5px -5px rgba(100, 100, 100, 0.2) inset;
   border-bottom: 1px solid rgb(200, 200, 200);
   padding-bottom: 10px;
+    color: #141414;
 }
 p.uploadby {
   padding-left: 10px;
   padding-right: 10px;
   font-size: 14px;
+    color: #141414;
 }
 p.downloadcounter {
   padding-left: 10px;
   padding-right: 10px;
   font-size: 14px;
-}
-hr {
-  margin-left: 7px;
-  margin-right: 7px;
+    color: #141414;
 }
 .persondetails {
   font-family: "Times New Roman", Times, serif
@@ -213,11 +208,11 @@ hr {
   margin-right: 9px;
   margin-top: 13px;
 }
-.levelthumb {
+.contentpage_levelthumb {
   opacity: 0.9;
   height: 80px;
 }
-.levelthumb:hover {
+.contentpage_levelthumb:hover {
   opacity: 1;
 }
 .mainthumblarge {

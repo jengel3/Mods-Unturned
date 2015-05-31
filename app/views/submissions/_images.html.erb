@@ -10,11 +10,11 @@
   <div class='imgwrap'>
     <% if thumb %>
     <a id="thumb-<%= count %>" class='valid-thumb' href="<%= thumb.image_url %>">
-      <img class="levelthumb" src="<%= thumb.image_url %>" title="<%= t('.map_thumbnail') %>" alt='<%= t('.map_thumbnail') %>'/>
+      <img class="contentpage_levelthumb" src="<%= thumb.image_url %>" title="<%= t('.map_thumbnail') %>" alt='<%= t('.map_thumbnail') %>'/>
     </a>
     <% else %>
     <a>
-      <%= image_tag 'smallthumb.png', class: 'levelthumb', title: t('.placeholder'), id: "thumb-#{count}", alt: t('.placeholder_thumbnail') %>
+      <%= image_tag 'smallthumb.png', class: 'contentpage_levelthumb', title: t('.placeholder'), id: "thumb-#{count}", alt: t('.placeholder_thumbnail') %>
     </a>
     <% end %>
     <% if can_manage(@submission) %>

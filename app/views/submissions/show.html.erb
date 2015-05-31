@@ -15,7 +15,7 @@
     <% if @submission.latest_download %>
     <% latest = @submission.latest_download %>
     <div class="downloadbutton">
-      <a href="<%= submission_download_path(@submission) %>">
+      <a class="downloadlink" href="<%= submission_download_path(@submission) %>">
         <h4 class="download">
           <%= t('.download') %>
           <div class="filename">
@@ -101,7 +101,7 @@
   <%= render 'videos/display' %>
   <%= render 'videos/popup' %>
 </div>
-<div class="mainpageright">
+<div class="contentpage_mainpageright">
   <div class="rightbar">
     <%= render 'images' %>      
     <%= render 'comments/display' %>
