@@ -4,7 +4,7 @@
       <%= image_tag "logo.png", alt: "Mods-Unturned" %>
       <ul>
         <li>
-          <a class="username" href="#"><%= current_user ? current_user.username : "Account" %></a>
+          <a class="username" href="#"><%= current_user ? current_user.username[0, 15] : "Account" %></a>
           <%= image_tag 'downarrow.png', class: 'downarrow' %>
         </li>
         <ul>
@@ -24,7 +24,7 @@
   <div class="categorynavigation">
     <%= link_to root_path do %>
     <div class="category">
-      <%= image_tag 'homeicon50.png' %>
+      <%= image_tag 'homeicon50.png', alt: 'Home' %>
       <h1>Home</h1>
     </div>
     <% end %>
