@@ -2,13 +2,13 @@
   width: 860px;
   height: 840px !important;
 }
-a {
+a.abouthighlight {
   text-decoration: none;
   color: #2354f3;
   font-weight: bold;
 }
-a:visited,
-a:link {
+a.abouthighlight:visited,
+a.abouthighlight:link {
   color: #2354f3;
 }
 .creatorstitle {
@@ -121,22 +121,22 @@ a:link {
   -o-transform: skew(8deg) rotate(3deg);
   transform: skew(8deg) rotate(3deg);
 }
-.profile {
+.aboutprofile {
   margin: 5px;
 }
-.avatar {
+.aboutprofile .avatar {
   width: 60px;
   height: 60px;
   float: left;
   border: 1px solid rgb(100, 100, 100);
 }
-.username {
+.aboutprofile .username {
   color: rgb(50, 50, 50);
   margin-left: 67px;
   font-weight: bold;
   font-size: 35px;
 }
-.userdescriptionshort {
+.aboutprofile .userdescriptionshort {
   margin-left: 67px;
   font-size: 16px;
 }
