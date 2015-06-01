@@ -15,10 +15,7 @@
   "ignore": [
     "**/.*",
     "node_modules",
-    "bower_components",
-    "vendor/assets/components",
-    "test",
-    "tests"
+    "vendor/assets/components"
   ],
   "dependencies": {
     "magnific-popup": "~1.0.0",
