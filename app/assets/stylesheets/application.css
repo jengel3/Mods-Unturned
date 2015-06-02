@@ -1,11 +1,11 @@
 /*
- *= require main
- *= require index
- *= require content
  *= require home
  *= require upload
  *= require users
  *= require about
+ *= require content
+ *= require index
+ *= require main
  *= require admin
  *= require magnific-popup/dist/magnific-popup
  *= require nivo-slider

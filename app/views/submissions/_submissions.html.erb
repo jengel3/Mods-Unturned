@@ -32,7 +32,7 @@
 <% submissions.each do |submission| %>
 <% main_image = submission.cached_image %>
 <% username = submission.get_username %>
-<div class="modsubmissionwrap">
+<div class="indexmodwrap">
   <a href="<%= url_for(submission) %>">
     <%= link_to image_tag("#{main_image ? main_image : 'uploadthumb.png'}", class: 'levelthumb'), submission %>
   </a>

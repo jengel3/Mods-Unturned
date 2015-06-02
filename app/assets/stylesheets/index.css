@@ -13,7 +13,7 @@ a.modsubmissiontitlelink:visited {
   font-size: 14px;
   margin-left: 0px;
 }
-.modsubmissionwrap {
+.indexmodwrap {
   background-color: rgb(245, 245, 245);
   width: 432px;
   height: 110px;
@@ -29,7 +29,7 @@ a.modsubmissiontitlelink:visited {
   border: 1px solid #C3C3C3;
   vertical-align: top;
 }
-.modsubmissionwrap:hover {
+.indexmodwrap:hover {
   -o-transition: .1s ease-in-out;
   -ms-transition: .1s ease-in-out;
   -moz-transition: .1s ease-in-out;

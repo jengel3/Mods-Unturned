@@ -47,7 +47,7 @@
       <tr class="contentboxes">
         <td class="recentlyupdatedmods">
           <% @recent.each do |recent| %>
-          <div class="modsubmissionwrap homepagemodsubmission">
+          <div class="indexmodwrap homepagemodsubmission">
             <a href="<%= submission_path(recent) %>"> <img src="<%= recent.main_image.image_url %>" class="levelthumb"></a>
             <div class="contentdetails">
               <h4 class="modsubmissiontitle"><a class="modsubmissiontitlelink homemodtitle" href=<%= submission_path(recent) %>><%= recent.name %></a></h4>
@@ -89,7 +89,7 @@
       <tr>
         <td style="width:860px;"colspan="2">
           <% @favorites.each do |favorite| %>
-          <div class="modsubmissionwrap homepagemodsubmission">
+          <div class="indexmodwrap homepagemodsubmission">
             <a href=<%= submission_path(favorite) %>><img src=<%= favorite.cached_image %> class="levelthumb"></a>
             <div class="contentdetails">
               <h4 class="modsubmissiontitle"><a class="modsubmissiontitlelink homemodtitle" href=<%= submission_path(favorite) %>><%= favorite.name %></a></h4>
