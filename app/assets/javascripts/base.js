@@ -1,10 +1,10 @@
-$(document).ready(function(){
+$(document).ready(function() {
 	var preview = $(".uploadscreen_previewimgwrap");
-	$(".uploadscreenbutton").change(function(event){
+	$(".uploadscreenbutton").change(function(event) {
 		var input = $(event.currentTarget);
 		var file = input[0].files[0];
 		var reader = new FileReader();
-		reader.onload = function(e){
+		reader.onload = function(e) {
 			image_base64 = e.target.result;
 			preview.attr("src", image_base64);
 		};
@@ -19,14 +19,14 @@ $(document).ready(function(){
 	});
 
 	$('.reset-link-button').magnificPopup({
-		type:'inline',
+		type: 'inline',
 		midClick: true,
 		mainClass: 'mfp-zoom-in',
 		removalDelay: 500
 	});
 
 	$('.contact-button').magnificPopup({
-		type:'inline',
+		type: 'inline',
 		midClick: true,
 		mainClass: 'mfp-zoom-in',
 		removalDelay: 500
@@ -38,12 +38,12 @@ $(document).ready(function(){
 		var image_elem = null;
 		if ($(elem).hasClass('menutext')) {
 			location = $(elem).parent().parent().index() + 1
-			image_elem = $('.menuimgwrap:nth-child('+ location +')')
+			image_elem = $('.menuimgwrap:nth-child(' + location + ')')
 			$(elem).parent().parent().addClass('hovering');
 			$(image_elem).addClass('hovering');
 		} else if ($(elem).hasClass('menuimgwrap')) {
 			location = $(elem).index() + 1
-			image_elem = $('.menuitem:nth-child('+ location +')')
+			image_elem = $('.menuitem:nth-child(' + location + ')')
 			$(elem).addClass('hovering');
 			$(image_elem).addClass('hovering');
 		}
@@ -55,12 +55,12 @@ $(document).ready(function(){
 		var image_elem = null;
 		if ($(elem).hasClass('menutext')) {
 			location = $(elem).parent().parent().index() + 1
-			image_elem = $('.menuimgwrap:nth-child('+ location +')')
+			image_elem = $('.menuimgwrap:nth-child(' + location + ')')
 			$(elem).parent().parent().removeClass('hovering');
 			$(image_elem).removeClass('hovering');
 		} else if ($(elem).hasClass('menuimgwrap')) {
 			location = $(elem).index() + 1
-			image_elem = $('.menuitem:nth-child('+ location +')')
+			image_elem = $('.menuitem:nth-child(' + location + ')')
 			$(elem).removeClass('hovering');
 			$(image_elem).removeClass('hovering');
 		}
@@ -68,7 +68,7 @@ $(document).ready(function(){
 	$('.menuitem, .menuimgwrap').hover(handleEnter, handleLeave);
 
 	$('#slider').nivoSlider({
-		effect: 'slideInRight',      
+		effect: 'slideInRight',
 		animSpeed: 600,
 		pauseTime: 5000,
 		startSlide: 0,
@@ -88,15 +88,15 @@ $(document).ready(function(){
 
 	if ($('.notificationwrap').length) {
 		$('.notificationclosebutton').click(function() {
-			$('.notificationwrap').fadeOut( "slow", function() { });
+			$('.notificationwrap').fadeOut("slow", function() {});
 		});
-		setTimeout(function(){ 
-			$('.notificationwrap').fadeOut( "slow", function() { });
+		setTimeout(function() {
+			$('.notificationwrap').fadeOut("slow", function() {});
 		}, 10000);
 	}
 
 	if ($('.unturnedupdates').length) {
-		$.getJSON("/api/v0/news", function(result){
+		$.getJSON("/api/v0/news", function(result) {
 			var title = result['title'];
 			var url = result['url'];
 			var content = result['content'];
@@ -105,7 +105,7 @@ $(document).ready(function(){
 
 			$(".unturnednewsbubbletextarea img").each(function() {
 				var href = $(this).attr('src');
-				$(this).replaceWith("<strong><a href=" + href + " class=news-image>Click to open image. </a></strong>" );
+				$(this).replaceWith("<strong><a href=" + href + " class=news-image>Click to open image. </a></strong>");
 				$(this).addClass('news-image');
 			});
 
@@ -121,57 +121,57 @@ $(document).ready(function(){
 			$(".readmoretext").attr('href', url);
 		});
 	}
-	$("#all").change(function () {
+
+	$("#all").change(function() {
 		$("input:checkbox[class=content-check]").prop('checked', this.checked);
 	});
-});
+	
+	$(document).on('ajax:success', 'form#log_in_user', function(e, data, status, xhr) {
+		location.reload(true);
+	}).on('ajax:error', 'form#log_in_user', function(e, data, status, xhr) {
+		error = data.responseJSON.error;
+		$('.signinwrap').find('.notificationtext').text(error);
+		$('.signinwrap .errormessage').shake();
+	});
 
+	$(document).on('ajax:success', 'form#register_user', function(e, data, status, xhr) {
+		location.reload(true);
+	}).on('ajax:error', 'form#register_user', function(e, data, status, xhr) {
+		errorResponse = data.responseText;
+		formattedErrors = renderErrors(errorResponse);
+		$('.registerwrap').find('.notificationtext').html(formattedErrors);
+		if (formattedErrors.length > 1) {
+			$('.registercircleinfo').css('visibility', 'hidden');
+		} else {
+			$('.registercircleinfo').css('visibility', 'visible');
+		}
+		$('.registerwrap .errormessage').shake();
+	});
 
-$(document).on('ajax:success', 'form#log_in_user', function(e, data, status, xhr) {
-	location.reload(true);
-}).on('ajax:error', 'form#log_in_user', function(e, data, status, xhr) {
-	error = data.responseJSON.error;
-	$('.signinwrap').find('.notificationtext').text(error);
-	$('.signinwrap .errormessage').shake();
-});
+	$(document).on('ajax:success', 'form#change_password', function(e, data, status, xhr) {
+		location.reload(true);
+	}).on('ajax:error', 'form#change_password', function(e, data, status, xhr) {
+		errorResponse = data.responseText;
+		formattedErrors = renderErrors(errorResponse);
+		$('.inputwrap').find('.passwordreset_notificationmessagewrap').html(formattedErrors);
+		$('.inputwrap .errormessage').shake();
+	});
 
-$(document).on('ajax:success', 'form#register_user', function(e, data, status, xhr) {
-	location.reload(true);
-}).on('ajax:error', 'form#register_user', function(e, data, status, xhr) {
-	errorResponse = data.responseText;
-	formattedErrors = renderErrors(errorResponse);
-	$('.registerwrap').find('.notificationtext').html(formattedErrors);
-	if (formattedErrors.length > 1) {
-		$('.registercircleinfo').css('visibility', 'hidden');
-	} else {
-		$('.registercircleinfo').css('visibility', 'visible');
-	}
-	$('.registerwrap .errormessage').shake();
-});
+	$(document).on('ajax:success', 'form#send_email', function(e, data, status, xhr) {
+		location.reload(true);
+	}).on('ajax:error', 'form#send_email', function(e, data, status, xhr) {
+		errorResponse = data.responseText;
+		formattedErrors = renderErrors(errorResponse);
+		$('.passwordreset_notificationmessagewrap').find('.passwordreset_notificationtext').html(formattedErrors);
+		$('.passwordreset_notificationmessagewrap .errormessage').shake();
+	});
 
-$(document).on('ajax:success', 'form#change_password', function(e, data, status, xhr) {
-	location.reload(true);
-}).on('ajax:error', 'form#change_password', function(e, data, status, xhr) {
-	errorResponse = data.responseText;
-	formattedErrors = renderErrors(errorResponse);
-	$('.inputwrap').find('.passwordreset_notificationmessagewrap').html(formattedErrors);
-	$('.inputwrap .errormessage').effect({effect: "shake", direction: "up", distance: 5, times: 2});
-});
-
-$(document).on('ajax:success', 'form#send_email', function(e, data, status, xhr) {
-	location.reload(true);
-}).on('ajax:error', 'form#send_email', function(e, data, status, xhr) {
-	errorResponse = data.responseText;
-	formattedErrors = renderErrors(errorResponse);
-	$('.passwordreset_notificationmessagewrap').find('.passwordreset_notificationtext').html(formattedErrors);
-	$('.passwordreset_notificationmessagewrap .errormessage').shake();
-});
-
-$(document).on('ajax:success', 'form#finish_steam', function(e, data, status, xhr) {
-	location.reload(true);
-}).on('ajax:error', 'form#finish_steam', function(e, data, status, xhr) {
-	errorResponse = data.responseText;
-	formattedErrors = renderErrors(errorResponse);
-	$('.passwordreset_notificationmessagewrap').find('.passwordreset_notificationtext').html(formattedErrors);
-	$('.loginpagewrap .errormessage').shake();
+	$(document).on('ajax:success', 'form#finish_steam', function(e, data, status, xhr) {
+		location.reload(true);
+	}).on('ajax:error', 'form#finish_steam', function(e, data, status, xhr) {
+		errorResponse = data.responseText;
+		formattedErrors = renderErrors(errorResponse);
+		$('.passwordreset_notificationmessagewrap').find('.passwordreset_notificationtext').html(formattedErrors);
+		$('.loginpagewrap .errormessage').shake();
+	});
 });
