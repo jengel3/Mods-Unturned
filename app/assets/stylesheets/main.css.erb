@@ -228,6 +228,8 @@ td.socialmedialogos {
   margin-top: 5px;
 }
 
+/* Popups */
+
 .popupwrap {
   position: relative;
   background-color: #eef4fb;
@@ -270,6 +272,57 @@ td.socialmedialogos {
   text-shadow: 0px 0px 3px #4D4D4D;
   letter-spacing: 1px;
 }
+
+ .mfp-zoom-in .mfp-with-anim {
+  opacity: 0;
+  transition: all 0.2s ease-in-out;
+  transform: scale(0.8);
+}
+.mfp-zoom-in.mfp-bg {
+  opacity: 0;
+  transition: all 0.3s ease-out;
+}
+.mfp-zoom-in.mfp-ready .mfp-with-anim {
+  opacity: 1;
+  transform: scale(1);
+}
+.mfp-zoom-in.mfp-ready.mfp-bg {
+  opacity: 0.8;
+}
+.mfp-zoom-in.mfp-removing .mfp-with-anim {
+  transform: scale(0.8);
+  opacity: 0;
+}
+.mfp-zoom-in.mfp-removing.mfp-bg {
+  opacity: 0;
+}
+
+/* API */
+
+.accordion-toggle {
+  display: block;
+  cursor: pointer;
+  position: relative;
+  margin: 2px 0px 0px;
+  padding: 0.5em 0.5em 0.5em 0.7em;
+  min-height: 0px;
+  border: 1px solid #AAA;
+  background: white;
+  color: #212121;
+  border-radius: 3px 3px 0 0;
+}
+.accordion-content {
+  display: none;
+  padding: 1em 2.2em;
+  border: 1px solid #AAA;
+  border-top: 0px none;
+  overflow: auto;
+  background-color: white;
+}
+.accordion-content.default {
+  display: block;
+}
+
 .json {
   word-wrap: normal;
   word-wrap: break-word;
