@@ -32,41 +32,6 @@ $(document).ready(function() {
 		removalDelay: 500
 	});
 
-	function handleEnter(elem) {
-		elem = elem.target;
-		var location = -1;
-		var image_elem = null;
-		if ($(elem).hasClass('menutext')) {
-			location = $(elem).parent().parent().index() + 1
-			image_elem = $('.menuimgwrap:nth-child(' + location + ')')
-			$(elem).parent().parent().addClass('hovering');
-			$(image_elem).addClass('hovering');
-		} else if ($(elem).hasClass('menuimgwrap')) {
-			location = $(elem).index() + 1
-			image_elem = $('.menuitem:nth-child(' + location + ')')
-			$(elem).addClass('hovering');
-			$(image_elem).addClass('hovering');
-		}
-	}
-
-	function handleLeave(elem) {
-		elem = elem.target;
-		var location = -1;
-		var image_elem = null;
-		if ($(elem).hasClass('menutext')) {
-			location = $(elem).parent().parent().index() + 1
-			image_elem = $('.menuimgwrap:nth-child(' + location + ')')
-			$(elem).parent().parent().removeClass('hovering');
-			$(image_elem).removeClass('hovering');
-		} else if ($(elem).hasClass('menuimgwrap')) {
-			location = $(elem).index() + 1
-			image_elem = $('.menuitem:nth-child(' + location + ')')
-			$(elem).removeClass('hovering');
-			$(image_elem).removeClass('hovering');
-		}
-	}
-	$('.menuitem, .menuimgwrap').hover(handleEnter, handleLeave);
-
 	$('#slider').nivoSlider({
 		effect: 'slideInRight',
 		animSpeed: 600,
