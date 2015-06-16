@@ -5,7 +5,7 @@ class SubmissionsController < ApplicationController
   before_filter :require_admin, only: [:approve, :deny, :favorite]
   before_filter :verify_manager, only: [:edit, :destroy, :update]
 
-  before_filter :check_ban, only: [:create, :destroy, :update]
+  before_filter :check_ban, only: [:create, :destroy, :update, :new, :edit]
 
   def index
     @category = params[:category]

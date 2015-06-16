@@ -3,7 +3,7 @@ class UploadsController < ApplicationController
   respond_to :html
   before_filter :authenticate_user!, only: [:new, :edit, :create, :update, :destroy, :approve, :deny]
   before_filter :require_admin, only: [:approve, :deny]
-  before_filter :check_ban, only: [:create, :destroy, :update]
+  before_filter :check_ban, only: [:create, :destroy, :update, :new, :edit]
   
   def download
     request_ip = get_request_ip

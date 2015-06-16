@@ -102,7 +102,7 @@ class ApplicationController < ActionController::Base
 
   def ban_user
     username = params[:username]
-    if user = User.find(username)
+    if user = User.find_by(username: username)
       user.banned = true
       user.save
       redirect_to admin_users_path, :notice => t('admins.listings.users.banned', username: user.username)
@@ -113,7 +113,7 @@ class ApplicationController < ActionController::Base
 
   def unban_user
     username = params[:username]
-    if user = User.find(username)
+    if user = User.find_by(username: username)
       user.banned = false
       user.save
       redirect_to admin_users_path, :notice => t('admins.listings.users.unbanned', username: user.username)
