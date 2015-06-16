@@ -1,6 +1,7 @@
 class VideosController < ApplicationController
   before_filter :set_video, only: [:destroy]
   before_filter :authenticate_user!
+  before_filter :check_ban, only: [:create, :destroy]
 
   def create
     @video = Video.new(video_params)

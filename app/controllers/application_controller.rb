@@ -100,6 +100,28 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  def ban_user
+    username = params[:username]
+    if user = User.find(username)
+      user.banned = true
+      user.save
+      redirect_to admin_users_path, :notice => t('admins.listings.users.banned', username: user.username)
+    else
+      return redirect_to admin_users_path, :alert => t('emails.not_found')
+    end   
+  end
+
+  def unban_user
+    username = params[:username]
+    if user = User.find(username)
+      user.banned = false
+      user.save
+      redirect_to admin_users_path, :notice => t('admins.listings.users.unbanned', username: user.username)
+    else
+      return redirect_to admin_users_path, :alert => t('emails.not_found')
+    end   
+  end
+
   protected
   def configure_permitted_parameters
     devise_parameter_sanitizer.for(:sign_up) { |u| u.permit(:username, :email, :password, :password_confirmation, :remember_me) }

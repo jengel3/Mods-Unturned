@@ -1,6 +1,7 @@
 class CommentsController < ApplicationController
   before_filter :set_comment, only: [:destroy, :restore, :show]
   before_filter :require_admin, only: [:restore]
+  before_filter :check_ban, only: [:create, :destroy]
 
   def create
     @submission = Submission.find(params[:submission_id])

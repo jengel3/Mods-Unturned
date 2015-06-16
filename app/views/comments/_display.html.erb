@@ -19,7 +19,7 @@
         <%= link_to "<i class='fa fa-exclamation-triangle'></i>".html_safe, "#add-report-comment", title: t('.report_comment'), class: 'report-comment-button' %>
         <% end %>
         <b>
-          <%= link_to comment.user.username + ':', user_uploads_path(comment.user.username), class: "#{if comment.user.admin? then 'admin' elsif comment.user == @submission.user then 'submitter' end}" %>
+          <%= link_to comment.user.username + ':', user_uploads_path(comment.user.username), class: "#{if comment.user.admin? then 'admin-user' elsif comment.user == @submission.user then 'submitter' end}" %>
         </b>
         <span class="<%= if comment.deleted_at then 'deleted-comment' end %>"><%= comment.text %></span>
       </div>

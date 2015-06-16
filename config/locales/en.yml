@@ -208,6 +208,10 @@ en:
       please_specify: "Please specify a class."
       users:
         go_to_profile: "Go to profile"
+        ban_user: "Ban User"
+        unban_user: "Unban User"
+        banned: "Successfully banned %{username}."
+        unbanned: "Successfully unbanned %{username}."
     moderation:
       index:
         project_name: "Project Name"
@@ -297,6 +301,7 @@ en:
     welcome_back: "Welcome back!"
     no_permission: "No permission."
     avatar: "Avatar"
+    banned: "You have been banned from Mods-Unturned. Please use the Contact button for more info."
   devise:
     mailer:
       reset_password_instructions:

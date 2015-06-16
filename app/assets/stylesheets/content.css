@@ -295,7 +295,7 @@ p.downloadcounter {
   -moz-box-shadow: 2px 2px 7px #E8E8E8 inset;
   box-shadow: 2px 2px 7px #E8E8E8 inset;
 }
-.admin {
+.admin-user {
   color: red !important;
 }
 .submitter {

@@ -2,6 +2,8 @@ class ImagesController < ApplicationController
   before_action :set_image, only: [:edit, :update, :destroy]
   before_filter :authenticate_user!, only: [:edit, :create, :destroy]
 
+  before_filter :check_ban, only: [:create, :destroy]
+
   def edit
     return redirect_to root_path, alert: t('users.no_permission') unless can_manage(@image.submission)
   end

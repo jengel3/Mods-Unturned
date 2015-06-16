@@ -15,6 +15,10 @@ module ApplicationHelper
     redirect_to root_path, :alert => t('users.no_permission') unless user_is_admin
   end
 
+  def check_ban
+    redirect_to root_path, :alert => t('users.banned') if (current_user && current_user.banned)
+  end
+
   def get_request_ip
     request.headers['X-Forwarded-For'] || request.ip
   end

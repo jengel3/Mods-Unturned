@@ -1,5 +1,6 @@
 class ReportsController < ApplicationController
   before_filter :authenticate_user!
+  before_filter :check_ban, only: [:create]
 
   def create
     @reportable = find_reportable

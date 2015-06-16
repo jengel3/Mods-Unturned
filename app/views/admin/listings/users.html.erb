@@ -14,6 +14,7 @@
 					<th><%= sortable 'email' %></th>
 					<th><%= sortable 'admin' %></th>
 					<th><%= sortable 'sign_in_count', 'Login Count' %></th>
+					<th><%= sortable 'banned', 'Banned' %></th>
 				</tr>
 			</thead>
 			<tbody>
@@ -24,6 +25,11 @@
 					<td><%= link_to user.email, admin_email_path(username: user.username), title: t('admin.titles.send_email') %></td>
 					<td><%= user.admin %></td>
 					<td><%= user.sign_in_count %></td>
+					<% if !user.banned %>
+					<td><%= link_to t('ban_user'), ban_user_path(username: user.username), method: :post %></td>
+					<% else %>
+					<td><%= link_to t('unban_user'), ban_user_path(username: user.username), method: :post %></td>
+					<% end %>
 				</tr>
 				<% end %>
 			</tbody>

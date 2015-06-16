@@ -30,6 +30,8 @@ class User
 
   field :ip_history, type: Array, default: []
 
+  field :banned, type: Boolean, default: false
+
   # Whether or not we can send this user emails
   field :accepts_emails, type: Boolean, default: true
 
