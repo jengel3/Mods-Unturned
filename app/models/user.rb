@@ -46,6 +46,7 @@ class User
   has_many :submitted_videos, :inverse_of => :submitter, class_name: 'Video'
   has_many :created_reports, :inverse_of => :creator, class_name: 'Report', foreign_key: 'reporter_id'
   has_many :resolved_reports, :inverse_of => :resolver, class_name: 'Report', foreign_key: 'resolver_id' 
+  has_many :blog_posts, :inverse_of => :author, class_name: 'Blog::Post'
 
   # Track user IP history
   Warden::Manager.after_set_user do |record, warden, opts|

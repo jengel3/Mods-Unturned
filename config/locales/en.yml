@@ -325,3 +325,8 @@ en:
     finish_steam:
       finish_registration: "Finish Registration"
       you_need: "You need to set a username and email for your account."
+  blog:
+    posts:
+      new_post: "New Blog Post"
+      index:
+        blog_posts: "Blog Posts"

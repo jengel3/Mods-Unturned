@@ -1,0 +1,22 @@
+<div id="centerpage">
+  <%= render 'shared/tabs' %>
+  <div class="box effect1">
+    <h2><%= t('blog.posts.new_post') %></h2>
+  </div>        
+  <div id="mainpage"> 
+    <%= form_for @post do |f| %>
+      <%= render 'shared/errors', object: @post %>
+      <div class='form-input'>
+        <%= f.label :title %>
+        <%= f.text_field :title %>
+      </div>
+      <div class="form-input">
+        <%= f.label :body %>
+        <%= f.text_area :body, rows: 10 %>
+        <p class='hint'>Mods-Unturned uses <a href="https://en.wikipedia.org/wiki/BBCode">BBCode</a> to format blog posts. See the link for formatting hints.</p>
+      </div>
+      <div class="form-input">
+        <%= f.submit 'Save' %>
+      </div>
+    <% end %>   
+</div>

@@ -58,6 +58,11 @@ Rails.application.routes.draw do
     resources :reports
   end
 
+  namespace :blog do
+    get '/', to: 'posts#index'
+    resources :posts
+  end
+
   resources :uploads do
     post :approve
     post :deny

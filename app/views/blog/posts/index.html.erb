@@ -1,0 +1,16 @@
+<div id="centerpage">
+  <%= render 'shared/tabs' %>
+  <div class="box effect1">
+    <h2><%= t('.blog_posts') %></h2>
+  </div>        
+  <div id="mainpage"> 
+    <div class="management">
+      <%= link_to 'New Post', new_blog_post_path %>
+    </div>
+    <% @posts.each do |post| %>
+      <h3><%= post.title %> <span class='post-author'>by <%= link_to post.author.username, user_uploads_path(post.author.username) %></span></h3>
+      <hr>
+      <p><%= raw post.baked_body.to_html %></p>
+    <% end %>
+  </div>    
+</div>
