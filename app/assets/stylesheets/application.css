@@ -9,5 +9,6 @@
  *= require admin
  *= require magnific-popup/dist/magnific-popup
  *= require nivo-slider
+ *= require blog
  *= require_self
 */
