@@ -13,8 +13,9 @@
 					<th><%= sortable 'username' %></th>
 					<th><%= sortable 'email' %></th>
 					<th><%= sortable 'admin' %></th>
-					<th><%= sortable 'sign_in_count', 'Login Count' %></th>
-					<th><%= sortable 'banned', 'Banned' %></th>
+					<th><%= sortable 'sign_in_count', t('.login_count') %></th>
+					<th><%= sortable 'banned', t('.banned') %></th>
+					<th title="Click to change user's permissions."><%= sortable 'can_blog', t('.blogger') %></th>
 				</tr>
 			</thead>
 			<tbody>
@@ -25,11 +26,20 @@
 					<td><%= link_to user.email, admin_email_path(username: user.username), title: t('admin.titles.send_email') %></td>
 					<td><%= user.admin %></td>
 					<td><%= user.sign_in_count %></td>
+					<td>
 					<% if !user.banned %>
-					<td><%= link_to t('ban_user'), ban_user_path(username: user.username), method: :post %></td>
+					<%= link_to t('ban_user'), ban_user_path(username: user.username), method: :post %>
 					<% else %>
-					<td><%= link_to t('unban_user'), ban_user_path(username: user.username), method: :post %></td>
+					<%= link_to t('unban_user'), ban_user_path(username: user.username), method: :post %>
 					<% end %>
+					</td>
+					<td>
+					<% if !user.can_blog %>
+					<%= link_to t('No'), admin_add_blogger_path(username: user.username), method: :post %>
+					<% else %>
+					<%= link_to t('Yes'), admin_remove_blogger_path(username: user.username), method: :post %>
+					<% end %>
+					</td>
 				</tr>
 				<% end %>
 			</tbody>

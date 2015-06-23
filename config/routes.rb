@@ -13,6 +13,8 @@ Rails.application.routes.draw do
     end
     scope '/lists' do
       get 'users', to: 'listings#users'
+      post 'add_blogger', to: 'listings#add_blogger'
+      post 'remove_blogger', to: 'listings#remove_blogger'
       post 'mass_moderation', to: 'listings#moderate'
     end
   end

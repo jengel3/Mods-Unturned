@@ -25,6 +25,28 @@ class Admin::ListingsController < Admin::BaseController
     redirect_to :back
   end
 
+  def add_blogger
+    username = params[:username]
+    if user = User.find_by(username: username)
+      user.can_blog = true
+      user.save
+      redirect_to admin_users_path
+    else
+      return redirect_to admin_users_path, :alert => t('emails.not_found')
+    end   
+  end
+
+  def remove_blogger
+    username = params[:username]
+    if user = User.find_by(username: username)
+      user.can_blog = false
+      user.save
+      redirect_to admin_users_path
+    else
+      return redirect_to admin_users_path, :alert => t('emails.not_found')
+    end   
+  end
+
   private
   def sort_users(sort)
     case sort.downcase

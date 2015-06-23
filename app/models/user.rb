@@ -32,6 +32,8 @@ class User
 
   field :banned, type: Boolean, default: false
 
+  field :can_blog, type: Boolean, default: false
+
   # Whether or not we can send this user emails
   field :accepts_emails, type: Boolean, default: true
 

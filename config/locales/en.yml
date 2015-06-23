@@ -212,6 +212,11 @@ en:
         unban_user: "Unban User"
         banned: "Successfully banned %{username}."
         unbanned: "Successfully unbanned %{username}."
+        yes: "Yes"
+        no: "No"
+        blogger: "Blogger"
+        banned: "Banned"
+        login_count: "Login Count"
     moderation:
       index:
         project_name: "Project Name"

@@ -4,11 +4,13 @@
     <h2><%= @post.title %></h2>
   </div>        
   <div id="mainpage">
+    <% if (current_user.can_blog && @post.author == current_user) || user_is_admin %>
     <div class="management">
       <%= link_to 'Edit', edit_blog_post_path(@post) %>
       <span> | </span>
       <%= link_to 'Delete', blog_post_path(@post), method: :delete, data: { confirm: "Are you sure you want to delete this blog post?" } %>
     </div>
+    <% end %>
     <div class="blogpost">
       <h1>
       <%= @post.title %>
