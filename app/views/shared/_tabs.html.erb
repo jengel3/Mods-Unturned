@@ -8,15 +8,16 @@
           <%= image_tag 'downarrow.png', class: 'downarrow' %>
         </li>
         <ul>
-          <li>
             <% if current_user %>
-            <div class="downarrowoptions">
-              <%= link_to 'Log out', destroy_user_session_path, method: :delete %>
-            </div>
+              <li>
+                <div class="downarrowoptions"><%= link_to 'Log out', destroy_user_session_path, method: :delete %></div>
+              </li>
+              <li>
+                <div class="downarrowoptions"><%= link_to 'Uploads', user_uploads_path(current_user.username) %></div>
+              </li>
             <% else %>
-            <%= link_to 'Log in', '#login-popup', class: 'login-button' %>
+            <li><div class="downarrowoptions"><%= link_to 'Log in', '#login-popup', class: 'login-button' %></div></li>
             <% end %>
-          </li>
         </ul>
       </ul>
     </div>

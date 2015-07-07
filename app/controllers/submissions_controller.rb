@@ -20,8 +20,18 @@ class SubmissionsController < ApplicationController
     @submissions = @submissions.page(params[:page]).per(20)
   end
 
+  def user
+    @username = params[:user]
+    @user = User.where(username: @username).first
+    if !@user
+      return redirect_to root_path, alert: "User not found."
+    else
+      @submissions = @user.submissions.page(params[:page]).per(20)
+    end
+    @username = @user.username
+  end
+
   def search
-    puts @submissions, "Isbvndfikvdfv"
     @submissions = search_submissions
   end
 

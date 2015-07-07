@@ -1,0 +1,11 @@
+<div id="centerpage">
+  <%= render 'shared/tabs' %>
+  <div class="box effect1">
+    <h2>
+      <%= @username %> Uploads
+    </h2>
+  </div>
+  <div id="mainpage">
+    <%= render 'submissions', submissions: @submissions, sorting: false, pagination: true %>
+  </div>
+</div>
