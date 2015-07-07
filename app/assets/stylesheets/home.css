@@ -175,7 +175,7 @@ td.todaymostpopular {
   border: 1px solid rgb(110, 110, 110);
 }
 .homepage_mainthumblarge {
-  width: 538px;
+  width: 548px !important;
   height: 310px;
   max-height: 310px;
   margin-left: 5px;
