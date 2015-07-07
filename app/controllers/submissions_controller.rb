@@ -8,7 +8,7 @@ class SubmissionsController < ApplicationController
   before_filter :check_ban, only: [:create, :destroy, :update, :new, :edit]
 
   def index
-    @category = params[:category]
+    @category = params[:category] || "All Content"
     @submissions = Submission.valid.where(:type => @category)
     @submissions = if params[:sort] == "newest" || !params[:sort]
       @submissions.desc(:approved_at)

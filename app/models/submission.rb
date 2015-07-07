@@ -10,7 +10,7 @@ class Submission
 
   validates :name, presence: true, uniqueness: true, length: { :minimum => 3, :maximum => 30 }
   validates :body, presence: true
-  validates :type, presence: true, inclusion: { in: %w(Level Asset), message: "Invalid submission type." }
+  validates :type, presence: true, inclusion: { in: %w(Weapon Map Vehicle Misc), message: "Invalid submission type." }
 
   has_many :uploads, :dependent => :destroy
   has_many :downloads, :dependent => :destroy
