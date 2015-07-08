@@ -6,6 +6,8 @@
     per_page:      number of items to fetch per page
     remote:        data-remote
 -%>
-<%= link_to_unless current_page.first?, url, :remote => remote do %>
-<span class='prev page-worded'><%= t('pagination.prev') %></span>
+<% if !current_page.first? %>
+	<%= link_to url, :remote => remote do %>
+		<%= content_tag(:span, raw(t('pagination.prev')), class: ["prev", "page-worded"]) %>
+	<% end %>
 <% end %>
