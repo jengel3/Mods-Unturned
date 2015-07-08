@@ -286,15 +286,14 @@ en:
       message: "Message"
     tabs:
       home: "Home"
-      upload: "Upload"
       levels: "Levels"
       models: "Models"
       search: "Search"
-      next_project: "Our Next Project"
       search: "Search..."
       password_reset: "Password Reset"
       an_email: "An email will be sent to you with instructions on resetting your password."
       log_in_panel: "Log in Panel"
+      add_mod: "Add Mod"
   users:
     log_in: "Log in"
     log_out: "Log out"
