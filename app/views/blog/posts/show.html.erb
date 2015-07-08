@@ -4,7 +4,7 @@
     <h2><%= @post.title %></h2>
   </div>        
   <div id="mainpage">
-    <% if (current_user.can_blog && @post.author == current_user) || user_is_admin %>
+    <% if (curent_user && current_user.can_blog && @post.author == current_user) || user_is_admin %>
     <div class="management">
       <%= link_to 'Edit', edit_blog_post_path(@post) %>
       <span> | </span>
