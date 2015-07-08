@@ -12,7 +12,8 @@ class SubmissionsController < ApplicationController
     if @category
       @submissions = Submission.valid.where(:type => @category.singularize.capitalize)
     else
-      @submissions = Submission.valid
+      @category = "All Content"
+      @submissions = Submission.valid.all
     end
     @submissions = if params[:sort] == "newest" || !params[:sort]
       @submissions.desc(:approved_at)
