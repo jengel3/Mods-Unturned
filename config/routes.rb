@@ -23,6 +23,7 @@ Rails.application.routes.draw do
     post 'unban_user', to: 'application#unban_user'
 
   get '/c/:category', to: 'submissions#index', as: 'category'
+  get '/all', to: 'submissions#index'
   get '/search', to: 'submissions#search', as: 'search'
 
   # Users
