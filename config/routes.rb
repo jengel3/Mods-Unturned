@@ -34,9 +34,6 @@ Rails.application.routes.draw do
 
   get '/home', to: 'home#home'
 
-  # Maintenance
-  get :maintenance, to: 'application#maintenance'
-
   # About Page
   get :about, to: 'home#about'
 
