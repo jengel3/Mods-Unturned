@@ -22,6 +22,7 @@ a.downloadlink:visited {
   background-color:rgb(245,245,245);
   z-index:10;
   top:0;
+  border-right: 1px solid #C8C8C8;
 }
 .sidebar {
   width:300px; 
@@ -183,7 +184,7 @@ p.downloadcounter {
   width: 92%;
   height: 200px;
   margin-bottom: 0px;
-  margin-top: 5px;
+  margin-top: 0px;
   margin-left: 4%;
   text-align: center;
   -webkit-box-shadow: 0px 0px 6px 0px rgba(50, 50, 50, 0.12);

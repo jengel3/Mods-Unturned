@@ -2,6 +2,7 @@
   <div class="logoheaderbar">
     <div class="logowrap">
       <%= link_to (image_tag "logo.png", alt: "Mods-Unturned"), root_path %>
+        <a href="/submissions/new"><div class="addmodbutton">Add Mod</div></a>
       <ul>
         <li>
           <a class="username" href="#"><%= current_user ? current_user.username[0, 15] : "Account" %></a>
