@@ -1,4 +1,3 @@
-REDIS_PREFIX = 'UNTURNED:'
 if ENV["REDISCLOUD_URL"]
   REDIS = Redis.new( :url => ENV["REDISCLOUD_URL"] )
   Sidekiq.configure_server do |config|
