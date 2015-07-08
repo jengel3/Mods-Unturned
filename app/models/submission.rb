@@ -4,9 +4,9 @@ class Submission
   include Mongoid::Timestamps
   include Mongoid::Elasticsearch
   include GlobalID::Identification
-  elasticsearch! 
-  
+
   @@milestones = [50, 100, 500, 1000, 2500, 5000, 10000, 20000, 30000, 40000, 50000, 60000]
+
 
   validates :name, presence: true, uniqueness: true, length: { :minimum => 3, :maximum => 30 }
   validates :body, presence: true
@@ -35,7 +35,14 @@ class Submission
 
   slug :name, history: true
 
+
   class << self
+
+    def enable_es
+      if Rails.env != "development"
+        elasticsearch!
+      end
+    end
 
     def assets
       where(:type => "Asset")
@@ -166,3 +173,6 @@ class Submission
     approved_at != nil
   end
 end
+
+
+Submission.enable_es

@@ -1,7 +1,6 @@
 <div class='mainscreen'>
   <div class="large-imgwrap imgwrap">
     <%= image_tag "#{@submission.main_image ? @submission.main_image.image_url : 'uploadthumb.png'}", class: 'mainthumblarge', alt: t('.main_image') %>
-    <div class='edit-image edit-image-large'><a class='add-image-button' href='#add-image'><%= t('common.upload') %></a></div>
   </div>
 </div>
 <div class="screenshots">
@@ -16,9 +15,6 @@
     <a>
       <%= image_tag 'smallthumb.png', class: 'contentpage_levelthumb', title: t('.placeholder'), id: "thumb-#{count}", alt: t('.placeholder_thumbnail') %>
     </a>
-    <% end %>
-    <% if can_manage(@submission) %>
-    <div class='edit-image'><a class='add-image-button' href='#add-image'><%= t('common.upload') %></a></div>
     <% end %>
   </div>
   <% end %>

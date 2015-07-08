@@ -60,6 +60,7 @@
         <%= pluralize(@submission.download_count, t('common.download')) %>
       </b>
     </p>
+    <% if @submission.user != current_user %>
     <div class="manage">
      <p class="uploadby">
       <i class="fa fa-exclamation-triangle"></i>
@@ -68,6 +69,7 @@
       </a>
     </p>
   </div>
+  <% end %>
   <%= render 'reports/form', reportable: [@submission] %>
   <div class="manage">
     <% if can_manage(@submission) %>
@@ -77,6 +79,11 @@
         <i class="fa fa-upload"></i>
         <a href="<%= new_submission_upload_path(@submission) %>" title='<%= waiting(@submission) %>'>
           <b><%= t('.upload_file') %></b>
+        </a>
+        <br/>
+        <i class="fa fa-picture-o"></i>
+        <a href="<%= new_submission_image_path(@submission) %>" title='Upload an image'>
+          <b><%= t('.add_image') %></b>
         </a>
         <br/>
         <i class="fa fa-pencil"></i>
@@ -109,6 +116,3 @@
 </div>
 <div class="sidebarfix"></div>
 </div>
-<% if can_manage(@submission) %>
-<%= render 'images/popup' %>
-<% end %>

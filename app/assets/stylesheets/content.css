@@ -383,26 +383,6 @@ p.downloadcounter {
   height: 80px;
   display: inline-block;
 }
-.edit-image {
-  position: absolute;
-  top: 10;
-  left: 10;
-  visibility: hidden;
-  opacity: 0;
-}
-.add-image-button:link,
-.add-image-button:visited {
-  color: white;
-}
-.imgwrap:hover .edit-image {
-  visibility: visible;
-  opacity: 1;
-  -webkit-transition: all 1s ease;
-  -moz-transition: all 1s ease;
-  -ms-transition: all 1s ease;
-  -o-transition: all 1s ease;
-  transition: all 1s ease;
-}
 
 .warning .title {
   margin-top: 0px; 

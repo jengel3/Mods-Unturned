@@ -8,6 +8,12 @@ class ImagesController < ApplicationController
     return redirect_to root_path, alert: t('users.no_permission') unless can_manage(@image.submission)
   end
 
+  def new
+    @submission = Submission.find(params[:submission_id])
+    return redirect_to root_path, alert: t('users.no_permission') unless can_manage(@submission)
+    @image = @submission.images.new
+  end
+
   def create
     @submission = Submission.find(params[:submission_id])
     return redirect_to root_path, alert: t('users.no_permission') unless can_manage(@submission)

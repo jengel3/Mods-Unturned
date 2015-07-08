@@ -9,7 +9,7 @@ class SubmissionsController < ApplicationController
 
   def index
     @category = params[:category] || "All Content"
-    @submissions = Submission.valid.where(:type => @category)
+    @submissions = Submission.valid.where(:type => @category.singularize.capitalize)
     @submissions = if params[:sort] == "newest" || !params[:sort]
       @submissions.desc(:approved_at)
     elsif params[:sort] == "popular"
