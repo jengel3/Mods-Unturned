@@ -54,8 +54,10 @@ h4.modsubmissiontitle a:hover {
   width: 165px;
   margin-left: 8.5px;
   margin-top: 8.5px;
-  outline: 1px solid rgb(150, 150, 150);
   float: left;
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  border-radius: 2px;
 }
 .contentdetails {
   margin-left: 190px;
